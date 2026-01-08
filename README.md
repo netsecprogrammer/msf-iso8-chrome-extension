@@ -10,6 +10,12 @@ A Chrome extension that displays ISO-8 Counter Attack/Assist ability information
 - Works with dynamic navigation (SPA behavior)
 - Clean, game-themed UI design
 
+## Screenshot
+
+![MSF ISO-8 Counter/Assist Viewer](screenshot.png)
+
+*Example showing ISO-8 Counter/Assist information for Omega Red (Phoenix Force)*
+
 ## Installation
 
 ### Step 1: Download the Extension
