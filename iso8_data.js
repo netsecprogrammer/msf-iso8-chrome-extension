@@ -1,7 +1,8 @@
 // MSF ISO-8 Counter/Assist Data
-// Auto-generated from game data - January 7, 2026
-// Version 3 - Added drain, health_redistribute, ignores Defense Up, reduced damage to allies
+// Auto-generated from game data
+// Extension Version: 1.8.3
 // Total characters: 450
+// Last updated: 2026-01-08
 
 const ISO8_DATA = {
   "Abomination": {
