@@ -97,6 +97,10 @@ To update with new game data:
 3. Run `node convert_data.js` to regenerate `iso8_data.js`
 4. Reload the extension in Chrome
 
+## Privacy
+
+This extension does not collect, store, or transmit any user data. See [PRIVACY.md](PRIVACY.md) for details.
+
 ## License
 
 This extension is for personal use with Marvel Strike Force data research.
