@@ -12,21 +12,36 @@ A Chrome extension that displays ISO-8 Counter Attack/Assist ability information
 
 ## Installation
 
-### Method 1: Load Unpacked Extension (Developer Mode)
+### Step 1: Download the Extension
 
-1. Open Chrome and navigate to `chrome://extensions/`
-2. Enable **Developer mode** (toggle in the top right corner)
-3. Click **Load unpacked**
-4. Select the `msf-iso8-chrome-extension` folder
-5. The extension should now appear in your extensions list
+**Option A: Download from GitHub Releases (Recommended)**
+1. Go to the [Releases page](https://github.com/netsecprogrammer/msf-iso8-chrome-extension/releases/latest)
+2. Download the `msf-iso8-extension-v*.zip` file
+3. Extract the zip file to a folder on your computer (e.g., `C:\Extensions\msf-iso8-chrome-extension`)
+4. Remember this folder location - you'll need it in Step 2
 
-### Method 2: Pack and Install
+**Option B: Clone the Repository**
+```bash
+git clone https://github.com/netsecprogrammer/msf-iso8-chrome-extension.git
+```
 
-1. Go to `chrome://extensions/`
-2. Enable **Developer mode**
-3. Click **Pack extension**
-4. Select the `msf-iso8-chrome-extension` folder
-5. This creates a `.crx` file you can share/install
+### Step 2: Install in Chrome
+
+1. Open Chrome and type `chrome://extensions/` in the address bar, then press Enter
+2. Enable **Developer mode** by clicking the toggle switch in the top right corner
+
+   ![Developer mode toggle](https://developer.chrome.com/static/docs/extensions/get-started/tutorial/hello-world/image/extensions-page-e702e3e21e018.png)
+
+3. Click the **Load unpacked** button that appears after enabling Developer mode
+4. In the file browser that opens, navigate to the folder where you extracted/cloned the extension
+5. Select the folder and click **Select Folder**
+6. The extension should now appear in your extensions list with the ISO-8 icon
+
+### Step 3: Verify Installation
+
+1. Look for "MSF ISO-8 Counter/Assist Viewer" in your extensions list
+2. Make sure the toggle switch next to it is enabled (blue)
+3. You should see the extension icon in your Chrome toolbar (you may need to click the puzzle piece icon to pin it)
 
 ## Usage
 
