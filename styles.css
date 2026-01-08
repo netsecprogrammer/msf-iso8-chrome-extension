@@ -1,0 +1,213 @@
+/* MSF ISO-8 Counter/Assist Viewer Styles */
+
+.msf-iso8-container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #e94560;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.msf-iso8-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(233, 69, 96, 0.5);
+}
+
+.msf-iso8-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  filter: drop-shadow(0 0 4px rgba(233, 69, 96, 0.8));
+}
+
+.msf-iso8-title {
+  color: #e94560;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+.msf-iso8-content {
+  color: #f1f1f1;
+  line-height: 1.8;
+}
+
+.msf-iso8-damage-line {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.msf-iso8-damage-value {
+  color: #ff6b6b;
+  font-weight: 700;
+}
+
+.msf-iso8-piercing-value {
+  color: #4ecdc4;
+  font-weight: 700;
+}
+
+.msf-iso8-drain-value {
+  color: #2ecc71;
+  font-weight: 700;
+}
+
+.msf-iso8-health-steal-value {
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+.msf-iso8-health-redist-value {
+  color: #e67e22;
+  font-weight: 700;
+}
+
+.msf-iso8-heal-value {
+  color: #2ecc71;
+  font-weight: 700;
+}
+
+.msf-iso8-health-pct-value {
+  color: #3498db;
+  font-weight: 700;
+}
+
+.msf-iso8-count-value {
+  color: #f39c12;
+  font-weight: 700;
+}
+
+.msf-iso8-stack-value {
+  color: #9b59b6;
+  font-weight: 700;
+}
+
+/* Status effects (buffs/debuffs) - cyan/teal color */
+.msf-iso8-status-effect {
+  color: #00d9ff;
+  font-weight: 600;
+  text-shadow: 0 0 4px rgba(0, 217, 255, 0.4);
+}
+
+/* Game mode indicators - orange/amber color */
+.msf-iso8-game-mode {
+  color: #ffa726;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0 0 4px rgba(255, 167, 38, 0.5);
+}
+
+.msf-iso8-effects-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.msf-iso8-effect-item {
+  padding: 8px 12px;
+  margin: 5px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #4ecdc4;
+  border-radius: 0 6px 6px 0;
+  color: #e0e0e0;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.msf-iso8-effect-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.msf-iso8-effect-item.war-effect {
+  border-left-color: #ff9f43;
+  color: #ff9f43;
+}
+
+.msf-iso8-effect-item.raid-effect {
+  border-left-color: #a29bfe;
+  color: #a29bfe;
+}
+
+.msf-iso8-effect-item.crucible-effect {
+  border-left-color: #00cec9;
+  color: #00cec9;
+}
+
+.msf-iso8-notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.msf-iso8-note-item {
+  padding: 6px 12px;
+  margin: 5px 0;
+  background: rgba(255, 215, 0, 0.1);
+  border-left: 3px solid #ffd700;
+  border-radius: 0 6px 6px 0;
+  color: #ffd700;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.msf-iso8-buff {
+  color: #2ecc71;
+}
+
+.msf-iso8-debuff {
+  color: #e74c3c;
+}
+
+.msf-iso8-not-found {
+  color: #95a5a6;
+  font-style: italic;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Animation for appearance */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.msf-iso8-container {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .msf-iso8-container {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .msf-iso8-title {
+    font-size: 16px;
+  }
+
+  .msf-iso8-damage-line {
+    font-size: 14px;
+  }
+}
