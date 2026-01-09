@@ -1,6 +1,6 @@
 // MSF ISO-8 Counter/Assist Data
 // Auto-generated from game data
-// Extension Version: 1.8.6
+// Extension Version: 1.8.7
 // Total characters: 450
 // Last updated: 2026-01-09
 
