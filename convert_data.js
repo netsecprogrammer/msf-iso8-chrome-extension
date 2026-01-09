@@ -2,8 +2,9 @@
 const fs = require('fs');
 
 // Use the v3 (fixed) JSON file with drain, health_redistribute, and complex mechanics
-const jsonPath = '<path_to_input.json>';
-const outputPath = '<path_to_output.js>';
+const path = require('path');
+const jsonPath = path.join(__dirname, '..', 'iso8_counter_assist_detailed_v3.json');
+const outputPath = path.join(__dirname, 'iso8_data.js');
 
 const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
