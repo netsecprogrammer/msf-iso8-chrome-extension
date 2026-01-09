@@ -10,7 +10,7 @@ const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
 const jsContent = `// MSF ISO-8 Counter/Assist Data
 // Auto-generated from game data
-// Extension Version: 1.8.6
+// Extension Version: 1.8.7
 // Total characters: ${Object.keys(data).length}
 // Last updated: ${new Date().toISOString().split('T')[0]}
 
