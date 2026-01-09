@@ -1,8 +1,8 @@
 // MSF ISO-8 Counter/Assist Data
 // Auto-generated from game data
-// Extension Version: 1.8.3
+// Extension Version: 1.8.6
 // Total characters: 450
-// Last updated: 2026-01-08
+// Last updated: 2026-01-09
 
 const ISO8_DATA = {
   "Abomination": {
@@ -120,11 +120,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "AmericaChavez": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\nApply Defense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Defense Down to the primary target."
+    ],
     "notes": []
   },
   "AncientOne": {
@@ -261,12 +263,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "BlackCat": {
-    "description": "Attack primary target for 456% Piercing.\nDrain 5% Turn Meter from the primary target.\nGain 5% Turn Meter.\nGain +1 Charged.\nGain Stealth.\nApply Slow + 2 Bleed to the primary target.",
+    "description": "Attack primary target for 456% Piercing.\nReduce the target's Speed Bar by 5%.\nGain 5% Turn Meter.\nGain +1 Charged.\nGain Stealth.\nApply Slow + 2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 456,
     "drain": 0,
     "effects": [
-      "Drain 5% Turn Meter from the primary target.",
+      "Reduce the target's Speed Bar by 5%.",
       "Gain 5% Turn Meter.",
       "Gain +1 Charged.",
       "Gain Stealth.",
@@ -308,11 +310,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "BlackPantherShuri": {
-    "description": "Attack primary target for 173% Piercing.",
+    "description": "Attack primary target for 173% Piercing.\nApply Slow + Defense Down + Heal Block to the primary target.",
     "damage": 0,
     "piercing": 173,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Slow + Defense Down + Heal Block to the primary target."
+    ],
     "notes": []
   },
   "BlackWidow": {
@@ -326,12 +330,12 @@ const ISO8_DATA = {
     ]
   },
   "Blade": {
-    "description": "Attack primary target for 167% Piercing.\nDrain 10% Turn Meter from the primary target.\nThis attack ignores Defense Up.",
+    "description": "Attack primary target for 167% Piercing.\nReduce the target's Speed Bar by 10%.\nThis attack ignores Defense Up.",
     "damage": 0,
     "piercing": 167,
     "drain": 0,
     "effects": [
-      "Drain 10% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 10%."
     ],
     "notes": [
       "This attack ignores Defense Up."
@@ -354,12 +358,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Blob": {
-    "description": "Attack primary target for 255% damage + 25% Piercing.\nDrain 20% Turn Meter from the primary target.",
+    "description": "Attack primary target for 255% damage + 25% Piercing.\nIf the target has Disrupted, reduce the target's Speed Bar by 20%.\nApply Slow to the primary target.",
     "damage": 255,
     "piercing": 25,
     "drain": 0,
     "effects": [
-      "Drain 20% Turn Meter from the primary target."
+      "If the target has Disrupted, reduce the target's Speed Bar by 20%.",
+      "Apply Slow to the primary target."
     ],
     "notes": []
   },
@@ -418,30 +423,34 @@ const ISO8_DATA = {
     "notes": []
   },
   "CaptainAmerica": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nGain Defense Up.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Offense Down to the primary target.\nGain Defense Up.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Apply 2 Offense Down to the primary target.",
       "Gain Defense Up."
     ],
     "notes": []
   },
   "CaptainAmericaWW2": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\nApply 2 Slow to the primary target.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Slow to the primary target."
+    ],
     "notes": []
   },
   "CaptainBritain": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\nClear all positive effect(s) from the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\nClear all positive effect(s) from the primary target.\nGain 2 Deflect + 2 Defense Up.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear all positive effect(s) from the primary target."
+      "Clear all positive effect(s) from the primary target.",
+      "Gain 2 Deflect + 2 Defense Up."
     ],
     "notes": []
   },
@@ -481,28 +490,33 @@ const ISO8_DATA = {
     "notes": []
   },
   "Cloak": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nApply Offense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Offense Down to the primary target."
+    ],
     "notes": []
   },
   "ColleenWing": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\nIn WAR DEFENSE, apply Bleed to the primary target.\nApply 2 Bleed to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "In WAR DEFENSE, apply Bleed to the primary target.",
+      "Apply 2 Bleed to the primary target."
+    ],
     "notes": []
   },
   "Colossus": {
-    "description": "Attack primary target for 395% damage + 17% Piercing.\nApply 2 Defense Down + 2 Slow to the primary target.",
+    "description": "Attack primary target for 395% damage + 17% Piercing.\nApply 2 Offense Down + 2 Defense Down + 2 Slow to the primary target.",
     "damage": 395,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down + 2 Slow to the primary target."
+      "Apply 2 Offense Down + 2 Defense Down + 2 Slow to the primary target."
     ],
     "notes": []
   },
@@ -537,12 +551,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Coulson": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nDrain 20% Turn Meter from the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nReduce the target's Speed Bar by 20%.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 20% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 20%."
     ],
     "notes": []
   },
@@ -596,11 +610,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Dagger": {
-    "description": "Attack primary target for 175% Piercing.",
+    "description": "Attack primary target for 175% Piercing.\nApply 2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 175,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Bleed to the primary target."
+    ],
     "notes": []
   },
   "DaimonHellstrom": {
@@ -642,11 +658,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "DarkBeast": {
-    "description": "Attack primary target for 199% damage + 17% Piercing.",
+    "description": "Attack primary target for 199% damage + 17% Piercing.\nApply 2 Bleed + 2 Offense Down + 2 Heal Block to the primary target.",
     "damage": 199,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Bleed + 2 Offense Down + 2 Heal Block to the primary target."
+    ],
     "notes": []
   },
   "DarkPhoenix": {
@@ -660,13 +678,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Darkhawk": {
-    "description": "Attack primary target for 233% damage + 17% Piercing.\nApply 2 Offense Down to the primary target.\nGain Offense Up.",
+    "description": "Attack primary target for 233% damage + 17% Piercing.\nApply 2 Offense Down to the primary target.\nGain Offense Up + Deflect.",
     "damage": 233,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 Offense Down to the primary target.",
-      "Gain Offense Up."
+      "Gain Offense Up + Deflect."
     ],
     "notes": []
   },
@@ -679,13 +697,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "Dazzler": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn CRUCIBLE, flip Defense Up into positive effects instead.\nIn CRUCIBLE, apply Blind to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn CRUCIBLE, flip Defense Up into positive effects instead.\nIn CRUCIBLE, apply Blind to the primary target.\nApply Offense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In CRUCIBLE, flip Defense Up into positive effects instead.",
-      "In CRUCIBLE, apply Blind to the primary target."
+      "In CRUCIBLE, apply Blind to the primary target.",
+      "Apply Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -757,22 +776,22 @@ const ISO8_DATA = {
     "notes": []
   },
   "Doom": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\nGain Immunity.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\nGain Disrupted.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Gain Immunity."
+      "Gain Disrupted."
     ],
     "notes": []
   },
   "DoomBot": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\nGain Immunity.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\nGain Disrupted.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Gain Immunity."
+      "Gain Disrupted."
     ],
     "notes": []
   },
@@ -814,21 +833,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "Electro": {
-    "description": "Attack primary target for 207% damage + 17% Piercing.\nIn WAR, drain 20% Turn Meter from the primary target.",
+    "description": "Attack primary target for 207% damage + 17% Piercing.\nIn WAR, reduce the target's Speed Bar by 20%.",
     "damage": 207,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, drain 20% Turn Meter from the primary target."
+      "In WAR, reduce the target's Speed Bar by 20%."
     ],
     "notes": []
   },
   "Elektra": {
-    "description": "Attack primary target for 168% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 168% damage + 17% Piercing.\nApply Bleed to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 168,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Bleed to the primary target."
+    ],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
@@ -903,12 +924,13 @@ const ISO8_DATA = {
     ]
   },
   "Firestar": {
-    "description": "Attack primary target for 180% Piercing.\nGain +1 Charged, up to a maximum of 5.\nGain Offense Up.",
+    "description": "Attack primary target for 180% Piercing.\nGain +1 Charged, up to a maximum of 5.\nApply 2 Bleed to the primary target.\nGain Offense Up.",
     "damage": 0,
     "piercing": 180,
     "drain": 0,
     "effects": [
       "Gain +1 Charged, up to a maximum of 5.",
+      "Apply 2 Bleed to the primary target.",
       "Gain Offense Up."
     ],
     "notes": []
@@ -993,21 +1015,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "Ghost": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\nDrain 25% Turn Meter from the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 25% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 25%."
     ],
     "notes": []
   },
   "GhostRider": {
-    "description": "Attack primary target for 185% damage + 20% Piercing.",
+    "description": "Attack primary target for 185% damage + 20% Piercing.\nApply 2 Bleed to the primary target.",
     "damage": 185,
     "piercing": 20,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Bleed to the primary target."
+    ],
     "notes": []
   },
   "GhostRiderRobbie": {
@@ -1034,20 +1058,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "Gladiator": {
-    "description": "Attack primary target for 203% damage + 17% Piercing + 25% Drain.",
+    "description": "Attack primary target for 203% damage + 17% Piercing + 25% Drain.\nApply 2 Offense Down to the primary target.",
     "damage": 203,
     "piercing": 17,
     "drain": 25,
-    "effects": [],
+    "effects": [
+      "Apply 2 Offense Down to the primary target."
+    ],
     "notes": []
   },
   "Gorr": {
-    "description": "Attack primary target for 218% Piercing.\nClear Charged from the primary target.",
+    "description": "Attack primary target for 218% Piercing.\nClear Charged from the primary target.\nApply 2 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 218,
     "drain": 0,
     "effects": [
-      "Clear Charged from the primary target."
+      "Clear Charged from the primary target.",
+      "Apply 2 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -1070,20 +1097,22 @@ const ISO8_DATA = {
     "notes": []
   },
   "Greg": {
-    "description": "Attack primary target for 216% Piercing.",
+    "description": "Attack primary target for 216% Piercing.\nApply Heal Block to the primary target.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Heal Block to the primary target."
+    ],
     "notes": []
   },
   "Groot": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\nGain 4 Regeneration.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\nGain 8 Regeneration.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Gain 4 Regeneration."
+      "Gain 8 Regeneration."
     ],
     "notes": []
   },
@@ -1099,14 +1128,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "Gwenom": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\nFlip 2 positive effects into negative effects on the primary target.\nIn RAID, generate 1 Ability Energy.\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\nFlip 2 positive effects into negative effects on the primary target.\nIn RAID, generate 1 Ability Energy.\nApply 2 Bleed + Defense Down to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip 2 positive effects into negative effects on the primary target.",
       "In RAID, generate 1 Ability Energy.",
-      "Apply Defense Down to the primary target."
+      "Apply 2 Bleed + Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -1260,11 +1289,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "HowardTheDuck": {
-    "description": "Attack primary target for 180% damage + 170% Piercing.",
+    "description": "Attack primary target for 180% damage + 170% Piercing.\nGain 2 Offense Up.",
     "damage": 180,
     "piercing": 170,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Gain 2 Offense Up."
+    ],
     "notes": []
   },
   "Hulk": {
@@ -1276,21 +1307,25 @@ const ISO8_DATA = {
     "notes": []
   },
   "Hulkbuster": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.\nIn RAID, gain Barrier.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\nIn RAID, gain Barrier.\nGain 2 Deflect.\nGain 2 Defense Up.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, gain Barrier."
+      "In RAID, gain Barrier.",
+      "Gain 2 Deflect.",
+      "Gain 2 Defense Up."
     ],
     "notes": []
   },
   "HumanTorch": {
-    "description": "Attack primary target for 214% damage + 17% Piercing.",
+    "description": "Attack primary target for 214% damage + 17% Piercing.\nApply 2 Bleed to the primary target.",
     "damage": 214,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Bleed to the primary target."
+    ],
     "notes": []
   },
   "HydraDmg_AoE": {
@@ -1349,11 +1384,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Iceman": {
-    "description": "Attack primary target for 180% damage + 17% Piercing.",
+    "description": "Attack primary target for 180% damage + 17% Piercing.\nApply Slow to the primary target.",
     "damage": 180,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Slow to the primary target."
+    ],
     "notes": []
   },
   "Ikaris": {
@@ -1367,32 +1404,35 @@ const ISO8_DATA = {
     ]
   },
   "InnerDemon_Cyclops": {
-    "description": "Attack primary target for 216% Piercing.\nDrain 10% Turn Meter from the primary target.",
+    "description": "Attack primary target for 216% Piercing.\nReduce the target's Speed Bar by 10%.\nApply 2 Heal Block to the primary target.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
-      "Drain 10% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 10%.",
+      "Apply 2 Heal Block to the primary target."
     ],
     "notes": []
   },
   "InnerDemon_Demon": {
-    "description": "Attack primary target for 216% Piercing.\nDrain 10% Turn Meter from the primary target.",
+    "description": "Attack primary target for 216% Piercing.\nReduce the target's Speed Bar by 10%.\nApply Stun to the primary target.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
-      "Drain 10% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 10%.",
+      "Apply Stun to the primary target."
     ],
     "notes": []
   },
   "InnerDemon_Dragon": {
-    "description": "Attack primary target for 216% Piercing.\nDrain 10% Turn Meter from the primary target.",
+    "description": "Attack primary target for 216% Piercing.\nReduce the target's Speed Bar by 10%.\nApply 2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
-      "Drain 10% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 10%.",
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -1437,30 +1477,35 @@ const ISO8_DATA = {
     "notes": []
   },
   "IronMan": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nApply Defense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Defense Down to the primary target."
+    ],
     "notes": []
   },
   "IronManInfinityWar": {
-    "description": "Attack primary target for 240% damage + 15% Piercing.\nApply +1 Vulnerable, up to a maximum of 3 to the primary target.\nIn RAID, drain 10% Turn Meter from the primary target.",
+    "description": "Attack primary target for 240% damage + 15% Piercing.\nApply +1 Vulnerable, up to a maximum of 3 to the primary target.\nIn RAID, reduce the target's Speed Bar by 10%.\nGain Speed Up.",
     "damage": 240,
     "piercing": 15,
     "drain": 0,
     "effects": [
       "Apply +1 Vulnerable, up to a maximum of 3 to the primary target.",
-      "In RAID, drain 10% Turn Meter from the primary target."
+      "In RAID, reduce the target's Speed Bar by 10%.",
+      "Gain Speed Up."
     ],
     "notes": []
   },
   "IronPatriot": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\nApply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target."
+    ],
     "notes": []
   },
   "Ironheart": {
@@ -1497,14 +1542,15 @@ const ISO8_DATA = {
     ]
   },
   "JeanGrey": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nIn RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn RAID, copy and clear Charged from the primary target to self.\nIn RAID, copy and clear Revive Once from the primary target to self.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nIn RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn RAID, copy and clear Charged from the primary target to self.\nIn RAID, copy and clear Revive Once from the primary target to self.\nApply 2 Heal Block + 2 Defense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
       "In RAID, copy and clear Charged from the primary target to self.",
-      "In RAID, copy and clear Revive Once from the primary target to self."
+      "In RAID, copy and clear Revive Once from the primary target to self.",
+      "Apply 2 Heal Block + 2 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -1517,12 +1563,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Jubilee": {
-    "description": "Attack primary target for 218% damage + 17% Piercing.\nApply Blind to the primary target.",
+    "description": "Attack primary target for 218% damage + 17% Piercing.\nApply Blind to the primary target.\nIn RAID, apply Blind to the primary target.",
     "damage": 218,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Blind to the primary target."
+      "Apply Blind to the primary target.",
+      "In RAID, apply Blind to the primary target."
     ],
     "notes": []
   },
@@ -1564,12 +1611,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "KangTheConqueror": {
-    "description": "Attack primary target for 468% Piercing.\nGain 20% Turn Meter.",
+    "description": "Attack primary target for 468% Piercing.\nIf the target has Vulnerable, gain 20% Turn Meter.",
     "damage": 0,
     "piercing": 468,
     "drain": 0,
     "effects": [
-      "Gain 20% Turn Meter."
+      "If the target has Vulnerable, gain 20% Turn Meter."
     ],
     "notes": []
   },
@@ -1763,11 +1810,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Loki": {
-    "description": "Attack primary target for 185% Piercing.\nGain Evade.\nIn RAID, gain Evade.",
+    "description": "Attack primary target for 185% Piercing.\nApply 2 Bleed + Defense Down to the primary target.\nGain Evade.\nIn RAID, gain Evade.",
     "damage": 0,
     "piercing": 185,
     "drain": 0,
     "effects": [
+      "Apply 2 Bleed + Defense Down to the primary target.",
       "Gain Evade.",
       "In RAID, gain Evade."
     ],
@@ -1856,12 +1904,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "ManThing": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\nApply +1 Slow, up to a maximum of 3 to the primary target.\nApply Defense Up to the NIGHTSTALKER ally with the least Health.\nGain 2 Regeneration.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\nApply +1 Slow, up to a maximum of 3 to the primary target.\nApply Bleed to the primary target.\nApply Defense Up to the NIGHTSTALKER ally with the least Health.\nGain 2 Regeneration.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply +1 Slow, up to a maximum of 3 to the primary target.",
+      "Apply Bleed to the primary target.",
       "Apply Defense Up to the NIGHTSTALKER ally with the least Health.",
       "Gain 2 Regeneration."
     ],
@@ -1894,13 +1943,14 @@ const ISO8_DATA = {
     ]
   },
   "Mephisto": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nGain +1 Immunity, up to a maximum of 3.\nApply 4 Bleed to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nGain +1 Immunity, up to a maximum of 3.\nApply Defense Down + 4 Bleed to the primary target.\nGain 6 Regeneration.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Gain +1 Immunity, up to a maximum of 3.",
-      "Apply 4 Bleed to the primary target."
+      "Apply Defense Down + 4 Bleed to the primary target.",
+      "Gain 6 Regeneration."
     ],
     "notes": []
   },
@@ -2000,12 +2050,13 @@ const ISO8_DATA = {
     ]
   },
   "Moonstone": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nGenerate 1 Ability Energy.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nGenerate 1 Ability Energy.\nApply 2 Defense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Generate 1 Ability Energy."
+      "Generate 1 Ability Energy.",
+      "Apply 2 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -2041,11 +2092,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "MrFantasticMCU": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\nApply Offense Down to the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Offense Down to the primary target."
+    ],
     "notes": []
   },
   "MrNegative": {
@@ -2106,11 +2159,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Mysterio": {
-    "description": "Attack primary target for 198% damage + 15% Piercing.",
+    "description": "Attack primary target for 198% damage + 15% Piercing.\nGain Evade.",
     "damage": 198,
     "piercing": 15,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Gain Evade."
+    ],
     "notes": []
   },
   "MysterioMinion": {
@@ -2122,11 +2177,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Mystique": {
-    "description": "Attack primary target for 194% damage + 51% Piercing.",
+    "description": "Attack primary target for 194% damage + 51% Piercing.\nIn WAR DEFENSE, apply Bleed to the primary target.",
     "damage": 194,
     "piercing": 51,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "In WAR DEFENSE, apply Bleed to the primary target."
+    ],
     "notes": []
   },
   "NUEHandSupport_Heal": {
@@ -2156,11 +2213,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Namor": {
-    "description": "Attack primary target for 240% damage + 35% Piercing.",
+    "description": "Attack primary target for 240% damage + 35% Piercing.\nApply 2 Heal Block + 3 Bleed to the primary target.",
     "damage": 240,
     "piercing": 35,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Heal Block + 3 Bleed to the primary target."
+    ],
     "notes": []
   },
   "Nebula": {
@@ -2251,11 +2310,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Nobu": {
-    "description": "Attack primary target for 238% damage + 17% Piercing.",
+    "description": "Attack primary target for 238% damage + 17% Piercing.\nApply Bleed to the primary target.",
     "damage": 238,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Bleed to the primary target."
+    ],
     "notes": []
   },
   "Northstar": {
@@ -2281,12 +2342,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Oath": {
-    "description": "Attack primary target for 185% Piercing.\nIn RAID, apply Exposed to the primary target.",
+    "description": "Attack primary target for 185% Piercing.\nIn RAID, apply Exposed to the primary target.\nApply Bleed + Heal Block to the primary target.",
     "damage": 0,
     "piercing": 185,
     "drain": 0,
     "effects": [
-      "In RAID, apply Exposed to the primary target."
+      "In RAID, apply Exposed to the primary target.",
+      "Apply Bleed + Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -2316,13 +2378,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "OldManLogan": {
-    "description": "Attack primary target for 250% damage + 250% Piercing + 100% Drain.\nGain Immunity.\nApply 4 Bleed + Immunity to the primary target.\nIn WAR OFFENSE, apply Defense Down to the primary target.\nGain 20% Turn Meter.\nIn WAR OFFENSE, gain 2 Regeneration.\nGenerate 1 Ability Energy.",
+    "description": "Attack primary target for 250% damage + 250% Piercing + 100% Drain.\nGain Disrupted.\nApply 4 Bleed + Disrupted to the primary target.\nIn WAR OFFENSE, apply Defense Down to the primary target.\nGain 20% Turn Meter.\nIn WAR OFFENSE, gain 2 Regeneration.\nGenerate 1 Ability Energy.",
     "damage": 250,
     "piercing": 250,
     "drain": 100,
     "effects": [
-      "Gain Immunity.",
-      "Apply 4 Bleed + Immunity to the primary target.",
+      "Gain Disrupted.",
+      "Apply 4 Bleed + Disrupted to the primary target.",
       "In WAR OFFENSE, apply Defense Down to the primary target.",
       "Gain 20% Turn Meter.",
       "In WAR OFFENSE, gain 2 Regeneration.",
@@ -2393,7 +2455,7 @@ const ISO8_DATA = {
     ]
   },
   "PVE_Boss_Knull": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nClear 3 positive effect(s) from the primary target.\nProlong the duration of Darkness on the primary target by 1.\nGain +1 Darkness.\nGain +1 Rage.\nApply Bleed + Defense Down + Immunity + Heal Block + Offense Down + Ability Block + Blind + Slow to the primary target.\nGain Defense Up + Deflect + Offense Up.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nClear 3 positive effect(s) from the primary target.\nProlong the duration of Darkness on the primary target by 1.\nGain +1 Darkness.\nGain +1 Rage.\nApply Bleed + Defense Down + Disrupted + Heal Block + Offense Down + Ability Block + Blind + Slow to the primary target.\nGain Defense Up + Deflect + Offense Up.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
@@ -2402,17 +2464,19 @@ const ISO8_DATA = {
       "Prolong the duration of Darkness on the primary target by 1.",
       "Gain +1 Darkness.",
       "Gain +1 Rage.",
-      "Apply Bleed + Defense Down + Immunity + Heal Block + Offense Down + Ability Block + Blind + Slow to the primary target.",
+      "Apply Bleed + Defense Down + Disrupted + Heal Block + Offense Down + Ability Block + Blind + Slow to the primary target.",
       "Gain Defense Up + Deflect + Offense Up."
     ],
     "notes": []
   },
   "PVE_Boss_Sentry": {
-    "description": "Attack primary target for 250% damage + 17% Piercing + 2% of target's Max Health.",
+    "description": "Attack primary target for 250% damage + 17% Piercing + 2% of target's Max Health.\nApply 3 Offense Down + 3 Defense Down to the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 3 Offense Down + 3 Defense Down to the primary target."
+    ],
     "notes": []
   },
   "PVE_Bullseye_SentryBoss": {
@@ -2424,11 +2488,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_CaptainAmerica_SentryBoss": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nGain Defense Up.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Offense Down to the primary target.\nGain Defense Up.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Apply 2 Offense Down to the primary target.",
       "Gain Defense Up."
     ],
     "notes": []
@@ -2444,14 +2509,15 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_ChaosRaid_JeanGrey": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nIn RAID or TOWER_MODE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn RAID or TOWER_MODE, copy and clear Charged from the primary target to self.\nIn RAID or TOWER_MODE, copy and clear Revive Once from the primary target to self.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nIn RAID or TOWER_MODE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn RAID or TOWER_MODE, copy and clear Charged from the primary target to self.\nIn RAID or TOWER_MODE, copy and clear Revive Once from the primary target to self.\nApply 2 Heal Block + 2 Defense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In RAID or TOWER_MODE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
       "In RAID or TOWER_MODE, copy and clear Charged from the primary target to self.",
-      "In RAID or TOWER_MODE, copy and clear Revive Once from the primary target to self."
+      "In RAID or TOWER_MODE, copy and clear Revive Once from the primary target to self.",
+      "Apply 2 Heal Block + 2 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -2467,11 +2533,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_ChaosRaid_Psylocke": {
-    "description": "Attack primary target for 180% Piercing.",
+    "description": "Attack primary target for 180% Piercing.\nApply 2 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 180,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Defense Down to the primary target."
+    ],
     "notes": []
   },
   "PVE_ChaosRaid_ShadowKing": {
@@ -2548,38 +2616,44 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_Hulkbuster_Incursion": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.\nIn RAID, gain Barrier.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\nIn RAID, gain Barrier.\nGain 2 Deflect.\nGain 2 Defense Up.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, gain Barrier."
+      "In RAID, gain Barrier.",
+      "Gain 2 Deflect.",
+      "Gain 2 Defense Up."
     ],
     "notes": []
   },
   "PVE_IronMan_SentryBoss": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nApply Defense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Defense Down to the primary target."
+    ],
     "notes": []
   },
   "PVE_IronPatriot_SentryBoss": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\nApply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target."
+    ],
     "notes": []
   },
   "PVE_KangTheConqueror_Incursion": {
-    "description": "Attack primary target for 468% Piercing.\nIn CRUCIBLE, gain 20% Turn Meter.",
+    "description": "Attack primary target for 468% Piercing.\nIf the target has Vulnerable, gain 20% Turn Meter.",
     "damage": 0,
     "piercing": 468,
     "drain": 0,
     "effects": [
-      "In CRUCIBLE, gain 20% Turn Meter."
+      "If the target has Vulnerable, gain 20% Turn Meter."
     ],
     "notes": []
   },
@@ -2592,12 +2666,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_Moonstone_SentryBoss": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nGenerate 1 Ability Energy.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nGenerate 1 Ability Energy.\nApply 2 Defense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Generate 1 Ability Energy."
+      "Generate 1 Ability Energy.",
+      "Apply 2 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -2618,11 +2693,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_SagaBoss_Gladiator": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\nGain +1 Rage, up to a maximum of 15.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\nApply 2 Offense Down to the primary target.\nGain +1 Rage, up to a maximum of 15.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Apply 2 Offense Down to the primary target.",
       "Gain +1 Rage, up to a maximum of 15."
     ],
     "notes": []
@@ -2818,12 +2894,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Polaris": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nGain Barrier.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nGain Barrier.\nApply Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Gain Barrier."
+      "Gain Barrier.",
+      "Apply Bleed to the primary target."
     ],
     "notes": []
   },
@@ -2836,11 +2913,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Psylocke": {
-    "description": "Attack primary target for 180% Piercing.",
+    "description": "Attack primary target for 180% Piercing.\nApply 2 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 180,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Defense Down to the primary target."
+    ],
     "notes": []
   },
   "Punisher": {
@@ -2870,21 +2949,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "PvE_DDDoomBomb": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\nGain Immunity.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\nGain Disrupted.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Gain Immunity."
+      "Gain Disrupted."
     ],
     "notes": []
   },
   "PvE_DDHumanTorch": {
-    "description": "Attack primary target for 140% damage + 17% Piercing.",
+    "description": "Attack primary target for 140% damage + 17% Piercing.\nApply 2 Bleed to the primary target.",
     "damage": 140,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Bleed to the primary target."
+    ],
     "notes": []
   },
   "PvE_DDInvisibleWoman": {
@@ -2922,20 +3003,22 @@ const ISO8_DATA = {
     "notes": []
   },
   "Quake": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nApply 2 Slow to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Slow to the primary target."
+    ],
     "notes": []
   },
   "Quasar": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\nIn WAR OFFENSE, flip Immunity into positive effects instead.\nGain +1 Offense Up, up to a maximum of 3.\nSteal 10% Health from the primary target and redistribute to self. This bypasses Heal Block.\nSteal 10% Health from the primary target and redistribute to self. This bypasses Heal Block.\nApply Slow to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\nIn WAR OFFENSE, flip Disrupted into positive effects instead.\nGain +1 Offense Up, up to a maximum of 3.\nSteal 10% Health from the primary target and redistribute to self. This bypasses Heal Block.\nSteal 10% Health from the primary target and redistribute to self. This bypasses Heal Block.\nApply Slow to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR OFFENSE, flip Immunity into positive effects instead.",
+      "In WAR OFFENSE, flip Disrupted into positive effects instead.",
       "Gain +1 Offense Up, up to a maximum of 3.",
       "Steal 10% Health from the primary target and redistribute to self. This bypasses Heal Block.",
       "Steal 10% Health from the primary target and redistribute to self. This bypasses Heal Block.",
@@ -2944,12 +3027,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Quicksilver": {
-    "description": "Attack primary target for 165% Piercing.\nGain Immunity.",
+    "description": "Attack primary target for 165% Piercing.\nGain Disrupted.",
     "damage": 0,
     "piercing": 165,
     "drain": 0,
     "effects": [
-      "Gain Immunity."
+      "Gain Disrupted."
     ],
     "notes": []
   },
@@ -2986,23 +3069,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "RavagerTank_Taunt": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Defense Down + Immunity to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Defense Down + Disrupted to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down + Immunity to the primary target."
+      "Apply 2 Defense Down + Disrupted to the primary target."
     ],
     "notes": []
   },
   "RedGoblin": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\nApply 2 Bleed to the primary target.\nGain 2 Regeneration.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\nApply 2 Bleed to the primary target.\nGain 4 Regeneration.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "Gain 2 Regeneration."
+      "Gain 4 Regeneration."
     ],
     "notes": []
   },
@@ -3029,11 +3112,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "RedSkull": {
-    "description": "Attack primary target for 153% Piercing.",
+    "description": "Attack primary target for 153% Piercing.\nApply Defense Down to the primary target.",
     "damage": 0,
     "piercing": 153,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Defense Down to the primary target."
+    ],
     "notes": []
   },
   "Rescue": {
@@ -3081,12 +3166,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Ronin": {
-    "description": "Attack primary target for 190% Piercing.\nDrain 5% Turn Meter from the primary target.",
+    "description": "Attack primary target for 190% Piercing.\nReduce the target's Speed Bar by 5%.",
     "damage": 0,
     "piercing": 190,
     "drain": 0,
     "effects": [
-      "Drain 5% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 5%."
     ],
     "notes": []
   },
@@ -3171,23 +3256,25 @@ const ISO8_DATA = {
     "notes": []
   },
   "S_ShieldSupport_Stealth": {
-    "description": "Attack primary target for 237% damage + 17% Piercing.\nDrain 25% Turn Meter from the primary target.\nIn RAID, drain 25% Turn Meter from the primary target.\nCopy and clear 1 positive effect(s) from the primary target to self, excluding Taunt.",
+    "description": "Attack primary target for 237% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nIn RAID, reduce the target's Speed Bar by 25%.\nCopy and clear 1 positive effect(s) from the primary target to self, excluding Taunt.",
     "damage": 237,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 25% Turn Meter from the primary target.",
-      "In RAID, drain 25% Turn Meter from the primary target.",
+      "Reduce the target's Speed Bar by 25%.",
+      "In RAID, reduce the target's Speed Bar by 25%.",
       "Copy and clear 1 positive effect(s) from the primary target to self, excluding Taunt."
     ],
     "notes": []
   },
   "S_ShieldTank_Stun": {
-    "description": "Attack primary target for 200% Piercing.",
+    "description": "Attack primary target for 200% Piercing.\nApply Slow to the primary target.",
     "damage": 0,
     "piercing": 200,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Slow to the primary target."
+    ],
     "notes": []
   },
   "Sabretooth": {
@@ -3211,12 +3298,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Sasquatch": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\nGain 2 Deflect.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nGain Defense Up + 2 Deflect.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Gain 2 Deflect."
+      "Gain Defense Up + 2 Deflect."
     ],
     "notes": []
   },
@@ -3232,24 +3319,26 @@ const ISO8_DATA = {
     "notes": []
   },
   "ScarletSpider": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\nIn RAID, apply Offense Down + Slow to the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\nIn RAID, apply Offense Down + Slow to the primary target.\nApply Defense Down to the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, apply Offense Down + Slow to the primary target."
+      "In RAID, apply Offense Down + Slow to the primary target.",
+      "Apply Defense Down to the primary target."
     ],
     "notes": []
   },
   "ScarletWitch": {
-    "description": "Attack primary target for 168% Piercing.\nIn WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn WAR OFFENSE, copy and clear Charged from the primary target to self.\nIn WAR OFFENSE, copy and clear Revive Once from the primary target to self.",
+    "description": "Attack primary target for 168% Piercing.\nIn WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn WAR OFFENSE, copy and clear Charged from the primary target to self.\nIn WAR OFFENSE, copy and clear Revive Once from the primary target to self.\nApply 3 Offense Down + 3 Defense Down + 3 Slow to the primary target.",
     "damage": 0,
     "piercing": 168,
     "drain": 0,
     "effects": [
       "In WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
       "In WAR OFFENSE, copy and clear Charged from the primary target to self.",
-      "In WAR OFFENSE, copy and clear Revive Once from the primary target to self."
+      "In WAR OFFENSE, copy and clear Revive Once from the primary target to self.",
+      "Apply 3 Offense Down + 3 Defense Down + 3 Slow to the primary target."
     ],
     "notes": []
   },
@@ -3272,19 +3361,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "Scream": {
-    "description": "Attack primary target for 110% damage + 17% Piercing.",
+    "description": "Attack primary target for 110% damage + 17% Piercing.\nApply Bleed to the primary target.",
     "damage": 110,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Bleed to the primary target."
+    ],
     "notes": []
   },
   "SebastianShaw": {
-    "description": "Attack primary target for 247% damage + 17% Piercing.",
+    "description": "Attack primary target for 247% damage + 17% Piercing.\nApply Stun to the primary target.",
     "damage": 247,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Stun to the primary target."
+    ],
     "notes": []
   },
   "Sentinel": {
@@ -3299,12 +3392,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Sentinel_Gun": {
-    "description": "Attack primary target for 181% damage + 15% Piercing.\nIn RAID, drain 10% Turn Meter from the primary target.",
+    "description": "Attack primary target for 181% damage + 15% Piercing.\nIn RAID, reduce the target's Speed Bar by 10%.",
     "damage": 181,
     "piercing": 15,
     "drain": 0,
     "effects": [
-      "In RAID, drain 10% Turn Meter from the primary target."
+      "In RAID, reduce the target's Speed Bar by 10%."
     ],
     "notes": []
   },
@@ -3365,12 +3458,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "SharonCarter": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn RAID, drain 25% Turn Meter from the primary target.\nApply 3 Slow to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn RAID, reduce the target's Speed Bar by 25%.\nApply 3 Slow to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, drain 25% Turn Meter from the primary target.",
+      "In RAID, reduce the target's Speed Bar by 25%.",
       "Apply 3 Slow to the primary target."
     ],
     "notes": []
@@ -3384,11 +3477,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "SheHulk": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\nApply Defense Down to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Defense Down to the primary target."
+    ],
     "notes": []
   },
   "ShieldDmg_AoE": {
@@ -3400,43 +3495,45 @@ const ISO8_DATA = {
     "notes": []
   },
   "ShieldDmg_Defense": {
-    "description": "Attack primary target for 199% damage + 17% Piercing.\nDrain 25% Turn Meter from the primary target.",
+    "description": "Attack primary target for 199% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.",
     "damage": 199,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 25% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 25%."
     ],
     "notes": []
   },
   "ShieldSupport_Heal": {
-    "description": "Attack primary target for 87% damage + 17% Piercing.\nDrain 25% Turn Meter from the primary target.\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 87% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nApply Offense Down to the primary target.",
     "damage": 87,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 25% Turn Meter from the primary target.",
+      "Reduce the target's Speed Bar by 25%.",
       "Apply Offense Down to the primary target."
     ],
     "notes": []
   },
   "ShieldSupport_Stealth": {
-    "description": "Attack primary target for 237% damage + 17% Piercing.\nDrain 25% Turn Meter from the primary target.\nCopy and clear 1 positive effect(s) from the primary target to self, excluding Taunt.",
+    "description": "Attack primary target for 237% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nCopy and clear 1 positive effect(s) from the primary target to self, excluding Taunt.",
     "damage": 237,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 25% Turn Meter from the primary target.",
+      "Reduce the target's Speed Bar by 25%.",
       "Copy and clear 1 positive effect(s) from the primary target to self, excluding Taunt."
     ],
     "notes": []
   },
   "ShieldTank_Stun": {
-    "description": "Attack primary target for 200% Piercing.",
+    "description": "Attack primary target for 200% Piercing.\nApply Slow to the primary target.",
     "damage": 0,
     "piercing": 200,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Slow to the primary target."
+    ],
     "notes": []
   },
   "Shocker": {
@@ -3476,12 +3573,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "SilverSamurai": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\nApply 2 Bleed + 2 Heal Block to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target."
+      "Apply 2 Bleed + 2 Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -3592,11 +3689,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "SpiderWoman": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Defense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Defense Down to the primary target."
+    ],
     "notes": []
   },
   "SquirrelGirl": {
@@ -3689,11 +3788,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Sunfire": {
-    "description": "Attack primary target for 242% Piercing.",
+    "description": "Attack primary target for 242% Piercing.\nApply Bleed to the primary target.",
     "damage": 0,
     "piercing": 242,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Bleed to the primary target."
+    ],
     "notes": []
   },
   "Sunspot": {
@@ -3708,12 +3809,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "SuperSkrull": {
-    "description": "Flip 3 positive effects into negative effects on the primary target.\nGain Barrier.",
+    "description": "Flip 3 positive effects into negative effects on the primary target.\nGain 2 Disrupted.\nGain Barrier.",
     "damage": 0,
     "piercing": 0,
     "drain": 0,
     "effects": [
       "Flip 3 positive effects into negative effects on the primary target.",
+      "Gain 2 Disrupted.",
       "Gain Barrier."
     ],
     "notes": []
@@ -3762,13 +3864,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Sylvie": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nFlip Deflect into negative effects on the primary target.\nIn RAID, drain 3% Turn Meter from the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nFlip Deflect into negative effects on the primary target.\nIn RAID, reduce the target's Speed Bar by 3%.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip Deflect into negative effects on the primary target.",
-      "In RAID, drain 3% Turn Meter from the primary target."
+      "In RAID, reduce the target's Speed Bar by 3%."
     ],
     "notes": []
   },
@@ -3786,11 +3888,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "SymbioteSpiderMan": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Defense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Defense Down to the primary target."
+    ],
     "notes": []
   },
   "TChalla": {
@@ -3834,12 +3938,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "ThanosEndgame": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nDrain 5% Turn Meter from the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nReduce the target's Speed Bar by 5%.\nApply 2 Heal Block + 2 Bleed to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 5% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 5%.",
+      "Apply 2 Heal Block + 2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -3935,11 +4040,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Toad": {
-    "description": "Attack primary target for 182% damage + 20% Piercing.",
+    "description": "Attack primary target for 182% damage + 20% Piercing.\nApply Slow + Offense Down to the primary target.",
     "damage": 182,
     "piercing": 20,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Slow + Offense Down to the primary target."
+    ],
     "notes": []
   },
   "USAgent": {
@@ -4006,12 +4113,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "UltronDmg_Speed": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nDrain 30% Turn Meter from the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nReduce the target's Speed Bar by 30%.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 30% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 30%."
     ],
     "notes": []
   },
@@ -4094,12 +4201,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "VampireController": {
-    "description": "Attack primary target for 165% damage + 37% Piercing.\nClear 2 positive effect(s) from the primary target.",
+    "description": "Attack primary target for 165% damage + 37% Piercing.\nClear 2 positive effect(s) from the primary target.\nApply 2 Bleed to the primary target.",
     "damage": 165,
     "piercing": 37,
     "drain": 0,
     "effects": [
-      "Clear 2 positive effect(s) from the primary target."
+      "Clear 2 positive effect(s) from the primary target.",
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -4115,11 +4223,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "VampireSupport": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nGain 2 Regeneration.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Gain 2 Regeneration."
+    ],
     "notes": []
   },
   "Venom": {
@@ -4146,14 +4256,17 @@ const ISO8_DATA = {
     "notes": []
   },
   "Vision": {
-    "description": "Attack primary target for 174% damage + 17% Piercing.\nIn WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn WAR OFFENSE, copy and clear Charged from the primary target to self.\nIn WAR OFFENSE, copy and clear Revive Once from the primary target to self.",
+    "description": "Attack primary target for 174% damage + 17% Piercing.\nIn WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn WAR OFFENSE, copy and clear Charged from the primary target to self.\nIn WAR OFFENSE, copy and clear Revive Once from the primary target to self.\nApply Offense Down to the primary target.\nApply Bleed to the primary target.\nApply Offense Down to the primary target.",
     "damage": 174,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
       "In WAR OFFENSE, copy and clear Charged from the primary target to self.",
-      "In WAR OFFENSE, copy and clear Revive Once from the primary target to self."
+      "In WAR OFFENSE, copy and clear Revive Once from the primary target to self.",
+      "Apply Offense Down to the primary target.",
+      "Apply Bleed to the primary target.",
+      "Apply Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -4169,11 +4282,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Void": {
-    "description": "Attack primary target for 225% Piercing.",
+    "description": "Attack primary target for 225% Piercing.\nApply Defense Down to the primary target.",
     "damage": 0,
     "piercing": 225,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Defense Down to the primary target."
+    ],
     "notes": []
   },
   "Vulture": {
@@ -4203,43 +4318,45 @@ const ISO8_DATA = {
     "notes": []
   },
   "War_ShieldDmg_Defense": {
-    "description": "Attack primary target for 199% damage + 17% Piercing.\nDrain 25% Turn Meter from the primary target.",
+    "description": "Attack primary target for 199% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.",
     "damage": 199,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 25% Turn Meter from the primary target."
+      "Reduce the target's Speed Bar by 25%."
     ],
     "notes": []
   },
   "War_ShieldSupport_Heal": {
-    "description": "Attack primary target for 87% damage + 17% Piercing.\nDrain 25% Turn Meter from the primary target.\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 87% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nApply Offense Down to the primary target.",
     "damage": 87,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 25% Turn Meter from the primary target.",
+      "Reduce the target's Speed Bar by 25%.",
       "Apply Offense Down to the primary target."
     ],
     "notes": []
   },
   "War_ShieldSupport_Stealth": {
-    "description": "Attack primary target for 111% damage + 17% Piercing.\nDrain 25% Turn Meter from the primary target.\nCopy and clear 1 positive effect(s) from the primary target to self.",
+    "description": "Attack primary target for 111% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nCopy and clear 1 positive effect(s) from the primary target to self.",
     "damage": 111,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Drain 25% Turn Meter from the primary target.",
+      "Reduce the target's Speed Bar by 25%.",
       "Copy and clear 1 positive effect(s) from the primary target to self."
     ],
     "notes": []
   },
   "War_ShieldTank_Stun": {
-    "description": "Attack primary target for 135% damage.",
+    "description": "Attack primary target for 135% damage.\nApply Slow to the primary target.",
     "damage": 135,
     "piercing": 0,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply Slow to the primary target."
+    ],
     "notes": []
   },
   "Warlock": {
@@ -4262,11 +4379,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "WhiteTiger": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nApply 2 Defense Down + 2 Slow + Heal Block to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Defense Down + 2 Slow + Heal Block to the primary target."
+    ],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
@@ -4293,12 +4412,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Wolverine": {
-    "description": "Attack primary target for 182% Piercing.\nIn RAID or WAR DEFENSE, gain Immunity.\nApply 2 Bleed to the primary target.\nGain Speed Up.",
+    "description": "Attack primary target for 182% Piercing.\nIn RAID or WAR DEFENSE, gain Disrupted.\nApply 2 Bleed to the primary target.\nGain Speed Up.",
     "damage": 0,
     "piercing": 182,
     "drain": 0,
     "effects": [
-      "In RAID or WAR DEFENSE, gain Immunity.",
+      "In RAID or WAR DEFENSE, gain Disrupted.",
       "Apply 2 Bleed to the primary target.",
       "Gain Speed Up."
     ],
@@ -4380,19 +4499,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "ZombieIronMan": {
-    "description": "Attack primary target for 234% damage + 17% Piercing.",
+    "description": "Attack primary target for 234% damage + 17% Piercing.\nApply 2 Bleed to the primary target.",
     "damage": 234,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Bleed to the primary target."
+    ],
     "notes": []
   },
   "ZombieJuggernaut": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\nApply 2 Bleed to the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Apply 2 Bleed to the primary target."
+    ],
     "notes": []
   },
   "ZombieKestrel": {
