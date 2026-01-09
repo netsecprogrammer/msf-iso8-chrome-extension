@@ -2,8 +2,9 @@
 const fs = require('fs');
 
 // Use the v3 (fixed) JSON file with drain, health_redistribute, and complex mechanics
-const jsonPath = 'C:\\Users\\steven\\Downloads\\marvel strike force\\iso8_counter_assist_detailed_v3.json';
-const outputPath = 'C:\\Users\\steven\\Downloads\\marvel strike force\\msf-iso8-chrome-extension\\iso8_data.js';
+const path = require('path');
+const jsonPath = path.join(__dirname, '..', 'iso8_counter_assist_detailed_v3.json');
+const outputPath = path.join(__dirname, 'iso8_data.js');
 
 const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
