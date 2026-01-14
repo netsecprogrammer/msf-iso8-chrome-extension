@@ -1089,12 +1089,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "GreenGoblinGlider": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\nApply Defense Down to the primary target.\nIn CRUCIBLE on Offense, gain +10% Crit Chance per SpiderVerse ally.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply Defense Down to the primary target.",
+      "In CRUCIBLE on Offense, gain +10% Crit Chance per SpiderVerse ally."
     ],
     "notes": []
   },
@@ -2322,12 +2323,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Northstar": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\nIf this character has 1+ Charged, apply Offense Down to the primary target.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target."
+      "If this character has 1+ Charged, apply Offense Down to the primary target."
     ],
     "notes": []
   },
