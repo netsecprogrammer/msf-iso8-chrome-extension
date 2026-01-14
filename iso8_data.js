@@ -264,7 +264,7 @@ const ISO8_DATA = {
     "notes": []
   },
   "BlackCat": {
-    "description": "Attack primary target for 456% Piercing.\nReduce the target's Speed Bar by 5%.\nGain 5% Turn Meter.\nGain +1 Charged.\nGain Stealth.\nApply Slow + 2 Bleed to the primary target.",
+    "description": "Attack primary target for 456% Piercing.\nReduce the target's Speed Bar by 5%.\nGain 5% Turn Meter.\nGain +1 Charged.\nIf this character's Health is 30% or below, gain Stealth.\nApply Slow + 2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 456,
     "drain": 0,
@@ -272,7 +272,7 @@ const ISO8_DATA = {
       "Reduce the target's Speed Bar by 5%.",
       "Gain 5% Turn Meter.",
       "Gain +1 Charged.",
-      "Gain Stealth.",
+      "If this character's Health is 30% or below, gain Stealth.",
       "Apply Slow + 2 Bleed to the primary target."
     ],
     "notes": []
@@ -343,17 +343,17 @@ const ISO8_DATA = {
     ]
   },
   "Blastaar": {
-    "description": "Attack primary target for 175% damage + 20% Piercing.\nOn CRUCIBLE OFFENSE, reduce the duration of LockedBuff on the primary target by 2.\nReduce the duration of Immunity on the primary target by 2.\nReduce the duration of Taunt on the primary target by 1.\nIn CRUCIBLE OFFENSE, clear all positive effect(s) from the primary target.\nClear all negative effect(s) from self.\nIn CRUCIBLE OFFENSE, gain 30% Turn Meter.\nGain +1 BombBurst, up to a maximum of 5.",
+    "description": "Attack primary target for 175% damage + 20% Piercing.\nIn CRUCIBLE on Offense, reduce the duration of Safeguard on the primary target by 2.\nReduce the duration of Immunity on the primary target by 2.\nReduce the duration of Taunt on the primary target by 1.\nIn CRUCIBLE on Offense, clear all positive effect(s) from the primary target.\nClear all negative effect(s) from self.\nIn CRUCIBLE on Offense, gain 30% Turn Meter.\nGain +1 BombBurst, up to a maximum of 5.",
     "damage": 175,
     "piercing": 20,
     "drain": 0,
     "effects": [
-      "On CRUCIBLE OFFENSE, reduce the duration of LockedBuff on the primary target by 2.",
+      "In CRUCIBLE on Offense, reduce the duration of Safeguard on the primary target by 2.",
       "Reduce the duration of Immunity on the primary target by 2.",
       "Reduce the duration of Taunt on the primary target by 1.",
-      "In CRUCIBLE OFFENSE, clear all positive effect(s) from the primary target.",
+      "In CRUCIBLE on Offense, clear all positive effect(s) from the primary target.",
       "Clear all negative effect(s) from self.",
-      "In CRUCIBLE OFFENSE, gain 30% Turn Meter.",
+      "In CRUCIBLE on Offense, gain 30% Turn Meter.",
       "Gain +1 BombBurst, up to a maximum of 5."
     ],
     "notes": []
@@ -1061,12 +1061,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Gladiator": {
-    "description": "Attack primary target for 203% damage + 17% Piercing + 25% Drain.\nApply 2 Offense Down to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\nIf this character's Health is below 50%, gain 25% Drain.\nIf this character's Health is 50% or above, apply 2 Offense Down to the primary target.",
     "damage": 203,
     "piercing": 17,
-    "drain": 25,
+    "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target."
+      "If this character's Health is below 50%, gain 25% Drain.",
+      "If this character's Health is 50% or above, apply 2 Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -1243,12 +1244,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Hellcat": {
-    "description": "Attack primary target for 135% Piercing.\nIn WAR, apply Ability Block to the primary target.",
+    "description": "Attack primary target for 135% Piercing.\nIn WAR with 3+ Brimstone allies, on Crit, apply Ability Block to the primary target.",
     "damage": 0,
     "piercing": 135,
     "drain": 0,
     "effects": [
-      "In WAR, apply Ability Block to the primary target."
+      "In WAR with 3+ Brimstone allies, on Crit, apply Ability Block to the primary target."
     ],
     "notes": []
   },
@@ -4516,12 +4517,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "ZombieJuggernaut": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\nApply 2 Bleed to the primary target.\nIn WAR on Offense, if target has Bleed, steal 5% Health from the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target."
+      "Apply 2 Bleed to the primary target.",
+      "In WAR on Offense, if target has Bleed, steal 5% Health from the primary target."
     ],
     "notes": []
   },
