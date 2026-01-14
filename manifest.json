@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "MSF ISO-8 Counter/Assist Viewer",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "description": "Displays ISO-8 Counter Attack/Assist ability information on Marvel Strike Force character pages",
   "content_scripts": [
     {
