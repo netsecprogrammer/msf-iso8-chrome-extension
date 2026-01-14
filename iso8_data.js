@@ -689,11 +689,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Darkstar": {
-    "description": "Attack primary target for 157% Piercing.",
+    "description": "Attack primary target for 157% Piercing.\nGain +30% Piercing per Winter Guard ally.",
     "damage": 0,
     "piercing": 157,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Gain +30% Piercing per Winter Guard ally."
+    ],
     "notes": []
   },
   "Dazzler": {
@@ -3089,13 +3091,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "RedGuardian": {
-    "description": "Attack primary target for 255% damage + 17% Piercing.\nIn WAR, gain Defense Up.\nGain Defense Up.",
+    "description": "Attack primary target for 255% damage + 17% Piercing.\nApply Defense Up to all allies.\nIn WAR, apply Defense Up to all allies.",
     "damage": 255,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, gain Defense Up.",
-      "Gain Defense Up."
+      "Apply Defense Up to all allies.",
+      "In WAR, apply Defense Up to all allies."
     ],
     "notes": []
   },
@@ -4150,11 +4152,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "UrsaMajor": {
-    "description": "Attack primary target for 203% damage.",
+    "description": "Attack primary target for 203% damage.\nGain +50% Damage per Winter Guard ally.",
     "damage": 203,
     "piercing": 0,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Gain +50% Damage per Winter Guard ally."
+    ],
     "notes": []
   },
   "Vahl": {
@@ -4454,11 +4458,13 @@ const ISO8_DATA = {
     ]
   },
   "Yelena": {
-    "description": "Attack primary target for 187% damage + 17% Piercing.",
+    "description": "Attack primary target for 187% damage + 17% Piercing.\nIf the primary target has Stealth, steal 2 positive effects from them, excluding Taunt.",
     "damage": 187,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "If the primary target has Stealth, steal 2 positive effects from them, excluding Taunt."
+    ],
     "notes": []
   },
   "Yellowjacket": {
