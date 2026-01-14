@@ -2320,13 +2320,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Northstar": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\nApply Offense Down to the primary target.\nGain .",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\nApply Offense Down to the primary target.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
-      "Gain ."
+      "Apply Offense Down to the primary target."
     ],
     "notes": []
   },
