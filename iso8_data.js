@@ -49,12 +49,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "AgentVenom": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Defense Down + Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Defense Down to the primary target.\nOn Crit, apply Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down + Bleed to the primary target."
+      "Apply 2 Defense Down to the primary target.",
+      "On Crit, apply Bleed to the primary target."
     ],
     "notes": []
   },
