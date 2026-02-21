@@ -153,17 +153,61 @@ function processCharacter(charName, charData) {
         let localDmg = 0;
         let localPierce = 0;
         let localDrain = 0;
+        let ignoresDefenseUp = false;
         
         action.stat_modifier.forEach(mod => {
           if (mod.stat === 'ability_damage_pct') {
-            localDmg = getMax(mod.delta);
+            const val = getMax(mod.delta);
+            if (!mod.apply_if) {
+                localDmg = val;
+            } else if (mod.apply_if.not && mod.apply_if.not.target && mod.apply_if.not.target.procs && mod.apply_if.not.target.procs.includes('DefenseUp')) {
+                // This is the "base" damage for characters with Ignore Defense Up mechanics (Blade)
+                // Use this if no unconditional damage found yet
+                if (localDmg === 0) localDmg = val;
+            }
           } else if (mod.stat === 'armor_pierce_pct') {
-            localPierce = getMax(mod.delta);
+            const val = getMax(mod.delta);
+            
+            if (mod.apply_if) {
+                if (JSON.stringify(mod.apply_if).includes('DefenseUp')) {
+                    ignoresDefenseUp = true;
+                }
+            }
+            
+            // Priority for base Piercing:
+            // 1. Unconditional
+            // 2. "Not Defense Up" (standard hit)
+            if (!mod.apply_if) {
+                localPierce = val;
+            } else if (mod.apply_if.not && mod.apply_if.not.target && mod.apply_if.not.target.procs && mod.apply_if.not.target.procs.includes('DefenseUp')) {
+                // If we haven't found an unconditional one, or if this seems to be the main damage line (ignoring small trait bonuses)
+                // Blade has a 20% trait bonus that is unconditional-ish (apply_if traits). We want the big number (167).
+                // Heuristic: Take the largest value if multiple candidates? Or strictly prefer the "Attack" line logic.
+                
+                // Blade's data has:
+                // 1. Not DefenseUp -> 167%
+                // 2. DefenseUp & DefDown -> 251%
+                // ...
+                // 5. Not DefenseUp & Vampire -> 20% (bonus?)
+                
+                // We want 167.
+                if (val > localPierce) localPierce = val;
+            }
           } else if (mod.stat === 'drain_pct') {
             localDrain = getMax(mod.delta);
           }
         });
         
+        if (ignoresDefenseUp) {
+            if (!notes.includes("This attack ignores Defense Up.")) {
+                notes.push("This attack ignores Defense Up.");
+            }
+        }
+        
+        if (action.victim_cant_revive) {
+            notes.push("Characters killed by this attack cannot be revived.");
+        }
+
         if (isConditionalTarget || isCrit) {
             // Add as an effect line
             let text = `${conditionPrefix}attack for `;
@@ -342,6 +386,21 @@ function processCharacter(charName, charData) {
           }
       }
     });
+  }
+
+  // Process stat_lock for notes
+  if (safety.stat_lock) {
+      safety.stat_lock.forEach(lock => {
+          if (lock.stat === 'block_chance_pct' && lock.value === 0 && lock.on === 'primary') {
+              if (!notes.includes("This attack cannot be blocked.")) notes.push("This attack cannot be blocked.");
+          }
+          if (lock.stat === 'dodge_chance_pct' && lock.value === 0 && lock.on === 'primary') {
+              if (!notes.includes("This attack cannot be dodged.")) notes.push("This attack cannot be dodged.");
+          }
+          if (lock.stat === 'accuracy_pct' && lock.value === 100) {
+              if (!notes.includes("This attack cannot miss.")) notes.push("This attack cannot miss."); // Or unavoidable
+          }
+      });
   }
 
   // Generate description
