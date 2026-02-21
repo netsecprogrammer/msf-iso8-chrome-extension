@@ -88,9 +88,15 @@ git clone https://github.com/netsecprogrammer/msf-iso8-chrome-extension.git
 
 ## Updating Data
 
-To update game data for all users:
-1. Edit `iso8_data.json` in this repository (e.g., via a Pull Request).
-2. Once merged to `master`, users will automatically receive the new data within 24 hours (when their local cache expires).
+To update with new game data:
+1.  Obtain the latest game data folder (e.g., from an APK extraction).
+2.  Edit `extract_iso8.js` to point to the `characters.json` file in your game data folder (absolute path).
+3.  Run the extraction script:
+    ```bash
+    node extract_iso8.js
+    ```
+4.  Commit the updated `iso8_data.json` and push to GitHub.
+5.  Users will receive the update automatically within 24 hours.
 
 ## Privacy
 
