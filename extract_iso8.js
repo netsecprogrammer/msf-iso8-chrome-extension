@@ -74,13 +74,28 @@ function parseConditions(action) {
       }
   }
   
-  // Handle only_if_target (e.g. "If the primary target is MYSTIC")
-  if (action.only_if_target && action.only_if_target.traits && action.only_if_target.traits.has_any) {
-      conditions.push(`If the primary target is ${action.only_if_target.traits.has_any.join(' or ').toUpperCase()}`);
+  if (action.only_if_outcome && action.only_if_outcome.includes('critical_hit')) {
+      conditions.push('On Crit');
+  }
+  
+  // Handle only_if_target
+  if (action.only_if_target) {
+      // Simplified recursion for traits
+      const extractTraits = (obj) => {
+          if (obj.traits && obj.traits.has_any) return obj.traits.has_any.join(' or ');
+          if (obj.and) return obj.and.map(extractTraits).filter(x=>x).join(' and ');
+          if (obj.or) return obj.or.map(extractTraits).filter(x=>x).join(' or ');
+          return '';
+      };
+      
+      const traits = extractTraits(action.only_if_target);
+      if (traits) {
+          conditions.push(`If the primary target is ${traits.toUpperCase()}`);
+      }
   }
 
   if (conditions.length > 0) {
-    return conditions.join(' ') + ', ';
+    return conditions.join(', ') + ', ';
   }
   return '';
 }
@@ -95,7 +110,6 @@ function getTargetText(target) {
             traits = target.filter.traits.has_any.join(' or ').toUpperCase() + ' ';
         }
         
-        // If limit is undefined (0) or 1, assume self if no traits, otherwise "a random X ally"
         if (!limit || limit === 1) {
             if (traits) return `a random ${traits}ally`;
             return 'self';
@@ -126,18 +140,44 @@ function processCharacter(charName, charData) {
   if (safety.actions) {
     safety.actions.forEach(action => {
       const conditionPrefix = parseConditions(action);
+      
+      // Determine if this is a "Conditional Attack" (has conditions) or "Main Attack"
+      // If it has conditions, we usually don't want to pollute the global Damage/Piercing vars
+      // unless it's a game mode condition (War/Raid) which often just modifies the main hit.
+      // But for "If Target Is X", it's a separate branch.
+      const isConditionalTarget = !!action.only_if_target;
+      const isCrit = action.only_if_outcome && action.only_if_outcome.includes('critical_hit');
 
       // 1. Stats (Damage/Piercing)
       if (action.stat_modifier) {
+        let localDmg = 0;
+        let localPierce = 0;
+        let localDrain = 0;
+        
         action.stat_modifier.forEach(mod => {
           if (mod.stat === 'ability_damage_pct') {
-            damage = getMax(mod.delta);
+            localDmg = getMax(mod.delta);
           } else if (mod.stat === 'armor_pierce_pct') {
-            piercing = getMax(mod.delta);
+            localPierce = getMax(mod.delta);
           } else if (mod.stat === 'drain_pct') {
-            drain = getMax(mod.delta);
+            localDrain = getMax(mod.delta);
           }
         });
+        
+        if (isConditionalTarget || isCrit) {
+            // Add as an effect line
+            let text = `${conditionPrefix}attack for `;
+            if (localDmg > 0) text += `${localDmg}% damage`;
+            if (localPierce > 0) text += `${localDmg > 0 ? ' + ' : ''}${localPierce}% Piercing`;
+            if (localDrain > 0) text += ` + ${localDrain}% Drain`;
+            text += ' instead.'; // Often conditional attacks are replacements
+            effects.push(text);
+        } else {
+            // Main stats
+            if (localDmg > 0) damage = localDmg;
+            if (localPierce > 0) piercing = localPierce;
+            if (localDrain > 0) drain = localDrain;
+        }
       }
 
       // 2. Procs (Apply Status)
@@ -149,6 +189,7 @@ function processCharacter(charName, charData) {
            if (!procGroups[name]) procGroups[name] = { count: 0, duration: 0 };
            procGroups[name].count++;
            const dur = getMax(p.use_count) || 1;
+           // If use_count_per_crit is true, it might be implicit, but here we see explicit `only_if_outcome`
            if (dur > procGroups[name].duration) procGroups[name].duration = dur;
         });
 
@@ -289,7 +330,6 @@ function processCharacter(charName, charData) {
           if (maxDur) maxText = `, up to a maximum of ${maxDur}`;
 
           if (action.add_if_not && delta > 0) {
-              // Treat as "Gain" or "Apply" depending on target
               if (targetText === 'self') {
                   effects.push(`${conditionPrefix}Gain +${delta} ${procName}${maxText}.`);
               } else {
