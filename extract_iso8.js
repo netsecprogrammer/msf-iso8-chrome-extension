@@ -65,7 +65,7 @@ function parseConditions(action) {
 
   if (oi.mode) {
     if (oi.mode === 'AVA') conditions.push('In WAR');
-    else if (oi.mode === 'PVP') conditions.push('In CRUCIBLE'); // Sometimes PVP is Crucible, sometimes specific
+    else if (oi.mode === 'PVP') conditions.push('In CRUCIBLE');
     else conditions.push(`In ${oi.mode}`);
   }
   
@@ -73,13 +73,24 @@ function parseConditions(action) {
     if (oi.combat_side === 'offense') conditions.push('OFFENSE');
     else if (oi.combat_side === 'defense') conditions.push('DEFENSE');
   }
-
-  // Handle "traits" logic if simple (e.g. "If ally has X") - skipping for brevity unless needed for key mechanics
   
   if (conditions.length > 0) {
     return conditions.join(' ') + ', ';
   }
   return '';
+}
+
+function getTargetText(target) {
+    if (!target) return 'the primary target';
+    
+    if (target.relation === 'ally') {
+        const limit = getMax(target.limit);
+        // If limit is undefined (0) or 1, assume self
+        if (!limit || limit === 1) return 'self';
+        return 'allies';
+    }
+    
+    return 'the primary target';
 }
 
 function processCharacter(charName, charData) {
@@ -112,37 +123,26 @@ function processCharacter(charName, charData) {
 
       // 2. Procs (Apply Status)
       if (action.action === 'proc' && action.procs) {
-        // Deduplicate procs: If multiple 'DoT' exist, we count them together or take the primary count
-        // Archangel case: apply_count: 2, procs: [DoT, DoT].
-        // Strategy: Group by proc type.
-        
         const procGroups = {};
         
         action.procs.forEach(p => {
            const name = formatProcName(p.proc);
            if (!procGroups[name]) procGroups[name] = 0;
-           // If apply_count is set on the action, it usually overrides individual use_count
-           // But sometimes individual use_counts matter.
-           // For Archangel, apply_count is 2.
         });
 
         const globalApplyCount = getMax(action.apply_count);
+        const targetText = getTargetText(action.target);
         
-        // If we have a global apply count, apply it to the unique procs found
         Object.keys(procGroups).forEach(procName => {
             let count = globalApplyCount;
-            if (!count) {
-                // Fallback to checking individual use_count if global is missing
-                // (Simplified logic: taking 1 for now if global missing)
-                count = 1;
-            }
+            if (!count) count = 1;
             
-            let effectText = `${conditionPrefix}Apply ${count} ${procName}`;
+            let effectText = '';
             
-            if (action.target && action.target.relation === 'ally') {
-               effectText += ` to ${action.target.limit === 1 ? 'self' : 'allies'}`;
+            if (targetText === 'self') {
+                effectText = `${conditionPrefix}Gain ${count > 1 ? count + ' ' : ''}${procName}`;
             } else {
-               effectText += ` to the primary target`;
+                effectText = `${conditionPrefix}Apply ${count} ${procName} to ${targetText}`;
             }
             
             effects.push(effectText + '.');
@@ -151,14 +151,36 @@ function processCharacter(charName, charData) {
 
       // 3. Proc Remove (Clear Status)
       if (action.action === 'proc_remove') {
-        const procName = formatProcName(action.procs);
-        const count = getMax(action.count) || 1;
-        effects.push(`${conditionPrefix}Clear ${procName} from the primary target.`);
+        let count = getMax(action.count) || 1;
+        let what = '';
+        
+        if (action.procs) {
+            const procName = formatProcName(action.procs);
+            what = procName;
+        } else {
+            // Check category if proc name is missing
+            if (action.category === 'buff') what = 'positive effect(s)';
+            else if (action.category === 'debuff') what = 'negative effect(s)';
+            else what = 'effects';
+        }
+        
+        const targetText = getTargetText(action.target);
+        if (targetText === 'self') {
+             effects.push(`${conditionPrefix}Clear ${count} ${what} from self.`);
+        } else {
+             effects.push(`${conditionPrefix}Clear ${count} ${what} from ${targetText}.`);
+        }
       }
 
       // 4. Proc Flip
       if (action.action === 'proc_flip') {
-        effects.push(`${conditionPrefix}Flip positive effects to negative on primary target.`);
+        let count = getMax(action.count) || 1; // Sometimes flip has count
+        const targetText = getTargetText(action.target);
+        if (targetText === 'self') {
+             effects.push(`${conditionPrefix}Flip ${count} negative effect(s) to positive on self.`);
+        } else {
+             effects.push(`${conditionPrefix}Flip ${count} positive effect(s) to negative on ${targetText}.`);
+        }
       }
       
       // 5. Health Redistribute
@@ -170,7 +192,12 @@ function processCharacter(charName, charData) {
       if (action.action === 'heal') {
           const healPct = getMax(action.heal_pct);
           if (healPct > 0) {
-              effects.push(`${conditionPrefix}Heal for ${healPct}% of Max Health.`);
+              const targetText = getTargetText(action.target);
+              if (targetText === 'self') {
+                  effects.push(`${conditionPrefix}Heal self for ${healPct}% of Max Health.`);
+              } else {
+                  effects.push(`${conditionPrefix}Heal ${targetText} for ${healPct}% of Max Health.`);
+              }
           }
       }
 
@@ -185,7 +212,7 @@ function processCharacter(charName, charData) {
           let what = 'positive effects';
           if (action.category === 'debuff') what = 'negative effects';
           
-          let from = 'primary target';
+          let from = 'the primary target';
           if (action.recipient && action.recipient.relation === 'enemy') {
               from = 'self';
               verb = 'Transfer';
@@ -209,6 +236,26 @@ function processCharacter(charName, charData) {
           const amount = getMax(action.health_pct);
           if (amount > 0) {
               effects.push(`${conditionPrefix}Barrier for ${amount}% of Max Health.`);
+          }
+      }
+      
+      // 10. Proc Duration (Gain/Prolong)
+      if (action.action === 'proc_duration') {
+          const delta = getMax(action.delta);
+          
+          // Handle 'only_procs' which is usually an array
+          let procName = 'Effects';
+          if (action.only_procs && action.only_procs.length > 0) {
+              procName = formatProcName(action.only_procs[0]);
+          }
+          
+          if (action.add_if_not && delta > 0) {
+              // Treat as "Gain"
+              effects.push(`${conditionPrefix}Gain +${delta} ${procName}.`);
+          } else if (delta > 0) {
+              effects.push(`${conditionPrefix}Prolong ${procName} duration by ${delta}.`);
+          } else if (delta < 0) {
+              effects.push(`${conditionPrefix}Reduce ${procName} duration by ${Math.abs(delta)}.`);
           }
       }
     });
@@ -246,6 +293,10 @@ try {
 
   for (const [charId, data] of Object.entries(charDataMap)) {
     if (charId === 'ForceImportVersion' || charId === 'Name') continue;
+
+    if (charId === 'Ares') {
+      console.log('Ares Data Debug:', JSON.stringify(processCharacter(charId, data), null, 2));
+    }
 
     const processed = processCharacter(charId, data);
     if (processed) {
