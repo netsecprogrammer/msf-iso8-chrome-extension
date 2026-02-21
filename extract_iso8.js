@@ -74,7 +74,15 @@ const PROC_MAP = {
   'Brimstone': 'Brimstone',
   'Pegasus': 'Pegasus',
   'Underworld': 'Underworld',
-  // Character names used in only_if_any conditions
+  'MightyAvenger': 'Mighty Avenger',
+  'Deathseed': 'Deathseed',
+  'Shadowland': 'Shadowland',
+  'Xmen': 'X-Men',
+  'Darkhold': 'Darkhold',
+  'Nightstalker': 'Nightstalker',
+  'Gamma': 'Gamma',
+  'Villain': 'Villain',
+  // Character names used in conditions
   'Hercules': 'Hercules',
   'KittyPryde': 'Kitty Pryde',
   'Colossus': 'Colossus',
@@ -83,7 +91,10 @@ const PROC_MAP = {
   'MistyKnight': 'Misty Knight',
   'ColleenWing': 'Colleen Wing',
   'Groot': 'Groot',
-  'Gwenpool': 'Gwenpool'
+  'Gwenpool': 'Gwenpool',
+  'Sylvie': 'Sylvie',
+  'Ikaris': 'Ikaris',
+  'Daredevil': 'Daredevil'
 };
 
 function formatProcName(proc) {
@@ -96,7 +107,7 @@ function extractModeText(oi) {
     let result = '';
 
     if (oi.mode) {
-        result = oi.mode === 'AVA' ? 'WAR' : oi.mode === 'PVP' ? 'CRUCIBLE' : oi.mode;
+        result = oi.mode === 'AVA' ? 'WAR' : oi.mode === 'PVP' ? 'CRUCIBLE' : oi.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : oi.mode === 'INSANITY' ? 'INCURSION' : oi.mode;
     }
     if (oi.combat_side) {
         const side = oi.combat_side === 'offense' ? 'OFFENSE' : 'DEFENSE';
@@ -142,6 +153,84 @@ function parseConditions(action) {
           const procs = oi.owner.procs.map(p => formatProcName(p)).join(' or ');
           conditions.push(`If self has ${procs}`);
       }
+
+      // Ally count conditions: "If X+ [Trait] allies"
+      if (oi.count && oi.count_filter) {
+          const cf = oi.count_filter;
+          let traitText = '';
+          if (cf.character) {
+              traitText = cf.character.map(c => formatProcName(c)).join(' or ');
+          } else if (cf.traits) {
+              if (cf.traits.has_any) {
+                  traitText = cf.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+              } else if (cf.traits.and) {
+                  // Compound traits: e.g., Hero + SpiderVerse
+                  const parts = cf.traits.and
+                      .filter(sub => sub.has_any)
+                      .map(sub => sub.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase());
+                  traitText = parts.join(' ');
+              }
+          } else if (cf.and) {
+              for (const sub of cf.and) {
+                  if (sub.traits && sub.traits.has_any) {
+                      traitText = sub.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                      break;
+                  }
+              }
+          }
+          // Handle negated count_filter (e.g., "not.target.procs: SpeedUp" with count <= 0 = "all allies have SpeedUp")
+          if (!traitText && cf.not && cf.not.target && cf.not.target.procs) {
+              const negProcs = cf.not.target.procs.map(p => formatProcName(p)).join(' or ');
+              if (oi.count.if === 'less_or_equal' && (oi.count.than || 0) === 0) {
+                  conditions.push(`If all allies have ${negProcs}`);
+              } else {
+                  const threshold = oi.count.than || 0;
+                  const rel = cf.relationship || 'ally';
+                  conditions.push(`If ${threshold}+ ${rel === 'ally' ? 'allies' : rel + 's'} lack ${negProcs}`);
+              }
+          } else {
+              const threshold = oi.count.than || 0;
+              const rel = cf.relationship || 'ally';
+              if (threshold <= 1 && cf.character) {
+                  conditions.push(`If ${traitText} is an ${rel}`);
+              } else {
+                  conditions.push(`If ${threshold}+ ${traitText} ${rel === 'ally' ? 'allies' : rel + 's'}`);
+              }
+          }
+      }
+
+      // Negated conditions: only_if.not
+      if (oi.not) {
+          const neg = oi.not;
+          if (neg.mode) {
+              const modeName = neg.mode === 'AVA' ? 'WAR' : neg.mode === 'PVP' ? 'CRUCIBLE' : neg.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : neg.mode === 'INSANITY' ? 'INCURSION' : neg.mode;
+              conditions.push(`Not in ${modeName}`);
+          }
+          if (neg.owner && neg.owner.procs) {
+              const procs = neg.owner.procs.map(p => formatProcName(p)).join(' or ');
+              conditions.push(`If self does not have ${procs}`);
+          }
+          if (neg.target && neg.target.procs) {
+              const procs = neg.target.procs.map(p => formatProcName(p)).join(' or ');
+              conditions.push(`If the primary target does not have ${procs}`);
+          }
+          if (neg.character) {
+              const charNames = neg.character.map(c => formatProcName(c)).join(' or ');
+              conditions.push(`If not facing ${charNames}`);
+          }
+      }
+
+      // Self-trait conditions: only_if.traits
+      if (oi.traits) {
+          if (oi.traits.has_any) {
+              const traits = oi.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+              conditions.push(`If self is ${traits}`);
+          }
+          if (oi.traits.not && oi.traits.not.has_any) {
+              const traits = oi.traits.not.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+              conditions.push(`If self is not ${traits}`);
+          }
+      }
   }
 
   if (action.only_if_outcome && action.only_if_outcome.includes('critical_hit')) {
@@ -151,7 +240,7 @@ function parseConditions(action) {
   // Handle only_if_target (trait-based conditions on the target)
   if (action.only_if_target) {
       const extractTraits = (obj) => {
-          if (obj.traits && obj.traits.has_any) return obj.traits.has_any.map(t => formatProcName(t)).join(' or ');
+          if (obj.traits && obj.traits.has_any) return obj.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or ');
           if (obj.and) return obj.and.map(extractTraits).filter(x=>x).join(' and ');
           if (obj.or) return obj.or.map(extractTraits).filter(x=>x).join(' or ');
           return '';
@@ -159,7 +248,7 @@ function parseConditions(action) {
 
       const traits = extractTraits(action.only_if_target);
       if (traits) {
-          conditions.push(`If the primary target is ${traits.toUpperCase()}`);
+          conditions.push(`If the primary target is ${traits}`);
       }
   }
 
@@ -176,7 +265,7 @@ function getTargetText(target) {
         const limit = getMax(target.limit);
         let traits = '';
         if (target.filter && target.filter.traits && target.filter.traits.has_any) {
-            traits = target.filter.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase() + ' ';
+            traits = target.filter.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or ') + ' ';
         }
         
         if (!limit || limit === 1) {
