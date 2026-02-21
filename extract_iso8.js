@@ -66,7 +66,35 @@ const PROC_MAP = {
   'SpiderVerse': 'Spider-Verse',
   'OutOfTime': 'Out of Time',
   'UncannyAvenger': 'Uncanny Avenger',
-  'SuperiorSix': 'Superior Six'
+  'SuperiorSix': 'Superior Six',
+  'WinterGuard': 'Winter Guard',
+  'BionicAvenger': 'Bionic Avenger',
+  'HiveMind': 'Hive-Mind',
+  'SinisterSix': 'Sinister Six',
+  'Brimstone': 'Brimstone',
+  'Pegasus': 'Pegasus',
+  'Underworld': 'Underworld',
+  'MightyAvenger': 'Mighty Avenger',
+  'Deathseed': 'Deathseed',
+  'Shadowland': 'Shadowland',
+  'Xmen': 'X-Men',
+  'Darkhold': 'Darkhold',
+  'Nightstalker': 'Nightstalker',
+  'Gamma': 'Gamma',
+  'Villain': 'Villain',
+  // Character names used in conditions
+  'Hercules': 'Hercules',
+  'KittyPryde': 'Kitty Pryde',
+  'Colossus': 'Colossus',
+  'SpiderMan': 'Spider-Man',
+  'SamWilson': 'Sam Wilson',
+  'MistyKnight': 'Misty Knight',
+  'ColleenWing': 'Colleen Wing',
+  'Groot': 'Groot',
+  'Gwenpool': 'Gwenpool',
+  'Sylvie': 'Sylvie',
+  'Ikaris': 'Ikaris',
+  'Daredevil': 'Daredevil'
 };
 
 function formatProcName(proc) {
@@ -79,7 +107,7 @@ function extractModeText(oi) {
     let result = '';
 
     if (oi.mode) {
-        result = oi.mode === 'AVA' ? 'WAR' : oi.mode === 'PVP' ? 'CRUCIBLE' : oi.mode;
+        result = oi.mode === 'AVA' ? 'WAR' : oi.mode === 'PVP' ? 'CRUCIBLE' : oi.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : oi.mode === 'INSANITY' ? 'INCURSION' : oi.mode;
     }
     if (oi.combat_side) {
         const side = oi.combat_side === 'offense' ? 'OFFENSE' : 'DEFENSE';
@@ -125,6 +153,84 @@ function parseConditions(action) {
           const procs = oi.owner.procs.map(p => formatProcName(p)).join(' or ');
           conditions.push(`If self has ${procs}`);
       }
+
+      // Ally count conditions: "If X+ [Trait] allies"
+      if (oi.count && oi.count_filter) {
+          const cf = oi.count_filter;
+          let traitText = '';
+          if (cf.character) {
+              traitText = cf.character.map(c => formatProcName(c)).join(' or ');
+          } else if (cf.traits) {
+              if (cf.traits.has_any) {
+                  traitText = cf.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+              } else if (cf.traits.and) {
+                  // Compound traits: e.g., Hero + SpiderVerse
+                  const parts = cf.traits.and
+                      .filter(sub => sub.has_any)
+                      .map(sub => sub.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase());
+                  traitText = parts.join(' ');
+              }
+          } else if (cf.and) {
+              for (const sub of cf.and) {
+                  if (sub.traits && sub.traits.has_any) {
+                      traitText = sub.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                      break;
+                  }
+              }
+          }
+          // Handle negated count_filter (e.g., "not.target.procs: SpeedUp" with count <= 0 = "all allies have SpeedUp")
+          if (!traitText && cf.not && cf.not.target && cf.not.target.procs) {
+              const negProcs = cf.not.target.procs.map(p => formatProcName(p)).join(' or ');
+              if (oi.count.if === 'less_or_equal' && (oi.count.than || 0) === 0) {
+                  conditions.push(`If all allies have ${negProcs}`);
+              } else {
+                  const threshold = oi.count.than || 0;
+                  const rel = cf.relationship || 'ally';
+                  conditions.push(`If ${threshold}+ ${rel === 'ally' ? 'allies' : rel + 's'} lack ${negProcs}`);
+              }
+          } else {
+              const threshold = oi.count.than || 0;
+              const rel = cf.relationship || 'ally';
+              if (threshold <= 1 && cf.character) {
+                  conditions.push(`If ${traitText} is an ${rel}`);
+              } else {
+                  conditions.push(`If ${threshold}+ ${traitText} ${rel === 'ally' ? 'allies' : rel + 's'}`);
+              }
+          }
+      }
+
+      // Negated conditions: only_if.not
+      if (oi.not) {
+          const neg = oi.not;
+          if (neg.mode) {
+              const modeName = neg.mode === 'AVA' ? 'WAR' : neg.mode === 'PVP' ? 'CRUCIBLE' : neg.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : neg.mode === 'INSANITY' ? 'INCURSION' : neg.mode;
+              conditions.push(`Not in ${modeName}`);
+          }
+          if (neg.owner && neg.owner.procs) {
+              const procs = neg.owner.procs.map(p => formatProcName(p)).join(' or ');
+              conditions.push(`If self does not have ${procs}`);
+          }
+          if (neg.target && neg.target.procs) {
+              const procs = neg.target.procs.map(p => formatProcName(p)).join(' or ');
+              conditions.push(`If the primary target does not have ${procs}`);
+          }
+          if (neg.character) {
+              const charNames = neg.character.map(c => formatProcName(c)).join(' or ');
+              conditions.push(`If not facing ${charNames}`);
+          }
+      }
+
+      // Self-trait conditions: only_if.traits
+      if (oi.traits) {
+          if (oi.traits.has_any) {
+              const traits = oi.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+              conditions.push(`If self is ${traits}`);
+          }
+          if (oi.traits.not && oi.traits.not.has_any) {
+              const traits = oi.traits.not.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+              conditions.push(`If self is not ${traits}`);
+          }
+      }
   }
 
   if (action.only_if_outcome && action.only_if_outcome.includes('critical_hit')) {
@@ -134,7 +240,7 @@ function parseConditions(action) {
   // Handle only_if_target (trait-based conditions on the target)
   if (action.only_if_target) {
       const extractTraits = (obj) => {
-          if (obj.traits && obj.traits.has_any) return obj.traits.has_any.map(t => formatProcName(t)).join(' or ');
+          if (obj.traits && obj.traits.has_any) return obj.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or ');
           if (obj.and) return obj.and.map(extractTraits).filter(x=>x).join(' and ');
           if (obj.or) return obj.or.map(extractTraits).filter(x=>x).join(' or ');
           return '';
@@ -142,7 +248,7 @@ function parseConditions(action) {
 
       const traits = extractTraits(action.only_if_target);
       if (traits) {
-          conditions.push(`If the primary target is ${traits.toUpperCase()}`);
+          conditions.push(`If the primary target is ${traits}`);
       }
   }
 
@@ -159,7 +265,7 @@ function getTargetText(target) {
         const limit = getMax(target.limit);
         let traits = '';
         if (target.filter && target.filter.traits && target.filter.traits.has_any) {
-            traits = target.filter.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase() + ' ';
+            traits = target.filter.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or ') + ' ';
         }
         
         if (!limit || limit === 1) {
@@ -191,14 +297,65 @@ function processCharacter(charName, charData) {
   // Iterate actions
   if (safety.actions) {
     safety.actions.forEach(action => {
-      const conditionPrefix = parseConditions(action);
-      
+      // Check action_pct: if max level chance is 0, skip entirely; if < 100, note probability
+      const maxActionPct = action.action_pct
+          ? (Array.isArray(action.action_pct) ? action.action_pct[action.action_pct.length - 1] : action.action_pct)
+          : 100;
+      if (maxActionPct === 0) return; // Action never fires at max level
+
+      let conditionPrefix = parseConditions(action);
+
+      // Handle action_cond: "if_has_crit_result" as a crit condition
+      // (alternate representation of only_if_outcome: ["critical_hit"])
+      const isCrit = (action.only_if_outcome && action.only_if_outcome.includes('critical_hit'))
+          || action.action_cond === 'if_has_crit_result'
+          || action.action_cond === 'if_has_crit_result_per_target';
+      if (isCrit && !conditionPrefix.includes('On Crit')) {
+          conditionPrefix = conditionPrefix ? conditionPrefix.replace(/, $/, ', On Crit, ') : 'On Crit, ';
+      }
+
+      // Handle only_if_any: ally-specific or enemy-specific conditions
+      if (action.only_if_any) {
+          const oia = action.only_if_any;
+          if (oia.filter) {
+              if (oia.filter.character) {
+                  const charNames = oia.filter.character.map(c => formatProcName(c) || c).join(' or ');
+                  conditionPrefix += `If ${charNames} is an ally, `;
+              } else if (oia.filter.count && oia.filter.count_filter) {
+                  const cf = oia.filter.count_filter;
+                  let traitText = '';
+                  if (cf.traits && cf.traits.has_any) {
+                      traitText = cf.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                  } else if (cf.and) {
+                      // Complex filter — extract traits from nested "and"
+                      for (const sub of cf.and) {
+                          if (sub.traits && sub.traits.has_any) {
+                              traitText = sub.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                              break;
+                          }
+                      }
+                  }
+                  const threshold = oia.filter.count.than || 0;
+                  conditionPrefix += `If ${threshold}+ ${traitText} allies, `;
+              } else if (oia.filter.target && oia.filter.target.any_proc_of_type) {
+                  const procType = oia.filter.target.any_proc_of_type;
+                  const typeText = procType === 'buff' ? 'positive effects' : 'negative effects';
+                  conditionPrefix += `If any enemy has ${typeText}, `;
+              }
+          }
+      }
+
+      // Add probability prefix for effects with < 100% chance at max level
+      let chancePrefix = '';
+      if (maxActionPct > 0 && maxActionPct < 100) {
+          chancePrefix = `${maxActionPct}% chance to `;
+      }
+
       // Determine if this is a "Conditional Attack" (has conditions) or "Main Attack"
-      // If it has conditions, we usually don't want to pollute the global Damage/Piercing vars
-      // unless it's a game mode condition (War/Raid) which often just modifies the main hit.
-      // But for "If Target Is X", it's a separate branch.
+      // only_if_target may fall back to base when no unconditional stats exist (e.g. ShangChi)
+      // only_if_any should ALWAYS produce an effect line (the fallback action_cond: "if_prev_skipped" provides the base)
       const isConditionalTarget = !!action.only_if_target;
-      const isCrit = action.only_if_outcome && action.only_if_outcome.includes('critical_hit');
+      const isAllyConditional = !!action.only_if_any;
 
       // 1. Stats (Damage/Piercing)
       if (action.stat_modifier) {
@@ -251,8 +408,8 @@ function processCharacter(charName, charData) {
         const hasAttackStats = localDmg > 0 || localPierce > 0 || localDrain > 0;
 
         if (hasAttackStats) {
-            if (isCrit) {
-                // Crit bonuses always go as effect lines
+            if (isCrit || isAllyConditional) {
+                // Crit bonuses and ally-conditional stats always go as effect lines
                 let text = `${conditionPrefix}attack for `;
                 if (localDmg > 0) text += `${localDmg}% damage`;
                 if (localPierce > 0) text += `${localDmg > 0 ? ' + ' : ''}${localPierce}% Piercing`;
@@ -288,30 +445,31 @@ function processCharacter(charName, charData) {
       // 2. Procs (Apply Status)
       if (action.action === 'proc' && action.procs) {
         const procGroups = {};
-        
+
         action.procs.forEach(p => {
+           // Skip internal level-scaling procs (e.g., Odin's Basic_Level_1..7)
+           if (p.proc && p.proc.startsWith('Basic_Level')) return;
            const name = formatProcName(p.proc);
            if (!procGroups[name]) procGroups[name] = { count: 0, duration: 0 };
            procGroups[name].count++;
            const dur = getMax(p.use_count) || 1;
-           // If use_count_per_crit is true, it might be implicit, but here we see explicit `only_if_outcome`
            if (dur > procGroups[name].duration) procGroups[name].duration = dur;
         });
 
         const globalApplyCount = getMax(action.apply_count);
         const targetText = getTargetText(action.target);
-        
+
         Object.keys(procGroups).forEach(procName => {
             let count = globalApplyCount || procGroups[procName].count;
             const duration = procGroups[procName].duration;
             let durationText = '';
             if (duration > 1) durationText = ` for ${duration} turns`;
-            
+
             let effectText = '';
             if (targetText === 'self') {
-                effectText = `${conditionPrefix}Gain ${count > 1 ? count + ' ' : ''}${procName}${durationText}`;
+                effectText = `${conditionPrefix}${chancePrefix}Gain ${count > 1 ? count + ' ' : ''}${procName}${durationText}`;
             } else {
-                effectText = `${conditionPrefix}Apply ${count > 1 ? count + ' ' : ''}${procName}${durationText} to ${targetText}`;
+                effectText = `${conditionPrefix}${chancePrefix}Apply ${count > 1 ? count + ' ' : ''}${procName}${durationText} to ${targetText}`;
             }
             effects.push(effectText + '.');
         });
@@ -332,9 +490,9 @@ function processCharacter(charName, charData) {
         }
         const targetText = getTargetText(action.target);
         if (targetText === 'self') {
-             effects.push(`${conditionPrefix}Clear ${countText} ${what} from self.`);
+             effects.push(`${conditionPrefix}${chancePrefix}Clear ${countText} ${what} from self.`);
         } else {
-             effects.push(`${conditionPrefix}Clear ${countText} ${what} from ${targetText}.`);
+             effects.push(`${conditionPrefix}${chancePrefix}Clear ${countText} ${what} from ${targetText}.`);
         }
       }
 
@@ -343,16 +501,13 @@ function processCharacter(charName, charData) {
         let count = getMax(action.count) || 1;
         const countText = count >= 10 ? 'all' : `${count}`;
         const targetText = getTargetText(action.target);
-        // Use category to determine flip direction:
-        // category "debuff" = flipping debuffs to buffs (negative → positive)
-        // category "buff" = flipping buffs to debuffs (positive → negative)
         if (action.category === 'debuff') {
-             effects.push(`${conditionPrefix}Flip ${countText} negative effect(s) to positive on ${targetText === 'the primary target' ? targetText : targetText}.`);
+             effects.push(`${conditionPrefix}${chancePrefix}Flip ${countText} negative effect(s) to positive on ${targetText}.`);
         } else {
-             effects.push(`${conditionPrefix}Flip ${countText} positive effect(s) to negative on ${targetText}.`);
+             effects.push(`${conditionPrefix}${chancePrefix}Flip ${countText} positive effect(s) to negative on ${targetText}.`);
         }
       }
-      
+
       // 5. Health Redistribute
       if (action.action === 'health_redistribute') {
           const drainPct = getMax(action.drain_pct);
@@ -362,7 +517,7 @@ function processCharacter(charName, charData) {
               effects.push(`${conditionPrefix}Redistribute health.`);
           }
       }
-      
+
       // 6. Heal
       if (action.action === 'heal') {
           const healPct = getMax(action.heal_pct);
@@ -383,10 +538,8 @@ function processCharacter(charName, charData) {
           let verb = 'Copy';
           if (removePct > 0) verb = 'Steal';
 
-          // Determine what is being transferred
           let what = '';
           if (action.onlyprocs && action.onlyprocs.length > 0) {
-              // Specific procs: "Charged", "Revive Once", etc.
               what = action.onlyprocs.map(p => formatProcName(p)).join(' and ');
           } else {
               const countText = count >= 100 ? 'all' : `${count}`;
@@ -399,13 +552,21 @@ function processCharacter(charName, charData) {
               from = 'self';
               verb = 'Transfer';
           }
+          // Handle transferopposite: effects are converted to opposite type
+          if (action.transferopposite) {
+              verb = 'Transfer';
+              if (action.category === 'buff') {
+                  what = what.replace('positive', 'positive').replace(/positive effect/, 'positive effect');
+              }
+          }
 
           let toText = '';
           if (action.recipient && action.recipient.relation === 'ally') {
               toText = ' and give to allies';
+          } else if (action.recipient && action.recipient.relation === 'enemy') {
+              // from is already 'self', to goes to enemy
           }
 
-          // Handle exclusions (exceptprocs)
           let excludeText = '';
           if (action.exceptprocs && action.exceptprocs.length > 0) {
               const excludes = action.exceptprocs.map(p => formatProcName(p));
@@ -417,12 +578,12 @@ function processCharacter(charName, charData) {
               }
           }
 
-          effects.push(`${conditionPrefix}${verb} ${what} from ${from}${toText}${excludeText}.`);
+          let oppositeText = action.transferopposite ? ' as negative effects' : '';
+          effects.push(`${conditionPrefix}${chancePrefix}${verb} ${what} from ${from}${toText}${excludeText}${oppositeText}.`);
       }
 
       // 8. Turn Meter
       if (action.action === 'turn_meter') {
-          // Handle per-ally multiplier (specific_characters)
           if (action.specific_characters && action.specific_characters_mul) {
               const perAlly = Math.abs(getMax(action.specific_characters_mul));
               if (perAlly > 0) {
@@ -453,10 +614,10 @@ function processCharacter(charName, charData) {
       if (action.action === 'barrier') {
           const amount = getMax(action.health_pct);
           if (amount > 0) {
-              effects.push(`${conditionPrefix}Barrier for ${amount}% of Max Health.`);
+              effects.push(`${conditionPrefix}${chancePrefix}Barrier for ${amount}% of Max Health.`);
           }
       }
-      
+
       // 10. Proc Duration (Gain/Prolong)
       if (action.action === 'proc_duration') {
           const delta = getMax(action.delta);
@@ -467,7 +628,7 @@ function processCharacter(charName, charData) {
               if (action.category === 'buff') procName = 'positive effects';
               else if (action.category === 'debuff') procName = 'negative effects';
           }
-          
+
           let excludeText = '';
           if (action.exclude && action.exclude.length > 0) {
               if (action.category === 'debuff') procName = 'all negative effects';
@@ -480,7 +641,7 @@ function processCharacter(charName, charData) {
                   excludeText = `, excluding ${excludes[0]}`;
               }
           }
-          
+
           const targetText = getTargetText(action.target);
           const maxDur = getMax(action.max_duration);
           let maxText = '';
@@ -488,14 +649,126 @@ function processCharacter(charName, charData) {
 
           if (action.add_if_not && delta > 0) {
               if (targetText === 'self') {
-                  effects.push(`${conditionPrefix}Gain +${delta} ${procName}${maxText}.`);
+                  effects.push(`${conditionPrefix}${chancePrefix}Gain +${delta} ${procName}${maxText}.`);
               } else {
-                  effects.push(`${conditionPrefix}Apply +${delta} ${procName}${maxText} to ${targetText}.`);
+                  effects.push(`${conditionPrefix}${chancePrefix}Apply +${delta} ${procName}${maxText} to ${targetText}.`);
               }
           } else if (delta > 0) {
-              effects.push(`${conditionPrefix}Prolong the duration of ${procName}${excludeText} by ${delta}.`);
+              effects.push(`${conditionPrefix}${chancePrefix}Prolong the duration of ${procName}${excludeText} by ${delta}.`);
           } else if (delta < 0) {
-              effects.push(`${conditionPrefix}Reduce the duration of ${procName}${excludeText} by ${Math.abs(delta)}.`);
+              effects.push(`${conditionPrefix}${chancePrefix}Reduce the duration of ${procName}${excludeText} by ${Math.abs(delta)}.`);
+          }
+      }
+
+      // 11. Ability Energy
+      if (action.action === 'ability_energy') {
+          const count = getMax(action.count) || 1;
+          let targetText = '';
+          let condExtra = '';
+
+          // Handle only_ultimate / only_special conditions
+          if (action.only_ultimate) condExtra += 'On Ultimate assist, ';
+          if (action.only_special) condExtra += 'On Special assist, ';
+
+          if (action.target) {
+              const t = action.target;
+              if (t.filter && t.filter.character) {
+                  targetText = t.filter.character.map(c => formatProcName(c)).join(' or ');
+              } else if (t.filter && t.filter.traits && t.filter.traits.has_any) {
+                  const traits = t.filter.traits.has_any.map(tr => formatProcName(tr)).join(' or ').toUpperCase();
+                  targetText = `${traits} allies`;
+              } else if (t.filter && t.filter.and) {
+                  // Complex filter — extract trait from nested "and"
+                  for (const sub of t.filter.and) {
+                      if (sub.traits && sub.traits.has_any) {
+                          const traits = sub.traits.has_any.map(tr => formatProcName(tr)).join(' or ').toUpperCase();
+                          targetText = `a random ${traits} ally`;
+                          break;
+                      }
+                  }
+              } else if (t.relation === 'ally') {
+                  targetText = 'all allies';
+              }
+          } else if (action.recipient) {
+              targetText = 'a random ally';
+          } else {
+              targetText = 'self';
+          }
+
+          effects.push(`${conditionPrefix}${condExtra}Generate +${count} Ability Energy for ${targetText}.`);
+      }
+
+      // 12. Barrier Remove
+      if (action.action === 'barrier_remove') {
+          effects.push(`${conditionPrefix}Remove Barrier from the primary target.`);
+      }
+
+      // 13. Damage Multiplier Per Proc
+      if (action.action === 'damage_mul_per_proc') {
+          const pctPerProc = getMax(action.pct_per_proc);
+          if (pctPerProc > 0) {
+              const procType = action.category === 'buff' ? 'positive effect' : 'negative effect';
+              effects.push(`${conditionPrefix}+${pctPerProc}% damage for each ${procType} on the primary target.`);
+          }
+      }
+
+      // 14. Foreach Stat (per-ally stat bonuses)
+      if (action.foreach_stat) {
+          for (const fs2 of action.foreach_stat) {
+              const stat = fs2.stat;
+              const delta = getMax(fs2.delta);
+              if (delta === 0) continue;
+
+              const forEach = fs2.for_each;
+              let traitText = '';
+              if (forEach.traits && forEach.traits.has_any) {
+                  traitText = forEach.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+              } else if (forEach.and) {
+                  // Extract traits from nested "and" arrays (e.g., Kingpin: Underworld + not Spawned)
+                  for (const sub of forEach.and) {
+                      if (sub.traits && sub.traits.has_any) {
+                          traitText = sub.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                          break;
+                      }
+                  }
+              } else if (forEach.target && forEach.target.states) {
+                  traitText = forEach.target.states.join(' or ').toUpperCase();
+              }
+              const rel = forEach.relationship || 'ally';
+              const relText = rel === 'any' ? 'character' : rel;
+
+              // Build condition from apply_if if present
+              let foreachCond = '';
+              if (fs2.apply_if) {
+                  const modeText = extractModeText(fs2.apply_if);
+                  if (modeText) foreachCond = `In ${modeText}, `;
+                  // Handle count-based conditions
+                  if (fs2.apply_if.count && fs2.apply_if.count_filter) {
+                      const cf = fs2.apply_if.count_filter;
+                      let cfTrait = '';
+                      if (cf.traits && cf.traits.has_any) {
+                          cfTrait = cf.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                      } else if (cf.and) {
+                          for (const sub of cf.and) {
+                              if (sub.traits && sub.traits.has_any) {
+                                  cfTrait = sub.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                                  break;
+                              }
+                          }
+                      }
+                      const threshold = fs2.apply_if.count.than || 0;
+                      foreachCond += `If ${threshold}+ ${cfTrait} allies, `;
+                  }
+              }
+
+              let statName = '';
+              if (stat === 'armor_pierce_pct') statName = 'Piercing';
+              else if (stat === 'ability_damage_pct' || stat === 'damage_pct') statName = 'Damage';
+              else if (stat === 'crit_chance_pct') statName = 'Crit Chance';
+              else if (stat === 'focus_pct') statName = 'Focus';
+              else statName = stat;
+
+              effects.push(`${conditionPrefix}${foreachCond}+${delta}% ${statName} for each ${traitText} ${relText}.`);
           }
       }
     });
@@ -504,16 +777,68 @@ function processCharacter(charName, charData) {
   // Process stat_lock for notes
   if (safety.stat_lock) {
       safety.stat_lock.forEach(lock => {
-          if (lock.stat === 'block_chance_pct' && lock.value === 0 && lock.on === 'primary') {
-              if (!notes.includes("This attack cannot be blocked.")) notes.push("This attack cannot be blocked.");
-          }
-          if (lock.stat === 'dodge_chance_pct' && lock.value === 0 && lock.on === 'primary') {
-              if (!notes.includes("This attack cannot be dodged.")) notes.push("This attack cannot be dodged.");
-          }
-          if (lock.stat === 'accuracy_pct' && lock.value === 100) {
-              if (!notes.includes("This attack cannot miss.")) notes.push("This attack cannot miss."); // Or unavoidable
+          // Determine the meaning of this stat lock
+          let meaning = '';
+          if (lock.stat === 'block_chance_pct' && lock.value === 0) meaning = 'This attack cannot be blocked.';
+          else if (lock.stat === 'dodge_chance_pct' && lock.value === 0) meaning = 'This attack cannot be dodged.';
+          else if (lock.stat === 'accuracy_pct' && lock.value === 100) meaning = 'This attack cannot miss.';
+          else if (lock.stat === 'counter_pct' && lock.value === 0) meaning = 'This attack cannot be countered.';
+          else if (lock.stat === 'crit_chance_pct' && lock.value <= 0) meaning = 'This attack cannot critically hit.';
+          else return; // Unknown stat lock, skip
+
+          if (lock.if) {
+              // Conditional stat lock — build condition text
+              let condText = '';
+              const cond = lock.if;
+              const modeText = extractModeText(cond);
+              if (modeText) condText = `In ${modeText}`;
+
+              // Character-specific conditions
+              if (cond.count && cond.count_filter) {
+                  const cf = cond.count_filter;
+                  let charName = '';
+                  if (cf.character) charName = cf.character.map(c => formatProcName(c)).join(' or ');
+                  else if (cf.traits && cf.traits.has_any) charName = cf.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                  if (charName) {
+                      const rel = cf.relationship || 'ally';
+                      condText += (condText ? ', ' : '') + `If ${charName} is an ${rel}`;
+                  }
+              }
+
+              // Target proc conditions
+              if (cond.target && cond.target.procs) {
+                  const procs = cond.target.procs.map(p => formatProcName(p)).join(' or ');
+                  condText += (condText ? ', ' : '') + `If target has ${procs}`;
+              }
+              if (cond.or) {
+                  const procParts = cond.or
+                      .filter(sub => sub.target && sub.target.procs)
+                      .map(sub => sub.target.procs.map(p => formatProcName(p)).join(' or '));
+                  if (procParts.length > 0) {
+                      condText += (condText ? ', ' : '') + `If target has ${procParts.join(' or ')}`;
+                  }
+              }
+
+              if (condText) {
+                  const condNote = `${condText}, ${meaning.charAt(0).toLowerCase()}${meaning.slice(1)}`;
+                  if (!notes.includes(condNote)) notes.push(condNote);
+              }
+          } else {
+              // Unconditional stat lock (only count primary/self targets, not secondary)
+              if (!lock.on || lock.on === 'primary' || lock.on === 'self') {
+                  if (!notes.includes(meaning)) notes.push(meaning);
+              }
           }
       });
+  }
+
+  // Process skip_focus_check for notes
+  if (safety.actions) {
+      const hasSkipFocus = safety.actions.some(a => a.skip_focus_check);
+      if (hasSkipFocus) {
+          const note = "Debuffs from this attack cannot be resisted.";
+          if (!notes.includes(note)) notes.push(note);
+      }
   }
 
   // Deduplicate effects and notes
