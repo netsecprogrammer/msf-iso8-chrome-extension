@@ -45,8 +45,8 @@ const PROC_MAP = {
   'LockedBuff': 'Safeguard',
   'LockedDebuff': 'Trauma',
   'Exposed': 'Exposed',
-  'BuffBlock': 'Immunity', // Usually prevents buffs
-  'DebuffBlock': 'Immunity',
+  'BuffBlock': 'Disrupted', // Prevents buffs
+  'DebuffBlock': 'Immunity', // Prevents debuffs
   'MinorDeflect': 'Minor Deflect',
   'MinorRegeneration': 'Minor Regeneration',
   'MinorDefenseUp': 'Minor Defense Up',
@@ -305,9 +305,15 @@ function processCharacter(charName, charData) {
   }
 
   // Generate description
-  let description = `Attack primary target for ${damage > 0 ? damage + '%' : ''}`;
-  if (damage > 0 && piercing > 0) description += ' damage';
-  if (piercing > 0) description += ` + ${piercing}% Piercing`;
+  let description = 'Attack primary target for ';
+  if (damage > 0) {
+      description += `${damage}% damage`;
+      if (piercing > 0) description += ` + ${piercing}% Piercing`;
+  } else {
+      if (piercing > 0) description += `${piercing}% Piercing`;
+      else description = 'Attack primary target'; // Fallback if no dmg/piercing
+  }
+  
   if (drain > 0) description += ` + ${drain}% Drain`;
   
   if (effects.length > 0) {
