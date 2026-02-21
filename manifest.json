@@ -5,7 +5,7 @@
   "description": "Displays ISO-8 Counter Attack/Assist ability information on Marvel Strike Force character pages",
   "content_scripts": [
     {
-      "matches": ["https://marvelstrikeforce.com/en/characters/*"],
+      "matches": ["https://marvelstrikeforce.com/*/characters/*"],
       "js": ["content.js"],
       "css": ["styles.css"],
       "run_at": "document_idle"
