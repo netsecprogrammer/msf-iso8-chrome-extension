@@ -243,10 +243,12 @@ function processCharacter(charName, charData) {
       if (action.action === 'proc_duration') {
           const delta = getMax(action.delta);
           
-          // Handle 'only_procs' which is usually an array
           let procName = 'Effects';
           if (action.only_procs && action.only_procs.length > 0) {
               procName = formatProcName(action.only_procs[0]);
+          } else {
+              if (action.category === 'buff') procName = 'positive effects';
+              else if (action.category === 'debuff') procName = 'negative effects';
           }
           
           if (action.add_if_not && delta > 0) {
@@ -293,10 +295,6 @@ try {
 
   for (const [charId, data] of Object.entries(charDataMap)) {
     if (charId === 'ForceImportVersion' || charId === 'Name') continue;
-
-    if (charId === 'Ares') {
-      console.log('Ares Data Debug:', JSON.stringify(processCharacter(charId, data), null, 2));
-    }
 
     const processed = processCharacter(charId, data);
     if (processed) {

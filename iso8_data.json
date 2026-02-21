@@ -22,12 +22,12 @@
     "notes": []
   },
   "AdamWarlock": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nProlong Effects duration by 1.\\nApply 1 Bleed to the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nProlong negative effects duration by 1.\\nApply 1 Bleed to the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Prolong Effects duration by 1.",
+      "Prolong negative effects duration by 1.",
       "Apply 1 Bleed to the primary target."
     ],
     "notes": []
@@ -387,16 +387,16 @@
     "notes": []
   },
   "BuckyBarnes": {
-    "description": "Attack primary target for 216% damage + 17% Piercing.\\nProlong Effects duration by 1.\\nIn RAID, Prolong Effects duration by 1.\\nReduce Charged duration by 1.\\nProlong Effects duration by 1.\\nIn RAID, Prolong Effects duration by 1.\\nReduce Charged duration by 1.",
+    "description": "Attack primary target for 216% damage + 17% Piercing.\\nProlong negative effects duration by 1.\\nIn RAID, Prolong negative effects duration by 1.\\nReduce Charged duration by 1.\\nProlong negative effects duration by 1.\\nIn RAID, Prolong negative effects duration by 1.\\nReduce Charged duration by 1.",
     "damage": 216,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Prolong Effects duration by 1.",
-      "In RAID, Prolong Effects duration by 1.",
+      "Prolong negative effects duration by 1.",
+      "In RAID, Prolong negative effects duration by 1.",
       "Reduce Charged duration by 1.",
-      "Prolong Effects duration by 1.",
-      "In RAID, Prolong Effects duration by 1.",
+      "Prolong negative effects duration by 1.",
+      "In RAID, Prolong negative effects duration by 1.",
       "Reduce Charged duration by 1."
     ],
     "notes": []
@@ -1284,13 +1284,13 @@
     "notes": []
   },
   "HitMonkey": {
-    "description": "Attack primary target for 254% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nProlong Effects duration by 1.",
+    "description": "Attack primary target for 254% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nProlong negative effects duration by 1.",
     "damage": 254,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 1 Bleed to the primary target.",
-      "Prolong Effects duration by 1."
+      "Prolong negative effects duration by 1."
     ],
     "notes": []
   },
@@ -1533,14 +1533,14 @@
     "notes": []
   },
   "IronheartMCU": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.\\nGain +1 Marked.\\nProlong Effects duration by 1.\\nGain Immunity.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.\\nGain +1 Marked.\\nProlong negative effects duration by 1.\\nGain Immunity.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 1 Defense Down to the primary target.",
       "Gain +1 Marked.",
-      "Prolong Effects duration by 1.",
+      "Prolong negative effects duration by 1.",
       "Gain Immunity."
     ],
     "notes": []
@@ -1607,7 +1607,7 @@
     "notes": []
   },
   "Kahhori": {
-    "description": "Attack primary target for 25% damage + 135% Piercing + 50% Drain.\\nRedistribute health.\\nRedistribute health.\\nFlip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip 999 positive effect(s) to negative on the primary target.\\nApply 1 AccuracyDown to the primary target.\\nApply 1 Exposed to the primary target.\\nGain +1 Charged.\\nProlong Effects duration by 1.",
+    "description": "Attack primary target for 25% damage + 135% Piercing + 50% Drain.\\nRedistribute health.\\nRedistribute health.\\nFlip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip 999 positive effect(s) to negative on the primary target.\\nApply 1 AccuracyDown to the primary target.\\nApply 1 Exposed to the primary target.\\nGain +1 Charged.\\nProlong positive effects duration by 1.",
     "damage": 25,
     "piercing": 135,
     "drain": 50,
@@ -1619,7 +1619,7 @@
       "Apply 1 AccuracyDown to the primary target.",
       "Apply 1 Exposed to the primary target.",
       "Gain +1 Charged.",
-      "Prolong Effects duration by 1."
+      "Prolong positive effects duration by 1."
     ],
     "notes": []
   },
@@ -1927,12 +1927,12 @@
     "notes": []
   },
   "Magneto": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, Prolong Effects duration by 1.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, Prolong negative effects duration by 1.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, Prolong Effects duration by 1."
+      "In RAID, Prolong negative effects duration by 1."
     ],
     "notes": []
   },
@@ -2476,13 +2476,13 @@
     "notes": []
   },
   "OmegaRedPhoenix": {
-    "description": "Attack primary target for  + 376% Piercing.\\nApply 2 Bleed to the primary target.\\nProlong Effects duration by 1.",
+    "description": "Attack primary target for  + 376% Piercing.\\nApply 2 Bleed to the primary target.\\nProlong negative effects duration by 1.",
     "damage": 0,
     "piercing": 376,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "Prolong Effects duration by 1."
+      "Prolong negative effects duration by 1."
     ],
     "notes": []
   },
@@ -3405,13 +3405,13 @@
     "notes": []
   },
   "Satana": {
-    "description": "Attack primary target for  + 120% Piercing.\\nRedistribute health.\\nIn GRAND_TOURNAMENT, Reduce Effects duration by 1.",
+    "description": "Attack primary target for  + 120% Piercing.\\nRedistribute health.\\nIn GRAND_TOURNAMENT, Reduce negative effects duration by 1.",
     "damage": 0,
     "piercing": 120,
     "drain": 0,
     "effects": [
       "Redistribute health.",
-      "In GRAND_TOURNAMENT, Reduce Effects duration by 1."
+      "In GRAND_TOURNAMENT, Reduce negative effects duration by 1."
     ],
     "notes": []
   },
@@ -3718,7 +3718,7 @@
     "notes": []
   },
   "SpiderMan2099": {
-    "description": "Attack primary target for 250% damage + 20% Piercing.\\nClear 2 positive effect(s) from the primary target.\\nApply 1 Defense Down to the primary target.\\nApply 1 Bleed to the primary target.\\nIn GRAND_TOURNAMENT, Prolong Effects duration by 1.\\nIn GRAND_TOURNAMENT, Prolong Bleed duration by 1.",
+    "description": "Attack primary target for 250% damage + 20% Piercing.\\nClear 2 positive effect(s) from the primary target.\\nApply 1 Defense Down to the primary target.\\nApply 1 Bleed to the primary target.\\nIn GRAND_TOURNAMENT, Prolong negative effects duration by 1.\\nIn GRAND_TOURNAMENT, Prolong Bleed duration by 1.",
     "damage": 250,
     "piercing": 20,
     "drain": 0,
@@ -3726,7 +3726,7 @@
       "Clear 2 positive effect(s) from the primary target.",
       "Apply 1 Defense Down to the primary target.",
       "Apply 1 Bleed to the primary target.",
-      "In GRAND_TOURNAMENT, Prolong Effects duration by 1.",
+      "In GRAND_TOURNAMENT, Prolong negative effects duration by 1.",
       "In GRAND_TOURNAMENT, Prolong Bleed duration by 1."
     ],
     "notes": []
@@ -4518,13 +4518,13 @@
     "notes": []
   },
   "Wolfsbane": {
-    "description": "Attack primary target for  + 190% Piercing.\\nFlip 999 positive effect(s) to negative on the primary target.\\nProlong Effects duration by 1.",
+    "description": "Attack primary target for  + 190% Piercing.\\nFlip 999 positive effect(s) to negative on the primary target.\\nProlong negative effects duration by 1.",
     "damage": 0,
     "piercing": 190,
     "drain": 0,
     "effects": [
       "Flip 999 positive effect(s) to negative on the primary target.",
-      "Prolong Effects duration by 1."
+      "Prolong negative effects duration by 1."
     ],
     "notes": []
   },
