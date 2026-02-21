@@ -1,12 +1,12 @@
 {
   "Abomination": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nClear Defense Up from the primary target.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nClear Defense Up from the primary target.\\nApply 1 Defense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Clear Defense Up from the primary target.",
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -21,12 +21,12 @@
     "notes": []
   },
   "AdamWarlock": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -41,100 +41,97 @@
     "notes": []
   },
   "AgentVenom": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 1 Defense Down to the primary target.",
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "AimControl_Infect": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply Defense Down to the primary target.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 163% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 Defense Down to the primary target.\\nApply 1 Slow to the primary target.",
     "damage": 163,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
-      "Apply Defense Down to the primary target.",
-      "Apply Slow to the primary target."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Defense Down to the primary target.",
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "AimDmg_Offense": {
-    "description": "Attack primary target for 153% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 153% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 153,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "AimDmg_Speed": {
-    "description": "Attack primary target for 114% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 114% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 114,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "AimSupport_Heal": {
-    "description": "Attack primary target for 149% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 149% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 149,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
   "AimTank_Taunt": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "AmadeusCho": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply HoT to self.\\nApply HoT to self.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 HoT to self.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
-      "Apply HoT to self.",
-      "Apply HoT to self."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 HoT to self."
     ],
     "notes": []
   },
   "AmericaChavez": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "AncientOne": {
-    "description": "Attack primary target for 25% damage + 157% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 25% damage + 157% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 2 Bleed to the primary target.",
     "damage": 25,
     "piercing": 157,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed to the primary target.",
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -159,51 +156,49 @@
     "notes": []
   },
   "AntiVenom": {
-    "description": "Attack primary target for 178% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nTransfer 1000 positive effects from self.",
+    "description": "Attack primary target for 178% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nTransfer 1000 positive effects from self.",
     "damage": 178,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target.",
       "Transfer 1000 positive effects from self."
     ],
     "notes": []
   },
   "Apocalypse": {
-    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nApply Offense Up to allies.\\nApply Speed Up to allies.\\nHeal for 5% of Max Health.\\nApply Stun to the primary target.\\nClear Charged from the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nApply 1 Offense Up to allies.\\nApply 1 Speed Up to allies.\\nHeal for 5% of Max Health.\\nApply 1 Stun to the primary target.\\nClear Charged from the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 100,
     "effects": [
-      "Apply Offense Up to allies.",
-      "Apply Speed Up to allies.",
+      "Apply 1 Offense Up to allies.",
+      "Apply 1 Speed Up to allies.",
       "Heal for 5% of Max Health.",
-      "Apply Stun to the primary target.",
+      "Apply 1 Stun to the primary target.",
       "Clear Charged from the primary target."
     ],
     "notes": []
   },
   "Archangel": {
-    "description": "Attack primary target for 281% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 281% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nIn RAID, Apply 2 Bleed to the primary target.",
     "damage": 281,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed to the primary target.",
+      "In RAID, Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
   "Ares": {
-    "description": "Attack primary target for 177% damage + 19% Piercing.\\nClear undefined from the primary target.\\nApply DebuffBlock to allies.",
+    "description": "Attack primary target for 177% damage + 19% Piercing.\\nClear undefined from the primary target.\\nApply 1 Immunity to allies.",
     "damage": 177,
     "piercing": 19,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply DebuffBlock to allies."
+      "Apply 1 Immunity to allies."
     ],
     "notes": []
   },
@@ -216,26 +211,26 @@
     "notes": []
   },
   "BaronMordo": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Defense Down to the primary target.\\nApply Offense Down to the primary target.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.\\nApply 2 Offense Down to the primary target.\\nApply 2 Slow to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target.",
-      "Apply Offense Down to the primary target.",
-      "Apply Slow to the primary target."
+      "Apply 2 Defense Down to the primary target.",
+      "Apply 2 Offense Down to the primary target.",
+      "Apply 2 Slow to the primary target."
     ],
     "notes": []
   },
   "Beast": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nFlip positive effects to negative on primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, Steal 1000 positive effects from primary target.\\nIn RAID, Steal 1000 positive effects from primary target.\\nIn RAID, Steal 1000 positive effects from primary target.\\nFlip positive effects to negative on primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target.",
       "Flip positive effects to negative on primary target."
     ],
     "notes": []
@@ -271,17 +266,16 @@
     "notes": []
   },
   "BlackCat": {
-    "description": "Attack primary target for  + 456% Piercing.\\nApply Slow to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nReduce Speed Bar by 5%.\\nGain 5% Speed Bar.\\nApply Stealth to allies.",
+    "description": "Attack primary target for  + 456% Piercing.\\nApply 1 Slow to the primary target.\\nApply 1 Bleed to the primary target.\\nReduce Speed Bar by 5%.\\nGain 5% Speed Bar.\\nApply 1 Stealth to allies.",
     "damage": 0,
     "piercing": 456,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
+      "Apply 1 Slow to the primary target.",
+      "Apply 1 Bleed to the primary target.",
       "Reduce Speed Bar by 5%.",
       "Gain 5% Speed Bar.",
-      "Apply Stealth to allies."
+      "Apply 1 Stealth to allies."
     ],
     "notes": []
   },
@@ -296,13 +290,13 @@
     "notes": []
   },
   "BlackPanther": {
-    "description": "Attack primary target for 105% damage + 47% Piercing.\\nApply Slow to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 105% damage + 47% Piercing.\\nApply 1 Slow to the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 105,
     "piercing": 47,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 1 Slow to the primary target.",
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -315,14 +309,14 @@
     "notes": []
   },
   "BlackPantherShuri": {
-    "description": "Attack primary target for  + 173% Piercing.\\nApply Slow to the primary target.\\nApply Defense Down to the primary target.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for  + 173% Piercing.\\nApply 3 Slow to the primary target.\\nApply 3 Defense Down to the primary target.\\nApply 3 Heal Block to the primary target.",
     "damage": 0,
     "piercing": 173,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target.",
-      "Apply Defense Down to the primary target.",
-      "Apply Heal Block to the primary target."
+      "Apply 3 Slow to the primary target.",
+      "Apply 3 Defense Down to the primary target.",
+      "Apply 3 Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -347,24 +341,24 @@
     "notes": []
   },
   "Blastaar": {
-    "description": "Attack primary target for 175% damage + 20% Piercing.\\nClear undefined from the primary target.\\nClear undefined from the primary target.\\nGain 30% Speed Bar.",
+    "description": "Attack primary target for 175% damage + 20% Piercing.\\nIn GRAND_TOURNAMENT OFFENSE, Clear undefined from the primary target.\\nClear undefined from the primary target.\\nIn GRAND_TOURNAMENT OFFENSE, Gain 30% Speed Bar.",
     "damage": 175,
     "piercing": 20,
     "drain": 0,
     "effects": [
+      "In GRAND_TOURNAMENT OFFENSE, Clear undefined from the primary target.",
       "Clear undefined from the primary target.",
-      "Clear undefined from the primary target.",
-      "Gain 30% Speed Bar."
+      "In GRAND_TOURNAMENT OFFENSE, Gain 30% Speed Bar."
     ],
     "notes": []
   },
   "Blob": {
-    "description": "Attack primary target for 255% damage + 25% Piercing.\\nApply Slow to the primary target.\\nReduce Speed Bar by 20%.",
+    "description": "Attack primary target for 255% damage + 25% Piercing.\\nApply 1 Slow to the primary target.\\nReduce Speed Bar by 20%.",
     "damage": 255,
     "piercing": 25,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target.",
+      "Apply 1 Slow to the primary target.",
       "Reduce Speed Bar by 20%."
     ],
     "notes": []
@@ -415,23 +409,23 @@
     "notes": []
   },
   "CaptainAmerica": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Offense Down to the primary target.\\nApply Defense Up to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 Defense Up to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target.",
-      "Apply Defense Up to allies."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Defense Up to allies."
     ],
     "notes": []
   },
   "CaptainAmericaWW2": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
@@ -448,14 +442,13 @@
     "notes": []
   },
   "CaptainCarter": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 HoT to self.\\nApply 2 HoT to self.\\nApply HoT to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 HoT to self.\\nApply 1 HoT to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 HoT to self.",
-      "Apply 2 HoT to self.",
-      "Apply HoT to the primary target."
+      "Apply 1 HoT to the primary target."
     ],
     "notes": []
   },
@@ -484,36 +477,35 @@
     "notes": []
   },
   "Cloak": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
   "ColleenWing": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nIn WAR DEFENSE, Apply 1 Bleed to the primary target.\\nApply 2 Bleed to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "In WAR DEFENSE, Apply 1 Bleed to the primary target.",
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
   "Colossus": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 2 Offense Down to the primary target.\\nApply 2 Defense Down to the primary target.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 Defense Down to the primary target.\\nApply 1 Slow to the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target.",
-      "Apply 2 Defense Down to the primary target.",
-      "Apply 2 Slow to the primary target."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Defense Down to the primary target.",
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
@@ -528,13 +520,13 @@
     "notes": []
   },
   "CosmicGhostRider": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\\nApply Ability Block to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\\nIn WAR, Apply 1 Ability Block to the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Ability Block to the primary target.",
-      "Apply Bleed to the primary target."
+      "In WAR, Apply 1 Ability Block to the primary target.",
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -560,23 +552,23 @@
     "notes": []
   },
   "Crossbones": {
-    "description": "Attack primary target for 144% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 144% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 144,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
   "Crystal": {
-    "description": "Attack primary target for 180% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 180% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nApply 1 Slow to the primary target.",
     "damage": 180,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply 2 Slow to the primary target."
+      "Apply 1 Bleed to the primary target.",
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
@@ -589,43 +581,43 @@
     "notes": []
   },
   "Cyclops": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\\nApply Defense Down to the primary target.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.\\nApply 1 Slow to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target.",
-      "Apply Slow to the primary target."
+      "Apply 1 Defense Down to the primary target.",
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "CyclopsXavierSummon": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "Dagger": {
-    "description": "Attack primary target for  + 175% Piercing.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for  + 175% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 0,
     "piercing": 175,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "DaimonHellstrom": {
-    "description": "Attack primary target for  + 150% Piercing.\\nApply Offense Up to allies.",
+    "description": "Attack primary target for  + 150% Piercing.\\nApply 1 Offense Up to allies.",
     "damage": 0,
     "piercing": 150,
     "drain": 0,
     "effects": [
-      "Apply Offense Up to allies."
+      "Apply 1 Offense Up to allies."
     ],
     "notes": []
   },
@@ -656,15 +648,14 @@
     "notes": []
   },
   "DarkBeast": {
-    "description": "Attack primary target for 199% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply 2 Offense Down to the primary target.\\nApply 2 Heal Block to the primary target.",
+    "description": "Attack primary target for 199% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 1 Offense Down to the primary target.\\nApply 1 Heal Block to the primary target.",
     "damage": 199,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply 2 Offense Down to the primary target.",
-      "Apply 2 Heal Block to the primary target."
+      "Apply 2 Bleed to the primary target.",
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -679,14 +670,14 @@
     "notes": []
   },
   "Darkhawk": {
-    "description": "Attack primary target for 233% damage + 17% Piercing.\\nApply 2 Offense Down to the primary target.\\nApply Offense Up to allies.\\nApply Deflect to the primary target.",
+    "description": "Attack primary target for 233% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 Offense Up to allies.\\nApply 1 Deflect to the primary target.",
     "damage": 233,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target.",
-      "Apply Offense Up to allies.",
-      "Apply Deflect to the primary target."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Offense Up to allies.",
+      "Apply 1 Deflect to the primary target."
     ],
     "notes": []
   },
@@ -699,14 +690,14 @@
     "notes": []
   },
   "Dazzler": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply Offense Down to the primary target.\\nApply AccuracyDown to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn GRAND_TOURNAMENT, Flip positive effects to negative on primary target.\\nApply 1 Offense Down to the primary target.\\nIn GRAND_TOURNAMENT, Apply 1 AccuracyDown to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Flip positive effects to negative on primary target.",
-      "Apply Offense Down to the primary target.",
-      "Apply AccuracyDown to the primary target."
+      "In GRAND_TOURNAMENT, Flip positive effects to negative on primary target.",
+      "Apply 1 Offense Down to the primary target.",
+      "In GRAND_TOURNAMENT, Apply 1 AccuracyDown to the primary target."
     ],
     "notes": []
   },
@@ -738,22 +729,22 @@
     "notes": []
   },
   "DoctorOctopus": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "DoctorStrange": {
-    "description": "Attack primary target for 25% damage + 212% Piercing.\\nApply 2 Offense Down to the primary target.\\nRedistribute health.\\nBarrier for 5% of Max Health.",
+    "description": "Attack primary target for 25% damage + 212% Piercing.\\nApply 1 Offense Down to the primary target.\\nRedistribute health.\\nBarrier for 5% of Max Health.",
     "damage": 25,
     "piercing": 212,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target.",
+      "Apply 1 Offense Down to the primary target.",
       "Redistribute health.",
       "Barrier for 5% of Max Health."
     ],
@@ -776,33 +767,33 @@
     "notes": []
   },
   "Doom": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply Disrupted to the primary target.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply 1 Immunity to the primary target.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Disrupted to the primary target."
+      "Apply 1 Immunity to the primary target."
     ],
     "notes": []
   },
   "DoomBot": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply Disrupted to the primary target.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply 1 Immunity to the primary target.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Disrupted to the primary target."
+      "Apply 1 Immunity to the primary target."
     ],
     "notes": []
   },
   "Dormammu": {
-    "description": "Attack primary target for 245% damage + 17% Piercing + 30% Drain.\\nClear undefined from the primary target.\\nClear DebuffBlock from the primary target.",
+    "description": "Attack primary target for 245% damage + 17% Piercing + 30% Drain.\\nClear undefined from the primary target.\\nClear Immunity from the primary target.",
     "damage": 245,
     "piercing": 17,
     "drain": 30,
     "effects": [
       "Clear undefined from the primary target.",
-      "Clear DebuffBlock from the primary target."
+      "Clear Immunity from the primary target."
     ],
     "notes": []
   },
@@ -815,13 +806,13 @@
     "notes": []
   },
   "EbonyMaw": {
-    "description": "Attack primary target for  + 248% Piercing.\\nApply 2 Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for  + 248% Piercing.\\nApply 1 Bleed to the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 0,
     "piercing": 248,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -844,12 +835,12 @@
     "notes": []
   },
   "Elektra": {
-    "description": "Attack primary target for 168% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 168% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 168,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -873,41 +864,40 @@
     "notes": []
   },
   "EmmaFrostXMen": {
-    "description": "Attack primary target for 193% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply HoT to allies.\\nApply 2 HoT to the primary target.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for 193% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 1 HoT to allies.\\nApply 1 HoT to the primary target.\\nBarrier for 10% of Max Health.",
     "damage": 193,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply HoT to allies.",
-      "Apply 2 HoT to the primary target.",
+      "Apply 2 Bleed to the primary target.",
+      "Apply 1 HoT to allies.",
+      "Apply 1 HoT to the primary target.",
       "Barrier for 10% of Max Health."
     ],
     "notes": []
   },
   "Falcon": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn RAID, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn RAID, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn RAID, Steal 1000 positive effects from primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target."
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target."
     ],
     "notes": []
   },
   "FalconJoaquin": {
-    "description": "Attack primary target for 188% damage + 17% Piercing.\\nApply Speed Up to allies.",
+    "description": "Attack primary target for 188% damage + 17% Piercing.\\nApply 1 Speed Up to allies.",
     "damage": 188,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Speed Up to allies."
+      "Apply 1 Speed Up to allies."
     ],
     "notes": []
   },
@@ -920,25 +910,24 @@
     "notes": []
   },
   "Firestar": {
-    "description": "Attack primary target for  + 180% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Offense Up to self.",
+    "description": "Attack primary target for  + 180% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 1 Offense Up to self.",
     "damage": 0,
     "piercing": 180,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Offense Up to self."
+      "Apply 2 Bleed to the primary target.",
+      "Apply 1 Offense Up to self."
     ],
     "notes": []
   },
   "Forge": {
-    "description": "Attack primary target for 165% damage + 17% Piercing.\\nApply Deflect to allies.\\nApply HoT to allies.",
+    "description": "Attack primary target for 165% damage + 17% Piercing.\\nApply 1 Deflect to allies.\\nApply 1 HoT to allies.",
     "damage": 165,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Deflect to allies.",
-      "Apply HoT to allies."
+      "Apply 1 Deflect to allies.",
+      "Apply 1 HoT to allies."
     ],
     "notes": []
   },
@@ -994,12 +983,12 @@
     "notes": []
   },
   "Gambit": {
-    "description": "Attack primary target for  + 201% Piercing.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for  + 201% Piercing.\\nApply 1 Heal Block to the primary target.",
     "damage": 0,
     "piercing": 201,
     "drain": 0,
     "effects": [
-      "Apply Heal Block to the primary target."
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -1022,56 +1011,56 @@
     "notes": []
   },
   "GhostRider": {
-    "description": "Attack primary target for 185% damage + 20% Piercing.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 185% damage + 20% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 185,
     "piercing": 20,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "GhostRiderRobbie": {
-    "description": "Attack primary target for  + 195% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for  + 195% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 0,
     "piercing": 195,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "GhostSpider": {
-    "description": "Attack primary target for 208% damage + 17% Piercing.\\nSteal 1 positive effects from primary target.\\nApply AccuracyDown to the primary target.\\nApply Bleed to the primary target.\\nApply Evade to allies.",
+    "description": "Attack primary target for 208% damage + 17% Piercing.\\nSteal 1 positive effects from primary target.\\nIn RAID, Apply 1 AccuracyDown to the primary target.\\nIn RAID, Apply 1 Bleed to the primary target.\\nApply 1 Evade to allies.",
     "damage": 208,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Steal 1 positive effects from primary target.",
-      "Apply AccuracyDown to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Evade to allies."
+      "In RAID, Apply 1 AccuracyDown to the primary target.",
+      "In RAID, Apply 1 Bleed to the primary target.",
+      "Apply 1 Evade to allies."
     ],
     "notes": []
   },
   "Gladiator": {
-    "description": "Attack primary target for 203% damage + 17% Piercing + 25% Drain.\\nApply 2 Offense Down to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing + 25% Drain.\\nApply 1 Offense Down to the primary target.",
     "damage": 203,
     "piercing": 17,
     "drain": 25,
     "effects": [
-      "Apply 2 Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
   "Gorr": {
-    "description": "Attack primary target for  + 218% Piercing.\\nClear Charged from the primary target.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for  + 218% Piercing.\\nClear Charged from the primary target.\\nApply 1 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 218,
     "drain": 0,
     "effects": [
       "Clear Charged from the primary target.",
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -1084,70 +1073,67 @@
     "notes": []
   },
   "GreenGoblinGlider": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "Greg": {
-    "description": "Attack primary target for  + 216% Piercing.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for  + 216% Piercing.\\nApply 1 Heal Block to the primary target.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
-      "Apply Heal Block to the primary target."
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
   "Groot": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply 2 HoT to allies.\\nApply 2 HoT to allies.\\nApply 2 HoT to allies.\\nApply 2 HoT to allies.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply 2 HoT to allies.\\nApply 2 HoT to allies.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 HoT to allies.",
-      "Apply 2 HoT to allies.",
       "Apply 2 HoT to allies.",
       "Apply 2 HoT to allies."
     ],
     "notes": []
   },
   "Guardian": {
-    "description": "Attack primary target for 219% damage + 17% Piercing.\\nApply HoT to allies.",
+    "description": "Attack primary target for 219% damage + 17% Piercing.\\nApply 1 HoT to allies.",
     "damage": 219,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply HoT to allies."
+      "Apply 1 HoT to allies."
     ],
     "notes": []
   },
   "Gwenom": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply 2 Bleed to the primary target.\\nApply 1 Defense Down to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Defense Down to the primary target."
+      "Apply 2 Bleed to the primary target.",
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "Gwenpool": {
-    "description": "Attack primary target for 278% damage + 17% Piercing.\\nBarrier for 30% of Max Health.\\nBarrier for 15% of Max Health.\\nApply 2 Defense Up to self.",
+    "description": "Attack primary target for 278% damage + 17% Piercing.\\nBarrier for 30% of Max Health.\\nBarrier for 15% of Max Health.\\nApply 1 Defense Up to self.",
     "damage": 278,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Barrier for 30% of Max Health.",
       "Barrier for 15% of Max Health.",
-      "Apply 2 Defense Up to self."
+      "Apply 1 Defense Up to self."
     ],
     "notes": []
   },
@@ -1202,13 +1188,13 @@
     "notes": []
   },
   "Havok": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply 1 Slow to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Apply Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
@@ -1239,23 +1225,23 @@
     "notes": []
   },
   "Hellcat": {
-    "description": "Attack primary target for  + 135% Piercing.\\nApply Ability Block to the primary target.",
+    "description": "Attack primary target for  + 135% Piercing.\\nIn WAR, Apply 1 Ability Block to the primary target.",
     "damage": 0,
     "piercing": 135,
     "drain": 0,
     "effects": [
-      "Apply Ability Block to the primary target."
+      "In WAR, Apply 1 Ability Block to the primary target."
     ],
     "notes": []
   },
   "Hellverine": {
-    "description": "Attack primary target for  + 165% Piercing.\\nApply Defense Down to the primary target.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for  + 165% Piercing.\\nApply 1 Defense Down to the primary target.\\nApply 1 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 165,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target.",
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target.",
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -1272,12 +1258,12 @@
     "notes": []
   },
   "HitMonkey": {
-    "description": "Attack primary target for 254% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 254% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 254,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -1290,12 +1276,12 @@
     "notes": []
   },
   "HowardTheDuck": {
-    "description": "Attack primary target for 180% damage + 170% Piercing.\\nApply 2 Offense Up to allies.",
+    "description": "Attack primary target for 180% damage + 170% Piercing.\\nApply 1 Offense Up to allies.",
     "damage": 180,
     "piercing": 170,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Up to allies."
+      "Apply 1 Offense Up to allies."
     ],
     "notes": []
   },
@@ -1308,34 +1294,34 @@
     "notes": []
   },
   "Hulkbuster": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.\\nBarrier for 5% of Max Health.\\nApply 2 Deflect to allies.\\nApply 2 Defense Up to allies.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\\nIn RAID, Barrier for 5% of Max Health.\\nApply 1 Deflect to allies.\\nApply 1 Defense Up to allies.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Barrier for 5% of Max Health.",
-      "Apply 2 Deflect to allies.",
-      "Apply 2 Defense Up to allies."
+      "In RAID, Barrier for 5% of Max Health.",
+      "Apply 1 Deflect to allies.",
+      "Apply 1 Defense Up to allies."
     ],
     "notes": []
   },
   "HumanTorch": {
-    "description": "Attack primary target for 214% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 214% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 214,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "HydraDmg_AoE": {
-    "description": "Attack primary target for 203% damage + 27% Piercing.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 203% damage + 27% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 203,
     "piercing": 27,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
@@ -1356,12 +1342,12 @@
     "notes": []
   },
   "HydraSupport_Heal": {
-    "description": "Attack primary target for 145% damage + 42% Piercing.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for 145% damage + 42% Piercing.\\nApply 1 Heal Block to the primary target.",
     "damage": 145,
     "piercing": 42,
     "drain": 0,
     "effects": [
-      "Apply Heal Block to the primary target."
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -1374,23 +1360,23 @@
     "notes": []
   },
   "Hyperion": {
-    "description": "Attack primary target for 244% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nHeal for 5% of Max Health.",
+    "description": "Attack primary target for 244% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nHeal for 5% of Max Health.",
     "damage": 244,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target.",
       "Heal for 5% of Max Health."
     ],
     "notes": []
   },
   "Iceman": {
-    "description": "Attack primary target for 180% damage + 17% Piercing.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 180% damage + 17% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 180,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
@@ -1403,59 +1389,57 @@
     "notes": []
   },
   "InnerDemon_Cyclops": {
-    "description": "Attack primary target for  + 216% Piercing.\\nApply 2 Heal Block to the primary target.\\nReduce Speed Bar by 10%.",
+    "description": "Attack primary target for  + 216% Piercing.\\nApply 1 Heal Block to the primary target.\\nReduce Speed Bar by 10%.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
-      "Apply 2 Heal Block to the primary target.",
+      "Apply 1 Heal Block to the primary target.",
       "Reduce Speed Bar by 10%."
     ],
     "notes": []
   },
   "InnerDemon_Demon": {
-    "description": "Attack primary target for  + 216% Piercing.\\nApply Stun to the primary target.\\nReduce Speed Bar by 10%.",
+    "description": "Attack primary target for  + 216% Piercing.\\nApply 1 Stun to the primary target.\\nReduce Speed Bar by 10%.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
-      "Apply Stun to the primary target.",
+      "Apply 1 Stun to the primary target.",
       "Reduce Speed Bar by 10%."
     ],
     "notes": []
   },
   "InnerDemon_Dragon": {
-    "description": "Attack primary target for  + 216% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nReduce Speed Bar by 10%.",
+    "description": "Attack primary target for  + 216% Piercing.\\nApply 1 Bleed to the primary target.\\nReduce Speed Bar by 10%.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target.",
       "Reduce Speed Bar by 10%."
     ],
     "notes": []
   },
   "InvisibleWoman": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target."
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target."
     ],
     "notes": []
   },
   "InvisibleWomanMCU": {
-    "description": "Attack primary target for  + 230% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for  + 230% Piercing.\\nApply 2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 230,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -1478,37 +1462,37 @@
     "notes": []
   },
   "IronMan": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "IronManInfinityWar": {
-    "description": "Attack primary target for 240% damage + 15% Piercing.\\nReduce Speed Bar by 10%.\\nApply Speed Up to allies.",
+    "description": "Attack primary target for 240% damage + 15% Piercing.\\nIn RAID, Reduce Speed Bar by 10%.\\nApply 1 Speed Up to allies.",
     "damage": 240,
     "piercing": 15,
     "drain": 0,
     "effects": [
-      "Reduce Speed Bar by 10%.",
-      "Apply Speed Up to allies."
+      "In RAID, Reduce Speed Bar by 10%.",
+      "Apply 1 Speed Up to allies."
     ],
     "notes": []
   },
   "IronPatriot": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\\nClear DebuffBlock from the primary target.\\nApply 2 Defense Down to the primary target.\\nApply 2 Heal Block to the primary target.\\nApply 2 Disrupted to the primary target.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\\nClear Immunity from the primary target.\\nApply 4 Defense Down to the primary target.\\nApply 4 Heal Block to the primary target.\\nApply 4 Immunity to the primary target.\\nApply 4 Slow to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear DebuffBlock from the primary target.",
-      "Apply 2 Defense Down to the primary target.",
-      "Apply 2 Heal Block to the primary target.",
-      "Apply 2 Disrupted to the primary target.",
-      "Apply 2 Slow to the primary target."
+      "Clear Immunity from the primary target.",
+      "Apply 4 Defense Down to the primary target.",
+      "Apply 4 Heal Block to the primary target.",
+      "Apply 4 Immunity to the primary target.",
+      "Apply 4 Slow to the primary target."
     ],
     "notes": []
   },
@@ -1521,13 +1505,13 @@
     "notes": []
   },
   "IronheartMCU": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.\\nApply DebuffBlock to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.\\nApply 1 Immunity to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target.",
-      "Apply DebuffBlock to allies."
+      "Apply 1 Defense Down to the primary target.",
+      "Apply 1 Immunity to allies."
     ],
     "notes": []
   },
@@ -1542,26 +1526,26 @@
     "notes": []
   },
   "JeanGrey": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nApply 2 Heal Block to the primary target.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn RAID, Steal 1000 positive effects from primary target.\\nIn RAID, Steal 1000 positive effects from primary target.\\nIn RAID, Steal 1000 positive effects from primary target.\\nApply 2 Heal Block to the primary target.\\nApply 2 Defense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target.",
       "Apply 2 Heal Block to the primary target.",
       "Apply 2 Defense Down to the primary target."
     ],
     "notes": []
   },
   "JeffTheLandShark": {
-    "description": "Attack primary target for 25% damage + 210% Piercing.\\nApply 2 Disrupted to the primary target.",
+    "description": "Attack primary target for 25% damage + 210% Piercing.\\nApply 1 Immunity to the primary target.",
     "damage": 25,
     "piercing": 210,
     "drain": 0,
     "effects": [
-      "Apply 2 Disrupted to the primary target."
+      "Apply 1 Immunity to the primary target."
     ],
     "notes": []
   },
@@ -1574,13 +1558,13 @@
     "notes": []
   },
   "Jubilee": {
-    "description": "Attack primary target for 218% damage + 17% Piercing.\\nApply AccuracyDown to the primary target.\\nApply AccuracyDown to the primary target.",
+    "description": "Attack primary target for 218% damage + 17% Piercing.\\nApply 1 AccuracyDown to the primary target.\\nIn RAID, Apply 1 AccuracyDown to the primary target.",
     "damage": 218,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply AccuracyDown to the primary target.",
-      "Apply AccuracyDown to the primary target."
+      "Apply 1 AccuracyDown to the primary target.",
+      "In RAID, Apply 1 AccuracyDown to the primary target."
     ],
     "notes": []
   },
@@ -1593,7 +1577,7 @@
     "notes": []
   },
   "Kahhori": {
-    "description": "Attack primary target for 25% damage + 135% Piercing + 50% Drain.\\nRedistribute health.\\nRedistribute health.\\nFlip positive effects to negative on primary target.\\nFlip positive effects to negative on primary target.\\nApply AccuracyDown to the primary target.\\nApply Exposed to the primary target.",
+    "description": "Attack primary target for 25% damage + 135% Piercing + 50% Drain.\\nRedistribute health.\\nRedistribute health.\\nFlip positive effects to negative on primary target.\\nIn WAR, Flip positive effects to negative on primary target.\\nApply 1 AccuracyDown to the primary target.\\nApply 1 Exposed to the primary target.",
     "damage": 25,
     "piercing": 135,
     "drain": 50,
@@ -1601,9 +1585,9 @@
       "Redistribute health.",
       "Redistribute health.",
       "Flip positive effects to negative on primary target.",
-      "Flip positive effects to negative on primary target.",
-      "Apply AccuracyDown to the primary target.",
-      "Apply Exposed to the primary target."
+      "In WAR, Flip positive effects to negative on primary target.",
+      "Apply 1 AccuracyDown to the primary target.",
+      "Apply 1 Exposed to the primary target."
     ],
     "notes": []
   },
@@ -1638,13 +1622,13 @@
     "notes": []
   },
   "KateBishop": {
-    "description": "Attack primary target for  + 170% Piercing.\\nClear undefined from the primary target.\\nApply Taunt to the primary target.",
+    "description": "Attack primary target for  + 170% Piercing.\\nClear undefined from the primary target.\\nIn WAR DEFENSE, Apply 1 Taunt to the primary target.",
     "damage": 0,
     "piercing": 170,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply Taunt to the primary target."
+      "In WAR DEFENSE, Apply 1 Taunt to the primary target."
     ],
     "notes": []
   },
@@ -1667,54 +1651,54 @@
     "notes": []
   },
   "KittyPryde": {
-    "description": "Attack primary target for 223% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply 2 Speed Up to allies.\\nApply 2 Speed Up to allies.",
+    "description": "Attack primary target for 223% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply 1 Speed Up to allies.\\nApply 1 Speed Up to allies.",
     "damage": 223,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply 2 Speed Up to allies.",
-      "Apply 2 Speed Up to allies."
+      "Apply 1 Speed Up to allies.",
+      "Apply 1 Speed Up to allies."
     ],
     "notes": []
   },
   "Knull": {
-    "description": "Attack primary target for  + 205% Piercing.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for  + 205% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 0,
     "piercing": 205,
     "drain": 0,
     "effects": [
-      "Apply 2 Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "Korath": {
-    "description": "Attack primary target for 55% damage + 57% Piercing.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 55% damage + 57% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 55,
     "piercing": 57,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "Korg": {
-    "description": "Attack primary target for 270% damage + 17% Piercing.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 270% damage + 17% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 270,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "KravenTheHunter": {
-    "description": "Attack primary target for 195% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 195% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 195,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -1737,12 +1721,12 @@
     "notes": []
   },
   "KreeDmg_Speed": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -1771,61 +1755,60 @@
     "notes": []
   },
   "LadyDeathstrike": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nSteal 1 positive effects from primary target.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nSteal 1 positive effects from primary target.\\nApply 1 Defense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Steal 1 positive effects from primary target.",
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "Lilandra": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 2 Offense Down to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
   "LivingMummy": {
-    "description": "Attack primary target for  + 187% Piercing.\\nApply Counter to allies.\\nApply Speed Up to allies.\\nHeal for 15% of Max Health.",
+    "description": "Attack primary target for  + 187% Piercing.\\nApply 2 Counter to allies.\\nApply 2 Speed Up to allies.\\nHeal for 15% of Max Health.",
     "damage": 0,
     "piercing": 187,
     "drain": 0,
     "effects": [
-      "Apply Counter to allies.",
-      "Apply Speed Up to allies.",
+      "Apply 2 Counter to allies.",
+      "Apply 2 Speed Up to allies.",
       "Heal for 15% of Max Health."
     ],
     "notes": []
   },
   "Lizard": {
-    "description": "Attack primary target for  + 193% Piercing.\\nFlip positive effects to negative on primary target.\\nApply Bleed to the primary target.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for  + 193% Piercing.\\nFlip positive effects to negative on primary target.\\nApply 1 Bleed to the primary target.\\nApply 1 Heal Block to the primary target.",
     "damage": 0,
     "piercing": 193,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Heal Block to the primary target."
+      "Apply 1 Bleed to the primary target.",
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
   "Loki": {
-    "description": "Attack primary target for  + 185% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Defense Down to the primary target.\\nApply Evade to allies.\\nApply Evade to the primary target.",
+    "description": "Attack primary target for  + 185% Piercing.\\nApply 3 Bleed to the primary target.\\nApply 3 Defense Down to the primary target.\\nApply 1 Evade to allies.\\nIn RAID, Apply 1 Evade to the primary target.",
     "damage": 0,
     "piercing": 185,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Defense Down to the primary target.",
-      "Apply Evade to allies.",
-      "Apply Evade to the primary target."
+      "Apply 3 Bleed to the primary target.",
+      "Apply 3 Defense Down to the primary target.",
+      "Apply 1 Evade to allies.",
+      "In RAID, Apply 1 Evade to the primary target."
     ],
     "notes": []
   },
@@ -1846,17 +1829,17 @@
     "notes": []
   },
   "LokiTeen": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply HoT to allies.\\nClear undefined from the primary target.\\nApply HoT to self.\\nClear undefined from the primary target.\\nApply HoT to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply 1 HoT to allies.\\nClear undefined from the primary target.\\nApply 1 HoT to self.\\nClear undefined from the primary target.\\nIn RAID, Apply 1 HoT to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply HoT to allies.",
+      "Apply 1 HoT to allies.",
       "Clear undefined from the primary target.",
-      "Apply HoT to self.",
+      "Apply 1 HoT to self.",
       "Clear undefined from the primary target.",
-      "Apply HoT to allies."
+      "In RAID, Apply 1 HoT to allies."
     ],
     "notes": []
   },
@@ -1913,26 +1896,25 @@
     "notes": []
   },
   "MagnetoPhoenixForce": {
-    "description": "Attack primary target for  + 150% Piercing.\\nRedistribute health.\\nApply 2 Disrupted to the primary target.",
+    "description": "Attack primary target for  + 150% Piercing.\\nRedistribute health.\\nApply 1 Immunity to the primary target.",
     "damage": 0,
     "piercing": 150,
     "drain": 0,
     "effects": [
       "Redistribute health.",
-      "Apply 2 Disrupted to the primary target."
+      "Apply 1 Immunity to the primary target."
     ],
     "notes": []
   },
   "ManThing": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply HoT to allies.\\nApply HoT to allies.\\nApply Defense Up to self.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nApply 2 HoT to allies.\\nApply 1 Defense Up to self.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply HoT to allies.",
-      "Apply HoT to allies.",
-      "Apply Defense Up to self."
+      "Apply 1 Bleed to the primary target.",
+      "Apply 2 HoT to allies.",
+      "Apply 1 Defense Up to self."
     ],
     "notes": []
   },
@@ -1961,17 +1943,14 @@
     "notes": []
   },
   "Mephisto": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Defense Down to the primary target.\\nApply 2 Bleed to the primary target.\\nApply 2 Bleed to the primary target.\\nApply 2 HoT to allies.\\nApply 2 HoT to allies.\\nApply 2 HoT to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.\\nApply 2 Bleed to the primary target.\\nApply 3 HoT to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target.",
+      "Apply 1 Defense Down to the primary target.",
       "Apply 2 Bleed to the primary target.",
-      "Apply 2 Bleed to the primary target.",
-      "Apply 2 HoT to allies.",
-      "Apply 2 HoT to allies.",
-      "Apply 2 HoT to allies."
+      "Apply 3 HoT to allies."
     ],
     "notes": []
   },
@@ -2016,22 +1995,22 @@
     "notes": []
   },
   "Minerva": {
-    "description": "Attack primary target for 100% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 100% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 100,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "MistyKnight": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -2057,14 +2036,14 @@
     "notes": []
   },
   "MoonKnight": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Counter to allies.\\nApply Offense Up to allies.\\nApply Speed Up to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Counter to allies.\\nApply 1 Offense Up to allies.\\nApply 1 Speed Up to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Counter to allies.",
-      "Apply Offense Up to allies.",
-      "Apply Speed Up to allies."
+      "Apply 1 Counter to allies.",
+      "Apply 1 Offense Up to allies.",
+      "Apply 1 Speed Up to allies."
     ],
     "notes": []
   },
@@ -2079,24 +2058,23 @@
     "notes": []
   },
   "Moonstone": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "Morbius": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nRedistribute health.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nRedistribute health.\\nIn WAR OFFENSE, Apply 2 Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Redistribute health.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "In WAR OFFENSE, Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -2121,12 +2099,12 @@
     "notes": []
   },
   "MrFantasticMCU": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -2149,24 +2127,24 @@
     "notes": []
   },
   "MsMarvel": {
-    "description": "Attack primary target for 207% damage + 17% Piercing.\\nApply 2 Deflect to allies.",
+    "description": "Attack primary target for 207% damage + 17% Piercing.\\nApply 1 Deflect to allies.",
     "damage": 207,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Deflect to allies."
+      "Apply 1 Deflect to allies."
     ],
     "notes": []
   },
   "MsMarvelClassic": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Defense Up to self.\\nApply HoT to self.\\nHeal for 10% of Max Health.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Defense Up to self.\\nApply 1 HoT to self.\\nIn WAR, Heal for 10% of Max Health.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Up to self.",
-      "Apply HoT to self.",
-      "Heal for 10% of Max Health."
+      "Apply 1 Defense Up to self.",
+      "Apply 1 HoT to self.",
+      "In WAR, Heal for 10% of Max Health."
     ],
     "notes": []
   },
@@ -2189,13 +2167,13 @@
     "notes": []
   },
   "Mysterio": {
-    "description": "Attack primary target for 198% damage + 15% Piercing.\\nClear undefined from the primary target.\\nApply Evade to allies.",
+    "description": "Attack primary target for 198% damage + 15% Piercing.\\nClear undefined from the primary target.\\nApply 1 Evade to allies.",
     "damage": 198,
     "piercing": 15,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply Evade to allies."
+      "Apply 1 Evade to allies."
     ],
     "notes": []
   },
@@ -2208,12 +2186,12 @@
     "notes": []
   },
   "Mystique": {
-    "description": "Attack primary target for 194% damage + 51% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 194% damage + 51% Piercing.\\nIn WAR DEFENSE, Apply 1 Bleed to the primary target.",
     "damage": 194,
     "piercing": 51,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "In WAR DEFENSE, Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -2244,36 +2222,34 @@
     "notes": []
   },
   "Namor": {
-    "description": "Attack primary target for 240% damage + 35% Piercing.\\nApply 2 Heal Block to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 240% damage + 35% Piercing.\\nApply 4 Heal Block to the primary target.\\nApply 4 Bleed to the primary target.",
     "damage": 240,
     "piercing": 35,
     "drain": 0,
     "effects": [
-      "Apply 2 Heal Block to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 4 Heal Block to the primary target.",
+      "Apply 4 Bleed to the primary target."
     ],
     "notes": []
   },
   "Nebula": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nRedistribute health.\\nApply Speed Up to allies.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nRedistribute health.\\nApply 1 Speed Up to allies.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Redistribute health.",
-      "Apply Speed Up to allies."
+      "Apply 1 Speed Up to allies."
     ],
     "notes": []
   },
   "Negasonic": {
-    "description": "Attack primary target for 128% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 128% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 128,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -2296,109 +2272,109 @@
     "notes": []
   },
   "NicoMinoru": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Defense Up to allies.\\nHeal for 15% of Max Health.\\nApply NicoBasic to allies.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nApply 1 Defense Up to allies.\\nHeal for 15% of Max Health.\\nApply 1 NicoBasic to allies.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Defense Up to allies.",
+      "Apply 1 Bleed to the primary target.",
+      "Apply 1 Defense Up to allies.",
       "Heal for 15% of Max Health.",
-      "Apply NicoBasic to allies."
+      "Apply 1 NicoBasic to allies."
     ],
     "notes": []
   },
   "NightNurse": {
-    "description": "Attack primary target for 224% damage + 17% Piercing.\\nApply 2 Slow to the primary target.\\nFlip positive effects to negative on primary target.",
+    "description": "Attack primary target for 224% damage + 17% Piercing.\\nApply 1 Slow to the primary target.\\nFlip positive effects to negative on primary target.",
     "damage": 224,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Slow to the primary target.",
+      "Apply 1 Slow to the primary target.",
       "Flip positive effects to negative on primary target."
     ],
     "notes": []
   },
   "Nightcrawler": {
-    "description": "Attack primary target for  + 247% Piercing.\\nFlip positive effects to negative on primary target.\\nApply Ability Block to the primary target.\\nApply HoT to allies.",
+    "description": "Attack primary target for  + 247% Piercing.\\nFlip positive effects to negative on primary target.\\nIn RAID, Apply 1 Ability Block to the primary target.\\nApply 1 HoT to allies.",
     "damage": 0,
     "piercing": 247,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Apply Ability Block to the primary target.",
-      "Apply HoT to allies."
+      "In RAID, Apply 1 Ability Block to the primary target.",
+      "Apply 1 HoT to allies."
     ],
     "notes": []
   },
   "Nimrod": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "Nobu": {
-    "description": "Attack primary target for 238% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 238% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 238,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "Northstar": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply Safeguard to the primary target.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 Trauma to the primary target.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
-      "Apply Safeguard to the primary target."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Trauma to the primary target."
     ],
     "notes": []
   },
   "Nova": {
-    "description": "Attack primary target for 300% damage + 17% Piercing.\\nClear undefined from the primary target.\\nClear undefined from the primary target.",
+    "description": "Attack primary target for 300% damage + 17% Piercing.\\nClear undefined from the primary target.\\nIn WAR, Clear undefined from the primary target.",
     "damage": 300,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Clear undefined from the primary target."
+      "In WAR, Clear undefined from the primary target."
     ],
     "notes": []
   },
   "NovaSamAlexander": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 2 HoT to allies.\\nClear undefined from the primary target.\\nClear Charged from the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 HoT to allies.\\nClear undefined from the primary target.\\nClear Charged from the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 HoT to allies.",
+      "Apply 1 HoT to allies.",
       "Clear undefined from the primary target.",
       "Clear Charged from the primary target."
     ],
     "notes": []
   },
   "Oath": {
-    "description": "Attack primary target for  + 185% Piercing.\\nApply Bleed to the primary target.\\nApply Heal Block to the primary target.\\nApply Exposed to the primary target.",
+    "description": "Attack primary target for  + 185% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 2 Heal Block to the primary target.\\nIn RAID, Apply 1 Exposed to the primary target.",
     "damage": 0,
     "piercing": 185,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Heal Block to the primary target.",
-      "Apply Exposed to the primary target."
+      "Apply 2 Bleed to the primary target.",
+      "Apply 2 Heal Block to the primary target.",
+      "In RAID, Apply 1 Exposed to the primary target."
     ],
     "notes": []
   },
   "Odin": {
-    "description": "Attack primary target for 89% damage + 454% Piercing + 50% Drain.\\nRedistribute health.\\nClear undefined from the primary target.\\nClear undefined from the primary target.\\nApply Basic_Level_1 to allies.\\nApply Basic_Level_2 to allies.\\nApply Basic_Level_3 to allies.\\nApply Basic_Level_4 to allies.\\nApply Basic_Level_5 to allies.\\nApply Basic_Level_6 to allies.\\nApply Basic_Level_7 to allies.",
+    "description": "Attack primary target for 89% damage + 454% Piercing + 50% Drain.\\nRedistribute health.\\nClear undefined from the primary target.\\nClear undefined from the primary target.\\nApply 1 Basic_Level_1 to allies.\\nApply 1 Basic_Level_2 to allies.\\nApply 1 Basic_Level_3 to allies.\\nApply 1 Basic_Level_4 to allies.\\nApply 1 Basic_Level_5 to allies.\\nApply 1 Basic_Level_6 to allies.\\nApply 1 Basic_Level_7 to allies.",
     "damage": 89,
     "piercing": 454,
     "drain": 50,
@@ -2406,13 +2382,13 @@
       "Redistribute health.",
       "Clear undefined from the primary target.",
       "Clear undefined from the primary target.",
-      "Apply Basic_Level_1 to allies.",
-      "Apply Basic_Level_2 to allies.",
-      "Apply Basic_Level_3 to allies.",
-      "Apply Basic_Level_4 to allies.",
-      "Apply Basic_Level_5 to allies.",
-      "Apply Basic_Level_6 to allies.",
-      "Apply Basic_Level_7 to allies."
+      "Apply 1 Basic_Level_1 to allies.",
+      "Apply 1 Basic_Level_2 to allies.",
+      "Apply 1 Basic_Level_3 to allies.",
+      "Apply 1 Basic_Level_4 to allies.",
+      "Apply 1 Basic_Level_5 to allies.",
+      "Apply 1 Basic_Level_6 to allies.",
+      "Apply 1 Basic_Level_7 to allies."
     ],
     "notes": []
   },
@@ -2427,19 +2403,17 @@
     "notes": []
   },
   "OldManLogan": {
-    "description": "Attack primary target for 250% damage + 250% Piercing + 100% Drain.\\nApply Disrupted to the primary target.\\nApply 2 Bleed to the primary target.\\nApply 2 Bleed to the primary target.\\nApply Disrupted to the primary target.\\nApply Defense Down to the primary target.\\nGain 20% Speed Bar.\\nApply HoT to the primary target.\\nApply HoT to the primary target.",
+    "description": "Attack primary target for 250% damage + 250% Piercing + 100% Drain.\\nApply 1 Immunity to the primary target.\\nApply 1 Bleed to the primary target.\\nApply 1 Immunity to the primary target.\\nApply 1 Defense Down to the primary target.\\nGain 20% Speed Bar.\\nIn WAR OFFENSE, Apply 2 HoT to the primary target.",
     "damage": 250,
     "piercing": 250,
     "drain": 100,
     "effects": [
-      "Apply Disrupted to the primary target.",
-      "Apply 2 Bleed to the primary target.",
-      "Apply 2 Bleed to the primary target.",
-      "Apply Disrupted to the primary target.",
-      "Apply Defense Down to the primary target.",
+      "Apply 1 Immunity to the primary target.",
+      "Apply 1 Bleed to the primary target.",
+      "Apply 1 Immunity to the primary target.",
+      "Apply 1 Defense Down to the primary target.",
       "Gain 20% Speed Bar.",
-      "Apply HoT to the primary target.",
-      "Apply HoT to the primary target."
+      "In WAR OFFENSE, Apply 2 HoT to the primary target."
     ],
     "notes": []
   },
@@ -2454,23 +2428,22 @@
     "notes": []
   },
   "OmegaRedPhoenix": {
-    "description": "Attack primary target for  + 376% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for  + 376% Piercing.\\nApply 2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 376,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
   "OmegaSentinel": {
-    "description": "Attack primary target for 192% damage + 17% Piercing.\\nApply 2 HoT to allies.",
+    "description": "Attack primary target for 192% damage + 17% Piercing.\\nApply 1 HoT to allies.",
     "damage": 192,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 HoT to allies."
+      "Apply 1 HoT to allies."
     ],
     "notes": []
   },
@@ -2483,13 +2456,13 @@
     "notes": []
   },
   "PVE_Ares_SentryBoss": {
-    "description": "Attack primary target for 177% damage + 19% Piercing.\\nClear undefined from the primary target.\\nApply DebuffBlock to allies.",
+    "description": "Attack primary target for 177% damage + 19% Piercing.\\nClear undefined from the primary target.\\nApply 1 Immunity to allies.",
     "damage": 177,
     "piercing": 19,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply DebuffBlock to allies."
+      "Apply 1 Immunity to allies."
     ],
     "notes": []
   },
@@ -2504,35 +2477,35 @@
     "notes": []
   },
   "PVE_Boss_Knull": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply Bleed to the primary target.\\nApply Defense Down to the primary target.\\nApply Disrupted to the primary target.\\nApply Heal Block to the primary target.\\nApply Offense Down to the primary target.\\nApply Ability Block to the primary target.\\nApply AccuracyDown to the primary target.\\nApply Slow to the primary target.\\nApply Safeguard to the primary target.\\nApply Defense Up to allies.\\nApply Deflect to allies.\\nApply Offense Up to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply 1 Bleed to the primary target.\\nApply 2 Defense Down to the primary target.\\nApply 2 Immunity to the primary target.\\nApply 2 Heal Block to the primary target.\\nApply 2 Offense Down to the primary target.\\nApply 1 Ability Block to the primary target.\\nApply 1 AccuracyDown to the primary target.\\nApply 1 Slow to the primary target.\\nApply 1 Trauma to the primary target.\\nApply 1 Defense Up to allies.\\nApply 1 Deflect to allies.\\nApply 1 Offense Up to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Defense Down to the primary target.",
-      "Apply Disrupted to the primary target.",
-      "Apply Heal Block to the primary target.",
-      "Apply Offense Down to the primary target.",
-      "Apply Ability Block to the primary target.",
-      "Apply AccuracyDown to the primary target.",
-      "Apply Slow to the primary target.",
-      "Apply Safeguard to the primary target.",
-      "Apply Defense Up to allies.",
-      "Apply Deflect to allies.",
-      "Apply Offense Up to allies."
+      "Apply 1 Bleed to the primary target.",
+      "Apply 2 Defense Down to the primary target.",
+      "Apply 2 Immunity to the primary target.",
+      "Apply 2 Heal Block to the primary target.",
+      "Apply 2 Offense Down to the primary target.",
+      "Apply 1 Ability Block to the primary target.",
+      "Apply 1 AccuracyDown to the primary target.",
+      "Apply 1 Slow to the primary target.",
+      "Apply 1 Trauma to the primary target.",
+      "Apply 1 Defense Up to allies.",
+      "Apply 1 Deflect to allies.",
+      "Apply 1 Offense Up to allies."
     ],
     "notes": []
   },
   "PVE_Boss_Sentry": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nApply 3 Offense Down to the primary target.\\nApply 3 Defense Down to the primary target.\\nRedistribute health.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 Defense Down to the primary target.\\nRedistribute health.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 3 Offense Down to the primary target.",
-      "Apply 3 Defense Down to the primary target.",
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Defense Down to the primary target.",
       "Redistribute health."
     ],
     "notes": []
@@ -2546,13 +2519,13 @@
     "notes": []
   },
   "PVE_CaptainAmerica_SentryBoss": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Offense Down to the primary target.\\nApply Defense Up to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 Defense Up to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target.",
-      "Apply Defense Up to allies."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Defense Up to allies."
     ],
     "notes": []
   },
@@ -2582,33 +2555,32 @@
     "notes": []
   },
   "PVE_ChaosRaid_MadelynePryor": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nFlip positive effects to negative on primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nIn WAR, Flip positive effects to negative on primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Flip positive effects to negative on primary target."
+      "In WAR, Flip positive effects to negative on primary target."
     ],
     "notes": []
   },
   "PVE_ChaosRaid_Psylocke": {
-    "description": "Attack primary target for  + 180% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for  + 180% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 180,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "PVE_ChaosRaid_ShadowKing": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target.",
       "Apply 2 Bleed to the primary target."
     ],
     "notes": []
@@ -2632,12 +2604,12 @@
     "notes": []
   },
   "PVE_Cyclops_Incursion": {
-    "description": "Attack primary target for 180% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 180% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 180,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -2650,13 +2622,13 @@
     "notes": []
   },
   "PVE_EbonyMaw_Gauntlet": {
-    "description": "Attack primary target for  + 182% Piercing.\\nApply 2 Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for  + 182% Piercing.\\nApply 1 Bleed to the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 0,
     "piercing": 182,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -2677,48 +2649,48 @@
     "notes": []
   },
   "PVE_Hulkbuster_Incursion": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.\\nBarrier for 5% of Max Health.\\nApply 2 Deflect to allies.\\nApply 2 Defense Up to allies.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\\nIn RAID, Barrier for 5% of Max Health.\\nApply 1 Deflect to allies.\\nApply 1 Defense Up to allies.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Barrier for 5% of Max Health.",
-      "Apply 2 Deflect to allies.",
-      "Apply 2 Defense Up to allies."
+      "In RAID, Barrier for 5% of Max Health.",
+      "Apply 1 Deflect to allies.",
+      "Apply 1 Defense Up to allies."
     ],
     "notes": []
   },
   "PVE_IronMan_SentryBoss": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "PVE_IronPatriot_SentryBoss": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\\nClear DebuffBlock from the primary target.\\nApply 2 Defense Down to the primary target.\\nApply 2 Heal Block to the primary target.\\nApply 2 Disrupted to the primary target.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\\nClear Immunity from the primary target.\\nApply 4 Defense Down to the primary target.\\nApply 4 Heal Block to the primary target.\\nApply 4 Immunity to the primary target.\\nApply 4 Slow to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear DebuffBlock from the primary target.",
-      "Apply 2 Defense Down to the primary target.",
-      "Apply 2 Heal Block to the primary target.",
-      "Apply 2 Disrupted to the primary target.",
-      "Apply 2 Slow to the primary target."
+      "Clear Immunity from the primary target.",
+      "Apply 4 Defense Down to the primary target.",
+      "Apply 4 Heal Block to the primary target.",
+      "Apply 4 Immunity to the primary target.",
+      "Apply 4 Slow to the primary target."
     ],
     "notes": []
   },
   "PVE_KangTheConqueror_Incursion": {
-    "description": "Attack primary target for  + 468% Piercing.\\nGain 20% Speed Bar.",
+    "description": "Attack primary target for  + 468% Piercing.\\nIn GRAND_TOURNAMENT, Gain 20% Speed Bar.",
     "damage": 0,
     "piercing": 468,
     "drain": 0,
     "effects": [
-      "Gain 20% Speed Bar."
+      "In GRAND_TOURNAMENT, Gain 20% Speed Bar."
     ],
     "notes": []
   },
@@ -2731,12 +2703,12 @@
     "notes": []
   },
   "PVE_Moonstone_SentryBoss": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -2759,32 +2731,31 @@
     "notes": []
   },
   "PVE_SagaBoss_Gladiator": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\\nApply 2 Offense Down to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
   "PVE_SagaBoss_Nimrod": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "PVE_SagaBoss_ShadowKing": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target.",
       "Apply 2 Bleed to the primary target."
     ],
     "notes": []
@@ -2798,13 +2769,13 @@
     "notes": []
   },
   "PVE_Sentinel_RogueLike": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply Counter to allies.",
+    "description": "Attack primary target for 163% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 Counter to allies.",
     "damage": 163,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
-      "Apply Counter to allies."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Counter to allies."
     ],
     "notes": []
   },
@@ -2835,55 +2806,54 @@
     "notes": []
   },
   "PVE_USAgent_SentryBoss": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Deflect to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Deflect to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Deflect to allies."
+      "Apply 1 Deflect to allies."
     ],
     "notes": []
   },
   "PVE_VIP_Zombie": {
-    "description": "Attack primary target for .\\nBarrier for 30% of Max Health.\\nApply Evade to the primary target.\\nApply Defense Up to the primary target.",
+    "description": "Attack primary target for .\\nBarrier for 30% of Max Health.\\nApply 1 Evade to the primary target.\\nApply 1 Defense Up to the primary target.",
     "damage": 0,
     "piercing": 0,
     "drain": 0,
     "effects": [
       "Barrier for 30% of Max Health.",
-      "Apply Evade to the primary target.",
-      "Apply Defense Up to the primary target."
+      "Apply 1 Evade to the primary target.",
+      "Apply 1 Defense Up to the primary target."
     ],
     "notes": []
   },
   "PandaPool": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "Patriot": {
-    "description": "Attack primary target for 254% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 254% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
     "damage": 254,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
   "PeggyCarter": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nApply Slow to the primary target.\\nSteal 3 positive effects from primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nApply 1 Slow to the primary target.\\nSteal 3 positive effects from primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target.",
+      "Apply 1 Slow to the primary target.",
       "Steal 3 positive effects from primary target."
     ],
     "notes": []
@@ -2899,25 +2869,24 @@
     "notes": []
   },
   "PeterBParker": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 2 Offense Down to the primary target.\\nApply HoT to allies.\\nApply Evade to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 HoT to allies.\\nApply 1 Evade to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target.",
-      "Apply HoT to allies.",
-      "Apply Evade to allies."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 HoT to allies.",
+      "Apply 1 Evade to allies."
     ],
     "notes": []
   },
   "PhantomRider": {
-    "description": "Attack primary target for 225% damage + 17% Piercing + 30% Drain.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing + 30% Drain.\\nApply 2 Bleed to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 30,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -2943,22 +2912,22 @@
     "notes": []
   },
   "PhylaVell": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 2 Offense Down to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
   "Polaris": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nBarrier for 10% of Max Health.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target.",
       "Barrier for 10% of Max Health."
     ],
     "notes": []
@@ -2974,12 +2943,12 @@
     "notes": []
   },
   "Psylocke": {
-    "description": "Attack primary target for  + 180% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for  + 180% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 180,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -3010,22 +2979,22 @@
     "notes": []
   },
   "PvE_DDDoomBomb": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply Disrupted to the primary target.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply 1 Immunity to the primary target.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Disrupted to the primary target."
+      "Apply 1 Immunity to the primary target."
     ],
     "notes": []
   },
   "PvE_DDHumanTorch": {
-    "description": "Attack primary target for 140% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 140% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 140,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -3054,115 +3023,112 @@
     "notes": []
   },
   "Pyro": {
-    "description": "Attack primary target for 135% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 135% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 135,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "Quake": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "Quasar": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nRedistribute health.\\nRedistribute health.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nIn WAR OFFENSE, Flip positive effects to negative on primary target.\\nRedistribute health.\\nIn WAR OFFENSE, Redistribute health.\\nApply 1 Slow to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Flip positive effects to negative on primary target.",
+      "In WAR OFFENSE, Flip positive effects to negative on primary target.",
       "Redistribute health.",
-      "Redistribute health.",
-      "Apply Slow to the primary target."
+      "In WAR OFFENSE, Redistribute health.",
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "Quicksilver": {
-    "description": "Attack primary target for  + 165% Piercing.\\nClear undefined from the primary target.\\nApply Disrupted to the primary target.",
+    "description": "Attack primary target for  + 165% Piercing.\\nClear undefined from the primary target.\\nApply 1 Immunity to the primary target.",
     "damage": 0,
     "piercing": 165,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply Disrupted to the primary target."
+      "Apply 1 Immunity to the primary target."
     ],
     "notes": []
   },
   "RachelSummers": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "RavagerDmg_AoE": {
-    "description": "Attack primary target for 260% damage + 17% Piercing.\\nApply Slow to the primary target.\\nApply Speed Up to allies.",
+    "description": "Attack primary target for 260% damage + 17% Piercing.\\nApply 1 Slow to the primary target.\\nApply 1 Speed Up to allies.",
     "damage": 260,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target.",
-      "Apply Speed Up to allies."
+      "Apply 1 Slow to the primary target.",
+      "Apply 1 Speed Up to allies."
     ],
     "notes": []
   },
   "RavagerSupport_Heal": {
-    "description": "Attack primary target for  + 304% Piercing.\\nClear Deathproof from the primary target.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for  + 304% Piercing.\\nClear Deathproof from the primary target.\\nApply 1 Heal Block to the primary target.",
     "damage": 0,
     "piercing": 304,
     "drain": 0,
     "effects": [
       "Clear Deathproof from the primary target.",
-      "Apply Heal Block to the primary target."
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
   "RavagerTank_Taunt": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.\\nApply Disrupted to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.\\nApply 2 Immunity to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 Defense Down to the primary target.",
-      "Apply Disrupted to the primary target."
+      "Apply 2 Immunity to the primary target."
     ],
     "notes": []
   },
   "RedGoblin": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply HoT to allies.\\nApply HoT to allies.\\nApply HoT to self.\\nApply HoT to self.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 2 HoT to allies.\\nApply 2 HoT to self.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply HoT to allies.",
-      "Apply HoT to allies.",
-      "Apply HoT to self.",
-      "Apply HoT to self."
+      "Apply 2 Bleed to the primary target.",
+      "Apply 2 HoT to allies.",
+      "Apply 2 HoT to self."
     ],
     "notes": []
   },
   "RedGuardian": {
-    "description": "Attack primary target for 255% damage + 17% Piercing.\\nApply Defense Up to allies.\\nApply Defense Up to allies.",
+    "description": "Attack primary target for 255% damage + 17% Piercing.\\nApply 1 Defense Up to allies.\\nIn WAR, Apply 1 Defense Up to allies.",
     "damage": 255,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Up to allies.",
-      "Apply Defense Up to allies."
+      "Apply 1 Defense Up to allies.",
+      "In WAR, Apply 1 Defense Up to allies."
     ],
     "notes": []
   },
@@ -3178,23 +3144,23 @@
     "notes": []
   },
   "RedSkull": {
-    "description": "Attack primary target for  + 153% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for  + 153% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 153,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "Rescue": {
-    "description": "Attack primary target for 235% damage + 17% Piercing.\\nApply Slow to the primary target.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 235% damage + 17% Piercing.\\nApply 1 Slow to the primary target.\\nApply 1 Defense Down to the primary target.",
     "damage": 235,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target.",
-      "Apply Defense Down to the primary target."
+      "Apply 1 Slow to the primary target.",
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -3275,12 +3241,12 @@
     "notes": []
   },
   "S_HydraSupport_Heal": {
-    "description": "Attack primary target for 145% damage + 37% Piercing.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for 145% damage + 37% Piercing.\\nApply 1 Heal Block to the primary target.",
     "damage": 145,
     "piercing": 37,
     "drain": 0,
     "effects": [
-      "Apply Heal Block to the primary target."
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -3295,12 +3261,12 @@
     "notes": []
   },
   "S_KreeDmg_Speed": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -3313,47 +3279,47 @@
     "notes": []
   },
   "S_RavagerSupport_Heal": {
-    "description": "Attack primary target for 150% damage + 17% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 150% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 150,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "S_ShieldSupport_Stealth": {
-    "description": "Attack primary target for 237% damage + 17% Piercing.\\nReduce Speed Bar by 25%.\\nReduce Speed Bar by 25%.\\nClear Taunt from the primary target.\\nSteal 1 positive effects from primary target.",
+    "description": "Attack primary target for 237% damage + 17% Piercing.\\nReduce Speed Bar by 25%.\\nIn RAID, Reduce Speed Bar by 25%.\\nIn RAID, Clear Taunt from the primary target.\\nSteal 1 positive effects from primary target.",
     "damage": 237,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Reduce Speed Bar by 25%.",
-      "Reduce Speed Bar by 25%.",
-      "Clear Taunt from the primary target.",
+      "In RAID, Reduce Speed Bar by 25%.",
+      "In RAID, Clear Taunt from the primary target.",
       "Steal 1 positive effects from primary target."
     ],
     "notes": []
   },
   "S_ShieldTank_Stun": {
-    "description": "Attack primary target for  + 200% Piercing.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for  + 200% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 0,
     "piercing": 200,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "Sabretooth": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nFlip positive effects to negative on primary target.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, Flip positive effects to negative on primary target.\\nFlip positive effects to negative on primary target.\\nIn WAR, Apply 1 Offense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "In WAR, Flip positive effects to negative on primary target.",
       "Flip positive effects to negative on primary target.",
-      "Flip positive effects to negative on primary target.",
-      "Apply Offense Down to the primary target."
+      "In WAR, Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -3366,14 +3332,14 @@
     "notes": []
   },
   "Sasquatch": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply Defense Up to allies.\\nApply 2 Deflect to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply 1 Defense Up to allies.\\nApply 1 Deflect to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply Defense Up to allies.",
-      "Apply 2 Deflect to the primary target."
+      "Apply 1 Defense Up to allies.",
+      "Apply 1 Deflect to the primary target."
     ],
     "notes": []
   },
@@ -3388,44 +3354,44 @@
     "notes": []
   },
   "ScarletSpider": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply Defense Down to the primary target.\\nApply Offense Down to the primary target.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.\\nIn RAID, Apply 1 Offense Down to the primary target.\\nIn RAID, Apply 1 Slow to the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target.",
-      "Apply Offense Down to the primary target.",
-      "Apply Slow to the primary target."
+      "Apply 1 Defense Down to the primary target.",
+      "In RAID, Apply 1 Offense Down to the primary target.",
+      "In RAID, Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "ScarletWitch": {
-    "description": "Attack primary target for  + 168% Piercing.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nApply 2 Offense Down to the primary target.\\nApply 2 Defense Down to the primary target.\\nApply 2 Slow to the primary target.\\nApply Offense Down to the primary target.\\nApply Defense Down to the primary target.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for  + 168% Piercing.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nApply 3 Offense Down to the primary target.\\nApply 3 Defense Down to the primary target.\\nApply 3 Slow to the primary target.\\nApply [object Object] Offense Down to the primary target.\\nApply [object Object] Defense Down to the primary target.\\nApply [object Object] Slow to the primary target.",
     "damage": 0,
     "piercing": 168,
     "drain": 0,
     "effects": [
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Apply 2 Offense Down to the primary target.",
-      "Apply 2 Defense Down to the primary target.",
-      "Apply 2 Slow to the primary target.",
-      "Apply Offense Down to the primary target.",
-      "Apply Defense Down to the primary target.",
-      "Apply Slow to the primary target."
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "Apply 3 Offense Down to the primary target.",
+      "Apply 3 Defense Down to the primary target.",
+      "Apply 3 Slow to the primary target.",
+      "Apply [object Object] Offense Down to the primary target.",
+      "Apply [object Object] Defense Down to the primary target.",
+      "Apply [object Object] Slow to the primary target."
     ],
     "notes": []
   },
   "ScientistSupreme": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply Defense Down to the primary target.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\\nApply 3 Offense Down to the primary target.\\nApply 3 Defense Down to the primary target.\\nApply 3 Slow to the primary target.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
-      "Apply Defense Down to the primary target.",
-      "Apply Slow to the primary target."
+      "Apply 3 Offense Down to the primary target.",
+      "Apply 3 Defense Down to the primary target.",
+      "Apply 3 Slow to the primary target."
     ],
     "notes": []
   },
@@ -3438,56 +3404,56 @@
     "notes": []
   },
   "Scream": {
-    "description": "Attack primary target for 110% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nClear undefined from the primary target.",
+    "description": "Attack primary target for 110% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nClear undefined from the primary target.",
     "damage": 110,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target.",
       "Clear undefined from the primary target."
     ],
     "notes": []
   },
   "SebastianShaw": {
-    "description": "Attack primary target for 247% damage + 17% Piercing.\\nApply Stun to the primary target.\\nClear Charged from the primary target.",
+    "description": "Attack primary target for 247% damage + 17% Piercing.\\nApply 1 Stun to the primary target.\\nClear Charged from the primary target.",
     "damage": 247,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Stun to the primary target.",
+      "Apply 1 Stun to the primary target.",
       "Clear Charged from the primary target."
     ],
     "notes": []
   },
   "Sentinel": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply Counter to allies.",
+    "description": "Attack primary target for 163% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nApply 1 Counter to allies.",
     "damage": 163,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
-      "Apply Counter to allies."
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Counter to allies."
     ],
     "notes": []
   },
   "Sentinel_Gun": {
-    "description": "Attack primary target for 181% damage + 15% Piercing.\\nReduce Speed Bar by 10%.",
+    "description": "Attack primary target for 181% damage + 15% Piercing.\\nIn RAID, Reduce Speed Bar by 10%.",
     "damage": 181,
     "piercing": 15,
     "drain": 0,
     "effects": [
-      "Reduce Speed Bar by 10%."
+      "In RAID, Reduce Speed Bar by 10%."
     ],
     "notes": []
   },
   "Sentinel_Sword": {
-    "description": "Attack primary target for 265% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 265% damage + 17% Piercing.\\nIn RAID, Flip positive effects to negative on primary target.\\nIn RAID, Apply 1 Bleed to the primary target.",
     "damage": 265,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Flip positive effects to negative on primary target.",
-      "Apply Bleed to the primary target."
+      "In RAID, Flip positive effects to negative on primary target.",
+      "In RAID, Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -3514,34 +3480,33 @@
     "notes": []
   },
   "ShadowKing": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target.",
       "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
   "ShangChi": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "SharonCarter": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 3 Slow to the primary target.\\nReduce Speed Bar by 25%.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Slow to the primary target.\\nIn RAID, Reduce Speed Bar by 25%.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 3 Slow to the primary target.",
-      "Reduce Speed Bar by 25%."
+      "Apply 1 Slow to the primary target.",
+      "In RAID, Reduce Speed Bar by 25%."
     ],
     "notes": []
   },
@@ -3554,12 +3519,12 @@
     "notes": []
   },
   "SheHulk": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -3582,12 +3547,12 @@
     "notes": []
   },
   "ShieldSupport_Heal": {
-    "description": "Attack primary target for 87% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nReduce Speed Bar by 25%.",
+    "description": "Attack primary target for 87% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nReduce Speed Bar by 25%.",
     "damage": 87,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
+      "Apply 1 Offense Down to the primary target.",
       "Reduce Speed Bar by 25%."
     ],
     "notes": []
@@ -3604,12 +3569,12 @@
     "notes": []
   },
   "ShieldTank_Stun": {
-    "description": "Attack primary target for  + 200% Piercing.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for  + 200% Piercing.\\nApply 1 Slow to the primary target.",
     "damage": 0,
     "piercing": 200,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
@@ -3622,12 +3587,12 @@
     "notes": []
   },
   "Shuri": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Heal Block to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Heal Block to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Heal Block to the primary target."
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -3650,14 +3615,13 @@
     "notes": []
   },
   "SilverSamurai": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply 2 Heal Block to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 1 Heal Block to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply 2 Heal Block to the primary target."
+      "Apply 2 Bleed to the primary target.",
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -3692,14 +3656,14 @@
     "notes": []
   },
   "SpiderMan2099": {
-    "description": "Attack primary target for 250% damage + 20% Piercing.\\nClear undefined from the primary target.\\nApply Defense Down to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 250% damage + 20% Piercing.\\nClear undefined from the primary target.\\nApply 1 Defense Down to the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 250,
     "piercing": 20,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply Defense Down to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 1 Defense Down to the primary target.",
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -3712,26 +3676,26 @@
     "notes": []
   },
   "SpiderManNoir": {
-    "description": "Attack primary target for 231% damage + 17% Piercing.\\nApply Stealth to allies.\\nApply Evade to allies.\\nApply Evade to allies.\\nApply Evade to allies.\\nApply HoT to allies.",
+    "description": "Attack primary target for 231% damage + 17% Piercing.\\nApply 1 Stealth to allies.\\nApply 1 Evade to allies.\\nIn GRAND_TOURNAMENT, Apply 1 Evade to allies.\\nIn RAID, Apply 1 Evade to allies.\\nIn RAID, Apply 1 HoT to allies.",
     "damage": 231,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Stealth to allies.",
-      "Apply Evade to allies.",
-      "Apply Evade to allies.",
-      "Apply Evade to allies.",
-      "Apply HoT to allies."
+      "Apply 1 Stealth to allies.",
+      "Apply 1 Evade to allies.",
+      "In GRAND_TOURNAMENT, Apply 1 Evade to allies.",
+      "In RAID, Apply 1 Evade to allies.",
+      "In RAID, Apply 1 HoT to allies."
     ],
     "notes": []
   },
   "SpiderManPavitr": {
-    "description": "Attack primary target for 165% damage + 17% Piercing.\\nApply Speed Up to allies.\\nGain 5% Speed Bar.",
+    "description": "Attack primary target for 165% damage + 17% Piercing.\\nApply 1 Speed Up to allies.\\nGain 5% Speed Bar.",
     "damage": 165,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Speed Up to allies.",
+      "Apply 1 Speed Up to allies.",
       "Gain 5% Speed Bar."
     ],
     "notes": []
@@ -3745,53 +3709,53 @@
     "notes": []
   },
   "SpiderSlayer": {
-    "description": "Attack primary target for  + 228% Piercing.\\nApply Offense Up to self.",
+    "description": "Attack primary target for  + 228% Piercing.\\nApply 1 Offense Up to self.",
     "damage": 0,
     "piercing": 228,
     "drain": 0,
     "effects": [
-      "Apply Offense Up to self."
+      "Apply 1 Offense Up to self."
     ],
     "notes": []
   },
   "SpiderWeaver": {
-    "description": "Attack primary target for 278% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 278% damage + 17% Piercing.\\nClear undefined from the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 278,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Clear undefined from the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "SpiderWoman": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "SquirrelGirl": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
   "StarBrand": {
-    "description": "Attack primary target for 248% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 248% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 248,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -3830,14 +3794,14 @@
     "notes": []
   },
   "Storm": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, Steal 1000 positive effects from primary target.\\nIn RAID, Steal 1000 positive effects from primary target.\\nIn RAID, Steal 1000 positive effects from primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target."
+      "In RAID, Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target.",
+      "In RAID, Steal 1000 positive effects from primary target."
     ],
     "notes": []
   },
@@ -3860,34 +3824,34 @@
     "notes": []
   },
   "Sunfire": {
-    "description": "Attack primary target for  + 242% Piercing.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for  + 242% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 0,
     "piercing": 242,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "Sunspot": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "SuperSkrull": {
-    "description": "Attack primary target for  + 600% Piercing.\\nFlip positive effects to negative on primary target.\\nApply 2 Disrupted to the primary target.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for  + 600% Piercing.\\nFlip positive effects to negative on primary target.\\nApply 1 Immunity to the primary target.\\nBarrier for 10% of Max Health.",
     "damage": 0,
     "piercing": 600,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Apply 2 Disrupted to the primary target.",
+      "Apply 1 Immunity to the primary target.",
       "Barrier for 10% of Max Health."
     ],
     "notes": []
@@ -3909,58 +3873,58 @@
     "notes": []
   },
   "SwordMaster": {
-    "description": "Attack primary target for  + 284% Piercing.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.",
+    "description": "Attack primary target for  + 284% Piercing.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.",
     "damage": 0,
     "piercing": 284,
     "drain": 0,
     "effects": [
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target."
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target."
     ],
     "notes": []
   },
   "Sybil": {
-    "description": "Attack primary target for 278% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 278% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 278,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "Sylvie": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nReduce Speed Bar by 3%.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nIn RAID, Reduce Speed Bar by 3%.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Reduce Speed Bar by 3%."
+      "In RAID, Reduce Speed Bar by 3%."
     ],
     "notes": []
   },
   "SymbioteSilverSurfer": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nFlip positive effects to negative on primary target.\\nFlip positive effects to negative on primary target.\\nFlip positive effects to negative on primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nFlip positive effects to negative on primary target.\\nIn RAID, Flip positive effects to negative on primary target.\\nIn RAID, Flip positive effects to negative on primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
       "Flip positive effects to negative on primary target.",
-      "Flip positive effects to negative on primary target.",
-      "Flip positive effects to negative on primary target."
+      "In RAID, Flip positive effects to negative on primary target.",
+      "In RAID, Flip positive effects to negative on primary target."
     ],
     "notes": []
   },
   "SymbioteSpiderMan": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -4007,14 +3971,13 @@
     "notes": []
   },
   "ThanosEndgame": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 2 Heal Block to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nReduce Speed Bar by 5%.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 3 Heal Block to the primary target.\\nApply 3 Bleed to the primary target.\\nReduce Speed Bar by 5%.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Heal Block to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
+      "Apply 3 Heal Block to the primary target.",
+      "Apply 3 Bleed to the primary target.",
       "Reduce Speed Bar by 5%."
     ],
     "notes": []
@@ -4028,7 +3991,7 @@
     "notes": []
   },
   "TheLeader": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nHeal for 10% of Max Health.\\nFlip positive effects to negative on primary target.\\nClear undefined from the primary target.\\nApply 2 Stealth to allies.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nHeal for 10% of Max Health.\\nFlip positive effects to negative on primary target.\\nClear undefined from the primary target.\\nApply 1 Stealth to allies.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
@@ -4036,7 +3999,7 @@
       "Heal for 10% of Max Health.",
       "Flip positive effects to negative on primary target.",
       "Clear undefined from the primary target.",
-      "Apply 2 Stealth to allies."
+      "Apply 1 Stealth to allies."
     ],
     "notes": []
   },
@@ -4075,25 +4038,24 @@
     "notes": []
   },
   "Thunderstrike": {
-    "description": "Attack primary target for 270% damage + 19% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 270% damage + 19% Piercing.\\nApply 1 Bleed to the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 270,
     "piercing": 19,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 1 Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
   "Tigra": {
-    "description": "Attack primary target for  + 175% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for  + 175% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 1 Bleed to the primary target.",
     "damage": 0,
     "piercing": 175,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed to the primary target.",
+      "Apply 1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -4109,23 +4071,23 @@
     "notes": []
   },
   "Toad": {
-    "description": "Attack primary target for 182% damage + 20% Piercing.\\nApply Slow to the primary target.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 182% damage + 20% Piercing.\\nApply 1 Slow to the primary target.\\nApply 1 Offense Down to the primary target.",
     "damage": 182,
     "piercing": 20,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target.",
-      "Apply Offense Down to the primary target."
+      "Apply 1 Slow to the primary target.",
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
   "USAgent": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Deflect to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Deflect to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Deflect to allies."
+      "Apply 1 Deflect to allies."
     ],
     "notes": []
   },
@@ -4148,13 +4110,13 @@
     "notes": []
   },
   "Ultimus": {
-    "description": "Attack primary target for 200% damage + 47% Piercing.\\nApply Ability Block to the primary target.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 200% damage + 47% Piercing.\\nApply 2 Ability Block to the primary target.\\nApply 2 Defense Down to the primary target.",
     "damage": 200,
     "piercing": 47,
     "drain": 0,
     "effects": [
-      "Apply Ability Block to the primary target.",
-      "Apply Defense Down to the primary target."
+      "Apply 2 Ability Block to the primary target.",
+      "Apply 2 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -4213,13 +4175,13 @@
     "notes": []
   },
   "UnionJack": {
-    "description": "Attack primary target for 270% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nFlip positive effects to negative on primary target.",
+    "description": "Attack primary target for 270% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nIn RAID, Flip positive effects to negative on primary target.",
     "damage": 270,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Flip positive effects to negative on primary target."
+      "In RAID, Flip positive effects to negative on primary target."
     ],
     "notes": []
   },
@@ -4232,13 +4194,13 @@
     "notes": []
   },
   "Vahl": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply Exposed to the primary target.\\nCopy 1 positive effects from primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply 1 Exposed to the primary target.\\nCopy 1 positive effects from primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Apply Exposed to the primary target.",
+      "Apply 1 Exposed to the primary target.",
       "Copy 1 positive effects from primary target."
     ],
     "notes": []
@@ -4252,95 +4214,93 @@
     "notes": []
   },
   "VampireBlaster": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
   "VampireBrawler": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Apply 1 Bleed to the primary target."
+    ],
+    "notes": []
+  },
+  "VampireController": {
+    "description": "Attack primary target for 165% damage + 37% Piercing.\\nApply 1 Bleed to the primary target.\\nClear undefined from the primary target.",
+    "damage": 165,
+    "piercing": 37,
+    "drain": 0,
+    "effects": [
+      "Apply 1 Bleed to the primary target.",
+      "Clear undefined from the primary target."
+    ],
+    "notes": []
+  },
+  "VampireProtector": {
+    "description": "Attack primary target for 182% damage + 17% Piercing.\\nApply 1 Bleed to the primary target.\\nClear undefined from the primary target.\\nApply 1 Taunt to allies.",
+    "damage": 182,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Apply 1 Bleed to the primary target.",
+      "Clear undefined from the primary target.",
+      "Apply 1 Taunt to allies."
+    ],
+    "notes": []
+  },
+  "VampireSupport": {
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 2 HoT to allies.",
+    "damage": 205,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Apply 2 HoT to allies."
+    ],
+    "notes": []
+  },
+  "Venom": {
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply 2 Bleed to the primary target.\\nApply 2 Heal Block to the primary target.\\nGain 20% Speed Bar.",
+    "damage": 210,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Flip positive effects to negative on primary target.",
+      "Apply 2 Bleed to the primary target.",
+      "Apply 2 Heal Block to the primary target.",
+      "Gain 20% Speed Bar."
+    ],
+    "notes": []
+  },
+  "VictoriaHand": {
+    "description": "Attack primary target for  + 225% Piercing.\\nApply 2 Bleed to the primary target.",
+    "damage": 0,
+    "piercing": 225,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
-  "VampireController": {
-    "description": "Attack primary target for 165% damage + 37% Piercing.\\nApply 2 Bleed to the primary target.\\nClear undefined from the primary target.",
-    "damage": 165,
-    "piercing": 37,
-    "drain": 0,
-    "effects": [
-      "Apply 2 Bleed to the primary target.",
-      "Clear undefined from the primary target."
-    ],
-    "notes": []
-  },
-  "VampireProtector": {
-    "description": "Attack primary target for 182% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nClear undefined from the primary target.\\nApply Taunt to allies.",
-    "damage": 182,
-    "piercing": 17,
-    "drain": 0,
-    "effects": [
-      "Apply 2 Bleed to the primary target.",
-      "Clear undefined from the primary target.",
-      "Apply Taunt to allies."
-    ],
-    "notes": []
-  },
-  "VampireSupport": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply HoT to allies.\\nApply HoT to allies.",
-    "damage": 205,
-    "piercing": 17,
-    "drain": 0,
-    "effects": [
-      "Apply HoT to allies.",
-      "Apply HoT to allies."
-    ],
-    "notes": []
-  },
-  "Venom": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply Bleed to the primary target.\\nApply Heal Block to the primary target.\\nGain 20% Speed Bar.",
-    "damage": 210,
-    "piercing": 17,
-    "drain": 0,
-    "effects": [
-      "Flip positive effects to negative on primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Heal Block to the primary target.",
-      "Gain 20% Speed Bar."
-    ],
-    "notes": []
-  },
-  "VictoriaHand": {
-    "description": "Attack primary target for  + 225% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
-    "damage": 0,
-    "piercing": 225,
-    "drain": 0,
-    "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
-    ],
-    "notes": []
-  },
   "Vision": {
-    "description": "Attack primary target for 174% damage + 17% Piercing.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nSteal 1000 positive effects from primary target.\\nApply Offense Down to the primary target.\\nApply Bleed to the primary target.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 174% damage + 17% Piercing.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nIn WAR OFFENSE, Steal 1000 positive effects from primary target.\\nApply 1 Offense Down to the primary target.\\nApply 1 Bleed to the primary target.\\nApply 1 Offense Down to the primary target.",
     "damage": 174,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Steal 1000 positive effects from primary target.",
-      "Apply Offense Down to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Offense Down to the primary target."
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "In WAR OFFENSE, Steal 1000 positive effects from primary target.",
+      "Apply 1 Offense Down to the primary target.",
+      "Apply 1 Bleed to the primary target.",
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -4353,13 +4313,13 @@
     "notes": []
   },
   "Void": {
-    "description": "Attack primary target for  + 225% Piercing.\\nApply Defense Down to the primary target.\\nApply Safeguard to the primary target.",
+    "description": "Attack primary target for  + 225% Piercing.\\nApply 1 Defense Down to the primary target.\\nApply 1 Trauma to the primary target.",
     "damage": 0,
     "piercing": 225,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target.",
-      "Apply Safeguard to the primary target."
+      "Apply 1 Defense Down to the primary target.",
+      "Apply 1 Trauma to the primary target."
     ],
     "notes": []
   },
@@ -4372,12 +4332,12 @@
     "notes": []
   },
   "WarMachine": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target."
+      "Apply 1 Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -4400,12 +4360,12 @@
     "notes": []
   },
   "War_ShieldSupport_Heal": {
-    "description": "Attack primary target for 87% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nReduce Speed Bar by 25%.",
+    "description": "Attack primary target for 87% damage + 17% Piercing.\\nApply 1 Offense Down to the primary target.\\nReduce Speed Bar by 25%.",
     "damage": 87,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
+      "Apply 1 Offense Down to the primary target.",
       "Reduce Speed Bar by 25%."
     ],
     "notes": []
@@ -4422,23 +4382,23 @@
     "notes": []
   },
   "War_ShieldTank_Stun": {
-    "description": "Attack primary target for 135%.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 135%.\\nApply 1 Slow to the primary target.",
     "damage": 135,
     "piercing": 0,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target."
+      "Apply 1 Slow to the primary target."
     ],
     "notes": []
   },
   "Warlock": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply Stealth to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip positive effects to negative on primary target.\\nApply 1 Stealth to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip positive effects to negative on primary target.",
-      "Apply Stealth to allies."
+      "Apply 1 Stealth to allies."
     ],
     "notes": []
   },
@@ -4451,24 +4411,24 @@
     "notes": []
   },
   "WhiteTiger": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.\\nApply 2 Slow to the primary target.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.\\nApply 2 Slow to the primary target.\\nApply 1 Heal Block to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 Defense Down to the primary target.",
       "Apply 2 Slow to the primary target.",
-      "Apply Heal Block to the primary target."
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   },
   "WinterSoldier": {
-    "description": "Attack primary target for 218% damage + 42% Piercing.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 218% damage + 42% Piercing.\\nApply 1 Defense Down to the primary target.",
     "damage": 218,
     "piercing": 42,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target."
+      "Apply 1 Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -4483,16 +4443,15 @@
     "notes": []
   },
   "Wolverine": {
-    "description": "Attack primary target for  + 182% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nApply Disrupted to the primary target.\\nApply Speed Up to allies.",
+    "description": "Attack primary target for  + 182% Piercing.\\nApply 1 Bleed to the primary target.\\nApply 2 Bleed to the primary target.\\nApply 1 Immunity to the primary target.\\nApply 1 Speed Up to allies.",
     "damage": 0,
     "piercing": 182,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Apply Disrupted to the primary target.",
-      "Apply Speed Up to allies."
+      "Apply 1 Bleed to the primary target.",
+      "Apply 2 Bleed to the primary target.",
+      "Apply 1 Immunity to the primary target.",
+      "Apply 1 Speed Up to allies."
     ],
     "notes": []
   },
@@ -4572,46 +4531,43 @@
     "notes": []
   },
   "ZombieIronMan": {
-    "description": "Attack primary target for 234% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 234% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
     "damage": 234,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
   "ZombieJuggernaut": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.\\nRedistribute health.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nIn WAR OFFENSE, Redistribute health.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target.",
-      "Redistribute health."
+      "Apply 2 Bleed to the primary target.",
+      "In WAR OFFENSE, Redistribute health."
     ],
     "notes": []
   },
   "ZombieKestrel": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
   "ZombieScarletWitch": {
-    "description": "Attack primary target for 165% damage + 17% Piercing.\\nApply 2 Heal Block to the primary target.",
+    "description": "Attack primary target for 165% damage + 17% Piercing.\\nApply 1 Heal Block to the primary target.",
     "damage": 165,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Heal Block to the primary target."
+      "Apply 1 Heal Block to the primary target."
     ],
     "notes": []
   }
