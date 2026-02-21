@@ -1,10 +1,4 @@
-// MSF ISO-8 Counter/Assist Data
-// Auto-generated from game data
-// Extension Version: 1.8.7
-// Total characters: 450
-// Last updated: 2026-01-09
-
-const ISO8_DATA = {
+{
   "Abomination": {
     "description": "Attack primary target for 205% damage + 17% Piercing.\nClear Defense Up from the primary target.\nApply Defense Down to the primary target.",
     "damage": 205,
@@ -17,12 +11,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "AbsorbingMan": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.\nCopy and clear 2 positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIf the primary target has Vulnerable, gain +2 Deflect, up to a maximum of 5.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\nSteal 2 positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIf the primary target has Vulnerable, gain +2 Deflect, up to a maximum of 5.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Copy and clear 2 positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
+      "Steal 2 positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
       "If the primary target has Vulnerable, gain +2 Deflect, up to a maximum of 5."
     ],
     "notes": []
@@ -39,23 +33,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "AgathaHarkness": {
-    "description": "Attack primary target for 210% Piercing.\nApply +1 Deflect, up to a maximum of 3 to a random ally.",
+    "description": "Attack primary target for 210% Piercing.\nIf the primary target is MYSTIC, deal 5% of target's Max Health as bonus damage.\nApply +1 Deflect, up to a maximum of 3 to a random ally.",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
     "effects": [
+      "If the primary target is MYSTIC, deal 5% of target's Max Health as bonus damage.",
       "Apply +1 Deflect, up to a maximum of 3 to a random ally."
     ],
     "notes": []
   },
   "AgentVenom": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Defense Down to the primary target.\nOn Crit, apply Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply 2 Defense Down + Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target.",
-      "On Crit, apply Bleed to the primary target."
+      "Apply 2 Defense Down + Bleed to the primary target."
     ],
     "notes": []
   },
@@ -110,13 +104,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "AmadeusCho": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply Offense Down to the primary target.\nGain Regeneration.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nApply Offense Down to the primary target.\nGain 2 Regeneration.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down to the primary target.",
-      "Gain Regeneration."
+      "Gain 2 Regeneration."
     ],
     "notes": []
   },
@@ -131,53 +125,56 @@ const ISO8_DATA = {
     "notes": []
   },
   "AncientOne": {
-    "description": "Attack primary target for 157% Piercing.\nApply 4 Bleed to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 157% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 0,
     "piercing": 157,
     "drain": 0,
-    "effects": [
-      "Apply 4 Bleed to the primary target."
-    ],
+    "effects": [],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
   },
   "AnnihilusBug": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.",
+    "description": "Attack primary target for 163% damage + 17% Piercing.\nClear 2 positive effect(s) from the primary target.",
     "damage": 163,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear 2 positive effect(s) from the primary target."
+    ],
     "notes": []
   },
   "AntMan": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\nSteal 1 positive effect(s) from the primary target and give to a random ally, excluding Taunt.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Steal 1 positive effect(s) from the primary target and give to a random ally, excluding Taunt."
+    ],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
   },
   "AntiVenom": {
-    "description": "Attack primary target for 178% damage + 17% Piercing.\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 178% damage + 17% Piercing.\nCopy all positive effect(s) from the primary target to self.\nApply Bleed to the primary target.",
     "damage": 178,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Copy all positive effect(s) from the primary target to self.",
       "Apply Bleed to the primary target."
     ],
     "notes": []
   },
   "Apocalypse": {
-    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\nHeal self for 5% of Max Health.\nApply Stun to the primary target.\nGain Offense Up + Speed Up.",
+    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\nHeal self for 5% of Max Health.\nIf self has Charged, apply Stun to the primary target and consume Charged.\nGain Offense Up + Speed Up.",
     "damage": 250,
     "piercing": 17,
     "drain": 100,
     "effects": [
       "Heal self for 5% of Max Health.",
-      "Apply Stun to the primary target.",
+      "If self has Charged, apply Stun to the primary target and consume Charged.",
       "Gain Offense Up + Speed Up."
     ],
     "notes": []
@@ -194,11 +191,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Ares": {
-    "description": "Attack primary target for 177% damage + 19% Piercing.\nGain Immunity.",
+    "description": "Attack primary target for 177% damage + 19% Piercing.\nClear 3 positive effect(s) from the primary target.\nGain Immunity.",
     "damage": 177,
     "piercing": 19,
     "drain": 0,
     "effects": [
+      "Clear 3 positive effect(s) from the primary target.",
       "Gain Immunity."
     ],
     "notes": []
@@ -222,14 +220,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "Beast": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn RAID, copy and clear Charged from the primary target to self.\nIn RAID, copy and clear Revive Once from the primary target to self.\nFlip 2 positive effects into negative effects on the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn RAID, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn RAID, steal Charged from the primary target and give to allies.\nIn RAID, steal Revive Once from the primary target and give to allies.\nFlip 2 positive effects into negative effects on the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In RAID, copy and clear Charged from the primary target to self.",
-      "In RAID, copy and clear Revive Once from the primary target to self.",
+      "In RAID, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAID, steal Charged from the primary target and give to allies.",
+      "In RAID, steal Revive Once from the primary target and give to allies.",
       "Flip 2 positive effects into negative effects on the primary target."
     ],
     "notes": []
@@ -246,11 +244,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Bishop": {
-    "description": "Attack primary target for 216% damage + 20% Piercing.",
+    "description": "Attack primary target for 216% damage + 20% Piercing.\nClear Counter from the primary target.",
     "damage": 216,
     "piercing": 20,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear Counter from the primary target."
+    ],
     "notes": []
   },
   "BlackBolt": {
@@ -264,7 +264,7 @@ const ISO8_DATA = {
     "notes": []
   },
   "BlackCat": {
-    "description": "Attack primary target for 456% Piercing.\nReduce the target's Speed Bar by 5%.\nGain 5% Turn Meter.\nGain +1 Charged.\nIf this character's Health is 30% or below, gain Stealth.\nApply Slow + 2 Bleed to the primary target.",
+    "description": "Attack primary target for 456% Piercing.\nReduce the target's Speed Bar by 5%.\nGain 5% Turn Meter.\nGain +1 Charged.\nIf self has Health at or below 30%, gain Stealth.\nApply Slow + 2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 456,
     "drain": 0,
@@ -272,7 +272,7 @@ const ISO8_DATA = {
       "Reduce the target's Speed Bar by 5%.",
       "Gain 5% Turn Meter.",
       "Gain +1 Charged.",
-      "If this character's Health is 30% or below, gain Stealth.",
+      "If self has Health at or below 30%, gain Stealth.",
       "Apply Slow + 2 Bleed to the primary target."
     ],
     "notes": []
@@ -321,11 +321,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "BlackWidow": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\nSteal all positive effect(s) from the primary target to self, excluding Taunt.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Steal all positive effect(s) from the primary target to self, excluding Taunt."
+    ],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
@@ -343,17 +345,17 @@ const ISO8_DATA = {
     ]
   },
   "Blastaar": {
-    "description": "Attack primary target for 175% damage + 20% Piercing.\nIn CRUCIBLE on Offense, reduce the duration of Safeguard on the primary target by 2.\nReduce the duration of Immunity on the primary target by 2.\nReduce the duration of Taunt on the primary target by 1.\nIn CRUCIBLE on Offense, clear all positive effect(s) from the primary target.\nClear all negative effect(s) from self.\nIn CRUCIBLE on Offense, gain 30% Turn Meter.\nGain +1 BombBurst, up to a maximum of 5.",
+    "description": "Attack primary target for 175% damage + 20% Piercing.\nOn CRUCIBLE OFFENSE, reduce the duration of LockedBuff on the primary target by 2.\nReduce the duration of Immunity on the primary target by 2.\nReduce the duration of Taunt on the primary target by 1.\nIn CRUCIBLE OFFENSE, clear all positive effect(s) from the primary target.\nClear all negative effect(s) from self.\nIn CRUCIBLE OFFENSE, gain 30% Turn Meter.\nGain +1 BombBurst, up to a maximum of 5.",
     "damage": 175,
     "piercing": 20,
     "drain": 0,
     "effects": [
-      "In CRUCIBLE on Offense, reduce the duration of Safeguard on the primary target by 2.",
+      "On CRUCIBLE OFFENSE, reduce the duration of LockedBuff on the primary target by 2.",
       "Reduce the duration of Immunity on the primary target by 2.",
       "Reduce the duration of Taunt on the primary target by 1.",
-      "In CRUCIBLE on Offense, clear all positive effect(s) from the primary target.",
+      "In CRUCIBLE OFFENSE, clear all positive effect(s) from the primary target.",
       "Clear all negative effect(s) from self.",
-      "In CRUCIBLE on Offense, gain 30% Turn Meter.",
+      "In CRUCIBLE OFFENSE, gain 30% Turn Meter.",
       "Gain +1 BombBurst, up to a maximum of 5."
     ],
     "notes": []
@@ -522,11 +524,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "CorvusGlaive": {
-    "description": "Attack primary target for 200% Piercing.",
+    "description": "Attack primary target for 200% Piercing.\nClear 1 positive effect(s) from the primary target.",
     "damage": 0,
     "piercing": 200,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear 1 positive effect(s) from the primary target."
+    ],
     "notes": []
   },
   "CosmicGhostRider": {
@@ -690,12 +694,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Darkstar": {
-    "description": "Attack primary target for 157% Piercing.\nGain +30% Piercing per Winter Guard ally.",
+    "description": "Attack primary target for 157% Piercing.\n+30% Piercing for each WINTER GUARD ally.",
     "damage": 0,
     "piercing": 157,
     "drain": 0,
     "effects": [
-      "Gain +30% Piercing per Winter Guard ally."
+      "+30% Piercing for each WINTER GUARD ally."
     ],
     "notes": []
   },
@@ -712,12 +716,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "Deadpool": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [],
-    "notes": []
+    "notes": [
+      "When forced to attack an ally, this character deals less damage to them."
+    ]
   },
   "Deathlok": {
     "description": "Attack primary target for 210% damage + 37% Piercing.\nIn RAID, generate 1 Ability Energy.",
@@ -730,11 +736,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Deathpool": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\nFlip Stealth + Speed Up into negative effects on the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nClear Deathproof from the primary target.\nFlip Stealth + Speed Up into negative effects on the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Clear Deathproof from the primary target.",
       "Flip Stealth + Speed Up into negative effects on the primary target."
     ],
     "notes": []
@@ -750,11 +757,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "DoctorStrange": {
-    "description": "Attack primary target for 212% Piercing + 3% of target's Max Health.\nGain Barrier.\nApply 2 Offense Down to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 212% Piercing + deal 3% of this character's Max Health as damage.\nDeal 3% of this character's Max Health as damage.\nGain Barrier.\nApply 2 Offense Down to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 0,
     "piercing": 212,
     "drain": 0,
     "effects": [
+      "Deal 3% of this character's Max Health as damage.",
       "Gain Barrier.",
       "Apply 2 Offense Down to the primary target."
     ],
@@ -799,12 +807,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Dormammu": {
-    "description": "Attack primary target for 245% damage + 17% Piercing + 30% Drain.\nClear 1 positive effect(s) from the primary target.",
+    "description": "Attack primary target for 245% damage + 17% Piercing + 30% Drain.\nIf the primary target doesn't have Immunity, clear 1 positive effect(s) from the primary target.\nIf the primary target has Immunity, clear Immunity from the primary target.",
     "damage": 245,
     "piercing": 17,
     "drain": 30,
     "effects": [
-      "Clear 1 positive effect(s) from the primary target."
+      "If the primary target doesn't have Immunity, clear 1 positive effect(s) from the primary target.",
+      "If the primary target has Immunity, clear Immunity from the primary target."
     ],
     "notes": []
   },
@@ -866,11 +875,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "EmmaFrost": {
-    "description": "Attack primary target for 17% Piercing.\nFlip 2 positive effects into negative effects on the primary target.",
+    "description": "Attack primary target for 17% Piercing.\nIf self has Charged, clear 2 positive effect(s) from the primary target.\nFlip 2 positive effects into negative effects on the primary target.",
     "damage": 0,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "If self has Charged, clear 2 positive effect(s) from the primary target.",
       "Flip 2 positive effects into negative effects on the primary target."
     ],
     "notes": []
@@ -890,17 +900,17 @@ const ISO8_DATA = {
     ]
   },
   "Falcon": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn WAR OFFENSE, copy and clear Charged from the primary target to self.\nIn RAID, copy and clear Charged from the primary target to self.\nIn WAR OFFENSE, copy and clear Revive Once from the primary target to self.\nIn RAID, copy and clear Revive Once from the primary target to self.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn RAID, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn WAR OFFENSE, steal Charged from the primary target and give to allies.\nIn RAID, steal Charged from the primary target and give to allies.\nIn WAR OFFENSE, steal Revive Once from the primary target and give to allies.\nIn RAID, steal Revive Once from the primary target and give to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In WAR OFFENSE, copy and clear Charged from the primary target to self.",
-      "In RAID, copy and clear Charged from the primary target to self.",
-      "In WAR OFFENSE, copy and clear Revive Once from the primary target to self.",
-      "In RAID, copy and clear Revive Once from the primary target to self."
+      "In WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAID, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR OFFENSE, steal Charged from the primary target and give to allies.",
+      "In RAID, steal Charged from the primary target and give to allies.",
+      "In WAR OFFENSE, steal Revive Once from the primary target and give to allies.",
+      "In RAID, steal Revive Once from the primary target and give to allies."
     ],
     "notes": []
   },
@@ -1049,25 +1059,25 @@ const ISO8_DATA = {
     "notes": []
   },
   "GhostSpider": {
-    "description": "Attack primary target for 208% damage + 17% Piercing.\nCopy and clear Evade from the primary target to self.\nIn RAID, apply Blind + Bleed to the primary target.\nGain Evade.",
+    "description": "Attack primary target for 208% damage + 17% Piercing.\nSteal Evade from the primary target and give to allies.\nIf the primary target has Slow, apply Blind + Bleed to the primary target.\nGain Evade.",
     "damage": 208,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Copy and clear Evade from the primary target to self.",
-      "In RAID, apply Blind + Bleed to the primary target.",
+      "Steal Evade from the primary target and give to allies.",
+      "If the primary target has Slow, apply Blind + Bleed to the primary target.",
       "Gain Evade."
     ],
     "notes": []
   },
   "Gladiator": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\nIf this character's Health is below 50%, gain 25% Drain.\nIf this character's Health is 50% or above, apply 2 Offense Down to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\nIf self has Health below 50%, gain 25% Drain on this attack.\nIf self has Health at or above 50%, apply 2 Offense Down to the primary target.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If this character's Health is below 50%, gain 25% Drain.",
-      "If this character's Health is 50% or above, apply 2 Offense Down to the primary target."
+      "If self has Health below 50%, gain 25% Drain on this attack.",
+      "If self has Health at or above 50%, apply 2 Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -1091,13 +1101,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "GreenGoblinGlider": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\nApply Defense Down to the primary target.\nIn CRUCIBLE on Offense, gain +10% Crit Chance per SpiderVerse ally.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\n+10% Crit Chance for each SPIDER-VERSE character.\nApply Defense Down to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target.",
-      "In CRUCIBLE on Offense, gain +10% Crit Chance per SpiderVerse ally."
+      "+10% Crit Chance for each SPIDER-VERSE character.",
+      "Apply Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -1145,7 +1155,7 @@ const ISO8_DATA = {
     "notes": []
   },
   "Gwenpool": {
-    "description": "Attack primary target for 278% damage + 17% Piercing.\nGain Barrier.\nGain Barrier.\nGain 2 Defense Up.",
+    "description": "Attack primary target for 278% damage + 17% Piercing.\nGain Barrier.\nGain Barrier.\nGain 2 Defense Up.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 278,
     "piercing": 17,
     "drain": 0,
@@ -1154,7 +1164,9 @@ const ISO8_DATA = {
       "Gain Barrier.",
       "Gain 2 Defense Up."
     ],
-    "notes": []
+    "notes": [
+      "When forced to attack an ally, this character deals less damage to them."
+    ]
   },
   "HandControl_HealBlock": {
     "description": "Attack primary target for 205% damage + 17% Piercing.",
@@ -1244,33 +1256,34 @@ const ISO8_DATA = {
     "notes": []
   },
   "Hellcat": {
-    "description": "Attack primary target for 135% Piercing.\nIn WAR with 3+ Brimstone allies, on Crit, apply Ability Block to the primary target.",
+    "description": "Attack primary target for 135% Piercing.\nIn WAR, apply Ability Block to the primary target.",
     "damage": 0,
     "piercing": 135,
     "drain": 0,
     "effects": [
-      "In WAR with 3+ Brimstone allies, on Crit, apply Ability Block to the primary target."
+      "In WAR, apply Ability Block to the primary target."
     ],
     "notes": []
   },
   "Hellverine": {
-    "description": "Attack primary target for 165% Piercing.\nApply Defense Down to the primary target.\nApply 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 165% Piercing.\nIf the primary target doesn't have Exposed, apply Defense Down to the primary target.\nIf the primary target has Exposed, apply 2 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 165,
     "drain": 0,
     "effects": [
-      "Apply Defense Down to the primary target.",
-      "Apply 2 Defense Down to the primary target."
+      "If the primary target doesn't have Exposed, apply Defense Down to the primary target.",
+      "If the primary target has Exposed, apply 2 Defense Down to the primary target."
     ],
     "notes": []
   },
   "Hercules": {
-    "description": "Attack primary target for 228% damage + 17% Piercing.\nClear Charged from the primary target.",
+    "description": "Attack primary target for 228% damage + 17% Piercing.\nClear Charged from the primary target.\nSteal Revive Once from the primary target and give to allies.",
     "damage": 228,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear Charged from the primary target."
+      "Clear Charged from the primary target.",
+      "Steal Revive Once from the primary target and give to allies."
     ],
     "notes": []
   },
@@ -1409,47 +1422,50 @@ const ISO8_DATA = {
     ]
   },
   "InnerDemon_Cyclops": {
-    "description": "Attack primary target for 216% Piercing.\nReduce the target's Speed Bar by 10%.\nApply 2 Heal Block to the primary target.",
+    "description": "Attack primary target for 216% Piercing.\nIn WAR OFFENSE, +20% Focus for each UNDERWORLD ally.\nReduce the target's Speed Bar by 10%.\nApply 2 Heal Block to the primary target.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
+      "In WAR OFFENSE, +20% Focus for each UNDERWORLD ally.",
       "Reduce the target's Speed Bar by 10%.",
       "Apply 2 Heal Block to the primary target."
     ],
     "notes": []
   },
   "InnerDemon_Demon": {
-    "description": "Attack primary target for 216% Piercing.\nReduce the target's Speed Bar by 10%.\nApply Stun to the primary target.",
+    "description": "Attack primary target for 216% Piercing.\nIn WAR OFFENSE, +20% Focus for each UNDERWORLD ally.\nReduce the target's Speed Bar by 10%.\nApply Stun to the primary target.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
+      "In WAR OFFENSE, +20% Focus for each UNDERWORLD ally.",
       "Reduce the target's Speed Bar by 10%.",
       "Apply Stun to the primary target."
     ],
     "notes": []
   },
   "InnerDemon_Dragon": {
-    "description": "Attack primary target for 216% Piercing.\nReduce the target's Speed Bar by 10%.\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 216% Piercing.\nIn WAR OFFENSE, +20% Focus for each UNDERWORLD ally.\nReduce the target's Speed Bar by 10%.\nApply 2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
+      "In WAR OFFENSE, +20% Focus for each UNDERWORLD ally.",
       "Reduce the target's Speed Bar by 10%.",
       "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
   "InvisibleWoman": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn WAR OFFENSE, copy and clear Charged from the primary target to self.\nIn WAR OFFENSE, copy and clear Revive Once from the primary target to self.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn WAR OFFENSE, steal Charged from the primary target and give to allies.\nIn WAR OFFENSE, steal Revive Once from the primary target and give to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In WAR OFFENSE, copy and clear Charged from the primary target to self.",
-      "In WAR OFFENSE, copy and clear Revive Once from the primary target to self."
+      "In WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR OFFENSE, steal Charged from the primary target and give to allies.",
+      "In WAR OFFENSE, steal Revive Once from the primary target and give to allies."
     ],
     "notes": []
   },
@@ -1504,11 +1520,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "IronPatriot": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\nApply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\nClear Immunity from the primary target.\nApply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Clear Immunity from the primary target.",
       "Apply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target."
     ],
     "notes": []
@@ -1547,17 +1564,31 @@ const ISO8_DATA = {
     ]
   },
   "JeanGrey": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nIn RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn RAID, copy and clear Charged from the primary target to self.\nIn RAID, copy and clear Revive Once from the primary target to self.\nApply 2 Heal Block + 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nIn RAID, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn RAID, steal Charged from the primary target and give to allies.\nIn RAID, steal Revive Once from the primary target and give to allies.\nApply 2 Heal Block + 2 Defense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In RAID, copy and clear Charged from the primary target to self.",
-      "In RAID, copy and clear Revive Once from the primary target to self.",
+      "In RAID, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAID, steal Charged from the primary target and give to allies.",
+      "In RAID, steal Revive Once from the primary target and give to allies.",
       "Apply 2 Heal Block + 2 Defense Down to the primary target."
     ],
     "notes": []
+  },
+  "JeffTheLandShark": {
+    "description": "Attack primary target for 210% Piercing.\nGenerate 1 Ability Energy.\nGenerate 1 Ability Energy.\nGain 2 Disrupted.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "damage": 0,
+    "piercing": 210,
+    "drain": 0,
+    "effects": [
+      "Generate 1 Ability Energy.",
+      "Generate 1 Ability Energy.",
+      "Gain 2 Disrupted."
+    ],
+    "notes": [
+      "When forced to attack an ally, this character deals less damage to them."
+    ]
   },
   "JessicaJones": {
     "description": "Attack primary target for 203% damage + 17% Piercing.",
@@ -1587,17 +1618,15 @@ const ISO8_DATA = {
     "notes": []
   },
   "Kahhori": {
-    "description": "Attack primary target for 135% Piercing + 50% Drain + 5% of target's Max Health.\nIf the primary target is a MINION, attack for 30% of the target's Max Health instead.\nFlip 2 positive effects into negative effects on the primary target.\nIn WAR, flip all positive effects into negative effects instead.\nIf the primary target has Exposed, Apply Blind to the primary target.\nIf the primary target has no positive effects, Apply Exposed to the primary target.\nApply +1 Charged, up to a maximum of 3 to the CHARGEABLE ABSOLUTE A-FORCE ally with the most Health.\nProlong the duration of 1 positive effect on this character by +1, up to maximum of 2.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 135% Piercing + 50% Drain.\nDeal up to 5% of target's Max Health as bonus damage.\nFlip 2 positive effects into negative effects on the primary target.\nIn WAR, flip all positive effects into negative effects on the primary target instead.\nApply +1 Charged, up to a maximum of 3 to a random ally.\nProlong the duration of 1 positive effect on this character by +1, up to maximum of 2.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 0,
     "piercing": 135,
     "drain": 50,
     "effects": [
-      "If the primary target is a MINION, attack for 30% of the target's Max Health instead.",
+      "Deal up to 5% of target's Max Health as bonus damage.",
       "Flip 2 positive effects into negative effects on the primary target.",
-      "In WAR, flip all positive effects into negative effects instead.",
-      "If the primary target has Exposed, Apply Blind to the primary target.",
-      "If the primary target has no positive effects, Apply Exposed to the primary target.",
-      "Apply +1 Charged, up to a maximum of 3 to the CHARGEABLE ABSOLUTE A-FORCE ally with the most Health.",
+      "In WAR, flip all positive effects into negative effects on the primary target instead.",
+      "Apply +1 Charged, up to a maximum of 3 to a random ally.",
       "Prolong the duration of 1 positive effect on this character by +1, up to maximum of 2."
     ],
     "notes": [
@@ -1626,19 +1655,22 @@ const ISO8_DATA = {
     "notes": []
   },
   "Karnak": {
-    "description": "Attack primary target for 205% damage.",
+    "description": "Attack primary target for 205% damage.\nClear Evade from the primary target.",
     "damage": 205,
     "piercing": 0,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear Evade from the primary target."
+    ],
     "notes": []
   },
   "KateBishop": {
-    "description": "Attack primary target for 170% Piercing.\nIn WAR DEFENSE, gain Taunt.",
+    "description": "Attack primary target for 170% Piercing.\nClear 2 positive effect(s) from the primary target.\nIn WAR DEFENSE, gain Taunt.",
     "damage": 0,
     "piercing": 170,
     "drain": 0,
     "effects": [
+      "Clear 2 positive effect(s) from the primary target.",
       "In WAR DEFENSE, gain Taunt."
     ],
     "notes": []
@@ -1652,21 +1684,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "Kingpin": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nGain Barrier.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\n+15% Crit Chance for each UNDERWORLD ally.\nGain Barrier.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "+15% Crit Chance for each UNDERWORLD ally.",
       "Gain Barrier."
     ],
     "notes": []
   },
   "KittyPryde": {
-    "description": "Attack primary target for 334% damage + 17% Piercing.\nGain 4 Speed Up.",
+    "description": "Attack primary target for 334% damage + 17% Piercing.\nClear 2 positive effect(s) from the primary target.\nGain 4 Speed Up.",
     "damage": 334,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Clear 2 positive effect(s) from the primary target.",
       "Gain 4 Speed Up."
     ],
     "notes": []
@@ -1770,13 +1804,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "LadyDeathstrike": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\nCopy and clear Deflect from the primary target to self.\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\nSteal Deflect from the primary target and give to allies.\nIf the primary target has Bleed, apply Defense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Copy and clear Deflect from the primary target to self.",
-      "Apply Defense Down to the primary target."
+      "Steal Deflect from the primary target and give to allies.",
+      "If the primary target has Bleed, apply Defense Down to the primary target."
     ],
     "notes": []
   },
@@ -1793,12 +1827,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "LivingMummy": {
-    "description": "Attack primary target for 187% Piercing.\nGain Counter + Speed Up.\nHeal self for 15% of Max Health.",
+    "description": "Attack primary target for 187% Piercing.\nIf self has Revive Once, gain Counter + Speed Up.\nHeal self for 15% of Max Health.",
     "damage": 0,
     "piercing": 187,
     "drain": 0,
     "effects": [
-      "Gain Counter + Speed Up.",
+      "If self has Revive Once, gain Counter + Speed Up.",
       "Heal self for 15% of Max Health."
     ],
     "notes": []
@@ -1891,11 +1925,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Magik": {
-    "description": "Attack primary target for 150% Piercing.",
+    "description": "Attack primary target for 150% Piercing.\nClear 2 positive effect(s) from the primary target.",
     "damage": 0,
     "piercing": 150,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear 2 positive effect(s) from the primary target."
+    ],
     "notes": []
   },
   "Magneto": {
@@ -1907,6 +1943,18 @@ const ISO8_DATA = {
       "On RAID, prolong the duration of 100 negative effects on the primary target by 1."
     ],
     "notes": []
+  },
+  "MagnetoPhoenixForce": {
+    "description": "Attack primary target for 150% Piercing + deal 10% of this character's Max Health as damage + apply 2 Disrupted.\nDeal 10% of this character's Max Health as damage + apply 2 Disrupted.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "damage": 0,
+    "piercing": 150,
+    "drain": 0,
+    "effects": [
+      "Deal 10% of this character's Max Health as damage + apply 2 Disrupted."
+    ],
+    "notes": [
+      "When forced to attack an ally, this character deals less damage to them."
+    ]
   },
   "ManThing": {
     "description": "Attack primary target for 196% damage + 17% Piercing.\nApply +1 Slow, up to a maximum of 3 to the primary target.\nApply Bleed to the primary target.\nApply Defense Up to the NIGHTSTALKER ally with the least Health.\nGain 2 Regeneration.",
@@ -2032,6 +2080,16 @@ const ISO8_DATA = {
     ],
     "notes": []
   },
+  "MoonGirl": {
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nIn RAID or WAR, reduce the target's Speed Bar by 3% for each CHAMPION or ABSOLUTE A-FORCE ally.",
+    "damage": 225,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "In RAID or WAR, reduce the target's Speed Bar by 3% for each CHAMPION or ABSOLUTE A-FORCE ally."
+    ],
+    "notes": []
+  },
   "MoonKnight": {
     "description": "Attack primary target for 225% damage + 17% Piercing.\nGain Counter + Offense Up + Speed Up.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 225,
@@ -2045,11 +2103,13 @@ const ISO8_DATA = {
     ]
   },
   "Moondragon": {
-    "description": "Attack primary target for 210% damage + 17% Piercing + 5% of target's Max Health.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 210% damage + 17% Piercing + deal 5% of this character's Max Health as damage.\nDeal 5% of this character's Max Health as damage.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Deal 5% of this character's Max Health as damage."
+    ],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
@@ -2077,13 +2137,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "MorganLeFay": {
-    "description": "Attack primary target for 248% damage + 17% Piercing.\nCopy and clear all positive effect(s) from the primary target to self, excluding Taunt.\nCopy and clear 2 positive effect(s) from the primary target to self, excluding Taunt.\nSteal 10% Health from the primary target and redistribute to self. This bypasses Heal Block.",
+    "description": "Attack primary target for 248% damage + 17% Piercing.\nSteal all positive effect(s) from the primary target to self, excluding Taunt.\nSteal 2 positive effect(s) from the primary target to self, excluding Taunt.\nSteal 10% Health from the primary target and redistribute to self. This bypasses Heal Block.",
     "damage": 248,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Copy and clear all positive effect(s) from the primary target to self, excluding Taunt.",
-      "Copy and clear 2 positive effect(s) from the primary target to self, excluding Taunt.",
+      "Steal all positive effect(s) from the primary target to self, excluding Taunt.",
+      "Steal 2 positive effect(s) from the primary target to self, excluding Taunt.",
       "Steal 10% Health from the primary target and redistribute to self. This bypasses Heal Block."
     ],
     "notes": []
@@ -2107,12 +2167,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "MrNegative": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nFlip 2 positive effects into negative effects on the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nFlip 2 positive effects into negative effects on the primary target.\n+20% Damage for each Summoned ally.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Flip 2 positive effects into negative effects on the primary target."
+      "Flip 2 positive effects into negative effects on the primary target.",
+      "+20% Damage for each Summoned ally."
     ],
     "notes": []
   },
@@ -2125,25 +2186,25 @@ const ISO8_DATA = {
     "notes": []
   },
   "MsMarvel": {
-    "description": "Attack primary target for 207% damage + 17% Piercing.\nGain 2 Deflect.",
+    "description": "Attack primary target for 207% damage + 17% Piercing.\nIn RAID, generate 1 Ability Energy.\nGain 2 Deflect.",
     "damage": 207,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "In RAID, generate 1 Ability Energy.",
       "Gain 2 Deflect."
     ],
     "notes": []
   },
   "MsMarvelClassic": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nApply Defense Up to the ABSOLUTE A-FORCE ally with the least Health.\nIn WAR, heal self for 10% of Max Health.\nGain +3 Charged, up to a maximum of 3.\nGain Regeneration.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nApply Defense Up to the ABSOLUTE A-FORCE ally with the least Health.\nIn WAR, heal self for 10% of Max Health.\nGain +3 Charged, up to a maximum of 3.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Defense Up to the ABSOLUTE A-FORCE ally with the least Health.",
       "In WAR, heal self for 10% of Max Health.",
-      "Gain +3 Charged, up to a maximum of 3.",
-      "Gain Regeneration."
+      "Gain +3 Charged, up to a maximum of 3."
     ],
     "notes": []
   },
@@ -2156,19 +2217,22 @@ const ISO8_DATA = {
     "notes": []
   },
   "MultipleManMinion": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nSteal 1 positive effect(s) from the primary target to self, excluding Regeneration.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Steal 1 positive effect(s) from the primary target to self, excluding Regeneration."
+    ],
     "notes": []
   },
   "Mysterio": {
-    "description": "Attack primary target for 198% damage + 15% Piercing.\nGain Evade.",
+    "description": "Attack primary target for 198% damage + 15% Piercing.\nClear 3 positive effect(s) from the primary target.\nGain Evade.",
     "damage": 198,
     "piercing": 15,
     "drain": 0,
     "effects": [
+      "Clear 3 positive effect(s) from the primary target.",
       "Gain Evade."
     ],
     "notes": []
@@ -2208,11 +2272,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Nakia": {
-    "description": "Attack primary target for 188% damage + 17% Piercing.\nGain +1 Stealth, up to a maximum of 5.",
+    "description": "Attack primary target for 188% damage + 17% Piercing.\nClear 2 positive effect(s) from the primary target.\nGain +1 Stealth, up to a maximum of 5.",
     "damage": 188,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Clear 2 positive effect(s) from the primary target.",
       "Gain +1 Stealth, up to a maximum of 5."
     ],
     "notes": []
@@ -2228,11 +2293,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Nebula": {
-    "description": "Attack primary target for 196% damage + 17% Piercing + 3% of target's Max Health.\nGain Speed Up.",
+    "description": "Attack primary target for 196% damage + 17% Piercing + deal 3% of this character's Max Health as damage.\nDeal 3% of this character's Max Health as damage.\nGain Speed Up.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Deal 3% of this character's Max Health as damage.",
       "Gain Speed Up."
     ],
     "notes": []
@@ -2268,26 +2334,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "NicoMinoru": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\nApply Bleed to the primary target.\nGain Defense Up.\nHeal self for 15% of Max Health.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\nIf self has NicoBasic, apply Bleed to the primary target.\nIf self has NicoBasic, gain Defense Up.\nHeal self for 15% of Max Health.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Gain Defense Up.",
+      "If self has NicoBasic, apply Bleed to the primary target.",
+      "If self has NicoBasic, gain Defense Up.",
       "Heal self for 15% of Max Health."
     ],
     "notes": []
   },
   "NightNurse": {
-    "description": "Attack primary target for 224% damage + 17% Piercing.\nFlip 2 positive effects into negative effects on the primary target.\nApply 2 Slow to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 224% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 224,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "Flip 2 positive effects into negative effects on the primary target.",
-      "Apply 2 Slow to the primary target."
-    ],
+    "effects": [],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
@@ -2325,12 +2388,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Northstar": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\nIf this character has 1+ Charged, apply Offense Down to the primary target.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\nIf self has 1+ Charged, apply Offense Down to the primary target.\nIf self has 10+ Charged, gain .",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If this character has 1+ Charged, apply Offense Down to the primary target."
+      "If self has 1+ Charged, apply Offense Down to the primary target.",
+      "If self has 10+ Charged, gain ."
     ],
     "notes": []
   },
@@ -2345,13 +2409,23 @@ const ISO8_DATA = {
     ],
     "notes": []
   },
+  "NovaSamAlexander": {
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nIf self has Charged, clear all negative effect(s) from self and consume Charged.\nGain 2 Regeneration.",
+    "damage": 225,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "If self has Charged, clear all negative effect(s) from self and consume Charged.",
+      "Gain 2 Regeneration."
+    ],
+    "notes": []
+  },
   "Oath": {
-    "description": "Attack primary target for 185% Piercing.\nIn RAID, apply Exposed to the primary target.\nApply Bleed + Heal Block to the primary target.",
+    "description": "Attack primary target for 185% Piercing.\nApply Bleed + Heal Block to the primary target.",
     "damage": 0,
     "piercing": 185,
     "drain": 0,
     "effects": [
-      "In RAID, apply Exposed to the primary target.",
       "Apply Bleed + Heal Block to the primary target."
     ],
     "notes": []
@@ -2382,13 +2456,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "OldManLogan": {
-    "description": "Attack primary target for 250% damage + 250% Piercing + 100% Drain.\nGain Disrupted.\nApply 4 Bleed + Disrupted to the primary target.\nIn WAR OFFENSE, apply Defense Down to the primary target.\nGain 20% Turn Meter.\nIn WAR OFFENSE, gain 2 Regeneration.\nGenerate 1 Ability Energy.",
+    "description": "Attack primary target for 250% damage + 250% Piercing + 100% Drain.\nGain Disrupted.\nIf self has ClawsOut, apply 4 Bleed + Disrupted to the primary target.\nIn WAR OFFENSE, apply Defense Down to the primary target.\nGain 20% Turn Meter.\nIn WAR OFFENSE, gain 2 Regeneration.\nGenerate 1 Ability Energy.",
     "damage": 250,
     "piercing": 250,
     "drain": 100,
     "effects": [
       "Gain Disrupted.",
-      "Apply 4 Bleed + Disrupted to the primary target.",
+      "If self has ClawsOut, apply 4 Bleed + Disrupted to the primary target.",
       "In WAR OFFENSE, apply Defense Down to the primary target.",
       "Gain 20% Turn Meter.",
       "In WAR OFFENSE, gain 2 Regeneration.",
@@ -2408,7 +2482,7 @@ const ISO8_DATA = {
     "notes": []
   },
   "OmegaRedPhoenix": {
-    "description": "Attack primary target for 188% Piercing.\nProlong the duration of all negative effects on the primary target by 1, excluding Ability Block and Stun.\nApply 2 Bleed to the primary target.\nThis attack ignores Defense Up.",
+    "description": "Attack primary target for 188% Piercing.\nProlong the duration of all negative effects on the primary target by 1, excluding Ability Block and Stun.\nApply 2 Bleed to the primary target.\nThis attack ignores Defense Up.\nIn CRUCIBLE, this attack deals True Damage.",
     "damage": 0,
     "piercing": 188,
     "drain": 0,
@@ -2417,7 +2491,8 @@ const ISO8_DATA = {
       "Apply 2 Bleed to the primary target."
     ],
     "notes": [
-      "This attack ignores Defense Up."
+      "This attack ignores Defense Up.",
+      "In CRUCIBLE, this attack deals True Damage."
     ]
   },
   "OmegaSentinel": {
@@ -2439,21 +2514,24 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_Ares_SentryBoss": {
-    "description": "Attack primary target for 177% damage + 19% Piercing.\nGain Immunity.",
+    "description": "Attack primary target for 177% damage + 19% Piercing.\nClear 3 positive effect(s) from the primary target.\nGain Immunity.",
     "damage": 177,
     "piercing": 19,
     "drain": 0,
     "effects": [
+      "Clear 3 positive effect(s) from the primary target.",
       "Gain Immunity."
     ],
     "notes": []
   },
   "PVE_BlackWidow_SentryBoss": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\nSteal all positive effect(s) from the primary target to self, excluding Taunt.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Steal all positive effect(s) from the primary target to self, excluding Taunt."
+    ],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
@@ -2474,11 +2552,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_Boss_Sentry": {
-    "description": "Attack primary target for 250% damage + 17% Piercing + 2% of target's Max Health.\nApply 3 Offense Down + 3 Defense Down to the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing + deal 2% of this character's Max Health as damage.\nDeal 2% of this character's Max Health as damage.\nApply 3 Offense Down + 3 Defense Down to the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Deal 2% of this character's Max Health as damage.",
       "Apply 3 Offense Down + 3 Defense Down to the primary target."
     ],
     "notes": []
@@ -2503,24 +2582,25 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_ChaosRaid_EmmaFrost": {
-    "description": "Attack primary target for 221% damage + 17% Piercing.\nFlip 2 positive effects into negative effects on the primary target.",
+    "description": "Attack primary target for 221% damage + 17% Piercing.\nIf self has Charged, clear 2 positive effect(s) from the primary target.\nFlip 2 positive effects into negative effects on the primary target.",
     "damage": 221,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "If self has Charged, clear 2 positive effect(s) from the primary target.",
       "Flip 2 positive effects into negative effects on the primary target."
     ],
     "notes": []
   },
   "PVE_ChaosRaid_JeanGrey": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\nIn RAID or TOWER_MODE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn RAID or TOWER_MODE, copy and clear Charged from the primary target to self.\nIn RAID or TOWER_MODE, copy and clear Revive Once from the primary target to self.\nApply 2 Heal Block + 2 Defense Down to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\nIn RAID or TOWER_MODE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn RAID or TOWER_MODE, steal Charged from the primary target and give to allies.\nIn RAID or TOWER_MODE, steal Revive Once from the primary target and give to allies.\nApply 2 Heal Block + 2 Defense Down to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID or TOWER_MODE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In RAID or TOWER_MODE, copy and clear Charged from the primary target to self.",
-      "In RAID or TOWER_MODE, copy and clear Revive Once from the primary target to self.",
+      "In RAID or TOWER_MODE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAID or TOWER_MODE, steal Charged from the primary target and give to allies.",
+      "In RAID or TOWER_MODE, steal Revive Once from the primary target and give to allies.",
       "Apply 2 Heal Block + 2 Defense Down to the primary target."
     ],
     "notes": []
@@ -2547,23 +2627,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_ChaosRaid_ShadowKing": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\nApply 4 Bleed to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "Apply 4 Bleed to the primary target."
-    ],
+    "effects": [],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
   },
   "PVE_CorvusGlaive_Gauntlet": {
-    "description": "Attack primary target for 140% Piercing.",
+    "description": "Attack primary target for 140% Piercing.\nClear 1 positive effect(s) from the primary target.",
     "damage": 0,
     "piercing": 140,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear 1 positive effect(s) from the primary target."
+    ],
     "notes": []
   },
   "PVE_CullObsidian_Gauntlet": {
@@ -2642,11 +2722,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_IronPatriot_SentryBoss": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\nApply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\nClear Immunity from the primary target.\nApply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Clear Immunity from the primary target.",
       "Apply 2 Defense Down + 2 Heal Block + 2 Disrupted + 2 Slow to the primary target."
     ],
     "notes": []
@@ -2689,20 +2770,22 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_ProximaMidnight_Gauntlet": {
-    "description": "Attack primary target for 190% damage + 17% Piercing.",
+    "description": "Attack primary target for 190% damage + 17% Piercing.\nClear 1 positive effect(s) from the primary target.",
     "damage": 190,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear 1 positive effect(s) from the primary target."
+    ],
     "notes": []
   },
   "PVE_SagaBoss_Gladiator": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\nApply 2 Offense Down to the primary target.\nGain +1 Rage, up to a maximum of 15.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\nIf self has Health at or above 50%, apply 2 Offense Down to the primary target.\nGain +1 Rage, up to a maximum of 15.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down to the primary target.",
+      "If self has Health at or above 50%, apply 2 Offense Down to the primary target.",
       "Gain +1 Rage, up to a maximum of 15."
     ],
     "notes": []
@@ -2718,13 +2801,11 @@ const ISO8_DATA = {
     "notes": []
   },
   "PVE_SagaBoss_ShadowKing": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\nApply 4 Bleed to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "Apply 4 Bleed to the primary target."
-    ],
+    "effects": [],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
@@ -2818,12 +2899,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "PeggyCarter": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\nCopy and clear 3 positive effect(s) from the primary target to self, excluding Taunt.\nApply Slow to the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\nSteal 3 positive effect(s) from the primary target to self, excluding Taunt.\nApply Slow to the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Copy and clear 3 positive effect(s) from the primary target to self, excluding Taunt.",
+      "Steal 3 positive effect(s) from the primary target to self, excluding Taunt.",
       "Apply Slow to the primary target."
     ],
     "notes": []
@@ -2877,11 +2958,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Photon": {
-    "description": "Attack primary target for 263% damage + 17% Piercing + 5% of target's Max Health.\nClear 3 positive effect(s) from the primary target.\nGain +1 Charged.",
+    "description": "Attack primary target for 263% damage + 17% Piercing + deal 5% of this character's Max Health as damage.\nDeal 5% of this character's Max Health as damage.\nClear 3 positive effect(s) from the primary target.\nGain +1 Charged.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Deal 5% of this character's Max Health as damage.",
       "Clear 3 positive effect(s) from the primary target.",
       "Gain +1 Charged."
     ],
@@ -2909,11 +2991,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "ProximaMidnight": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\nClear 1 positive effect(s) from the primary target.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear 1 positive effect(s) from the primary target."
+    ],
     "notes": []
   },
   "Psylocke": {
@@ -3031,13 +3115,11 @@ const ISO8_DATA = {
     "notes": []
   },
   "Quicksilver": {
-    "description": "Attack primary target for 165% Piercing.\nGain Disrupted.",
+    "description": "Attack primary target for 165% Piercing.",
     "damage": 0,
     "piercing": 165,
     "drain": 0,
-    "effects": [
-      "Gain Disrupted."
-    ],
+    "effects": [],
     "notes": []
   },
   "RachelSummers": {
@@ -3094,24 +3176,24 @@ const ISO8_DATA = {
     "notes": []
   },
   "RedGuardian": {
-    "description": "Attack primary target for 255% damage + 17% Piercing.\nApply Defense Up to all allies.\nIn WAR, apply Defense Up to all allies.",
+    "description": "Attack primary target for 255% damage + 17% Piercing.\nIn WAR, gain Defense Up.\nGain Defense Up.",
     "damage": 255,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Up to all allies.",
-      "In WAR, apply Defense Up to all allies."
+      "In WAR, gain Defense Up.",
+      "Gain Defense Up."
     ],
     "notes": []
   },
   "RedHulk": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\nFlip 2 positive effects into negative effects on the primary target.\nFlip 1 positive effect into negative effects on the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\nIf self has 5+ Charged, flip 2 positive effects into negative effects on the primary target.\nIf self has less than 5 Charged, flip 1 positive effect into negative effects on the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Flip 2 positive effects into negative effects on the primary target.",
-      "Flip 1 positive effect into negative effects on the primary target."
+      "If self has 5+ Charged, flip 2 positive effects into negative effects on the primary target.",
+      "If self has less than 5 Charged, flip 1 positive effect into negative effects on the primary target."
     ],
     "notes": []
   },
@@ -3170,12 +3252,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Ronin": {
-    "description": "Attack primary target for 190% Piercing.\nReduce the target's Speed Bar by 5%.",
+    "description": "Attack primary target for 190% Piercing.\nReduce the target's Speed Bar by 5% for each NEW AVENGER ally.",
     "damage": 0,
     "piercing": 190,
     "drain": 0,
     "effects": [
-      "Reduce the target's Speed Bar by 5%."
+      "Reduce the target's Speed Bar by 5% for each NEW AVENGER ally."
     ],
     "notes": []
   },
@@ -3260,14 +3342,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "S_ShieldSupport_Stealth": {
-    "description": "Attack primary target for 237% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nIn RAID, reduce the target's Speed Bar by 25%.\nCopy and clear 1 positive effect(s) from the primary target to self, excluding Taunt.",
+    "description": "Attack primary target for 237% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nIn RAID, reduce the target's Speed Bar by 25%.\nSteal 1 positive effect(s) from the primary target and give to a random ally, excluding Taunt.",
     "damage": 237,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Reduce the target's Speed Bar by 25%.",
       "In RAID, reduce the target's Speed Bar by 25%.",
-      "Copy and clear 1 positive effect(s) from the primary target to self, excluding Taunt."
+      "Steal 1 positive effect(s) from the primary target and give to a random ally, excluding Taunt."
     ],
     "notes": []
   },
@@ -3302,11 +3384,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Sasquatch": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\nGain Defense Up + 2 Deflect.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nIn RAID or WAR DEFENSE, clear all negative effect(s) from ALPHA FLIGHT allies.\nGain Defense Up + 2 Deflect.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "In RAID or WAR DEFENSE, clear all negative effect(s) from ALPHA FLIGHT allies.",
       "Gain Defense Up + 2 Deflect."
     ],
     "notes": []
@@ -3334,15 +3417,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "ScarletWitch": {
-    "description": "Attack primary target for 168% Piercing.\nIn WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn WAR OFFENSE, copy and clear Charged from the primary target to self.\nIn WAR OFFENSE, copy and clear Revive Once from the primary target to self.\nApply 3 Offense Down + 3 Defense Down + 3 Slow to the primary target.",
+    "description": "Attack primary target for 168% Piercing.\nIn WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn WAR OFFENSE, steal Charged from the primary target and give to allies.\nIn WAR OFFENSE, steal Revive Once from the primary target and give to allies.",
     "damage": 0,
     "piercing": 168,
     "drain": 0,
     "effects": [
-      "In WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In WAR OFFENSE, copy and clear Charged from the primary target to self.",
-      "In WAR OFFENSE, copy and clear Revive Once from the primary target to self.",
-      "Apply 3 Offense Down + 3 Defense Down + 3 Slow to the primary target."
+      "In WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR OFFENSE, steal Charged from the primary target and give to allies.",
+      "In WAR OFFENSE, steal Revive Once from the primary target and give to allies."
     ],
     "notes": []
   },
@@ -3365,22 +3447,23 @@ const ISO8_DATA = {
     "notes": []
   },
   "Scream": {
-    "description": "Attack primary target for 110% damage + 17% Piercing.\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 110% damage + 17% Piercing.\nClear all positive effect(s) from the primary target.\nApply Bleed to the primary target.",
     "damage": 110,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Clear all positive effect(s) from the primary target.",
       "Apply Bleed to the primary target."
     ],
     "notes": []
   },
   "SebastianShaw": {
-    "description": "Attack primary target for 247% damage + 17% Piercing.\nApply Stun to the primary target.",
+    "description": "Attack primary target for 247% damage + 17% Piercing.\nIf self has Charged, apply Stun to the primary target and consume Charged.",
     "damage": 247,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Stun to the primary target."
+      "If self has Charged, apply Stun to the primary target and consume Charged."
     ],
     "notes": []
   },
@@ -3417,11 +3500,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Sentry": {
-    "description": "Attack primary target for 225% damage + 17% Piercing + 20% Drain + 5% of target's Max Health.\nFlip 2 positive effects into negative effects on the primary target.\nGain 10% Turn Meter.",
+    "description": "Attack primary target for 225% damage + 17% Piercing + 20% Drain + deal 5% of this character's Max Health as damage.\nDeal 5% of this character's Max Health as damage.\nFlip 2 positive effects into negative effects on the primary target.\nGain 10% Turn Meter.",
     "damage": 225,
     "piercing": 17,
     "drain": 20,
     "effects": [
+      "Deal 5% of this character's Max Health as damage.",
       "Flip 2 positive effects into negative effects on the primary target.",
       "Gain 10% Turn Meter."
     ],
@@ -3440,13 +3524,11 @@ const ISO8_DATA = {
     ]
   },
   "ShadowKing": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\nApply 4 Bleed to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "Apply 4 Bleed to the primary target."
-    ],
+    "effects": [],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
@@ -3481,14 +3563,16 @@ const ISO8_DATA = {
     "notes": []
   },
   "SheHulk": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\nApply Defense Down to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Defense Down to the primary target."
     ],
-    "notes": []
+    "notes": [
+      "When forced to attack an ally, this character deals less damage to them."
+    ]
   },
   "ShieldDmg_AoE": {
     "description": "Attack primary target for 135% damage + 52% Piercing.",
@@ -3520,13 +3604,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "ShieldSupport_Stealth": {
-    "description": "Attack primary target for 237% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nCopy and clear 1 positive effect(s) from the primary target to self, excluding Taunt.",
+    "description": "Attack primary target for 237% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nSteal 1 positive effect(s) from the primary target and give to a random ally, excluding Taunt.",
     "damage": 237,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Reduce the target's Speed Bar by 25%.",
-      "Copy and clear 1 positive effect(s) from the primary target to self, excluding Taunt."
+      "Steal 1 positive effect(s) from the primary target and give to a random ally, excluding Taunt."
     ],
     "notes": []
   },
@@ -3587,11 +3671,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "SilverSurfer": {
-    "description": "Attack primary target for 236% Piercing.\nThis attack ignores Defense Up.",
+    "description": "Attack primary target for 236% Piercing.\nSteal all negative effect(s) from the primary target to self.\nSteal all positive effect(s) from the primary target to self, excluding Taunt.\nThis attack ignores Defense Up.",
     "damage": 0,
     "piercing": 236,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Steal all negative effect(s) from the primary target to self.",
+      "Steal all positive effect(s) from the primary target to self, excluding Taunt."
+    ],
     "notes": [
       "This attack ignores Defense Up."
     ]
@@ -3616,11 +3703,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "SpiderMan2099": {
-    "description": "Attack primary target for 250% damage + 20% Piercing.\nOn CRUCIBLE, prolong the duration of 100 negative effects on the primary target by 1, excluding Stun and Ability Block.\nOn CRUCIBLE, prolong the duration of Bleed on the primary target by 1.\nApply Defense Down + Bleed to the primary target.",
+    "description": "Attack primary target for 250% damage + 20% Piercing.\nClear 2 positive effect(s) from the primary target.\nOn CRUCIBLE, prolong the duration of 100 negative effects on the primary target by 1, excluding Stun and Ability Block.\nOn CRUCIBLE, prolong the duration of Bleed on the primary target by 1.\nApply Defense Down + Bleed to the primary target.",
     "damage": 250,
     "piercing": 20,
     "drain": 0,
     "effects": [
+      "Clear 2 positive effect(s) from the primary target.",
       "On CRUCIBLE, prolong the duration of 100 negative effects on the primary target by 1, excluding Stun and Ability Block.",
       "On CRUCIBLE, prolong the duration of Bleed on the primary target by 1.",
       "Apply Defense Down + Bleed to the primary target."
@@ -3683,11 +3771,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "SpiderWeaver": {
-    "description": "Attack primary target for 278% damage + 17% Piercing.\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 278% damage + 17% Piercing.\nClear all negative effect(s) from self.\nApply Bleed to the primary target.",
     "damage": 278,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Clear all negative effect(s) from self.",
       "Apply Bleed to the primary target."
     ],
     "notes": []
@@ -3703,14 +3792,16 @@ const ISO8_DATA = {
     "notes": []
   },
   "SquirrelGirl": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\nApply Offense Down to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down to the primary target."
     ],
-    "notes": []
+    "notes": [
+      "When forced to attack an ally, this character deals less damage to them."
+    ]
   },
   "StarBrand": {
     "description": "Attack primary target for 248% damage + 17% Piercing.\nApply Offense Down to the primary target.",
@@ -3761,14 +3852,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "Storm": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn RAID, copy and clear Charged from the primary target to self.\nIn RAID, copy and clear Revive Once from the primary target to self.\nGain +2 Charged, up to a maximum of 20.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nIn RAID, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn RAID, steal Charged from the primary target and give to allies.\nIn RAID, steal Revive Once from the primary target and give to allies.\nGain +2 Charged, up to a maximum of 20.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In RAID, copy and clear Charged from the primary target to self.",
-      "In RAID, copy and clear Revive Once from the primary target to self.",
+      "In RAID, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAID, steal Charged from the primary target and give to allies.",
+      "In RAID, steal Revive Once from the primary target and give to allies.",
       "Gain +2 Charged, up to a maximum of 20."
     ],
     "notes": []
@@ -3792,12 +3883,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Sunfire": {
-    "description": "Attack primary target for 242% Piercing.\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 242% Piercing.\nIf self has Offense Up, apply Bleed to the primary target.",
     "damage": 0,
     "piercing": 242,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "If self has Offense Up, apply Bleed to the primary target."
     ],
     "notes": []
   },
@@ -3845,14 +3936,14 @@ const ISO8_DATA = {
     ]
   },
   "SwordMaster": {
-    "description": "Attack primary target for 284% Piercing.\nIn WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn WAR OFFENSE, copy and clear Charged from the primary target to self.\nIn WAR OFFENSE, copy and clear Revive Once from the primary target to self.\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
+    "description": "Attack primary target for 284% Piercing.\nIn WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn WAR OFFENSE, steal Charged from the primary target and give to allies.\nIn WAR OFFENSE, steal Revive Once from the primary target and give to allies.\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
     "damage": 0,
     "piercing": 284,
     "drain": 0,
     "effects": [
-      "In WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In WAR OFFENSE, copy and clear Charged from the primary target to self.",
-      "In WAR OFFENSE, copy and clear Revive Once from the primary target to self.",
+      "In WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR OFFENSE, steal Charged from the primary target and give to allies.",
+      "In WAR OFFENSE, steal Revive Once from the primary target and give to allies.",
       "Apply +1 Defense Down, up to a maximum of 3 to the primary target."
     ],
     "notes": []
@@ -3868,13 +3959,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Sylvie": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nFlip Deflect into negative effects on the primary target.\nIn RAID, reduce the target's Speed Bar by 3%.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nFlip Deflect into negative effects on the primary target.\nIn RAID, reduce the target's Speed Bar by 3% for each BIFROST ally.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip Deflect into negative effects on the primary target.",
-      "In RAID, reduce the target's Speed Bar by 3%."
+      "In RAID, reduce the target's Speed Bar by 3% for each BIFROST ally."
     ],
     "notes": []
   },
@@ -3910,11 +4001,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Taskmaster": {
-    "description": "Attack primary target for 224% damage + 17% Piercing.",
+    "description": "Attack primary target for 224% damage + 17% Piercing.\nSteal 2 positive effect(s) from the primary target and give to allies, excluding Taunt.",
     "damage": 224,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Steal 2 positive effect(s) from the primary target and give to allies, excluding Taunt."
+    ],
     "notes": []
   },
   "TestHero_AllProcs": {
@@ -3961,13 +4054,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "TheLeader": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\nHeal self for 10% of Max Health.\nFlip 2 negative effects into positive effects on self.\nGain 2 Stealth.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\nHeal self for 10% of Max Health.\nFlip 2 negative effects into positive effects on self.\nClear 1 negative effect(s) from VILLAIN allies.\nGain 2 Stealth.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Heal self for 10% of Max Health.",
       "Flip 2 negative effects into positive effects on self.",
+      "Clear 1 negative effect(s) from VILLAIN allies.",
       "Gain 2 Stealth."
     ],
     "notes": []
@@ -4032,14 +4126,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "Titania": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\nClear 1 negative effect(s) from self.\nIn CRUCIBLE, generate 1 Ability Energy.\nClear 2 negative effect(s) from self.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\nClear 1 negative effect(s) from self.\nIn CRUCIBLE, generate 1 Ability Energy.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Clear 1 negative effect(s) from self.",
-      "In CRUCIBLE, generate 1 Ability Energy.",
-      "Clear 2 negative effect(s) from self."
+      "In CRUCIBLE, generate 1 Ability Energy."
     ],
     "notes": []
   },
@@ -4072,11 +4165,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "UltSpiderMan": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nClear 3 positive effect(s) from the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear 3 positive effect(s) from the primary target."
+    ],
     "notes": []
   },
   "Ultimus": {
@@ -4090,11 +4185,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "Ultron": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\nClear Taunt from the primary target.\nClear Taunt from self.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\nSteal 2 positive effect(s) from the primary target and give to allies, excluding Taunt.\nClear Taunt from the primary target.\nClear Taunt from self.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Steal 2 positive effect(s) from the primary target and give to allies, excluding Taunt.",
       "Clear Taunt from the primary target.",
       "Clear Taunt from self."
     ],
@@ -4143,24 +4239,24 @@ const ISO8_DATA = {
     "notes": []
   },
   "UnionJack": {
-    "description": "Attack primary target for 270% damage + 17% Piercing.\nFlip 1 positive effect into negative effects on the primary target.\nIn RAID, flip 3 positive effects into negative effects instead.\nReduce the duration of Charged on this character by 1.",
+    "description": "Attack primary target for 270% damage + 17% Piercing.\nFlip 1 positive effect into negative effects on the primary target.\nIn RAID, flip 3 positive effects into negative effects on the primary target instead.\nReduce the duration of Charged on this character by 1.",
     "damage": 270,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip 1 positive effect into negative effects on the primary target.",
-      "In RAID, flip 3 positive effects into negative effects instead.",
+      "In RAID, flip 3 positive effects into negative effects on the primary target instead.",
       "Reduce the duration of Charged on this character by 1."
     ],
     "notes": []
   },
   "UrsaMajor": {
-    "description": "Attack primary target for 203% damage.\nGain +50% Damage per Winter Guard ally.",
+    "description": "Attack primary target for 203% damage.\n+50% Damage for each WINTER GUARD ally.",
     "damage": 203,
     "piercing": 0,
     "drain": 0,
     "effects": [
-      "Gain +50% Damage per Winter Guard ally."
+      "+50% Damage for each WINTER GUARD ally."
     ],
     "notes": []
   },
@@ -4218,11 +4314,12 @@ const ISO8_DATA = {
     "notes": []
   },
   "VampireProtector": {
-    "description": "Attack primary target for 182% damage + 17% Piercing.\nApply 2 Bleed to the primary target.\nGain Taunt.",
+    "description": "Attack primary target for 182% damage + 17% Piercing.\nClear 2 negative effect(s) from self.\nApply 2 Bleed to the primary target.\nGain Taunt.",
     "damage": 182,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Clear 2 negative effect(s) from self.",
       "Apply 2 Bleed to the primary target.",
       "Gain Taunt."
     ],
@@ -4262,14 +4359,14 @@ const ISO8_DATA = {
     "notes": []
   },
   "Vision": {
-    "description": "Attack primary target for 174% damage + 17% Piercing.\nIn WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.\nIn WAR OFFENSE, copy and clear Charged from the primary target to self.\nIn WAR OFFENSE, copy and clear Revive Once from the primary target to self.\nApply Offense Down to the primary target.\nApply Bleed to the primary target.\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 174% damage + 17% Piercing.\nIn WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\nIn WAR OFFENSE, steal Charged from the primary target and give to allies.\nIn WAR OFFENSE, steal Revive Once from the primary target and give to allies.\nApply Offense Down to the primary target.\nApply Bleed to the primary target.\nApply Offense Down to the primary target.",
     "damage": 174,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR OFFENSE, copy and clear all positive effect(s) from the primary target to self, excluding Stealth and Taunt.",
-      "In WAR OFFENSE, copy and clear Charged from the primary target to self.",
-      "In WAR OFFENSE, copy and clear Revive Once from the primary target to self.",
+      "In WAR OFFENSE, steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR OFFENSE, steal Charged from the primary target and give to allies.",
+      "In WAR OFFENSE, steal Revive Once from the primary target and give to allies.",
       "Apply Offense Down to the primary target.",
       "Apply Bleed to the primary target.",
       "Apply Offense Down to the primary target."
@@ -4345,13 +4442,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "War_ShieldSupport_Stealth": {
-    "description": "Attack primary target for 111% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nCopy and clear 1 positive effect(s) from the primary target to self.",
+    "description": "Attack primary target for 111% damage + 17% Piercing.\nReduce the target's Speed Bar by 25%.\nSteal 1 positive effect(s) from the primary target and give to a random ally.",
     "damage": 111,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Reduce the target's Speed Bar by 25%.",
-      "Copy and clear 1 positive effect(s) from the primary target to self."
+      "Steal 1 positive effect(s) from the primary target and give to a random ally."
     ],
     "notes": []
   },
@@ -4385,13 +4482,11 @@ const ISO8_DATA = {
     "notes": []
   },
   "WhiteTiger": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\nApply 2 Defense Down + 2 Slow + Heal Block to the primary target.\nWhen forced to attack an ally, this character deals less damage to them.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\nWhen forced to attack an ally, this character deals less damage to them.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "Apply 2 Defense Down + 2 Slow + Heal Block to the primary target."
-    ],
+    "effects": [],
     "notes": [
       "When forced to attack an ally, this character deals less damage to them."
     ]
@@ -4461,12 +4556,12 @@ const ISO8_DATA = {
     ]
   },
   "Yelena": {
-    "description": "Attack primary target for 187% damage + 17% Piercing.\nIf the primary target has Stealth, steal 2 positive effects from them, excluding Taunt.",
+    "description": "Attack primary target for 187% damage + 17% Piercing.\nIf the primary target has Stealth, steal 2 positive effect(s) from the primary target to self, excluding Taunt.",
     "damage": 187,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If the primary target has Stealth, steal 2 positive effects from them, excluding Taunt."
+      "If the primary target has Stealth, steal 2 positive effect(s) from the primary target to self, excluding Taunt."
     ],
     "notes": []
   },
@@ -4481,21 +4576,23 @@ const ISO8_DATA = {
     ]
   },
   "YoYo": {
-    "description": "Attack primary target for 135% damage + 17% Piercing.\nClear Counter from the primary target.",
+    "description": "Attack primary target for 135% damage + 17% Piercing.\nIf the primary target has Counter, clear Counter from the primary target.",
     "damage": 135,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear Counter from the primary target."
+      "If the primary target has Counter, clear Counter from the primary target."
     ],
     "notes": []
   },
   "Yondu": {
-    "description": "Attack primary target for 150% damage + 10% Piercing.",
+    "description": "Attack primary target for 150% damage + 10% Piercing.\nClear 2 positive effect(s) from the primary target.",
     "damage": 150,
     "piercing": 10,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Clear 2 positive effect(s) from the primary target."
+    ],
     "notes": []
   },
   "Zemo": {
@@ -4517,13 +4614,13 @@ const ISO8_DATA = {
     "notes": []
   },
   "ZombieJuggernaut": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\nApply 2 Bleed to the primary target.\nIn WAR on Offense, if target has Bleed, steal 5% Health from the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\nIn WAR OFFENSE, If the primary target has Bleed, deal 5% of target's Max Health as bonus damage.\nApply 2 Bleed to the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target.",
-      "In WAR on Offense, if target has Bleed, steal 5% Health from the primary target."
+      "In WAR OFFENSE, If the primary target has Bleed, deal 5% of target's Max Health as bonus damage.",
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -4548,4 +4645,4 @@ const ISO8_DATA = {
     ],
     "notes": []
   }
-};
+}
