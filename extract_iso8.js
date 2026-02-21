@@ -243,7 +243,7 @@ function processCharacter(charName, charData) {
       if (action.action === 'proc_duration') {
           const delta = getMax(action.delta);
           
-          let procName = 'Effects';
+          let procName = 'effects';
           if (action.only_procs && action.only_procs.length > 0) {
               procName = formatProcName(action.only_procs[0]);
           } else {
@@ -251,13 +251,28 @@ function processCharacter(charName, charData) {
               else if (action.category === 'debuff') procName = 'negative effects';
           }
           
+          let excludeText = '';
+          if (action.exclude && action.exclude.length > 0) {
+              // If we have exclusions, usually it applies to "all X effects"
+              if (action.category === 'debuff') procName = 'all negative effects';
+              if (action.category === 'buff') procName = 'all positive effects';
+
+              const excludes = action.exclude.map(e => formatProcName(e));
+              if (excludes.length > 1) {
+                  const last = excludes.pop();
+                  excludeText = `, excluding ${excludes.join(', ')} and ${last}`;
+              } else {
+                  excludeText = `, excluding ${excludes[0]}`;
+              }
+          }
+          
           if (action.add_if_not && delta > 0) {
               // Treat as "Gain"
               effects.push(`${conditionPrefix}Gain +${delta} ${procName}.`);
           } else if (delta > 0) {
-              effects.push(`${conditionPrefix}Prolong ${procName} duration by ${delta}.`);
+              effects.push(`${conditionPrefix}Prolong the duration of ${procName}${excludeText} by ${delta}.`);
           } else if (delta < 0) {
-              effects.push(`${conditionPrefix}Reduce ${procName} duration by ${Math.abs(delta)}.`);
+              effects.push(`${conditionPrefix}Reduce the duration of ${procName}${excludeText} by ${Math.abs(delta)}.`);
           }
       }
     });
