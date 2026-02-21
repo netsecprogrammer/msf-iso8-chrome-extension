@@ -316,14 +316,42 @@ function processCharacter(charName, charData) {
           const removePct = getMax(action.removepct) || 0;
           let verb = 'Copy';
           if (removePct > 0) verb = 'Steal';
-          let what = 'positive effects';
-          if (action.category === 'debuff') what = 'negative effects';
+
+          // Determine what is being transferred
+          let what = '';
+          if (action.onlyprocs && action.onlyprocs.length > 0) {
+              // Specific procs: "Charged", "Revive Once", etc.
+              what = action.onlyprocs.map(p => formatProcName(p)).join(' and ');
+          } else {
+              const countText = count >= 100 ? 'all' : `${count}`;
+              if (action.category === 'debuff') what = `${countText} negative effect(s)`;
+              else what = `${countText} positive effect(s)`;
+          }
+
           let from = 'the primary target';
           if (action.recipient && action.recipient.relation === 'enemy') {
               from = 'self';
               verb = 'Transfer';
           }
-          effects.push(`${conditionPrefix}${verb} ${count} ${what} from ${from}.`);
+
+          let toText = '';
+          if (action.recipient && action.recipient.relation === 'ally') {
+              toText = ' and give to allies';
+          }
+
+          // Handle exclusions (exceptprocs)
+          let excludeText = '';
+          if (action.exceptprocs && action.exceptprocs.length > 0) {
+              const excludes = action.exceptprocs.map(p => formatProcName(p));
+              if (excludes.length > 1) {
+                  const last = excludes.pop();
+                  excludeText = `, excluding ${excludes.join(', ')} and ${last}`;
+              } else {
+                  excludeText = `, excluding ${excludes[0]}`;
+              }
+          }
+
+          effects.push(`${conditionPrefix}${verb} ${what} from ${from}${toText}${excludeText}.`);
       }
 
       // 8. Turn Meter
