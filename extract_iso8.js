@@ -42,14 +42,44 @@ const PROC_MAP = {
   'Barrier': 'Barrier',
   'Blind': 'Blind',
   'DoT': 'Bleed',
-  'LockedBuff': 'Trauma',
-  'LockedDebuff': 'Safeguard',
+  'LockedBuff': 'Safeguard',
+  'LockedDebuff': 'Trauma',
   'Exposed': 'Exposed',
-  'BuffBlock': 'Disrupted'
+  'BuffBlock': 'Immunity', // Usually prevents buffs
+  'DebuffBlock': 'Immunity',
+  'MinorDeflect': 'Minor Deflect',
+  'MinorRegeneration': 'Minor Regeneration',
+  'MinorDefenseUp': 'Minor Defense Up',
+  'MinorOffenseUp': 'Minor Offense Up'
 };
 
 function formatProcName(proc) {
   return PROC_MAP[proc] || proc;
+}
+
+function parseConditions(action) {
+  if (!action.only_if) return '';
+  
+  const conditions = [];
+  const oi = action.only_if;
+
+  if (oi.mode) {
+    if (oi.mode === 'AVA') conditions.push('In WAR');
+    else if (oi.mode === 'PVP') conditions.push('In CRUCIBLE'); // Sometimes PVP is Crucible, sometimes specific
+    else conditions.push(`In ${oi.mode}`);
+  }
+  
+  if (oi.combat_side) {
+    if (oi.combat_side === 'offense') conditions.push('OFFENSE');
+    else if (oi.combat_side === 'defense') conditions.push('DEFENSE');
+  }
+
+  // Handle "traits" logic if simple (e.g. "If ally has X") - skipping for brevity unless needed for key mechanics
+  
+  if (conditions.length > 0) {
+    return conditions.join(' ') + ', ';
+  }
+  return '';
 }
 
 function processCharacter(charName, charData) {
@@ -65,6 +95,8 @@ function processCharacter(charName, charData) {
   // Iterate actions
   if (safety.actions) {
     safety.actions.forEach(action => {
+      const conditionPrefix = parseConditions(action);
+
       // 1. Stats (Damage/Piercing)
       if (action.stat_modifier) {
         action.stat_modifier.forEach(mod => {
@@ -80,18 +112,40 @@ function processCharacter(charName, charData) {
 
       // 2. Procs (Apply Status)
       if (action.action === 'proc' && action.procs) {
+        // Deduplicate procs: If multiple 'DoT' exist, we count them together or take the primary count
+        // Archangel case: apply_count: 2, procs: [DoT, DoT].
+        // Strategy: Group by proc type.
+        
+        const procGroups = {};
+        
         action.procs.forEach(p => {
-          const procName = formatProcName(p.proc);
-          const count = getMax(p.use_count) || 1;
-          const countStr = count > 1 ? ` ${count}` : '';
-          
-          let effectText = `Apply${countStr} ${procName}`;
-          if (action.target && action.target.relation === 'ally') {
-             effectText += ` to ${action.target.limit === 1 ? 'self' : 'allies'}`;
-          } else {
-             effectText += ` to the primary target`;
-          }
-          effects.push(effectText + '.');
+           const name = formatProcName(p.proc);
+           if (!procGroups[name]) procGroups[name] = 0;
+           // If apply_count is set on the action, it usually overrides individual use_count
+           // But sometimes individual use_counts matter.
+           // For Archangel, apply_count is 2.
+        });
+
+        const globalApplyCount = getMax(action.apply_count);
+        
+        // If we have a global apply count, apply it to the unique procs found
+        Object.keys(procGroups).forEach(procName => {
+            let count = globalApplyCount;
+            if (!count) {
+                // Fallback to checking individual use_count if global is missing
+                // (Simplified logic: taking 1 for now if global missing)
+                count = 1;
+            }
+            
+            let effectText = `${conditionPrefix}Apply ${count} ${procName}`;
+            
+            if (action.target && action.target.relation === 'ally') {
+               effectText += ` to ${action.target.limit === 1 ? 'self' : 'allies'}`;
+            } else {
+               effectText += ` to the primary target`;
+            }
+            
+            effects.push(effectText + '.');
         });
       }
 
@@ -99,31 +153,30 @@ function processCharacter(charName, charData) {
       if (action.action === 'proc_remove') {
         const procName = formatProcName(action.procs);
         const count = getMax(action.count) || 1;
-        effects.push(`Clear ${procName} from the primary target.`);
+        effects.push(`${conditionPrefix}Clear ${procName} from the primary target.`);
       }
 
       // 4. Proc Flip
       if (action.action === 'proc_flip') {
-        effects.push(`Flip positive effects to negative on primary target.`);
+        effects.push(`${conditionPrefix}Flip positive effects to negative on primary target.`);
       }
       
       // 5. Health Redistribute
       if (action.action === 'health_redistribute') {
-          effects.push(`Redistribute health.`);
+          effects.push(`${conditionPrefix}Redistribute health.`);
       }
       
       // 6. Heal
       if (action.action === 'heal') {
           const healPct = getMax(action.heal_pct);
           if (healPct > 0) {
-              effects.push(`Heal for ${healPct}% of Max Health.`);
+              effects.push(`${conditionPrefix}Heal for ${healPct}% of Max Health.`);
           }
       }
 
       // 7. Transfer (Steal/Copy)
       if (action.action === 'proc_transfer') {
           const count = getMax(action.count) || 1;
-          const transferPct = getMax(action.transferpct) || 0; // 100 = Steal, 0 = Copy? Or removepct determines steal
           const removePct = getMax(action.removepct) || 0;
           
           let verb = 'Copy';
@@ -133,24 +186,21 @@ function processCharacter(charName, charData) {
           if (action.category === 'debuff') what = 'negative effects';
           
           let from = 'primary target';
-          if (action.recipient && action.recipient.relation === 'ally') {
-              // Steal from enemy to self/ally
-          } else if (action.recipient && action.recipient.relation === 'enemy') {
-              // Transfer from self/ally to enemy
+          if (action.recipient && action.recipient.relation === 'enemy') {
               from = 'self';
               verb = 'Transfer';
           }
 
-          effects.push(`${verb} ${count} ${what} from ${from}.`);
+          effects.push(`${conditionPrefix}${verb} ${count} ${what} from ${from}.`);
       }
 
       // 8. Turn Meter
       if (action.action === 'turn_meter') {
           const amount = getMax(action.change_pct);
           if (amount > 0) {
-              effects.push(`Gain ${amount}% Speed Bar.`);
+              effects.push(`${conditionPrefix}Gain ${amount}% Speed Bar.`);
           } else if (amount < 0) {
-              effects.push(`Reduce Speed Bar by ${Math.abs(amount)}%.`);
+              effects.push(`${conditionPrefix}Reduce Speed Bar by ${Math.abs(amount)}%.`);
           }
       }
 
@@ -158,7 +208,7 @@ function processCharacter(charName, charData) {
       if (action.action === 'barrier') {
           const amount = getMax(action.health_pct);
           if (amount > 0) {
-              effects.push(`Barrier for ${amount}% of Max Health.`);
+              effects.push(`${conditionPrefix}Barrier for ${amount}% of Max Health.`);
           }
       }
     });
