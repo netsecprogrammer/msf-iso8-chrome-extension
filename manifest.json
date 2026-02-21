@@ -1,16 +1,18 @@
 {
   "manifest_version": 3,
   "name": "MSF ISO-8 Counter/Assist Viewer",
-  "version": "1.9.2",
+  "version": "2.0.0",
   "description": "Displays ISO-8 Counter Attack/Assist ability information on Marvel Strike Force character pages",
   "content_scripts": [
     {
-      "matches": ["https://marvelstrikeforce.com/en/characters/*"],
-      "js": ["iso8_data.js", "content.js"],
+      "matches": ["https://marvelstrikeforce.com/*/characters/*"],
+      "js": ["content.js"],
       "css": ["styles.css"],
       "run_at": "document_idle"
     }
   ],
+  "permissions": ["storage"],
+  "host_permissions": ["https://raw.githubusercontent.com/*"],
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",

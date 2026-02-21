@@ -3,11 +3,48 @@
 (function() {
   'use strict';
 
+  const DATA_URL = 'https://raw.githubusercontent.com/netsecprogrammer/msf-iso8-chrome-extension/master/iso8_data.json';
+
+  const ISO8_ICON_SVG = `<svg class="msf-iso8-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#e94560"/>
+    <path d="M2 17L12 22L22 17" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M2 12L12 17L22 12" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+
   // Extract character ID from URL
   function getCharacterIdFromUrl() {
     const path = window.location.pathname;
     const match = path.match(/\/characters\/([^\/\?#]+)/);
     return match ? match[1] : null;
+  }
+
+  // Load ISO-8 Data (Cache + Fetch)
+  async function loadIso8Data() {
+    // 1. Try local storage
+    const localData = await chrome.storage.local.get(['iso8Data', 'lastUpdated']);
+    const now = Date.now();
+
+    // Use cache if < 24 hours old
+    if (localData.iso8Data && localData.lastUpdated && (now - localData.lastUpdated < 86400000)) {
+      return localData.iso8Data;
+    }
+
+    // 2. Fetch fresh data
+    try {
+      const response = await fetch(DATA_URL);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      
+      await chrome.storage.local.set({
+        iso8Data: data,
+        lastUpdated: now
+      });
+      return data;
+    } catch (error) {
+      console.error('MSF ISO-8: Failed to fetch data', error);
+      // Fallback to cache even if stale
+      return localData.iso8Data || null;
+    }
   }
 
   // Classify effect for styling
@@ -33,9 +70,9 @@
     text = text.replace(/Heal (self )?for (\d+)%/g,
       'Heal $1for <span class="msf-iso8-heal-value">$2%</span>');
 
-    // Style "X% of Max Health" (for barrier, etc.)
-    text = text.replace(/(\d+)% of Max Health/g,
-      '<span class="msf-iso8-health-pct-value">$1%</span> of Max Health');
+    // Style "X% of Max Health" or "X% of this character's Max Health" (for barrier, health damage, etc.)
+    text = text.replace(/(\d+)% of (this character's )?Max Health/g,
+      '<span class="msf-iso8-health-pct-value">$1%</span> of $2Max Health');
 
     // Style "Clear X positive/negative" counts
     text = text.replace(/Clear (\d+) (positive|negative)/g,
@@ -45,12 +82,13 @@
     text = text.replace(/\+(\d+) (Deflect|Counter|Evade|Charged)/g,
       '+<span class="msf-iso8-stack-value">$1</span> $2');
 
+    // Style "+X% Stat for each" patterns (like "+30% Piercing for each WINTER GUARD ally")
+    text = text.replace(/\+(\d+)% (Piercing|Damage|Drain|Crit Chance|Focus)/g,
+      '+<span class="msf-iso8-bonus-pct-value">$1%</span> $2');
+
     // Style game mode indicators (WAR, CRUCIBLE, RAID, ARENA, OFFENSE, DEFENSE)
-    // Process longer patterns FIRST to avoid partial matches
-    // "On CRUCIBLE OFFENSE" -> "On" + colored "CRUCIBLE OFFENSE"
     text = text.replace(/\b(On|In) (CRUCIBLE OFFENSE|CRUCIBLE DEFENSE|WAR OFFENSE|WAR DEFENSE|RAID OFFENSE|RAID DEFENSE)\b/gi,
       '$1 <span class="msf-iso8-game-mode">$2</span>');
-    // Then handle simple "In WAR", "In CRUCIBLE" etc (only if not already matched)
     text = text.replace(/\b(In|On) (WAR|RAID|CRUCIBLE|ARENA)\b(?! (OFFENSE|DEFENSE))/gi,
       '$1 <span class="msf-iso8-game-mode">$2</span>');
 
@@ -65,7 +103,6 @@
       'Minor Regeneration'
     ];
 
-    // Create regex pattern for status effects (case insensitive, word boundaries)
     const statusPattern = new RegExp(`\\b(${statusEffects.join('|')})\\b`, 'gi');
     text = text.replace(statusPattern, '<span class="msf-iso8-status-effect">$1</span>');
 
@@ -93,13 +130,6 @@
     container.className = 'msf-iso8-container';
     container.id = 'msf-iso8-panel';
 
-    // SVG icon for ISO-8
-    const iso8Icon = `<svg class="msf-iso8-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#e94560"/>
-      <path d="M2 17L12 22L22 17" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M2 12L12 17L22 12" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`;
-
     let effectsHtml = '';
     if (data.effects && data.effects.length > 0) {
       const effectItems = data.effects.map(effect => {
@@ -125,8 +155,9 @@
 
     container.innerHTML = `
       <div class="msf-iso8-header">
-        ${iso8Icon}
+        ${ISO8_ICON_SVG}
         <h3 class="msf-iso8-title">ISO-8 Counter/Assist</h3>
+        <button class="msf-iso8-close-btn" aria-label="Close ISO-8 Panel">×</button>
       </div>
       <div class="msf-iso8-content">
         ${damageHtml}
@@ -134,6 +165,14 @@
         ${notesHtml}
       </div>
     `;
+
+    // Add close button functionality
+    const closeBtn = container.querySelector('.msf-iso8-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        container.remove();
+      });
+    }
 
     return container;
   }
@@ -143,22 +182,33 @@
     const container = document.createElement('div');
     container.className = 'msf-iso8-container';
     container.id = 'msf-iso8-panel';
+    
+    // Header
+    const headerDiv = document.createElement('div');
+    headerDiv.className = 'msf-iso8-header';
+    headerDiv.innerHTML = `${ISO8_ICON_SVG}<h3 class="msf-iso8-title">ISO-8 Counter/Assist</h3><button class="msf-iso8-close-btn" aria-label="Close ISO-8 Panel">×</button>`;
+    
+    // Message (Safe Text)
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'msf-iso8-not-found';
+    msgDiv.textContent = `No ISO-8 Counter/Assist data found for "${charId}"`;
+    
+    container.appendChild(headerDiv);
+    container.appendChild(msgDiv);
 
-    container.innerHTML = `
-      <div class="msf-iso8-header">
-        <h3 class="msf-iso8-title">ISO-8 Counter/Assist</h3>
-      </div>
-      <div class="msf-iso8-not-found">
-        No ISO-8 Counter/Assist data found for "${charId}"
-      </div>
-    `;
+    // Add close button functionality
+    const closeBtn = headerDiv.querySelector('.msf-iso8-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        container.remove();
+      });
+    }
 
     return container;
   }
 
   // Find the best insertion point on the page
   function findInsertionPoint() {
-    // Try to find common containers on the MSF character page
     const selectors = [
       '.character-detail',
       '.character-stats',
@@ -177,40 +227,32 @@
         return element;
       }
     }
-
-    // Fallback to body
     return document.body;
   }
 
   // Main function to inject ISO-8 info
-  function injectIso8Info() {
-    // Check if already injected
-    if (document.getElementById('msf-iso8-panel')) {
-      return;
-    }
+  async function injectIso8Info() {
+    if (document.getElementById('msf-iso8-panel')) return;
 
     const charId = getCharacterIdFromUrl();
-    if (!charId) {
-      console.log('MSF ISO-8: Could not extract character ID from URL');
-      return;
-    }
+    if (!charId) return;
 
     console.log('MSF ISO-8: Looking up data for', charId);
 
-    // Look up character data (ISO8_DATA is loaded from iso8_data.js)
-    if (typeof ISO8_DATA === 'undefined') {
-      console.error('MSF ISO-8: Data not loaded');
+    const iso8Data = await loadIso8Data();
+    if (!iso8Data) {
+      console.error('MSF ISO-8: Data unavailable');
       return;
     }
 
-    const data = ISO8_DATA[charId];
+    const data = iso8Data[charId];
     let panel;
 
     if (data) {
       console.log('MSF ISO-8: Found data for', charId);
       panel = createIso8Panel(charId, data);
     } else {
-      // Try case variations
+      // Fuzzy matching
       const variations = [
         charId,
         charId.toLowerCase(),
@@ -224,14 +266,13 @@
       let foundKey = null;
 
       for (const variant of variations) {
-        for (const key in ISO8_DATA) {
-          if (key.toLowerCase() === variant.toLowerCase()) {
-            foundData = ISO8_DATA[key];
-            foundKey = key;
-            break;
-          }
+        // Iterate through keys in fetched data
+        const key = Object.keys(iso8Data).find(k => k.toLowerCase() === variant.toLowerCase());
+        if (key) {
+           foundData = iso8Data[key];
+           foundKey = key;
+           break;
         }
-        if (foundData) break;
       }
 
       if (foundData) {
@@ -243,41 +284,31 @@
       }
     }
 
-    // Find insertion point and add panel
     const insertionPoint = findInsertionPoint();
-
-    // Insert at the top of the content area
     if (insertionPoint.firstChild) {
       insertionPoint.insertBefore(panel, insertionPoint.firstChild);
     } else {
       insertionPoint.appendChild(panel);
     }
-
-    console.log('MSF ISO-8: Panel injected successfully');
   }
 
   // Run when page is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', injectIso8Info);
   } else {
-    // Small delay to ensure page content is loaded
     setTimeout(injectIso8Info, 500);
   }
 
-  // Also watch for dynamic navigation (SPA behavior)
+  // Dynamic navigation observer (Polling is lighter than MutationObserver for URL changes)
   let lastUrl = location.href;
-  new MutationObserver(() => {
+  setInterval(() => {
     const url = location.href;
     if (url !== lastUrl) {
       lastUrl = url;
-      // Remove existing panel
       const existingPanel = document.getElementById('msf-iso8-panel');
-      if (existingPanel) {
-        existingPanel.remove();
-      }
-      // Re-inject for new page
+      if (existingPanel) existingPanel.remove();
       setTimeout(injectIso8Info, 500);
     }
-  }).observe(document, { subtree: true, childList: true });
+  }, 500);
 
 })();
