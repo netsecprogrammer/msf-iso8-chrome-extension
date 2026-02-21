@@ -54,44 +54,92 @@ const PROC_MAP = {
   'HoT': 'Regeneration',
   'AccuracyDown': 'Accuracy Down',
   'BombBurst': 'Bomb Burst',
-  'NicoBasic': 'Arcane Runic'
+  'NicoBasic': 'Arcane Runic',
+  'Marked': 'Vulnerable',
+  'ClawsOut': 'Claws Out',
+  'Silence': 'Silence',
+  // Trait names used in conditions and targeting
+  'AbsoluteAForce': 'Absolute A-Force',
+  'NewAvenger': 'New Avenger',
+  'AlphaFlight': 'Alpha Flight',
+  'SpiderSociety': 'Spider Society',
+  'SpiderVerse': 'Spider-Verse',
+  'OutOfTime': 'Out of Time',
+  'UncannyAvenger': 'Uncanny Avenger',
+  'SuperiorSix': 'Superior Six'
 };
 
 function formatProcName(proc) {
   return PROC_MAP[proc] || proc;
 }
 
+// Recursively extract mode/combat_side text from an only_if object
+function extractModeText(oi) {
+    if (!oi) return '';
+    let result = '';
+
+    if (oi.mode) {
+        result = oi.mode === 'AVA' ? 'WAR' : oi.mode === 'PVP' ? 'CRUCIBLE' : oi.mode;
+    }
+    if (oi.combat_side) {
+        const side = oi.combat_side === 'offense' ? 'OFFENSE' : 'DEFENSE';
+        result = result ? `${result}, ${side}` : side;
+    }
+
+    if (oi.or) {
+        const orParts = oi.or.map(sub => extractModeText(sub)).filter(x => x);
+        if (orParts.length > 0) {
+            const orText = orParts.join(' or ');
+            result = result ? `${result}, ${orText}` : orText;
+        }
+    }
+    if (oi.and) {
+        const andParts = oi.and.map(sub => extractModeText(sub)).filter(x => x);
+        if (andParts.length > 0) {
+            const andText = andParts.join(', ');
+            result = result ? `${result}, ${andText}` : andText;
+        }
+    }
+
+    return result;
+}
+
 function parseConditions(action) {
   const conditions = [];
-  
+
   if (action.only_if) {
       const oi = action.only_if;
-      if (oi.mode) {
-        if (oi.mode === 'AVA') conditions.push('In WAR');
-        else if (oi.mode === 'PVP') conditions.push('In CRUCIBLE');
-        else conditions.push(`In ${oi.mode}`);
+
+      // Mode/combat_side conditions (handles or/and recursion)
+      const modeText = extractModeText(oi);
+      if (modeText) conditions.push(`In ${modeText}`);
+
+      // Target has specific proc(s)
+      if (oi.target && oi.target.procs) {
+          const procs = oi.target.procs.map(p => formatProcName(p)).join(' or ');
+          conditions.push(`If the primary target has ${procs}`);
       }
-      
-      if (oi.combat_side) {
-        if (oi.combat_side === 'offense') conditions.push('OFFENSE');
-        else if (oi.combat_side === 'defense') conditions.push('DEFENSE');
+
+      // Self has specific proc(s)
+      if (oi.owner && oi.owner.procs) {
+          const procs = oi.owner.procs.map(p => formatProcName(p)).join(' or ');
+          conditions.push(`If self has ${procs}`);
       }
   }
-  
+
   if (action.only_if_outcome && action.only_if_outcome.includes('critical_hit')) {
       conditions.push('On Crit');
   }
-  
-  // Handle only_if_target
+
+  // Handle only_if_target (trait-based conditions on the target)
   if (action.only_if_target) {
-      // Simplified recursion for traits
       const extractTraits = (obj) => {
-          if (obj.traits && obj.traits.has_any) return obj.traits.has_any.join(' or ');
+          if (obj.traits && obj.traits.has_any) return obj.traits.has_any.map(t => formatProcName(t)).join(' or ');
           if (obj.and) return obj.and.map(extractTraits).filter(x=>x).join(' and ');
           if (obj.or) return obj.or.map(extractTraits).filter(x=>x).join(' or ');
           return '';
       };
-      
+
       const traits = extractTraits(action.only_if_target);
       if (traits) {
           conditions.push(`If the primary target is ${traits.toUpperCase()}`);
@@ -111,7 +159,7 @@ function getTargetText(target) {
         const limit = getMax(target.limit);
         let traits = '';
         if (target.filter && target.filter.traits && target.filter.traits.has_any) {
-            traits = target.filter.traits.has_any.join(' or ').toUpperCase() + ' ';
+            traits = target.filter.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase() + ' ';
         }
         
         if (!limit || limit === 1) {
@@ -374,11 +422,30 @@ function processCharacter(charName, charData) {
 
       // 8. Turn Meter
       if (action.action === 'turn_meter') {
-          const amount = getMax(action.change_pct);
-          if (amount > 0) {
-              effects.push(`${conditionPrefix}Gain ${amount}% Speed Bar.`);
-          } else if (amount < 0) {
-              effects.push(`${conditionPrefix}Reduce Speed Bar by ${Math.abs(amount)}%.`);
+          // Handle per-ally multiplier (specific_characters)
+          if (action.specific_characters && action.specific_characters_mul) {
+              const perAlly = Math.abs(getMax(action.specific_characters_mul));
+              if (perAlly > 0) {
+                  let traitText = '';
+                  const sc = action.specific_characters;
+                  if (sc.traits && sc.traits.has_any) {
+                      traitText = sc.traits.has_any.map(t => formatProcName(t) || t).join(' or ').toUpperCase();
+                  }
+                  const rel = sc.relationship || 'ally';
+                  const mulVal = getMax(action.specific_characters_mul);
+                  if (mulVal < 0) {
+                      effects.push(`${conditionPrefix}Reduce Speed Bar by ${perAlly}% for each ${traitText} ${rel}.`);
+                  } else {
+                      effects.push(`${conditionPrefix}Gain ${perAlly}% Speed Bar for each ${traitText} ${rel}.`);
+                  }
+              }
+          } else {
+              const amount = getMax(action.change_pct);
+              if (amount > 0) {
+                  effects.push(`${conditionPrefix}Gain ${amount}% Speed Bar.`);
+              } else if (amount < 0) {
+                  effects.push(`${conditionPrefix}Reduce Speed Bar by ${Math.abs(amount)}%.`);
+              }
           }
       }
 
