@@ -50,7 +50,11 @@ const PROC_MAP = {
   'MinorDeflect': 'Minor Deflect',
   'MinorRegeneration': 'Minor Regeneration',
   'MinorDefenseUp': 'Minor Defense Up',
-  'MinorOffenseUp': 'Minor Offense Up'
+  'MinorOffenseUp': 'Minor Offense Up',
+  'HoT': 'Regeneration',
+  'AccuracyDown': 'Accuracy Down',
+  'BombBurst': 'Bomb Burst',
+  'NicoBasic': 'Arcane Runic'
 };
 
 function formatProcName(proc) {
@@ -154,74 +158,83 @@ function processCharacter(charName, charData) {
         let localPierce = 0;
         let localDrain = 0;
         let ignoresDefenseUp = false;
-        
+
         action.stat_modifier.forEach(mod => {
+          // Skip dynamic modifiers that don't have a fixed delta (e.g., delta_from: "armor_pct")
+          if (!mod.delta) return;
+
           if (mod.stat === 'ability_damage_pct') {
             const val = getMax(mod.delta);
             if (!mod.apply_if) {
                 localDmg = val;
-            } else if (mod.apply_if.not && mod.apply_if.not.target && mod.apply_if.not.target.procs && mod.apply_if.not.target.procs.includes('DefenseUp')) {
-                // This is the "base" damage for characters with Ignore Defense Up mechanics (Blade)
-                // Use this if no unconditional damage found yet
+            } else if (mod.apply_if.not) {
+                // "not X" conditions indicate the base/default state
+                // Covers: Blade (not DefenseUp), EmmaFrost (not Charged), etc.
                 if (localDmg === 0) localDmg = val;
             }
           } else if (mod.stat === 'armor_pierce_pct') {
             const val = getMax(mod.delta);
-            
-            if (mod.apply_if) {
-                if (JSON.stringify(mod.apply_if).includes('DefenseUp')) {
-                    ignoresDefenseUp = true;
-                }
+
+            // Check if DefenseUp appears anywhere in conditions (for ignore note)
+            if (mod.apply_if && JSON.stringify(mod.apply_if).includes('"DefenseUp"')) {
+                ignoresDefenseUp = true;
             }
-            
-            // Priority for base Piercing:
-            // 1. Unconditional
-            // 2. "Not Defense Up" (standard hit)
+
             if (!mod.apply_if) {
                 localPierce = val;
-            } else if (mod.apply_if.not && mod.apply_if.not.target && mod.apply_if.not.target.procs && mod.apply_if.not.target.procs.includes('DefenseUp')) {
-                // If we haven't found an unconditional one, or if this seems to be the main damage line (ignoring small trait bonuses)
-                // Blade has a 20% trait bonus that is unconditional-ish (apply_if traits). We want the big number (167).
-                // Heuristic: Take the largest value if multiple candidates? Or strictly prefer the "Attack" line logic.
-                
-                // Blade's data has:
-                // 1. Not DefenseUp -> 167%
-                // 2. DefenseUp & DefDown -> 251%
-                // ...
-                // 5. Not DefenseUp & Vampire -> 20% (bonus?)
-                
-                // We want 167.
+            } else if (mod.apply_if.not) {
+                // "not X" conditions indicate the base/default state
+                // Covers: Blade/SuperSkrull (not DefenseUp variants)
                 if (val > localPierce) localPierce = val;
             }
           } else if (mod.stat === 'drain_pct') {
             localDrain = getMax(mod.delta);
           }
         });
-        
+
         if (ignoresDefenseUp) {
             if (!notes.includes("This attack ignores Defense Up.")) {
                 notes.push("This attack ignores Defense Up.");
             }
         }
-        
-        if (action.victim_cant_revive) {
-            notes.push("Characters killed by this attack cannot be revived.");
-        }
 
-        if (isConditionalTarget || isCrit) {
-            // Add as an effect line
-            let text = `${conditionPrefix}attack for `;
-            if (localDmg > 0) text += `${localDmg}% damage`;
-            if (localPierce > 0) text += `${localDmg > 0 ? ' + ' : ''}${localPierce}% Piercing`;
-            if (localDrain > 0) text += ` + ${localDrain}% Drain`;
-            text += ' instead.'; // Often conditional attacks are replacements
-            effects.push(text);
-        } else {
-            // Main stats
-            if (localDmg > 0) damage = localDmg;
-            if (localPierce > 0) piercing = localPierce;
-            if (localDrain > 0) drain = localDrain;
+        // Only process attack stats if actual attack values were found
+        // (skip actions that only have focus_pct or other non-attack stat_modifiers)
+        const hasAttackStats = localDmg > 0 || localPierce > 0 || localDrain > 0;
+
+        if (hasAttackStats) {
+            if (isCrit) {
+                // Crit bonuses always go as effect lines
+                let text = `${conditionPrefix}attack for `;
+                if (localDmg > 0) text += `${localDmg}% damage`;
+                if (localPierce > 0) text += `${localDmg > 0 ? ' + ' : ''}${localPierce}% Piercing`;
+                if (localDrain > 0) text += ` + ${localDrain}% Drain`;
+                text += ' instead.';
+                effects.push(text);
+            } else if (isConditionalTarget && (damage > 0 || piercing > 0)) {
+                // Already have base stats — only add effect line if values differ
+                if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
+                    let text = `${conditionPrefix}attack for `;
+                    if (localDmg > 0) text += `${localDmg}% damage`;
+                    if (localPierce > 0) text += `${localDmg > 0 ? ' + ' : ''}${localPierce}% Piercing`;
+                    if (localDrain > 0) text += ` + ${localDrain}% Drain`;
+                    text += ' instead.';
+                    effects.push(text);
+                }
+            } else {
+                // Main stats (unconditional, or first conditional when no base exists yet)
+                if (localDmg > 0) damage = localDmg;
+                if (localPierce > 0) piercing = localPierce;
+                if (localDrain > 0) drain = localDrain;
+            }
         }
+      }
+
+      // victim_cant_revive can appear on any action (not just stat_modifier ones)
+      if (action.victim_cant_revive) {
+          if (!notes.includes("Characters killed by this attack cannot be revived.")) {
+              notes.push("Characters killed by this attack cannot be revived.");
+          }
       }
 
       // 2. Procs (Apply Status)
@@ -259,6 +272,7 @@ function processCharacter(charName, charData) {
       // 3. Proc Remove (Clear Status)
       if (action.action === 'proc_remove') {
         let count = getMax(action.count) || 1;
+        const countText = count >= 10 ? 'all' : `${count}`;
         let what = '';
         if (action.procs) {
             const procName = formatProcName(action.procs);
@@ -270,20 +284,24 @@ function processCharacter(charName, charData) {
         }
         const targetText = getTargetText(action.target);
         if (targetText === 'self') {
-             effects.push(`${conditionPrefix}Clear ${count} ${what} from self.`);
+             effects.push(`${conditionPrefix}Clear ${countText} ${what} from self.`);
         } else {
-             effects.push(`${conditionPrefix}Clear ${count} ${what} from ${targetText}.`);
+             effects.push(`${conditionPrefix}Clear ${countText} ${what} from ${targetText}.`);
         }
       }
 
       // 4. Proc Flip
       if (action.action === 'proc_flip') {
         let count = getMax(action.count) || 1;
+        const countText = count >= 10 ? 'all' : `${count}`;
         const targetText = getTargetText(action.target);
-        if (targetText === 'self') {
-             effects.push(`${conditionPrefix}Flip ${count} negative effect(s) to positive on self.`);
+        // Use category to determine flip direction:
+        // category "debuff" = flipping debuffs to buffs (negative → positive)
+        // category "buff" = flipping buffs to debuffs (positive → negative)
+        if (action.category === 'debuff') {
+             effects.push(`${conditionPrefix}Flip ${countText} negative effect(s) to positive on ${targetText === 'the primary target' ? targetText : targetText}.`);
         } else {
-             effects.push(`${conditionPrefix}Flip ${count} positive effect(s) to negative on ${targetText}.`);
+             effects.push(`${conditionPrefix}Flip ${countText} positive effect(s) to negative on ${targetText}.`);
         }
       }
       
@@ -430,6 +448,15 @@ function processCharacter(charName, charData) {
           }
       });
   }
+
+  // Deduplicate effects and notes
+  const uniqueEffects = [...new Set(effects)];
+  effects.length = 0;
+  effects.push(...uniqueEffects);
+
+  const uniqueNotes = [...new Set(notes)];
+  notes.length = 0;
+  notes.push(...uniqueNotes);
 
   // Generate description
   let description = 'Attack primary target for ';
