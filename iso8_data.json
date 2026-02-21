@@ -11,12 +11,12 @@
     "notes": []
   },
   "AbsorbingMan": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.\\nSteal 2 positive effects from the primary target.\\nGain +2 Deflect, up to a maximum of 5.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\\nSteal 2 positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nGain +2 Deflect, up to a maximum of 5.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 2 positive effects from the primary target.",
+      "Steal 2 positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
       "Gain +2 Deflect, up to a maximum of 5."
     ],
     "notes": []
@@ -150,24 +150,24 @@
     "notes": []
   },
   "AntMan": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nIf the primary target is INFESTATION, attack for 10% Piercing instead.\\nSteal 1 positive effects from the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nIf the primary target is INFESTATION, attack for 10% Piercing instead.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If the primary target is INFESTATION, attack for 10% Piercing instead.",
-      "Steal 1 positive effects from the primary target."
+      "Steal 1 positive effect(s) from the primary target and give to allies, excluding Taunt."
     ],
     "notes": []
   },
   "AntiVenom": {
-    "description": "Attack primary target for 178% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nTransfer 1000 positive effects from self.",
+    "description": "Attack primary target for 178% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nTransfer all positive effect(s) from self.",
     "damage": 178,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Bleed to the primary target.",
-      "Transfer 1000 positive effects from self."
+      "Transfer all positive effect(s) from self."
     ],
     "notes": []
   },
@@ -233,14 +233,14 @@
     "notes": []
   },
   "Beast": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nFlip 2 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAID, Steal Charged from the primary target and give to allies.\\nIn RAID, Steal Revive Once from the primary target and give to allies.\\nFlip 2 positive effect(s) to negative on the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, Steal 1000 positive effects from the primary target.",
-      "In RAID, Steal 1000 positive effects from the primary target.",
-      "In RAID, Steal 1000 positive effects from the primary target.",
+      "In RAID, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAID, Steal Charged from the primary target and give to allies.",
+      "In RAID, Steal Revive Once from the primary target and give to allies.",
       "Flip 2 positive effect(s) to negative on the primary target."
     ],
     "notes": []
@@ -346,13 +346,13 @@
     "notes": []
   },
   "BlackWidow": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\nIf the primary target is INFESTATION, attack for 10% Piercing instead.\\nSteal 1000 positive effects from the primary target.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\\nIf the primary target is INFESTATION, attack for 10% Piercing instead.\\nSteal all positive effect(s) from the primary target, excluding Taunt.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If the primary target is INFESTATION, attack for 10% Piercing instead.",
-      "Steal 1000 positive effects from the primary target."
+      "Steal all positive effect(s) from the primary target, excluding Taunt."
     ],
     "notes": []
   },
@@ -941,17 +941,17 @@
     "notes": []
   },
   "Falcon": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn RAID, Steal 1000 positive effects from the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAID, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, Steal Charged from the primary target and give to allies.\\nIn RAID, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, Steal Revive Once from the primary target and give to allies.\\nIn RAID, Steal Revive Once from the primary target and give to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In RAID, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In RAID, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In RAID, Steal 1000 positive effects from the primary target."
+      "In WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAID, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, Steal Charged from the primary target and give to allies.",
+      "In RAID, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, Steal Revive Once from the primary target and give to allies.",
+      "In RAID, Steal Revive Once from the primary target and give to allies."
     ],
     "notes": []
   },
@@ -1102,12 +1102,12 @@
     ]
   },
   "GhostSpider": {
-    "description": "Attack primary target for 208% damage + 17% Piercing.\\nSteal 1 positive effects from the primary target.\\nIn RAID, Apply AccuracyDown to the primary target.\\nIn RAID, Apply Bleed to the primary target.\\nGain Evade.",
+    "description": "Attack primary target for 208% damage + 17% Piercing.\\nSteal Evade from the primary target and give to allies.\\nIn RAID, Apply AccuracyDown to the primary target.\\nIn RAID, Apply Bleed to the primary target.\\nGain Evade.",
     "damage": 208,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1 positive effects from the primary target.",
+      "Steal Evade from the primary target and give to allies.",
       "In RAID, Apply AccuracyDown to the primary target.",
       "In RAID, Apply Bleed to the primary target.",
       "Gain Evade."
@@ -1325,14 +1325,14 @@
     "notes": []
   },
   "Hercules": {
-    "description": "Attack primary target for 228% damage + 17% Piercing.\\nSteal 1 positive effects from the primary target.\\nClear 999 Charged from the primary target.\\nSteal 1 positive effects from the primary target.",
+    "description": "Attack primary target for 228% damage + 17% Piercing.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Stealth.\\nClear 999 Charged from the primary target.\\nSteal Revive Once from the primary target and give to allies.",
     "damage": 228,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1 positive effects from the primary target.",
+      "Steal 1 positive effect(s) from the primary target and give to allies, excluding Stealth.",
       "Clear 999 Charged from the primary target.",
-      "Steal 1 positive effects from the primary target."
+      "Steal Revive Once from the primary target and give to allies."
     ],
     "notes": [
       "Characters killed by this attack cannot be revived.",
@@ -1507,14 +1507,14 @@
     "notes": []
   },
   "InvisibleWoman": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, Steal Revive Once from the primary target and give to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target."
+      "In WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, Steal Revive Once from the primary target and give to allies."
     ],
     "notes": []
   },
@@ -1618,14 +1618,14 @@
     ]
   },
   "JeanGrey": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nApply 2 Heal Block for 2 turns to the primary target.\\nApply 2 Defense Down for 2 turns to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn RAID, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAID, Steal Charged from the primary target and give to allies.\\nIn RAID, Steal Revive Once from the primary target and give to allies.\\nApply 2 Heal Block for 2 turns to the primary target.\\nApply 2 Defense Down for 2 turns to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, Steal 1000 positive effects from the primary target.",
-      "In RAID, Steal 1000 positive effects from the primary target.",
-      "In RAID, Steal 1000 positive effects from the primary target.",
+      "In RAID, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAID, Steal Charged from the primary target and give to allies.",
+      "In RAID, Steal Revive Once from the primary target and give to allies.",
       "Apply 2 Heal Block for 2 turns to the primary target.",
       "Apply 2 Defense Down for 2 turns to the primary target."
     ],
@@ -1862,12 +1862,12 @@
     "notes": []
   },
   "LadyDeathstrike": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nSteal 1 positive effects from the primary target.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nSteal Deflect from the primary target and give to allies.\\nApply Defense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1 positive effects from the primary target.",
+      "Steal Deflect from the primary target and give to allies.",
       "Apply Defense Down to the primary target."
     ],
     "notes": [
@@ -2208,13 +2208,13 @@
     "notes": []
   },
   "MorganLeFay": {
-    "description": "Attack primary target for 248% damage + 17% Piercing.\\nSteal 100 positive effects from the primary target.\\nSteal 2 positive effects from the primary target.\\nDeal 10% of target's Max Health.",
+    "description": "Attack primary target for 248% damage + 17% Piercing.\\nSteal all positive effect(s) from the primary target, excluding Taunt.\\nSteal 2 positive effect(s) from the primary target, excluding Taunt.\\nDeal 10% of target's Max Health.",
     "damage": 248,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 100 positive effects from the primary target.",
-      "Steal 2 positive effects from the primary target.",
+      "Steal all positive effect(s) from the primary target, excluding Taunt.",
+      "Steal 2 positive effect(s) from the primary target, excluding Taunt.",
       "Deal 10% of target's Max Health."
     ],
     "notes": []
@@ -2287,12 +2287,12 @@
     "notes": []
   },
   "MultipleManMinion": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nSteal 1 positive effects from the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nSteal 1 positive effect(s) from the primary target, excluding HoT.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1 positive effects from the primary target."
+      "Steal 1 positive effect(s) from the primary target, excluding HoT."
     ],
     "notes": []
   },
@@ -2614,13 +2614,13 @@
     "notes": []
   },
   "PVE_BlackWidow_SentryBoss": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\nIf the primary target is INFESTATION, attack for 10% Piercing instead.\\nSteal 1000 positive effects from the primary target.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\\nIf the primary target is INFESTATION, attack for 10% Piercing instead.\\nSteal all positive effect(s) from the primary target, excluding Taunt.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If the primary target is INFESTATION, attack for 10% Piercing instead.",
-      "Steal 1000 positive effects from the primary target."
+      "Steal all positive effect(s) from the primary target, excluding Taunt."
     ],
     "notes": []
   },
@@ -2696,14 +2696,14 @@
     "notes": []
   },
   "PVE_ChaosRaid_JeanGrey": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nSteal 1000 positive effects from the primary target.\\nSteal 1000 positive effects from the primary target.\\nSteal 1000 positive effects from the primary target.\\nApply 2 Heal Block for 2 turns to the primary target.\\nApply 2 Defense Down for 2 turns to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nSteal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nSteal Charged from the primary target and give to allies.\\nSteal Revive Once from the primary target and give to allies.\\nApply 2 Heal Block for 2 turns to the primary target.\\nApply 2 Defense Down for 2 turns to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 1000 positive effects from the primary target.",
-      "Steal 1000 positive effects from the primary target.",
-      "Steal 1000 positive effects from the primary target.",
+      "Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "Steal Charged from the primary target and give to allies.",
+      "Steal Revive Once from the primary target and give to allies.",
       "Apply 2 Heal Block for 2 turns to the primary target.",
       "Apply 2 Defense Down for 2 turns to the primary target."
     ],
@@ -3013,13 +3013,13 @@
     "notes": []
   },
   "PeggyCarter": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nApply Slow to the primary target.\\nSteal 3 positive effects from the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nApply Slow to the primary target.\\nSteal 3 positive effect(s) from the primary target, excluding Taunt.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Slow to the primary target.",
-      "Steal 3 positive effects from the primary target."
+      "Steal 3 positive effect(s) from the primary target, excluding Taunt."
     ],
     "notes": []
   },
@@ -3471,7 +3471,7 @@
     "notes": []
   },
   "S_ShieldSupport_Stealth": {
-    "description": "Attack primary target for 237% damage + 17% Piercing.\\nReduce Speed Bar by 25%.\\nIn RAID, Reduce Speed Bar by 25%.\\nIn RAID, Clear 1 Taunt from the primary target.\\nSteal 1 positive effects from the primary target.",
+    "description": "Attack primary target for 237% damage + 17% Piercing.\\nReduce Speed Bar by 25%.\\nIn RAID, Reduce Speed Bar by 25%.\\nIn RAID, Clear 1 Taunt from the primary target.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
     "damage": 237,
     "piercing": 17,
     "drain": 0,
@@ -3479,7 +3479,7 @@
       "Reduce Speed Bar by 25%.",
       "In RAID, Reduce Speed Bar by 25%.",
       "In RAID, Clear 1 Taunt from the primary target.",
-      "Steal 1 positive effects from the primary target."
+      "Steal 1 positive effect(s) from the primary target and give to allies, excluding Taunt."
     ],
     "notes": []
   },
@@ -3549,14 +3549,14 @@
     "notes": []
   },
   "ScarletWitch": {
-    "description": "Attack primary target for 168% Piercing.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nApply 3 Offense Down for 2 turns to the primary target.\\nApply 3 Defense Down for 2 turns to the primary target.\\nApply 3 Slow for 2 turns to the primary target.\\nApply Offense Down to the primary target.\\nApply Defense Down to the primary target.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 168% Piercing.\\nIn WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, Steal Revive Once from the primary target and give to allies.\\nApply 3 Offense Down for 2 turns to the primary target.\\nApply 3 Defense Down for 2 turns to the primary target.\\nApply 3 Slow for 2 turns to the primary target.\\nApply Offense Down to the primary target.\\nApply Defense Down to the primary target.\\nApply Slow to the primary target.",
     "damage": 0,
     "piercing": 168,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
+      "In WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, Steal Revive Once from the primary target and give to allies.",
       "Apply 3 Offense Down for 2 turns to the primary target.",
       "Apply 3 Defense Down for 2 turns to the primary target.",
       "Apply 3 Slow for 2 turns to the primary target.",
@@ -3749,13 +3749,13 @@
     "notes": []
   },
   "ShieldSupport_Stealth": {
-    "description": "Attack primary target for 237% damage + 17% Piercing.\\nReduce Speed Bar by 25%.\\nSteal 1 positive effects from the primary target.",
+    "description": "Attack primary target for 237% damage + 17% Piercing.\\nReduce Speed Bar by 25%.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
     "damage": 237,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Reduce Speed Bar by 25%.",
-      "Steal 1 positive effects from the primary target."
+      "Steal 1 positive effect(s) from the primary target and give to allies, excluding Taunt."
     ],
     "notes": []
   },
@@ -3817,13 +3817,13 @@
     "notes": []
   },
   "SilverSurfer": {
-    "description": "Attack primary target for 236% Piercing.\\nSteal 999 negative effects from the primary target.\\nSteal 999 positive effects from the primary target.",
+    "description": "Attack primary target for 236% Piercing.\\nSteal all negative effect(s) from the primary target.\\nSteal all positive effect(s) from the primary target, excluding Taunt.",
     "damage": 0,
     "piercing": 236,
     "drain": 0,
     "effects": [
-      "Steal 999 negative effects from the primary target.",
-      "Steal 999 positive effects from the primary target."
+      "Steal all negative effect(s) from the primary target.",
+      "Steal all positive effect(s) from the primary target, excluding Taunt."
     ],
     "notes": [
       "This attack ignores Defense Up."
@@ -4000,14 +4000,14 @@
     "notes": []
   },
   "Storm": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nIn RAID, Steal 1000 positive effects from the primary target.\\nGain +2 Charged, up to a maximum of 20.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAID, Steal Charged from the primary target and give to allies.\\nIn RAID, Steal Revive Once from the primary target and give to allies.\\nGain +2 Charged, up to a maximum of 20.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, Steal 1000 positive effects from the primary target.",
-      "In RAID, Steal 1000 positive effects from the primary target.",
-      "In RAID, Steal 1000 positive effects from the primary target.",
+      "In RAID, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAID, Steal Charged from the primary target and give to allies.",
+      "In RAID, Steal Revive Once from the primary target and give to allies.",
       "Gain +2 Charged, up to a maximum of 20."
     ],
     "notes": []
@@ -4085,14 +4085,14 @@
     "notes": []
   },
   "SwordMaster": {
-    "description": "Attack primary target for 284% Piercing.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
+    "description": "Attack primary target for 284% Piercing.\\nIn WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, Steal Revive Once from the primary target and give to allies.\\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
     "damage": 0,
     "piercing": 284,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
+      "In WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, Steal Revive Once from the primary target and give to allies.",
       "Apply +1 Defense Down, up to a maximum of 3 to the primary target."
     ],
     "notes": []
@@ -4152,12 +4152,12 @@
     "notes": []
   },
   "Taskmaster": {
-    "description": "Attack primary target for 224% damage + 17% Piercing.\\nSteal 2 positive effects from the primary target.",
+    "description": "Attack primary target for 224% damage + 17% Piercing.\\nSteal 2 positive effect(s) from the primary target and give to allies, excluding Taunt.",
     "damage": 224,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 2 positive effects from the primary target."
+      "Steal 2 positive effect(s) from the primary target and give to allies, excluding Taunt."
     ],
     "notes": []
   },
@@ -4340,12 +4340,12 @@
     "notes": []
   },
   "Ultron": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nSteal 2 positive effects from the primary target.\\nClear 1 Taunt from the primary target.\\nClear 1 Taunt from self.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nSteal 2 positive effect(s) from the primary target and give to allies, excluding Taunt.\\nClear 1 Taunt from the primary target.\\nClear 1 Taunt from self.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 2 positive effects from the primary target.",
+      "Steal 2 positive effect(s) from the primary target and give to allies, excluding Taunt.",
       "Clear 1 Taunt from the primary target.",
       "Clear 1 Taunt from self."
     ],
@@ -4414,14 +4414,14 @@
     "notes": []
   },
   "Vahl": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nFlip 1 positive effect(s) to negative on the primary target.\\nApply Exposed to the primary target.\\nCopy 1 positive effects from the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nFlip 1 positive effect(s) to negative on the primary target.\\nApply Exposed to the primary target.\\nCopy 1 positive effect(s) from the primary target, excluding Taunt and HoT.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip 1 positive effect(s) to negative on the primary target.",
       "Apply Exposed to the primary target.",
-      "Copy 1 positive effects from the primary target."
+      "Copy 1 positive effect(s) from the primary target, excluding Taunt and HoT."
     ],
     "notes": []
   },
@@ -4515,14 +4515,14 @@
     "notes": []
   },
   "Vision": {
-    "description": "Attack primary target for 174% damage + 17% Piercing.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nIn WAR, OFFENSE, Steal 1000 positive effects from the primary target.\\nApply Offense Down to the primary target.\\nApply Bleed to the primary target.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 174% damage + 17% Piercing.\\nIn WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, Steal Revive Once from the primary target and give to allies.\\nApply Offense Down to the primary target.\\nApply Bleed to the primary target.\\nApply Offense Down to the primary target.",
     "damage": 174,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
-      "In WAR, OFFENSE, Steal 1000 positive effects from the primary target.",
+      "In WAR, OFFENSE, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, Steal Revive Once from the primary target and give to allies.",
       "Apply Offense Down to the primary target.",
       "Apply Bleed to the primary target.",
       "Apply Offense Down to the primary target."
@@ -4601,13 +4601,13 @@
     "notes": []
   },
   "War_ShieldSupport_Stealth": {
-    "description": "Attack primary target for 111% damage + 17% Piercing.\\nReduce Speed Bar by 25%.\\nSteal 1 positive effects from the primary target.",
+    "description": "Attack primary target for 111% damage + 17% Piercing.\\nReduce Speed Bar by 25%.\\nSteal 1 positive effect(s) from the primary target and give to allies.",
     "damage": 111,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Reduce Speed Bar by 25%.",
-      "Steal 1 positive effects from the primary target."
+      "Steal 1 positive effect(s) from the primary target and give to allies."
     ],
     "notes": []
   },
@@ -4720,12 +4720,12 @@
     "notes": []
   },
   "Yelena": {
-    "description": "Attack primary target for 187% damage + 17% Piercing.\\nSteal 2 positive effects from the primary target.",
+    "description": "Attack primary target for 187% damage + 17% Piercing.\\nSteal 2 positive effect(s) from the primary target, excluding Taunt.",
     "damage": 187,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Steal 2 positive effects from the primary target."
+      "Steal 2 positive effect(s) from the primary target, excluding Taunt."
     ],
     "notes": []
   },
