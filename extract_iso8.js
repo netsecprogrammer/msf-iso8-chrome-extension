@@ -58,22 +58,27 @@ function formatProcName(proc) {
 }
 
 function parseConditions(action) {
-  if (!action.only_if) return '';
-  
   const conditions = [];
-  const oi = action.only_if;
+  
+  if (action.only_if) {
+      const oi = action.only_if;
+      if (oi.mode) {
+        if (oi.mode === 'AVA') conditions.push('In WAR');
+        else if (oi.mode === 'PVP') conditions.push('In CRUCIBLE');
+        else conditions.push(`In ${oi.mode}`);
+      }
+      
+      if (oi.combat_side) {
+        if (oi.combat_side === 'offense') conditions.push('OFFENSE');
+        else if (oi.combat_side === 'defense') conditions.push('DEFENSE');
+      }
+  }
+  
+  // Handle only_if_target (e.g. "If the primary target is MYSTIC")
+  if (action.only_if_target && action.only_if_target.traits && action.only_if_target.traits.has_any) {
+      conditions.push(`If the primary target is ${action.only_if_target.traits.has_any.join(' or ').toUpperCase()}`);
+  }
 
-  if (oi.mode) {
-    if (oi.mode === 'AVA') conditions.push('In WAR');
-    else if (oi.mode === 'PVP') conditions.push('In CRUCIBLE');
-    else conditions.push(`In ${oi.mode}`);
-  }
-  
-  if (oi.combat_side) {
-    if (oi.combat_side === 'offense') conditions.push('OFFENSE');
-    else if (oi.combat_side === 'defense') conditions.push('DEFENSE');
-  }
-  
   if (conditions.length > 0) {
     return conditions.join(' ') + ', ';
   }
@@ -85,9 +90,23 @@ function getTargetText(target) {
     
     if (target.relation === 'ally') {
         const limit = getMax(target.limit);
-        // If limit is undefined (0) or 1, assume self
-        if (!limit || limit === 1) return 'self';
-        return 'allies';
+        let traits = '';
+        if (target.filter && target.filter.traits && target.filter.traits.has_any) {
+            traits = target.filter.traits.has_any.join(' or ').toUpperCase() + ' ';
+        }
+        
+        // If limit is undefined (0) or 1, assume self if no traits, otherwise "a random X ally"
+        if (!limit || limit === 1) {
+            if (traits) return `a random ${traits}ally`;
+            return 'self';
+        }
+        
+        if (limit >= 10) {
+             if (traits) return `self and all ${traits}allies`;
+             return 'allies';
+        }
+        
+        return `${limit} ${traits}allies`;
     }
     
     return 'the primary target';
@@ -127,24 +146,27 @@ function processCharacter(charName, charData) {
         
         action.procs.forEach(p => {
            const name = formatProcName(p.proc);
-           if (!procGroups[name]) procGroups[name] = 0;
+           if (!procGroups[name]) procGroups[name] = { count: 0, duration: 0 };
+           procGroups[name].count++;
+           const dur = getMax(p.use_count) || 1;
+           if (dur > procGroups[name].duration) procGroups[name].duration = dur;
         });
 
         const globalApplyCount = getMax(action.apply_count);
         const targetText = getTargetText(action.target);
         
         Object.keys(procGroups).forEach(procName => {
-            let count = globalApplyCount;
-            if (!count) count = 1;
+            let count = globalApplyCount || procGroups[procName].count;
+            const duration = procGroups[procName].duration;
+            let durationText = '';
+            if (duration > 1) durationText = ` for ${duration} turns`;
             
             let effectText = '';
-            
             if (targetText === 'self') {
-                effectText = `${conditionPrefix}Gain ${count > 1 ? count + ' ' : ''}${procName}`;
+                effectText = `${conditionPrefix}Gain ${count > 1 ? count + ' ' : ''}${procName}${durationText}`;
             } else {
-                effectText = `${conditionPrefix}Apply ${count} ${procName} to ${targetText}`;
+                effectText = `${conditionPrefix}Apply ${count > 1 ? count + ' ' : ''}${procName}${durationText} to ${targetText}`;
             }
-            
             effects.push(effectText + '.');
         });
       }
@@ -153,17 +175,14 @@ function processCharacter(charName, charData) {
       if (action.action === 'proc_remove') {
         let count = getMax(action.count) || 1;
         let what = '';
-        
         if (action.procs) {
             const procName = formatProcName(action.procs);
             what = procName;
         } else {
-            // Check category if proc name is missing
             if (action.category === 'buff') what = 'positive effect(s)';
             else if (action.category === 'debuff') what = 'negative effect(s)';
             else what = 'effects';
         }
-        
         const targetText = getTargetText(action.target);
         if (targetText === 'self') {
              effects.push(`${conditionPrefix}Clear ${count} ${what} from self.`);
@@ -174,7 +193,7 @@ function processCharacter(charName, charData) {
 
       // 4. Proc Flip
       if (action.action === 'proc_flip') {
-        let count = getMax(action.count) || 1; // Sometimes flip has count
+        let count = getMax(action.count) || 1;
         const targetText = getTargetText(action.target);
         if (targetText === 'self') {
              effects.push(`${conditionPrefix}Flip ${count} negative effect(s) to positive on self.`);
@@ -185,7 +204,12 @@ function processCharacter(charName, charData) {
       
       // 5. Health Redistribute
       if (action.action === 'health_redistribute') {
-          effects.push(`${conditionPrefix}Redistribute health.`);
+          const drainPct = getMax(action.drain_pct);
+          if (drainPct > 0) {
+              effects.push(`${conditionPrefix}Deal ${drainPct}% of target's Max Health.`);
+          } else {
+              effects.push(`${conditionPrefix}Redistribute health.`);
+          }
       }
       
       // 6. Heal
@@ -205,19 +229,15 @@ function processCharacter(charName, charData) {
       if (action.action === 'proc_transfer') {
           const count = getMax(action.count) || 1;
           const removePct = getMax(action.removepct) || 0;
-          
           let verb = 'Copy';
           if (removePct > 0) verb = 'Steal';
-          
           let what = 'positive effects';
           if (action.category === 'debuff') what = 'negative effects';
-          
           let from = 'the primary target';
           if (action.recipient && action.recipient.relation === 'enemy') {
               from = 'self';
               verb = 'Transfer';
           }
-
           effects.push(`${conditionPrefix}${verb} ${count} ${what} from ${from}.`);
       }
 
@@ -242,7 +262,6 @@ function processCharacter(charName, charData) {
       // 10. Proc Duration (Gain/Prolong)
       if (action.action === 'proc_duration') {
           const delta = getMax(action.delta);
-          
           let procName = 'effects';
           if (action.only_procs && action.only_procs.length > 0) {
               procName = formatProcName(action.only_procs[0]);
@@ -253,10 +272,8 @@ function processCharacter(charName, charData) {
           
           let excludeText = '';
           if (action.exclude && action.exclude.length > 0) {
-              // If we have exclusions, usually it applies to "all X effects"
               if (action.category === 'debuff') procName = 'all negative effects';
               if (action.category === 'buff') procName = 'all positive effects';
-
               const excludes = action.exclude.map(e => formatProcName(e));
               if (excludes.length > 1) {
                   const last = excludes.pop();
@@ -266,9 +283,18 @@ function processCharacter(charName, charData) {
               }
           }
           
+          const targetText = getTargetText(action.target);
+          const maxDur = getMax(action.max_duration);
+          let maxText = '';
+          if (maxDur) maxText = `, up to a maximum of ${maxDur}`;
+
           if (action.add_if_not && delta > 0) {
-              // Treat as "Gain"
-              effects.push(`${conditionPrefix}Gain +${delta} ${procName}.`);
+              // Treat as "Gain" or "Apply" depending on target
+              if (targetText === 'self') {
+                  effects.push(`${conditionPrefix}Gain +${delta} ${procName}${maxText}.`);
+              } else {
+                  effects.push(`${conditionPrefix}Apply +${delta} ${procName}${maxText} to ${targetText}.`);
+              }
           } else if (delta > 0) {
               effects.push(`${conditionPrefix}Prolong the duration of ${procName}${excludeText} by ${delta}.`);
           } else if (delta < 0) {
