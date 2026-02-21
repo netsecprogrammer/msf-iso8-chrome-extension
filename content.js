@@ -281,9 +281,9 @@
     setTimeout(injectIso8Info, 500);
   }
 
-  // Dynamic navigation observer
+  // Dynamic navigation observer (Polling is lighter than MutationObserver for URL changes)
   let lastUrl = location.href;
-  new MutationObserver(() => {
+  setInterval(() => {
     const url = location.href;
     if (url !== lastUrl) {
       lastUrl = url;
@@ -291,6 +291,6 @@
       if (existingPanel) existingPanel.remove();
       setTimeout(injectIso8Info, 500);
     }
-  }).observe(document, { subtree: true, childList: true });
+  }, 500);
 
 })();
