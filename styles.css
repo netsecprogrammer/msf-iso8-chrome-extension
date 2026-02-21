@@ -95,6 +95,11 @@
   font-weight: 700;
 }
 
+.msf-iso8-bonus-pct-value {
+  color: #4ecdc4;
+  font-weight: 700;
+}
+
 /* Status effects (buffs/debuffs) - cyan/teal color */
 .msf-iso8-status-effect {
   color: #00d9ff;

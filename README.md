@@ -70,9 +70,9 @@ git clone https://github.com/netsecprogrammer/msf-iso8-chrome-extension.git
 ## Data Source
 
 The ISO-8 Counter/Assist data was extracted from Marvel Strike Force game files:
-- **Game Data Version:** com.foxnextgames.m3-172026
-- **Extraction Date:** January 7, 2026
-- **Total Characters:** 450
+- **Game Data Version:** com.foxnextgames.m3-222026-2
+- **Extraction Date:** February 3, 2026
+- **Total Characters:** 454
 
 ## Example Output
 
