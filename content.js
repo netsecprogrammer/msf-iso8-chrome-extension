@@ -5,6 +5,12 @@
 
   const DATA_URL = 'https://raw.githubusercontent.com/netsecprogrammer/msf-iso8-chrome-extension/master/iso8_data.json';
 
+  const ISO8_ICON_SVG = `<svg class="msf-iso8-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#e94560"/>
+    <path d="M2 17L12 22L22 17" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M2 12L12 17L22 12" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+
   // Extract character ID from URL
   function getCharacterIdFromUrl() {
     const path = window.location.pathname;
@@ -124,12 +130,6 @@
     container.className = 'msf-iso8-container';
     container.id = 'msf-iso8-panel';
 
-    const iso8Icon = `<svg class="msf-iso8-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#e94560"/>
-      <path d="M2 17L12 22L22 17" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M2 12L12 17L22 12" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`;
-
     let effectsHtml = '';
     if (data.effects && data.effects.length > 0) {
       const effectItems = data.effects.map(effect => {
@@ -155,8 +155,9 @@
 
     container.innerHTML = `
       <div class="msf-iso8-header">
-        ${iso8Icon}
+        ${ISO8_ICON_SVG}
         <h3 class="msf-iso8-title">ISO-8 Counter/Assist</h3>
+        <button class="msf-iso8-close-btn" aria-label="Close ISO-8 Panel">×</button>
       </div>
       <div class="msf-iso8-content">
         ${damageHtml}
@@ -164,6 +165,14 @@
         ${notesHtml}
       </div>
     `;
+
+    // Add close button functionality
+    const closeBtn = container.querySelector('.msf-iso8-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        container.remove();
+      });
+    }
 
     return container;
   }
@@ -174,17 +183,26 @@
     container.className = 'msf-iso8-container';
     container.id = 'msf-iso8-panel';
     
-    // Safer innerHTML usage: construct header then append text node
+    // Header
     const headerDiv = document.createElement('div');
     headerDiv.className = 'msf-iso8-header';
-    headerDiv.innerHTML = '<h3 class="msf-iso8-title">ISO-8 Counter/Assist</h3>';
+    headerDiv.innerHTML = `${ISO8_ICON_SVG}<h3 class="msf-iso8-title">ISO-8 Counter/Assist</h3><button class="msf-iso8-close-btn" aria-label="Close ISO-8 Panel">×</button>`;
     
+    // Message (Safe Text)
     const msgDiv = document.createElement('div');
     msgDiv.className = 'msf-iso8-not-found';
     msgDiv.textContent = `No ISO-8 Counter/Assist data found for "${charId}"`;
     
     container.appendChild(headerDiv);
     container.appendChild(msgDiv);
+
+    // Add close button functionality
+    const closeBtn = headerDiv.querySelector('.msf-iso8-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        container.remove();
+      });
+    }
 
     return container;
   }
