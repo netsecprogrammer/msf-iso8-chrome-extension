@@ -381,7 +381,7 @@
     ]
   },
   "Blastaar": {
-    "description": "Attack primary target for 175% damage + 20% Piercing.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Reduce the duration of Safeguard by 2.\\nReduce the duration of Immunity by 2.\\nReduce the duration of Taunt by 1.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Clear all positive effect(s) from the primary target.\\nIf self does not have Silence, Clear all negative effect(s) from self.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Gain 30% Speed Bar.\\nIf self does not have Silence, Gain +1 Bomb Burst, up to a maximum of 5.",
+    "description": "Attack primary target for 175% damage + 20% Piercing.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Reduce the duration of Safeguard by 2.\\nReduce the duration of Immunity by 2.\\nReduce the duration of Taunt by 1.\\nOtherwise, Clear all positive effect(s) from the primary target.\\nIf self does not have Silence, Clear all negative effect(s) from self.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Gain 30% Speed Bar.\\nIf self does not have Silence, Gain +1 Bomb Burst, up to a maximum of 5.",
     "damage": 175,
     "piercing": 20,
     "drain": 0,
@@ -389,7 +389,7 @@
       "In CRUCIBLE SHOWDOWN, OFFENSE, Reduce the duration of Safeguard by 2.",
       "Reduce the duration of Immunity by 2.",
       "Reduce the duration of Taunt by 1.",
-      "In CRUCIBLE SHOWDOWN, OFFENSE, Clear all positive effect(s) from the primary target.",
+      "Otherwise, Clear all positive effect(s) from the primary target.",
       "If self does not have Silence, Clear all negative effect(s) from self.",
       "In CRUCIBLE SHOWDOWN, OFFENSE, Gain 30% Speed Bar.",
       "If self does not have Silence, Gain +1 Bomb Burst, up to a maximum of 5."
@@ -911,13 +911,13 @@
     "notes": []
   },
   "EbonyMaw": {
-    "description": "Attack primary target for 248% Piercing.\\nIf the primary target is HERO and CONTROLLER, Apply Bleed for 2 turns to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 248% Piercing.\\nIf the primary target is HERO and CONTROLLER, Apply Bleed for 2 turns to the primary target.\\nOtherwise, Apply Bleed to the primary target.",
     "damage": 0,
     "piercing": 248,
     "drain": 0,
     "effects": [
       "If the primary target is HERO and CONTROLLER, Apply Bleed for 2 turns to the primary target.",
-      "Apply Bleed to the primary target."
+      "Otherwise, Apply Bleed to the primary target."
     ],
     "notes": []
   },
@@ -1266,14 +1266,14 @@
     "notes": []
   },
   "Gwenpool": {
-    "description": "Attack primary target for 278% damage + 17% Piercing.\\nRemove Barrier from the primary target.\\nBarrier for 30% of Max Health.\\nBarrier for 15% of Max Health.\\nGain Defense Up for 2 turns.",
+    "description": "Attack primary target for 278% damage + 17% Piercing.\\nRemove Barrier from the primary target.\\nBarrier for 30% of Max Health.\\nOtherwise, Barrier for 15% of Max Health.\\nGain Defense Up for 2 turns.",
     "damage": 278,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Remove Barrier from the primary target.",
       "Barrier for 30% of Max Health.",
-      "Barrier for 15% of Max Health.",
+      "Otherwise, Barrier for 15% of Max Health.",
       "Gain Defense Up for 2 turns."
     ],
     "notes": []
@@ -1819,13 +1819,13 @@
     "notes": []
   },
   "Karnak": {
-    "description": "Attack primary target for 205% damage.\\nClear all Evade from the primary target.\\n+280% damage.",
+    "description": "Attack primary target for 205% damage.\\nClear all Evade from the primary target.\\nOtherwise, +280% damage.",
     "damage": 205,
     "piercing": 0,
     "drain": 0,
     "effects": [
       "Clear all Evade from the primary target.",
-      "+280% damage."
+      "Otherwise, +280% damage."
     ],
     "notes": []
   },
@@ -1844,12 +1844,12 @@
     ]
   },
   "Killmonger": {
-    "description": "Attack primary target for 210% damage + 17% Piercing + 30% Drain.\\nGain +1 Charged, up to a maximum of 5.",
+    "description": "Attack primary target for 210% damage + 17% Piercing + 30% Drain.\\nOtherwise, Gain +1 Charged, up to a maximum of 5.",
     "damage": 210,
     "piercing": 17,
     "drain": 30,
     "effects": [
-      "Gain +1 Charged, up to a maximum of 5."
+      "Otherwise, Gain +1 Charged, up to a maximum of 5."
     ],
     "notes": []
   },
@@ -1998,14 +1998,14 @@
     ]
   },
   "Lilandra": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nIn CRUCIBLE SHOWDOWN, Apply +1 Deflect to allies.\\nGain +1 Deflect.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nIn CRUCIBLE SHOWDOWN, Apply +1 Deflect to allies.\\nOtherwise, Gain +1 Deflect.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down for 2 turns to the primary target.",
       "In CRUCIBLE SHOWDOWN, Apply +1 Deflect to allies.",
-      "Gain +1 Deflect."
+      "Otherwise, Gain +1 Deflect."
     ],
     "notes": []
   },
@@ -2361,13 +2361,13 @@
     "notes": []
   },
   "MorganLeFay": {
-    "description": "Attack primary target for 248% damage + 17% Piercing.\\nOn Crit, Steal all positive effect(s) from the primary target, excluding Taunt.\\nSteal 2 positive effect(s) from the primary target, excluding Taunt.\\nDeal 10% of target's Max Health.",
+    "description": "Attack primary target for 248% damage + 17% Piercing.\\nOn Crit, Steal all positive effect(s) from the primary target, excluding Taunt.\\nOtherwise, Steal 2 positive effect(s) from the primary target, excluding Taunt.\\nDeal 10% of target's Max Health.",
     "damage": 248,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "On Crit, Steal all positive effect(s) from the primary target, excluding Taunt.",
-      "Steal 2 positive effect(s) from the primary target, excluding Taunt.",
+      "Otherwise, Steal 2 positive effect(s) from the primary target, excluding Taunt.",
       "Deal 10% of target's Max Health."
     ],
     "notes": []
@@ -2586,14 +2586,14 @@
     "notes": []
   },
   "NicoMinoru": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nIf self has Arcane Runic, 33% chance to Apply Bleed to the primary target.\\nIf self has Arcane Runic, 50% chance to Gain Defense Up.\\nIf self has Arcane Runic, Heal self for 15% of Max Health.\\nIf self does not have Arcane Runic, Gain Arcane Runic.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nIf self has Arcane Runic, 33% chance to Apply Bleed to the primary target.\\nOtherwise, 50% chance to Gain Defense Up.\\nOtherwise, Heal self for 15% of Max Health.\\nIf self does not have Arcane Runic, Gain Arcane Runic.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If self has Arcane Runic, 33% chance to Apply Bleed to the primary target.",
-      "If self has Arcane Runic, 50% chance to Gain Defense Up.",
-      "If self has Arcane Runic, Heal self for 15% of Max Health.",
+      "Otherwise, 50% chance to Gain Defense Up.",
+      "Otherwise, Heal self for 15% of Max Health.",
       "If self does not have Arcane Runic, Gain Arcane Runic."
     ],
     "notes": []
@@ -2970,13 +2970,13 @@
     "notes": []
   },
   "PVE_EbonyMaw_Gauntlet": {
-    "description": "Attack primary target for 182% Piercing.\\nIf the primary target is HERO and CONTROLLER, Apply Bleed for 2 turns to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 182% Piercing.\\nIf the primary target is HERO and CONTROLLER, Apply Bleed for 2 turns to the primary target.\\nOtherwise, Apply Bleed to the primary target.",
     "damage": 0,
     "piercing": 182,
     "drain": 0,
     "effects": [
       "If the primary target is HERO and CONTROLLER, Apply Bleed for 2 turns to the primary target.",
-      "Apply Bleed to the primary target."
+      "Otherwise, Apply Bleed to the primary target."
     ],
     "notes": []
   },
@@ -3054,12 +3054,12 @@
     ]
   },
   "PVE_Killmonger_Incursion": {
-    "description": "Attack primary target for 210% damage + 17% Piercing + 30% Drain.\\nGain +1 Charged, up to a maximum of 5.",
+    "description": "Attack primary target for 210% damage + 17% Piercing + 30% Drain.\\nOtherwise, Gain +1 Charged, up to a maximum of 5.",
     "damage": 210,
     "piercing": 17,
     "drain": 30,
     "effects": [
-      "Gain +1 Charged, up to a maximum of 5."
+      "Otherwise, Gain +1 Charged, up to a maximum of 5."
     ],
     "notes": []
   },
@@ -3747,13 +3747,13 @@
     "notes": []
   },
   "Sabretooth": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, Flip 1 positive effect(s) to negative on the primary target.\\nFlip 1 positive effect(s) to negative on the primary target.\\nIn WAR, Apply Offense Down to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, Flip 1 positive effect(s) to negative on the primary target.\\nOtherwise, Flip 1 positive effect(s) to negative on the primary target.\\nIn WAR, Apply Offense Down to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In WAR, Flip 1 positive effect(s) to negative on the primary target.",
-      "Flip 1 positive effect(s) to negative on the primary target.",
+      "Otherwise, Flip 1 positive effect(s) to negative on the primary target.",
       "In WAR, Apply Offense Down to the primary target."
     ],
     "notes": []
@@ -3915,12 +3915,13 @@
     "notes": []
   },
   "Sersi": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.\\nOtherwise, Flip 2 positive effect(s) to negative on the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target."
+      "If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
+      "Otherwise, Flip 2 positive effect(s) to negative on the primary target."
     ],
     "notes": []
   },
@@ -4081,14 +4082,14 @@
     "notes": []
   },
   "SilverSurfer": {
-    "description": "Attack primary target for 236% Piercing.\\nSteal all negative effect(s) from the primary target.\\nSteal all positive effect(s) from the primary target, excluding Taunt.\\nOn Assist, Steal all positive effect(s) from the primary target, excluding Taunt.",
+    "description": "Attack primary target for 236% Piercing.\\nSteal all negative effect(s) from the primary target.\\nOtherwise, Steal all positive effect(s) from the primary target, excluding Taunt.\\nOn Assist, Otherwise, Steal all positive effect(s) from the primary target, excluding Taunt.",
     "damage": 0,
     "piercing": 236,
     "drain": 0,
     "effects": [
       "Steal all negative effect(s) from the primary target.",
-      "Steal all positive effect(s) from the primary target, excluding Taunt.",
-      "On Assist, Steal all positive effect(s) from the primary target, excluding Taunt."
+      "Otherwise, Steal all positive effect(s) from the primary target, excluding Taunt.",
+      "On Assist, Otherwise, Steal all positive effect(s) from the primary target, excluding Taunt."
     ],
     "notes": [
       "This attack ignores Defense Up."
@@ -4401,13 +4402,13 @@
     ]
   },
   "SymbioteSilverSurfer": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nNot in RAID, Flip 3 negative effect(s) to positive on self.\\nIn RAID, Flip 3 positive effect(s) to negative on the primary target.\\nIn RAID, Flip 3 negative effect(s) to positive on self.\\nOn Assist, If self has Binary, Clear 1 Binary from self.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nOtherwise, Flip 3 negative effect(s) to positive on self.\\nIn RAID, Flip 3 positive effect(s) to negative on the primary target.\\nIn RAID, Flip 3 negative effect(s) to positive on self.\\nOn Assist, If self has Binary, Clear 1 Binary from self.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip 3 positive effect(s) to negative on the primary target.",
-      "Not in RAID, Flip 3 negative effect(s) to positive on self.",
+      "Otherwise, Flip 3 negative effect(s) to positive on self.",
       "In RAID, Flip 3 positive effect(s) to negative on the primary target.",
       "In RAID, Flip 3 negative effect(s) to positive on self.",
       "On Assist, If self has Binary, Clear 1 Binary from self."

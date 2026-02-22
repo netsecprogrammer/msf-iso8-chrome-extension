@@ -325,14 +325,27 @@ function processCharacter(charName, charData) {
   }
 
   // Iterate all actions
+  let prevActionWasVisible = false; // Track if previous action produced visible output
   allActions.forEach(action => {
       // Check action_pct: if max level chance is 0, skip entirely; if < 100, note probability
       const maxActionPct = action.action_pct
           ? (Array.isArray(action.action_pct) ? action.action_pct[action.action_pct.length - 1] : action.action_pct)
           : 100;
-      if (maxActionPct === 0) return; // Action never fires at max level
+      if (maxActionPct === 0) { prevActionWasVisible = false; return; }
+
+      // Skip empty_result but track that it was invisible
+      if (action.action === 'empty_result') { prevActionWasVisible = false; return; }
 
       let conditionPrefix = (action._counterAssistPrefix || '') + parseConditions(action);
+
+      // Handle action_cond: "if_prev_skipped" — fallback when previous conditional action didn't fire
+      // Only show "Otherwise" if the previous action was visible (had a condition the user can see)
+      if (action.action_cond === 'if_prev_skipped' && prevActionWasVisible) {
+          conditionPrefix = (action._counterAssistPrefix || '') + 'Otherwise, ';
+      } else if (action.action_cond === 'if_prev_skipped') {
+          // Previous action was invisible (empty_result or skipped), drop "Otherwise"
+          conditionPrefix = (action._counterAssistPrefix || '') + parseConditions(action);
+      }
 
       // Handle action_cond: "if_has_crit_result" as a crit condition
       // (alternate representation of only_if_outcome: ["critical_hit"])
@@ -875,6 +888,9 @@ function processCharacter(charName, charData) {
           // Battlefield effects are complex; just note their presence
           effects.push(`${conditionPrefix}Trigger battlefield effect.`);
       }
+
+      // Track that this action produced visible output (for if_prev_skipped handling)
+      prevActionWasVisible = true;
     });
 
   // Process stat_lock for notes
