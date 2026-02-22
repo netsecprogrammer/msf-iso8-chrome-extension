@@ -186,7 +186,6 @@
     "VIGILANTE": "JUSTICIERS",
     "UNDYING": "IMPÉRISSABLES ET ARÈS",
     "ARES": "TAMBOURS DE GUERRE",
-    "ARE": "TAMBOURS DE GUERRE",
     "UNCANNYAVENGER": "UNCANNY AVENGER",
     "CABAL": "CABALE ET PLUS",
     "NIGHTSTALKER": "NIGHTSTALKERS",
@@ -202,7 +201,13 @@
     "THUNDERBOLT": "THUNDERBOLTS",
     "PHANTOMRIDER": "PHANTOM RIDER",
     "OMEGAREDPHOENIX": "OMEGA RED (FORCE PHÉNIX)",
-    "PHOENIXFORCE": "FORCE PHÉNIX"
+    "PHOENIXFORCE": "FORCE PHÉNIX",
+    "Claws Out": "Griffes sorties",
+    "Enemies killed by this attack cannot be revived.": "Les ennemis tués par cette attaque ne peuvent pas être ressuscités.",
+    "This attack cannot be countered.": "Cette attaque ne peut pas être contrée.",
+    "This attack cannot be blocked.": "L'attaque ne peut pas être bloquée.",
+    "This attack cannot be dodged.": "L'attaque ne peut pas être esquivée.",
+    "This attack cannot miss.": "L'attaque ne peut pas rater."
   },
   "de": {
     "Offense Up": "+Offensive",
@@ -359,7 +364,6 @@
     "VIGILANTE": "SELBSTJUSTIZ",
     "UNDYING": "UNVERGÄNGLICH UND ARES",
     "ARES": "TROMMELN DES KRIEGES",
-    "ARE": "TROMMELN DES KRIEGES",
     "UNCANNYAVENGER": "UNCANNY AVENGER",
     "CABAL": "ZIRKEL+",
     "ABSOLUTEAFORCE": "ABSOLUTE A-FORCE",
@@ -374,7 +378,13 @@
     "THUNDERBOLT": "THUNDERBOLTS",
     "PHANTOMRIDER": "PHANTOM RIDER",
     "OMEGAREDPHOENIX": "OMEGA RED (PHOENIX FORCE)",
-    "PHOENIXFORCE": "PHOENIXMACHT"
+    "PHOENIXFORCE": "PHOENIXMACHT",
+    "Claws Out": "Krallen raus",
+    "Enemies killed by this attack cannot be revived.": "Feinde, die durch diesen Angriff getötet werden, können nicht wiederbelebt werden.",
+    "This attack cannot be countered.": "Dieser Angriff kann nicht gekontert werden.",
+    "This attack cannot be blocked.": "Dieser Angriff kann nicht geblockt werden.",
+    "This attack cannot be dodged.": "Dieser Angriff ist unausweichlich.",
+    "This attack cannot miss.": "Dieser Angriff kann nicht verfehlen."
   },
   "es": {
     "Offense Up": "subida de ataque",
@@ -585,7 +595,6 @@
     "VIGILANTE": "JUSTICIEROS",
     "UNDYING": "INMORTAL Y ARES",
     "ARES": "TAMBORES DE GUERRA",
-    "ARE": "TAMBORES DE GUERRA",
     "UNCANNYAVENGER": "IMPOSIBLES VENGADORES",
     "CABAL": "CAMARILLA Y MÁS",
     "NIGHTSTALKER": "NIGHTSTALKERS",
@@ -601,7 +610,13 @@
     "THUNDERBOLT": "THUNDERBOLTS",
     "PHANTOMRIDER": "JINETE FANTASMA",
     "OMEGAREDPHOENIX": "ROJO OMEGA (FUERZA FÉNIX)",
-    "PHOENIXFORCE": "FUERZA FÉNIX"
+    "PHOENIXFORCE": "FUERZA FÉNIX",
+    "Claws Out": "garras fuera",
+    "Enemies killed by this attack cannot be revived.": "Los enemigos eliminados por este ataque no pueden resucitar.",
+    "This attack cannot be countered.": "Este ataque no se puede contratacar.",
+    "This attack cannot be blocked.": "Este ataque no se puede bloquear.",
+    "This attack cannot be dodged.": "Este ataque no se puede eludir.",
+    "This attack cannot miss.": "Este ataque no puede fallar."
   },
   "pt": {
     "Offense Up": "Aumento de Ataque",
@@ -820,7 +835,6 @@
     "VIGILANTE": "VIGILANTES",
     "UNDYING": "IMORTAL E ARES",
     "ARES": "TAMBORES DA GUERRA",
-    "ARE": "TAMBORES DA GUERRA",
     "UNCANNYAVENGER": "FABULOSOS VINGADORES",
     "CABAL": "CABALA+",
     "ORCHI": "ORQUÍDEA",
@@ -837,7 +851,13 @@
     "THUNDERBOLT": "THUNDERBOLTS",
     "PHANTOMRIDER": "CAVALEIRO FANTASMA",
     "OMEGAREDPHOENIX": "ÔMEGA VERMELHO (FORÇA FÊNIX)",
-    "PHOENIXFORCE": "FORÇA FÊNIX"
+    "PHOENIXFORCE": "FORÇA FÊNIX",
+    "Claws Out": "garras para fora",
+    "Enemies killed by this attack cannot be revived.": "Inimigos mortos por este ataque não podem reviver.",
+    "This attack cannot be countered.": "Este ataque não pode ser contra-atacado.",
+    "This attack cannot be blocked.": "Este ataque não pode ser bloqueado.",
+    "This attack cannot be dodged.": "Este ataque não pode ser esquivado.",
+    "This attack cannot miss.": "Este ataque nunca erra o alvo."
   },
   "it": {
     "Offense Up": "Aumento attacco",
@@ -1037,7 +1057,6 @@
     "ANNIHILATOR": "DEVASTATORI",
     "UNDYING": "IMMORTALI E ARES",
     "ARES": "TAMBURI DELLA GUERRA",
-    "ARE": "TAMBURI DELLA GUERRA",
     "UNCANNYAVENGER": "INCREDIBILE AVENGER",
     "CABAL": "CABALA+",
     "ABSOLUTEAFORCE": "ABSOLUTE A-FORCE",
@@ -1052,7 +1071,13 @@
     "THUNDERBOLT": "THUNDERBOLTS",
     "PHANTOMRIDER": "PHANTOM RIDER",
     "OMEGAREDPHOENIX": "OMEGA RED (FORZA DELLA FENICE)",
-    "PHOENIXFORCE": "FORZA DELLA FENICE"
+    "PHOENIXFORCE": "FORZA DELLA FENICE",
+    "Claws Out": "Fuori gli artigli",
+    "Enemies killed by this attack cannot be revived.": "I nemici uccisi da questo attacco non possono essere rianimati.",
+    "This attack cannot be countered.": "Questo attacco non può essere contrattaccato.",
+    "This attack cannot be blocked.": "Questo attacco non può essere bloccato.",
+    "This attack cannot be dodged.": "Questo attacco non può essere schivato.",
+    "This attack cannot miss.": "Questo attacco non può mancare il bersaglio."
   },
   "ja": {
     "Offense Up": "攻撃アップ",
@@ -1287,7 +1312,6 @@
     "VIGILANTE": "自警団",
     "UNDYING": "不死&アレス",
     "ARES": "陣太鼓",
-    "ARE": "陣太鼓",
     "UNCANNYAVENGER": "アンキャニィアベンジャーズ",
     "CABAL": "カバル+",
     "ORCHI": "オルキス",
@@ -1304,7 +1328,13 @@
     "THUNDERBOLT": "サンダーボルツ",
     "PHANTOMRIDER": "ファントムライダー",
     "OMEGAREDPHOENIX": "オメガレッド (フェニックス フォース)",
-    "PHOENIXFORCE": "フェニックスフォース"
+    "PHOENIXFORCE": "フェニックスフォース",
+    "Claws Out": "クローズアウト",
+    "Enemies killed by this attack cannot be revived.": "この攻撃で倒した敵は蘇生不可。",
+    "This attack cannot be countered.": "この攻撃はカウンター不可。",
+    "This attack cannot be blocked.": "この攻撃はブロック不可。",
+    "This attack cannot be dodged.": "この攻撃は身かわし不可。",
+    "This attack cannot miss.": "この攻撃は必ずヒットする。"
   },
   "ko": {
     "Offense Up": "공격력 상승",
@@ -1543,7 +1573,6 @@
     "VIGILANTE": "비질란테",
     "UNDYING": "불멸 & 아레스",
     "ARES": "전쟁의 북소리",
-    "ARE": "전쟁의 북소리",
     "UNCANNYAVENGER": "언캐니 어벤져",
     "CABAL": "카발+",
     "ORCHI": "오키스",
@@ -1560,7 +1589,13 @@
     "THUNDERBOLT": "썬더볼트",
     "PHANTOMRIDER": "팬텀 라이더",
     "OMEGAREDPHOENIX": "오메가 레드(피닉스 포스)",
-    "PHOENIXFORCE": "피닉스 포스"
+    "PHOENIXFORCE": "피닉스 포스",
+    "Claws Out": "발톱 꺼내기",
+    "Enemies killed by this attack cannot be revived.": "이 공격으로 처치한 적은 회생할 수 없습니다.",
+    "This attack cannot be countered.": "이 공격은 반격할 수 없습니다.",
+    "This attack cannot be blocked.": "이 공격은 블록할 수 없습니다.",
+    "This attack cannot be dodged.": "이 공격은 회피할 수 없습니다.",
+    "This attack cannot miss.": "이 공격은 빗나가지 않습니다."
   },
   "ru": {
     "Offense Up": "Усиление атаки",
@@ -1572,7 +1607,7 @@
     "Counterattack": "контратакой",
     "Evade": "уворотом",
     "Deathproof": "защитой от смерти",
-    "Assist Now": "срочной помощью",
+    "Assist Now": "срочная помощь",
     "Deflect": "отражением",
     "Immunity": "иммунитетом",
     "Charged": "готовностью",
@@ -1799,7 +1834,6 @@
     "VIGILANTE": "ПОБОРНИКИ СПРАВЕДЛИВОСТИ",
     "UNDYING": "БЕССМЕРТНЫЕ И АРЕС",
     "ARES": "«БАРАБАНЫ ВОЙНЫ»",
-    "ARE": "«БАРАБАНЫ ВОЙНЫ»",
     "UNCANNYAVENGER": "НЕВЕРОЯТНЫЕ МСТИТЕЛИ",
     "CABAL": "ЗАГОВОРЩИКИ И ДРУГИЕ",
     "ORCHI": "ОРКИС",
@@ -1816,6 +1850,12 @@
     "THUNDERBOLT": "ГРОМОВЕРЖЦЫ",
     "PHANTOMRIDER": "ПРИЗРАЧНЫЙ ВСАДНИК",
     "OMEGAREDPHOENIX": "КРАСНЫЙ ОМЕГА (СИЛА ФЕНИКСА)",
-    "PHOENIXFORCE": "СИЛА ФЕНИКСА"
+    "PHOENIXFORCE": "СИЛА ФЕНИКСА",
+    "Claws Out": "когти выпущены",
+    "Enemies killed by this attack cannot be revived.": "Враги, убитые этой атакой, не могут быть возрождены.",
+    "This attack cannot be countered.": "На эту атаку нельзя ответить контратакой.",
+    "This attack cannot be blocked.": "Эту атаку нельзя заблокировать.",
+    "This attack cannot be dodged.": "От этой атаки нельзя уклониться.",
+    "This attack cannot miss.": "При этой атаке нельзя промахнуться."
   }
 }

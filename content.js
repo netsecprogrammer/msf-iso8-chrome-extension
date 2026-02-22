@@ -170,8 +170,24 @@
   // Helper: translate trait name via dict and lowercase it
   function _traitLoc(trait, dict) { const t = localizeText(trait, dict); return t.toLowerCase(); }
 
+  // Helper: translate game mode prefix (e.g., "WAR, OFFENSE" -> localized)
+  const _modeMap = {
+    fr: { 'WAR, OFFENSE': 'En attaque de guerre', 'RAID or WAR': 'En raid ou en guerre', 'RAID': 'En raid', 'WAR': 'En guerre', 'ARENA OFFENSE': "En attaque d'arène", 'Ultimate': 'ultime' },
+    de: { 'WAR, OFFENSE': 'Bei KRIEGSOFFENSIVE', 'RAID or WAR': 'In RAUBZÜGEN oder im KRIEG', 'RAID': 'In RAUBZÜGEN', 'WAR': 'Im KRIEG', 'ARENA OFFENSE': 'Bei ARENAOFFENSIVE', 'Ultimate': 'ultimative' },
+    es: { 'WAR, OFFENSE': 'Al atacar en guerras', 'RAID or WAR': 'En incursiones o guerras', 'RAID': 'En las incursiones', 'WAR': 'En guerras', 'ARENA OFFENSE': 'En ataque de arena', 'Ultimate': 'definitiva' },
+    pt: { 'WAR, OFFENSE': 'Na GUERRA OFENSIVA', 'RAID or WAR': 'Nas INCURSÕES ou GUERRA', 'RAID': 'Nas INCURSÕES', 'WAR': 'Na GUERRA', 'ARENA OFFENSE': 'Na ARENA OFENSIVA', 'Ultimate': 'suprema' },
+    it: { 'WAR, OFFENSE': 'In ATTACCO BELLICO', 'RAID or WAR': 'Negli ASSALTI o in GUERRA', 'RAID': 'Negli ASSALTI', 'WAR': 'In GUERRA', 'ARENA OFFENSE': "In ATTACCO nell'ARENA", 'Ultimate': 'suprema' },
+    ja: { 'WAR, OFFENSE': '戦争攻撃時', 'RAID or WAR': 'レイドまたは戦争では', 'RAID': 'レイドでは', 'WAR': '戦争では', 'ARENA OFFENSE': 'アリーナ攻撃時', 'Ultimate': '最強' },
+    ko: { 'WAR, OFFENSE': '전쟁 공격 시', 'RAID or WAR': '레이드 또는 전쟁에서', 'RAID': '레이드에서', 'WAR': '전쟁에서', 'ARENA OFFENSE': '아레나 공격 시', 'Ultimate': '필살' },
+    ru: { 'WAR, OFFENSE': 'Во время АТАКИ НА ВОЙНЕ', 'RAID or WAR': 'В РЕЙДАХ или НА ВОЙНЕ', 'RAID': 'В РЕЙДАХ', 'WAR': 'НА ВОЙНЕ', 'ARENA OFFENSE': 'Во время АТАКИ НА АРЕНЕ', 'Ultimate': 'мощной' },
+  };
+  function _modeLoc(mode, lang) {
+    return (_modeMap[lang] && _modeMap[lang][mode]) || mode;
+  }
+
   // Shared regex patterns (reused across all languages)
   const _P = {
+    // --- Original patterns (Sersi) ---
     forcedDmgPierce: /^When forced to attack an ally, this character deals (.+?)% damage \+ (.+?)% Piercing to (.+?) characters\.$/,
     forcedDmg:       /^When forced to attack an ally, this character deals (.+?)% damage to (.+?) characters\.$/,
     flipEffects:     /^If (.+?) is an ally, Flip (\d+) positive effect\(s\) to negative on the primary target\.$/,
@@ -187,6 +203,20 @@
     gain:            /^Gain (.+?)\.$/,
     healthGain:      /^If this character has (\d+)% or less Health, Gain (.+?)\.$/,
     healthGeneric:   /^If this character has (\d+)% or less Health, (.+)$/,
+    // --- New patterns (MoonGirl, Apocalypse, Ikaris, OldManLogan, BlackCat) ---
+    forcedPierceOnly:      /^When forced to attack an ally, this character deals (.+?)% Piercing to (.+?) characters\.$/,
+    ifAllyApplyRandom:     /^If (.+?) is an ally, Apply (.+?) to a random ally\.$/,
+    selfHasApply:          /^If self has (.+?), Apply (.+?) to the primary target\.$/,
+    selfHasClear:          /^If self has (.+?), Clear (\d+) (.+?) from allies\.$/,
+    selfHasAttackInstead:  /^If self has (.+?), attack for (.+?)% Piercing \+ (.+?)% Drain instead\.$/,
+    selfNotHasApply:       /^If self does not have (.+?), Apply (.+?) to the primary target\.$/,
+    selfHasApplyCountDur:  /^If self has (.+?), Apply (\d+) (.+?) for (\d+) turns to the primary target\.$/,
+    modeGainCount:         /^In (.+?), Gain (\d+) (.+?)\.$/,
+    modeSelfHasApply:      /^In (.+?), If self has (.+?), Apply (.+?) to the primary target\.$/,
+    onAssistEnergy:        /^On (.+?) assist, Generate \+(\d+) Ability Energy for self\.$/,
+    modeReduceSpeedPerAlly:/^In (.+?), Reduce Speed Bar by (\d+)% for each (.+?) ally\.$/,
+    healthHealAllies:      /^If this character has less than (\d+)% Health, Heal allies for (\d+)% of Max Health\.$/,
+    modeIgnoresDefUp:      /^On (.+?), this attack ignores Defense Up\.$/,
   };
 
   const SENTENCE_TEMPLATES = {
@@ -216,6 +246,20 @@
         { match: _P.gain, replace: (m, pr) => `Obtient ${pr}.` },
         { match: _P.healthGain, replace: (m, p, pr) => `Si ce personnage a ${p} % de vie ou moins, obtient ${pr}.` },
         { match: _P.healthGeneric, replace: (m, p, r) => `Si ce personnage a ${p} % de vie ou moins, ${r}` },
+        // --- New patterns ---
+        { match: _P.forcedPierceOnly, replace: (m, p, tr) => `Lors d'une attaque forcée contre un allié, inflige ${p} % de dégâts perforants aux personnages ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        { match: _P.ifAllyApplyRandom, replace: (m, n, pr) => `Si ${n} est parmi les alliés, applique ${pr} à un allié aléatoire.` },
+        { match: _P.selfHasApplyCountDur, replace: (m, proc, c, pr, t) => `Si ce personnage a ${proc}, applique ${c} fois ${pr} pendant ${t} tours à la cible principale.` },
+        { match: _P.selfHasApply, replace: (m, proc, pr) => `Si ce personnage a ${proc}, applique ${pr} à la cible principale.` },
+        { match: _P.selfHasClear, replace: (m, proc, c, pr) => `Si ce personnage a ${proc}, retire ${c} ${pr} des alliés.` },
+        { match: _P.selfHasAttackInstead, replace: (m, proc, p, d) => `Si ce personnage a ${proc}, attaque à la place pour ${p} % de dégâts perforants + ${d} % de drain de vie.` },
+        { match: _P.selfNotHasApply, replace: (m, proc, pr) => `Si ce personnage n'a pas ${proc}, applique ${pr} à la cible principale.` },
+        { match: _P.modeGainCount, replace: (m, mode, c, pr) => `${_modeLoc(mode, 'fr')}, obtient ${c} fois ${pr}.` },
+        { match: _P.modeSelfHasApply, replace: (m, mode, proc, pr) => `${_modeLoc(mode, 'fr')}, si ce personnage a ${proc}, applique ${pr} à la cible principale.` },
+        { match: _P.onAssistEnergy, replace: (m, type, c) => `Sur appui ${_modeLoc(type, 'fr')}, génère +${c} énergie de capacité pour soi.` },
+        { match: _P.modeReduceSpeedPerAlly, replace: (m, mode, p, tr) => `${_modeLoc(mode, 'fr')}, réduit la jauge de vitesse de ${p} % par allié ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        { match: _P.healthHealAllies, replace: (m, p, h) => `Si ce personnage a moins de ${p} % de vie, soigne les alliés de ${h} % de la vie max.` },
+        { match: _P.modeIgnoresDefUp, replace: (m, mode) => `${_modeLoc(mode, 'fr')}, cette attaque ignore Défense augmentée.` },
       ],
     },
     // ==================== GERMAN ====================
@@ -244,6 +288,20 @@
         { match: _P.gain, replace: (m, pr) => `Erhält ${pr}.` },
         { match: _P.healthGain, replace: (m, p, pr) => `Wenn dieser Charakter ${p} % oder weniger LP hat, erhält ${pr}.` },
         { match: _P.healthGeneric, replace: (m, p, r) => `Wenn dieser Charakter ${p} % oder weniger LP hat, ${r}` },
+        // --- New patterns ---
+        { match: _P.forcedPierceOnly, replace: (m, p, tr) => `Wenn dieser Charakter dazu gezwungen wird, einen Verbündeten anzugreifen, fügt er ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Charakteren ${p} % Durchdringungsschaden zu.` },
+        { match: _P.ifAllyApplyRandom, replace: (m, n, pr) => `Wendet ${pr} auf einen zufälligen Verbündeten an, wenn ${n} ein Verbündeter ist.` },
+        { match: _P.selfHasApplyCountDur, replace: (m, proc, c, pr, t) => `Wenn dieser Charakter ${proc} hat, wendet ${c}-mal ${pr} für ${t} Runden auf das Primärziel an.` },
+        { match: _P.selfHasApply, replace: (m, proc, pr) => `Wendet ${pr} auf das Primärziel an, wenn dieser Charakter ${proc} hat.` },
+        { match: _P.selfHasClear, replace: (m, proc, c, pr) => `Wenn dieser Charakter ${proc} hat, entfernt ${c} ${pr} von Verbündeten.` },
+        { match: _P.selfHasAttackInstead, replace: (m, proc, p, d) => `Wenn dieser Charakter ${proc} hat, greift stattdessen für ${p} % Durchdringungsschaden + ${d} % Lebensentzug an.` },
+        { match: _P.selfNotHasApply, replace: (m, proc, pr) => `Wenn dieser Charakter kein ${proc} hat, wendet ${pr} auf das Primärziel an.` },
+        { match: _P.modeGainCount, replace: (m, mode, c, pr) => `${_modeLoc(mode, 'de')}: Erhält ${c}-mal ${pr}.` },
+        { match: _P.modeSelfHasApply, replace: (m, mode, proc, pr) => `${_modeLoc(mode, 'de')}: Wendet ${pr} auf das Primärziel an, wenn dieser Charakter ${proc} hat.` },
+        { match: _P.onAssistEnergy, replace: (m, type, c) => `Gewährt sich selbst bei ${_modeLoc(type, 'de')}m Assist +${c} Fähigkeitenenergie.` },
+        { match: _P.modeReduceSpeedPerAlly, replace: (m, mode, p, tr) => `${_modeLoc(mode, 'de')}: Verringert die Geschwindigkeitsleiste um ${p} % für jeden ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten.` },
+        { match: _P.healthHealAllies, replace: (m, p, h) => `Wenn dieser Charakter weniger als ${p} % LP hat, heilt Verbündete um ${h} % der max. LP.` },
+        { match: _P.modeIgnoresDefUp, replace: (m, mode) => `${_modeLoc(mode, 'de')}: Dieser Angriff ignoriert +Defensive.` },
       ],
     },
     // ==================== SPANISH ====================
@@ -272,6 +330,20 @@
         { match: _P.gain, replace: (m, pr) => `Obtiene ${pr}.` },
         { match: _P.healthGain, replace: (m, p, pr) => `Si este personaje tiene ${p} % de salud o menos, obtiene ${pr}.` },
         { match: _P.healthGeneric, replace: (m, p, r) => `Si este personaje tiene ${p} % de salud o menos, ${r}` },
+        // --- New patterns ---
+        { match: _P.forcedPierceOnly, replace: (m, p, tr) => `Cuando se le obliga a atacar a un aliado, este personaje inflige un ${p} % de daño penetrante a los personajes ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        { match: _P.ifAllyApplyRandom, replace: (m, n, pr) => `Si ${n} es un aliado, otorga ${pr} a un aliado aleatorio.` },
+        { match: _P.selfHasApplyCountDur, replace: (m, proc, c, pr, t) => `Si este personaje tiene ${proc}, aplica ${c} de ${pr} durante ${t} turnos al objetivo principal.` },
+        { match: _P.selfHasApply, replace: (m, proc, pr) => `Si este personaje tiene ${proc}, aplica ${pr} al objetivo principal.` },
+        { match: _P.selfHasClear, replace: (m, proc, c, pr) => `Si este personaje tiene ${proc}, elimina ${c} ${pr} de los aliados.` },
+        { match: _P.selfHasAttackInstead, replace: (m, proc, p, d) => `Si este personaje tiene ${proc}, en su lugar, ataca con un ${p} % de daño penetrante + ${d} % de drenaje.` },
+        { match: _P.selfNotHasApply, replace: (m, proc, pr) => `Si este personaje no tiene ${proc}, aplica ${pr} al objetivo principal.` },
+        { match: _P.modeGainCount, replace: (m, mode, c, pr) => `${_modeLoc(mode, 'es')}, obtiene ${c} de ${pr}.` },
+        { match: _P.modeSelfHasApply, replace: (m, mode, proc, pr) => `${_modeLoc(mode, 'es')}, si este personaje tiene ${proc}, aplica ${pr} al objetivo principal.` },
+        { match: _P.onAssistEnergy, replace: (m, type, c) => `En asistencia ${_modeLoc(type, 'es')}, genera +${c} de energía de habilidad para sí mismo.` },
+        { match: _P.modeReduceSpeedPerAlly, replace: (m, mode, p, tr) => `${_modeLoc(mode, 'es')}, reduce la barra de velocidad en un ${p} % por cada aliado ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        { match: _P.healthHealAllies, replace: (m, p, h) => `Si este personaje tiene menos del ${p} % de salud, cura a los aliados un ${h} % de la salud máxima.` },
+        { match: _P.modeIgnoresDefUp, replace: (m, mode) => `${_modeLoc(mode, 'es')}, este ataque ignora la subida de defensa.` },
       ],
     },
     // ==================== PORTUGUESE ====================
@@ -300,6 +372,20 @@
         { match: _P.gain, replace: (m, pr) => `Receba ${pr}.` },
         { match: _P.healthGain, replace: (m, p, pr) => `Se este personagem tiver ${p}% de vida ou menos, receba ${pr}.` },
         { match: _P.healthGeneric, replace: (m, p, r) => `Se este personagem tiver ${p}% de vida ou menos, ${r}` },
+        // --- New patterns ---
+        { match: _P.forcedPierceOnly, replace: (m, p, tr) => `Quando forçado a atacar um aliado, este personagem causa ${p}% de perfuração a personagens ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        { match: _P.ifAllyApplyRandom, replace: (m, n, pr) => `Se ${n} for um aliado, aplique ${pr} a um aliado aleatório.` },
+        { match: _P.selfHasApplyCountDur, replace: (m, proc, c, pr, t) => `Se este personagem estiver com ${proc}, aplique ${c} de ${pr} por ${t} turnos ao alvo primário.` },
+        { match: _P.selfHasApply, replace: (m, proc, pr) => `Se este personagem estiver com ${proc}, aplique ${pr} ao alvo primário.` },
+        { match: _P.selfHasClear, replace: (m, proc, c, pr) => `Se este personagem estiver com ${proc}, remova ${c} ${pr} dos aliados.` },
+        { match: _P.selfHasAttackInstead, replace: (m, proc, p, d) => `Se este personagem estiver com ${proc}, em vez disso, ataque com ${p}% de perfuração + ${d}% de dreno.` },
+        { match: _P.selfNotHasApply, replace: (m, proc, pr) => `Se este personagem não estiver com ${proc}, aplique ${pr} ao alvo primário.` },
+        { match: _P.modeGainCount, replace: (m, mode, c, pr) => `${_modeLoc(mode, 'pt')}, ganhe ${c} de ${pr}.` },
+        { match: _P.modeSelfHasApply, replace: (m, mode, proc, pr) => `${_modeLoc(mode, 'pt')}, se este personagem estiver com ${proc}, aplique ${pr} ao alvo primário.` },
+        { match: _P.onAssistEnergy, replace: (m, type, c) => `Na assistência ${_modeLoc(type, 'pt')}, gere +${c} de energia de habilidade para si mesmo.` },
+        { match: _P.modeReduceSpeedPerAlly, replace: (m, mode, p, tr) => `${_modeLoc(mode, 'pt')}, reduza a barra de velocidade em ${p}% para cada aliado ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        { match: _P.healthHealAllies, replace: (m, p, h) => `Se este personagem tiver menos de ${p}% de vida, cure os aliados em ${h}% da vida máxima.` },
+        { match: _P.modeIgnoresDefUp, replace: (m, mode) => `${_modeLoc(mode, 'pt')}, este ataque ignora Defesa Aumentada.` },
       ],
     },
     // ==================== ITALIAN ====================
@@ -328,6 +414,20 @@
         { match: _P.gain, replace: (m, pr) => `Ottiene ${pr}.` },
         { match: _P.healthGain, replace: (m, p, pr) => `Se questo personaggio ha il ${p}% o meno di Salute, ottiene ${pr}.` },
         { match: _P.healthGeneric, replace: (m, p, r) => `Se questo personaggio ha il ${p}% o meno di Salute, ${r}` },
+        // --- New patterns ---
+        { match: _P.forcedPierceOnly, replace: (m, p, tr) => `Quando costretto ad attaccare un alleato, questo personaggio infligge ${p}% di Perforazione ai personaggi ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        { match: _P.ifAllyApplyRandom, replace: (m, n, pr) => `Se ${n} è un alleato, applica ${pr} a un alleato casuale.` },
+        { match: _P.selfHasApplyCountDur, replace: (m, proc, c, pr, t) => `Se questo personaggio ha ${proc}, applica ${c} di ${pr} per ${t} turni al bersaglio primario.` },
+        { match: _P.selfHasApply, replace: (m, proc, pr) => `Se questo personaggio ha ${proc}, applica ${pr} al bersaglio primario.` },
+        { match: _P.selfHasClear, replace: (m, proc, c, pr) => `Se questo personaggio ha ${proc}, rimuove ${c} ${pr} dagli alleati.` },
+        { match: _P.selfHasAttackInstead, replace: (m, proc, p, d) => `Se questo personaggio ha ${proc}, attacca invece per il ${p}% di Perforazione + ${d}% di Prosciugamento.` },
+        { match: _P.selfNotHasApply, replace: (m, proc, pr) => `Se questo personaggio non ha ${proc}, applica ${pr} al bersaglio primario.` },
+        { match: _P.modeGainCount, replace: (m, mode, c, pr) => `${_modeLoc(mode, 'it')}, ottiene ${c} di ${pr}.` },
+        { match: _P.modeSelfHasApply, replace: (m, mode, proc, pr) => `${_modeLoc(mode, 'it')}, se questo personaggio ha ${proc}, applica ${pr} al bersaglio primario.` },
+        { match: _P.onAssistEnergy, replace: (m, type, c) => `In assistenza ${_modeLoc(type, 'it')}, genera +${c} Energia abilità per se stesso.` },
+        { match: _P.modeReduceSpeedPerAlly, replace: (m, mode, p, tr) => `${_modeLoc(mode, 'it')}, riduce la barra velocità del ${p}% per ciascun alleato ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        { match: _P.healthHealAllies, replace: (m, p, h) => `Se questo personaggio ha meno del ${p}% di Salute, cura gli alleati per il ${h}% della Salute massima.` },
+        { match: _P.modeIgnoresDefUp, replace: (m, mode) => `${_modeLoc(mode, 'it')}, questo attacco ignora Aumento difesa.` },
       ],
     },
     // ==================== JAPANESE ====================
@@ -356,6 +456,20 @@
         { match: _P.gain, replace: (m, pr) => `${pr}を獲得。` },
         { match: _P.healthGain, replace: (m, p, pr) => `このキャラクターの体力が${p}%以下の場合、${pr}を獲得。` },
         { match: _P.healthGeneric, replace: (m, p, r) => `このキャラクターの体力が${p}%以下の場合、${r}` },
+        // --- New patterns ---
+        { match: _P.forcedPierceOnly, replace: (m, p, tr) => `味方を攻撃させられた場合、${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}キャラクターに${p}%の貫通効果を与える。` },
+        { match: _P.ifAllyApplyRandom, replace: (m, n, pr) => `味方に${n}がいる場合、味方1体にランダムで${pr}を適用。` },
+        { match: _P.selfHasApplyCountDur, replace: (m, proc, c, pr, t) => `このキャラクターに${proc}がある場合、メインターゲットに${pr}を${c}回、${t}ターン適用。` },
+        { match: _P.selfHasApply, replace: (m, proc, pr) => `このキャラクターに${proc}がある場合、メインターゲットに${pr}を適用。` },
+        { match: _P.selfHasClear, replace: (m, proc, c, pr) => `このキャラクターに${proc}がある場合、味方から${pr}を${c}個解除。` },
+        { match: _P.selfHasAttackInstead, replace: (m, proc, p, d) => `このキャラクターに${proc}がある場合、代わりに${p}%の貫通効果 + ${d}%の吸収で攻撃。` },
+        { match: _P.selfNotHasApply, replace: (m, proc, pr) => `このキャラクターに${proc}がない場合、メインターゲットに${pr}を適用。` },
+        { match: _P.modeGainCount, replace: (m, mode, c, pr) => `${_modeLoc(mode, 'ja')}、${pr}を${c}個獲得。` },
+        { match: _P.modeSelfHasApply, replace: (m, mode, proc, pr) => `${_modeLoc(mode, 'ja')}、このキャラクターに${proc}がある場合、メインターゲットに${pr}を適用。` },
+        { match: _P.onAssistEnergy, replace: (m, type, c) => `${_modeLoc(type, 'ja')}アシスト時、自身にアビリティエネルギー+${c}を生成。` },
+        { match: _P.modeReduceSpeedPerAlly, replace: (m, mode, p, tr) => `${_modeLoc(mode, 'ja')}、${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方1体につきスピードバーを${p}%減少。` },
+        { match: _P.healthHealAllies, replace: (m, p, h) => `このキャラクターの体力が${p}%未満の場合、味方を最大体力の${h}%分回復。` },
+        { match: _P.modeIgnoresDefUp, replace: (m, mode) => `${_modeLoc(mode, 'ja')}、この攻撃はディフェンスアップを無視する。` },
       ],
     },
     // ==================== KOREAN ====================
@@ -384,6 +498,20 @@
         { match: _P.gain, replace: (m, pr) => `${pr}을 획득합니다.` },
         { match: _P.healthGain, replace: (m, p, pr) => `이 캐릭터의 체력이 ${p}% 이하이면 ${pr}을 획득합니다.` },
         { match: _P.healthGeneric, replace: (m, p, r) => `이 캐릭터의 체력이 ${p}% 이하이면 ${r}` },
+        // --- New patterns ---
+        { match: _P.forcedPierceOnly, replace: (m, p, tr) => `아군을 공격하도록 조종당한 경우, ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 특성 캐릭터에게 ${p}% 관통 대미지를 줍니다.` },
+        { match: _P.ifAllyApplyRandom, replace: (m, n, pr) => `${n}(이)가 아군이면 무작위 아군 1명에게 ${pr}을 적용합니다.` },
+        { match: _P.selfHasApplyCountDur, replace: (m, proc, c, pr, t) => `이 캐릭터에게 ${proc}(이)가 있으면 주 공격 대상에게 ${pr}을 ${c}회 ${t}턴간 적용합니다.` },
+        { match: _P.selfHasApply, replace: (m, proc, pr) => `이 캐릭터에게 ${proc}(이)가 있으면 주 공격 대상에게 ${pr}을 적용합니다.` },
+        { match: _P.selfHasClear, replace: (m, proc, c, pr) => `이 캐릭터에게 ${proc}(이)가 있으면 아군에게서 ${pr}을 ${c}개 제거합니다.` },
+        { match: _P.selfHasAttackInstead, replace: (m, proc, p, d) => `이 캐릭터에게 ${proc}(이)가 있으면 대신 ${p}% 관통 + ${d}% 흡수로 공격합니다.` },
+        { match: _P.selfNotHasApply, replace: (m, proc, pr) => `이 캐릭터에게 ${proc}(이)가 없으면 주 공격 대상에게 ${pr}을 적용합니다.` },
+        { match: _P.modeGainCount, replace: (m, mode, c, pr) => `${_modeLoc(mode, 'ko')}, ${pr}을 ${c}회 획득합니다.` },
+        { match: _P.modeSelfHasApply, replace: (m, mode, proc, pr) => `${_modeLoc(mode, 'ko')}, 이 캐릭터에게 ${proc}(이)가 있으면 주 공격 대상에게 ${pr}을 적용합니다.` },
+        { match: _P.onAssistEnergy, replace: (m, type, c) => `${_modeLoc(type, 'ko')} 지원 시, 자신에게 능력 에너지 +${c}를 생성합니다.` },
+        { match: _P.modeReduceSpeedPerAlly, replace: (m, mode, p, tr) => `${_modeLoc(mode, 'ko')}, ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군 1명당 속도 게이지를 ${p}% 감소시킵니다.` },
+        { match: _P.healthHealAllies, replace: (m, p, h) => `이 캐릭터의 체력이 ${p}% 미만이면 아군을 최대 체력의 ${h}%만큼 회복합니다.` },
+        { match: _P.modeIgnoresDefUp, replace: (m, mode) => `${_modeLoc(mode, 'ko')}, 이 공격은 방어력 증가를 무시합니다.` },
       ],
     },
     // ==================== RUSSIAN ====================
@@ -412,6 +540,20 @@
         { match: _P.gain, replace: (m, pr) => `Получает ${pr}.` },
         { match: _P.healthGain, replace: (m, p, pr) => `Если у персонажа ${p} % здоровья или менее, получает ${pr}.` },
         { match: _P.healthGeneric, replace: (m, p, r) => `Если у персонажа ${p} % здоровья или менее, ${r}` },
+        // --- New patterns ---
+        { match: _P.forcedPierceOnly, replace: (m, p, tr) => `Если персонаж вынужден атаковать союзника, он наносит персонажам-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} ${p} % проникающего урона.` },
+        { match: _P.ifAllyApplyRandom, replace: (m, n, pr) => `Если среди союзников есть ${n}, применяет ${pr} к случайному союзнику.` },
+        { match: _P.selfHasApplyCountDur, replace: (m, proc, c, pr, t) => `Если у персонажа есть ${proc}, применяет ${c} зар. ${pr} на ${t} ходов к основной цели.` },
+        { match: _P.selfHasApply, replace: (m, proc, pr) => `Если у персонажа есть ${proc}, применяет ${pr} к основной цели.` },
+        { match: _P.selfHasClear, replace: (m, proc, c, pr) => `Если у персонажа есть ${proc}, снимает ${c} ${pr} с союзников.` },
+        { match: _P.selfHasAttackInstead, replace: (m, proc, p, d) => `Если у персонажа есть ${proc}, вместо этого атакует с ${p} % проникающего урона + ${d} % высасывания.` },
+        { match: _P.selfNotHasApply, replace: (m, proc, pr) => `Если у персонажа нет ${proc}, применяет ${pr} к основной цели.` },
+        { match: _P.modeGainCount, replace: (m, mode, c, pr) => `${_modeLoc(mode, 'ru')}, получает ${c} зар. ${pr}.` },
+        { match: _P.modeSelfHasApply, replace: (m, mode, proc, pr) => `${_modeLoc(mode, 'ru')}, если у персонажа есть ${proc}, применяет ${pr} к основной цели.` },
+        { match: _P.onAssistEnergy, replace: (m, type, c) => `При помощи ${_modeLoc(type, 'ru')}, генерирует +${c} энергии способностей для себя.` },
+        { match: _P.modeReduceSpeedPerAlly, replace: (m, mode, p, tr) => `${_modeLoc(mode, 'ru')}, уменьшает шкалу скорости на ${p} % за каждого союзника-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        { match: _P.healthHealAllies, replace: (m, p, h) => `Если у персонажа менее ${p} % здоровья, лечит союзников на ${h} % от макс. здоровья.` },
+        { match: _P.modeIgnoresDefUp, replace: (m, mode) => `${_modeLoc(mode, 'ru')}, эта атака игнорирует Повышение защиты.` },
       ],
     },
   };
