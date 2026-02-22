@@ -444,7 +444,17 @@ function processCharacter(charName, charData) {
                 if (localDmg > 0) parts.push(`${localDmg}% damage`);
                 if (localPierce > 0) parts.push(`${localPierce}% Piercing`);
                 if (localDrain > 0) parts.push(`${localDrain}% Drain`);
-                effects.push(`${conditionPrefix}+${parts.join(' + ')}.`);
+
+                // Check if this targets adjacent/chain enemies (not primary target)
+                let targetSuffix = '';
+                if (action.target && action.target.primary_selection === 'exclude_from_pool') {
+                    if (action.target.places_from_primary) {
+                        targetSuffix = ' to adjacent enemies';
+                    } else {
+                        targetSuffix = ' to additional enemies';
+                    }
+                }
+                effects.push(`${conditionPrefix}+${parts.join(' + ')}${targetSuffix}.`);
             } else if (isConditionalTarget && (damage > 0 || piercing > 0)) {
                 // Already have base stats — only add effect line if values differ
                 if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {

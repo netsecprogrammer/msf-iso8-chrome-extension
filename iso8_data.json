@@ -648,12 +648,12 @@
     "notes": []
   },
   "CullObsidian": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+260% damage.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+260% damage to adjacent enemies.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+260% damage."
+      "+260% damage to adjacent enemies."
     ],
     "notes": []
   },
@@ -1485,13 +1485,13 @@
     "notes": []
   },
   "HydraDmg_AoE": {
-    "description": "Attack primary target for 203% damage + 27% Piercing.\\nApply Slow to the primary target.\\n+270% damage + 20% Piercing.",
+    "description": "Attack primary target for 203% damage + 27% Piercing.\\nApply Slow to the primary target.\\n+270% damage + 20% Piercing to adjacent enemies.",
     "damage": 203,
     "piercing": 27,
     "drain": 0,
     "effects": [
       "Apply Slow to the primary target.",
-      "+270% damage + 20% Piercing."
+      "+270% damage + 20% Piercing to adjacent enemies."
     ],
     "notes": []
   },
@@ -1627,12 +1627,12 @@
     "notes": []
   },
   "IronFist": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+270% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+270% damage to additional enemies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+270% damage."
+      "+270% damage to additional enemies."
     ],
     "notes": []
   },
@@ -2506,12 +2506,12 @@
     "notes": []
   },
   "NUESpiderMan": {
-    "description": "Attack primary target for 61% damage.\\nOn Assist, +60% damage.\\nOn Counter, Gain Evade.",
+    "description": "Attack primary target for 61% damage.\\nOn Assist, +60% damage to additional enemies.\\nOn Counter, Gain Evade.",
     "damage": 61,
     "piercing": 0,
     "drain": 0,
     "effects": [
-      "On Assist, +60% damage.",
+      "On Assist, +60% damage to additional enemies.",
       "On Counter, Gain Evade."
     ],
     "notes": []
@@ -2940,12 +2940,12 @@
     "notes": []
   },
   "PVE_CullObsidian_Gauntlet": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+260% damage.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+260% damage to adjacent enemies.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+260% damage."
+      "+260% damage to adjacent enemies."
     ],
     "notes": []
   },
@@ -3075,12 +3075,12 @@
     "notes": []
   },
   "PVE_MrFantastic_Incursion": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.\\n+190% damage.",
+    "description": "Attack primary target for 163% damage + 17% Piercing.\\n+190% damage to additional enemies.",
     "damage": 163,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+190% damage."
+      "+190% damage to additional enemies."
     ],
     "notes": []
   },
@@ -3346,22 +3346,22 @@
     "notes": []
   },
   "Punisher": {
-    "description": "Attack primary target for 210% Piercing.\\n+260% Piercing.",
+    "description": "Attack primary target for 210% Piercing.\\n+260% Piercing to additional enemies.",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
     "effects": [
-      "+260% Piercing."
+      "+260% Piercing to additional enemies."
     ],
     "notes": []
   },
   "Punisher_Iso8NUE": {
-    "description": "Attack primary target for 165% damage + 37% Piercing.\\n+200% damage + 20% Piercing.",
+    "description": "Attack primary target for 165% damage + 37% Piercing.\\n+200% damage + 20% Piercing to additional enemies.",
     "damage": 165,
     "piercing": 37,
     "drain": 0,
     "effects": [
-      "+200% damage + 20% Piercing."
+      "+200% damage + 20% Piercing to additional enemies."
     ],
     "notes": []
   },
@@ -3584,12 +3584,12 @@
     "notes": []
   },
   "RocketRaccoon": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+270% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+270% damage to adjacent enemies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+270% damage."
+      "+270% damage to adjacent enemies."
     ],
     "notes": [
       "If Groot is an ally, this attack cannot miss.",
@@ -3620,13 +3620,13 @@
     "notes": []
   },
   "Ronin": {
-    "description": "Attack primary target for 190% Piercing.\\nReduce Speed Bar by 5% for each NEW AVENGER ally.\\n+230% Piercing.",
+    "description": "Attack primary target for 190% Piercing.\\nReduce Speed Bar by 5% for each NEW AVENGER ally.\\n+230% Piercing to additional enemies.",
     "damage": 0,
     "piercing": 190,
     "drain": 0,
     "effects": [
       "Reduce Speed Bar by 5% for each NEW AVENGER ally.",
-      "+230% Piercing."
+      "+230% Piercing to additional enemies."
     ],
     "notes": [
       "This attack cannot be blocked."
@@ -3977,12 +3977,12 @@
     "notes": []
   },
   "ShieldDmg_AoE": {
-    "description": "Attack primary target for 135% damage + 52% Piercing.\\n+100% damage + 35% Piercing.",
+    "description": "Attack primary target for 135% damage + 52% Piercing.\\n+100% damage + 35% Piercing to adjacent enemies.",
     "damage": 135,
     "piercing": 52,
     "drain": 0,
     "effects": [
-      "+100% damage + 35% Piercing."
+      "+100% damage + 35% Piercing to adjacent enemies."
     ],
     "notes": []
   },
@@ -4039,13 +4039,13 @@
     "notes": []
   },
   "Shuri": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Heal Block for 2 turns to the primary target.\\n+300% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Heal Block for 2 turns to the primary target.\\n+300% damage to adjacent enemies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Heal Block for 2 turns to the primary target.",
-      "+300% damage."
+      "+300% damage to adjacent enemies."
     ],
     "notes": []
   },
@@ -4615,12 +4615,12 @@
     "notes": []
   },
   "UltGreenGoblin": {
-    "description": "Attack primary target for 238% damage + 17% Piercing.\\n+260% damage.",
+    "description": "Attack primary target for 238% damage + 17% Piercing.\\n+260% damage to adjacent enemies.",
     "damage": 238,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+260% damage."
+      "+260% damage to adjacent enemies."
     ],
     "notes": []
   },
@@ -4895,12 +4895,12 @@
     "notes": []
   },
   "War_ShieldDmg_AoE": {
-    "description": "Attack primary target for 135% damage + 52% Piercing.\\n+100% damage + 35% Piercing.",
+    "description": "Attack primary target for 135% damage + 52% Piercing.\\n+100% damage + 35% Piercing to adjacent enemies.",
     "damage": 135,
     "piercing": 52,
     "drain": 0,
     "effects": [
-      "+100% damage + 35% Piercing."
+      "+100% damage + 35% Piercing to adjacent enemies."
     ],
     "notes": []
   },
@@ -4958,12 +4958,12 @@
     "notes": []
   },
   "Wasp": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\n+250% damage.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\n+250% damage to additional enemies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+250% damage."
+      "+250% damage to additional enemies."
     ],
     "notes": []
   },
