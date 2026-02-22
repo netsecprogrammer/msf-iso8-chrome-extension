@@ -380,12 +380,12 @@
     ]
   },
   "Blastaar": {
-    "description": "Attack primary target for 175% damage + 20% Piercing.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Reduce the duration of Safeguard by 2.\\nReduce the duration of Immunity by 2.\\nReduce the duration of Taunt by 1.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Clear all positive effect(s) from the primary target.\\nIf self does not have Silence, Clear all negative effect(s) from self.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Gain 30% Speed Bar.\\nIf self does not have Silence, Gain +1 Bomb Burst, up to a maximum of 5.",
+    "description": "Attack primary target for 175% damage + 20% Piercing.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Safeguard by 2.\\nReduce the duration of Immunity by 2.\\nReduce the duration of Taunt by 1.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Clear all positive effect(s) from the primary target.\\nIf self does not have Silence, Clear all negative effect(s) from self.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Gain 30% Speed Bar.\\nIf self does not have Silence, Gain +1 Bomb Burst, up to a maximum of 5.",
     "damage": 175,
     "piercing": 20,
     "drain": 0,
     "effects": [
-      "In CRUCIBLE SHOWDOWN, OFFENSE, Reduce the duration of Safeguard by 2.",
+      "In CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Safeguard by 2.",
       "Reduce the duration of Immunity by 2.",
       "Reduce the duration of Taunt by 1.",
       "In CRUCIBLE SHOWDOWN, OFFENSE, Clear all positive effect(s) from the primary target.",
@@ -899,12 +899,12 @@
     "notes": []
   },
   "EbonyMaw": {
-    "description": "Attack primary target for 248% Piercing.\\nIf the primary target is HERO and CONTROLLER, Apply +1 Bleed for 2 turns to the primary target.\\nOtherwise, Apply +1 Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 248% Piercing.\\nIf the primary target is HERO and is CONTROLLER, Apply +1 Bleed for 2 turns to the primary target.\\nOtherwise, Apply +1 Bleed to the primary target.\\nApply Bleed to the primary target.",
     "damage": 0,
     "piercing": 248,
     "drain": 0,
     "effects": [
-      "If the primary target is HERO and CONTROLLER, Apply +1 Bleed for 2 turns to the primary target.",
+      "If the primary target is HERO and is CONTROLLER, Apply +1 Bleed for 2 turns to the primary target.",
       "Otherwise, Apply +1 Bleed to the primary target.",
       "Apply Bleed to the primary target."
     ],
@@ -1720,7 +1720,7 @@
     "notes": []
   },
   "Kahhori": {
-    "description": "Attack primary target for 25% damage + 135% Piercing + 50% Drain.\\nDeal 5% of target's Max Health.\\nIf the primary target is MINION, Deal 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nApply Accuracy Down to the primary target.\\nApply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard by 1.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard by 1.",
+    "description": "Attack primary target for 25% damage + 135% Piercing + 50% Drain.\\nDeal 5% of target's Max Health.\\nIf the primary target is MINION, Deal 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nIf the primary target has Exposed, Apply Accuracy Down to the primary target.\\nApply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard by 1.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard by 1.",
     "damage": 25,
     "piercing": 135,
     "drain": 50,
@@ -1729,7 +1729,7 @@
       "If the primary target is MINION, Deal 30% of target's Max Health.",
       "Not in WAR, Flip 2 positive effect(s) to negative on the primary target.",
       "In WAR, Flip all positive effect(s) to negative on the primary target.",
-      "Apply Accuracy Down to the primary target.",
+      "If the primary target has Exposed, Apply Accuracy Down to the primary target.",
       "Apply Exposed to the primary target.",
       "Apply +1 Charged, up to a maximum of 3 to a random ally.",
       "Prolong the duration of all positive effects, excluding Safeguard by 1.",
@@ -2027,12 +2027,12 @@
     "notes": []
   },
   "Longshot": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\n+210% damage.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf an X-FACTOR ally exists, +210% damage.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+210% damage."
+      "If an X-FACTOR ally exists, +210% damage."
     ],
     "notes": []
   },
@@ -2734,13 +2734,13 @@
     "notes": []
   },
   "PhantomRider": {
-    "description": "Attack primary target for 225% damage + 17% Piercing + 30% Drain.\\nApply 2 Bleed to the primary target.\\n+270% damage.",
+    "description": "Attack primary target for 225% damage + 17% Piercing + 30% Drain.\\nApply 2 Bleed to the primary target.\\nIf the primary target has Bleed, +270% damage.",
     "damage": 225,
     "piercing": 17,
     "drain": 30,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "+270% damage."
+      "If the primary target has Bleed, +270% damage."
     ],
     "notes": []
   },
@@ -3401,12 +3401,12 @@
     "notes": []
   },
   "Shatterstar": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+150% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf an X-FACTOR ally exists, +150% damage.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+150% damage."
+      "If an X-FACTOR ally exists, +150% damage."
     ],
     "notes": []
   },
@@ -3693,24 +3693,24 @@
     "notes": []
   },
   "Stature": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nFlip 1 positive effect(s) to negative on the primary target.\\nApply Defense Up to a random ally.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf the primary target has Defense Up, Flip 1 positive effect(s) to negative on the primary target.\\nApply Defense Up to a random ally.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Flip 1 positive effect(s) to negative on the primary target.",
+      "If the primary target has Defense Up, Flip 1 positive effect(s) to negative on the primary target.",
       "Apply Defense Up to a random ally."
     ],
     "notes": []
   },
   "SteelSerpent": {
-    "description": "Attack primary target for 244% damage + 17% Piercing.\\nApply +1 Slow, up to a maximum of 3 to the primary target.\\nApply +1 Trauma, up to a maximum of 2 to the primary target.",
+    "description": "Attack primary target for 244% damage + 17% Piercing.\\nApply +1 Slow, up to a maximum of 3 to the primary target.\\nIf the primary target has Offense Down and has Defense Down and has Slow, Apply +1 Trauma, up to a maximum of 2 to the primary target.",
     "damage": 244,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply +1 Slow, up to a maximum of 3 to the primary target.",
-      "Apply +1 Trauma, up to a maximum of 2 to the primary target."
+      "If the primary target has Offense Down and has Defense Down and has Slow, Apply +1 Trauma, up to a maximum of 2 to the primary target."
     ],
     "notes": []
   },
@@ -3770,12 +3770,12 @@
     "notes": []
   },
   "SuperSkrull": {
-    "description": "Attack primary target for 300% Piercing.\\nRemove Barrier from the primary target.\\nFlip 3 positive effect(s) to negative on the primary target.\\nIf self has SpawnedWithHeroAllies, Apply Disrupted for 2 turns to the primary target.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for 300% Piercing.\\nIf the primary target has Exposed, Remove Barrier from the primary target.\\nFlip 3 positive effect(s) to negative on the primary target.\\nIf self has SpawnedWithHeroAllies, Apply Disrupted for 2 turns to the primary target.\\nBarrier for 10% of Max Health.",
     "damage": 0,
     "piercing": 300,
     "drain": 0,
     "effects": [
-      "Remove Barrier from the primary target.",
+      "If the primary target has Exposed, Remove Barrier from the primary target.",
       "Flip 3 positive effect(s) to negative on the primary target.",
       "If self has SpawnedWithHeroAllies, Apply Disrupted for 2 turns to the primary target.",
       "Barrier for 10% of Max Health."
@@ -3994,12 +3994,12 @@
     "notes": []
   },
   "Tigra": {
-    "description": "Attack primary target for 175% Piercing.\\nApply 2 Bleed to the primary target.\\nApply Bleed to the primary target.\\nGain +1 Evade, up to a maximum of 5.",
+    "description": "Attack primary target for 175% Piercing.\\nIf the primary target has Bleed, Apply +2 Bleed to the primary target.\\nApply Bleed to the primary target.\\nGain +1 Evade, up to a maximum of 5.",
     "damage": 0,
     "piercing": 175,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target.",
+      "If the primary target has Bleed, Apply +2 Bleed to the primary target.",
       "Apply Bleed to the primary target.",
       "Gain +1 Evade, up to a maximum of 5."
     ],
@@ -4521,13 +4521,13 @@
     ]
   },
   "ZombieJuggernaut": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nIn WAR, OFFENSE, Deal 5% of target's Max Health.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nIn WAR, OFFENSE, If the primary target has Bleed, Deal 5% of target's Max Health.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "In WAR, OFFENSE, Deal 5% of target's Max Health."
+      "In WAR, OFFENSE, If the primary target has Bleed, Deal 5% of target's Max Health."
     ],
     "notes": [
       "This attack cannot be dodged.",

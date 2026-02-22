@@ -108,7 +108,8 @@ const PROC_MAP = {
   'Daredevil': 'Daredevil',
   'DaimonHellstrom': 'Daimon Hellstrom',
   'MrSinister': 'Mr. Sinister',
-  'NovaForceTracking': 'Nova Force Tracking'
+  'NovaForceTracking': 'Nova Force Tracking',
+  'XFactor': 'X-Factor'
 };
 
 // Known debuff proc names (used to infer target when not specified)
@@ -287,18 +288,30 @@ function parseConditions(action) {
       conditions.push('On Crit');
   }
 
-  // Handle only_if_target (trait-based conditions on the target)
+  // Handle only_if_target (trait-based and proc-based conditions on the target)
   if (action.only_if_target) {
-      const extractTraits = (obj) => {
-          if (obj.traits && obj.traits.has_any) return obj.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or ');
-          if (obj.and) return obj.and.map(extractTraits).filter(x=>x).join(' and ');
-          if (obj.or) return obj.or.map(extractTraits).filter(x=>x).join(' or ');
-          return '';
+      const extractTargetConditions = (obj) => {
+          const parts = [];
+          if (obj.traits && obj.traits.has_any) {
+              parts.push('is ' + obj.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or '));
+          }
+          if (obj.target && obj.target.procs) {
+              parts.push('has ' + obj.target.procs.map(p => formatProcName(p)).join(' or '));
+          }
+          if (obj.and) {
+              const subParts = obj.and.map(extractTargetConditions).filter(x=>x);
+              if (subParts.length > 0) parts.push(subParts.join(' and '));
+          }
+          if (obj.or) {
+              const subParts = obj.or.map(extractTargetConditions).filter(x=>x);
+              if (subParts.length > 0) parts.push(subParts.join(' or '));
+          }
+          return parts.join(' and ');
       };
 
-      const traits = extractTraits(action.only_if_target);
-      if (traits) {
-          conditions.push(`If the primary target is ${traits}`);
+      const targetCond = extractTargetConditions(action.only_if_target);
+      if (targetCond) {
+          conditions.push(`If the primary target ${targetCond}`);
       }
   }
 
@@ -454,6 +467,27 @@ function processCharacter(charName, charData) {
                   }
                   const threshold = oia.filter.count.than || 0;
                   conditionPrefix += `If ${threshold}+ ${traitText} allies, `;
+              } else if (oia.filter.and) {
+                  // Complex filter — e.g., [{owner_ok: false}, {traits: {and: [{has_any: ["XFactor"]}, ...]}}]
+                  let traitText = '';
+                  for (const sub of oia.filter.and) {
+                      if (sub.traits) {
+                          if (sub.traits.has_any) {
+                              traitText = sub.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                          } else if (sub.traits.and) {
+                              for (const tsub of sub.traits.and) {
+                                  if (tsub.has_any) {
+                                      traitText = tsub.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                                      break;
+                                  }
+                              }
+                          }
+                          if (traitText) break;
+                      }
+                  }
+                  if (traitText) {
+                      conditionPrefix += `If an ${traitText} ally exists, `;
+                  }
               } else if (oia.filter.target && oia.filter.target.any_proc_of_type) {
                   const procType = oia.filter.target.any_proc_of_type;
                   const typeText = procType === 'buff' ? 'positive effects' : 'negative effects';
