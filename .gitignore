@@ -1,0 +1,5 @@
+.claude/
+debug_*.js
+audit*.js
+node_modules/
+*.log

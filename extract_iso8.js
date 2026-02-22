@@ -1,8 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-// Path to the game data file (Absolute path provided by user)
-const CHARACTERS_JSON_PATH = '<path_to_characters.json>';
+// Path to the game data file — pass as CLI argument or set via environment variable
+// Usage: node extract_iso8.js <path_to_characters.json>
+const CHARACTERS_JSON_PATH = process.argv[2] || process.env.MSF_CHARACTERS_JSON;
+if (!CHARACTERS_JSON_PATH) {
+  console.error('Usage: node extract_iso8.js <path_to_characters.json>');
+  console.error('  Or set MSF_CHARACTERS_JSON environment variable');
+  process.exit(1);
+}
 const OUTPUT_PATH = 'iso8_data.json';
 
 // Helper to get max value from array or number
