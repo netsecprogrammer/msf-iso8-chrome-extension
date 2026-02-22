@@ -155,13 +155,12 @@
     "notes": []
   },
   "AntMan": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nIf assisting a INFESTATION ally, attack for 10% Piercing instead.\\nOtherwise, Steal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nIf assisting a INFESTATION ally, attack for 10% Piercing instead.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If assisting a INFESTATION ally, attack for 10% Piercing instead.",
-      "Otherwise, Steal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
       "Steal 1 positive effect(s) from the primary target and give to allies, excluding Taunt."
     ],
     "notes": []
@@ -358,13 +357,12 @@
     "notes": []
   },
   "BlackWidow": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\nIf assisting a INFESTATION ally, attack for 10% Piercing instead.\\nOtherwise, Steal all positive effect(s) from the primary target, excluding Taunt.\\nSteal all positive effect(s) from the primary target, excluding Taunt.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\\nIf assisting a INFESTATION ally, attack for 10% Piercing instead.\\nSteal all positive effect(s) from the primary target, excluding Taunt.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If assisting a INFESTATION ally, attack for 10% Piercing instead.",
-      "Otherwise, Steal all positive effect(s) from the primary target, excluding Taunt.",
       "Steal all positive effect(s) from the primary target, excluding Taunt."
     ],
     "notes": []
@@ -599,13 +597,13 @@
     "notes": []
   },
   "CosmicGhostRider": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\\n+25% damage for each positive effect on the primary target.\\nIn WAR, If the primary target is CONTROLLER, Apply Ability Block to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\\n+25% damage for each positive effect on the primary target.\\nIn WAR, If Ability Energy is not full, If the primary target is CONTROLLER, Apply Ability Block to the primary target.\\nApply Bleed to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "+25% damage for each positive effect on the primary target.",
-      "In WAR, If the primary target is CONTROLLER, Apply Ability Block to the primary target.",
+      "In WAR, If Ability Energy is not full, If the primary target is CONTROLLER, Apply Ability Block to the primary target.",
       "Apply Bleed to the primary target."
     ],
     "notes": []
@@ -808,13 +806,13 @@
     "notes": []
   },
   "Deathlok": {
-    "description": "Attack primary target for 210% damage + 37% Piercing.\\nIn RAID, On Crit, Generate +1 Ability Energy for a random ally.\\nIn RAID, On Crit, Generate +1 Ability Energy for self.",
+    "description": "Attack primary target for 210% damage + 37% Piercing.\\nIn RAID, If Ability Energy is full, On Crit, Generate +1 Ability Energy for a random ally.\\nIn RAID, If Ability Energy is full, On Crit, Generate +1 Ability Energy for self.",
     "damage": 210,
     "piercing": 37,
     "drain": 0,
     "effects": [
-      "In RAID, On Crit, Generate +1 Ability Energy for a random ally.",
-      "In RAID, On Crit, Generate +1 Ability Energy for self."
+      "In RAID, If Ability Energy is full, On Crit, Generate +1 Ability Energy for a random ally.",
+      "In RAID, If Ability Energy is full, On Crit, Generate +1 Ability Energy for self."
     ],
     "notes": []
   },
@@ -3299,7 +3297,7 @@
     "notes": []
   },
   "ScarletWitch": {
-    "description": "Attack primary target for 168% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nApply 3 Offense Down for 2 turns to the primary target.\\nApply 3 Defense Down for 2 turns to the primary target.\\nApply 3 Slow for 2 turns to the primary target.\\nApply 2 Offense Down to the primary target.\\nApply 2 Defense Down to the primary target.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 168% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIf Ability Energy is not full, Apply +3 Offense Down for 2 turns to the primary target.\\nIf Ability Energy is not full, Apply +3 Defense Down for 2 turns to the primary target.\\nIf Ability Energy is not full, Apply +3 Slow for 2 turns to the primary target.\\nIf Ability Energy is not full, attack for 258% Piercing instead.\\nOtherwise, Apply +2 Offense Down to the primary target.\\nOtherwise, Apply +2 Defense Down to the primary target.\\nOtherwise, Apply +2 Slow to the primary target.",
     "damage": 0,
     "piercing": 168,
     "drain": 0,
@@ -3307,12 +3305,13 @@
       "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
       "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
       "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
-      "Apply 3 Offense Down for 2 turns to the primary target.",
-      "Apply 3 Defense Down for 2 turns to the primary target.",
-      "Apply 3 Slow for 2 turns to the primary target.",
-      "Apply 2 Offense Down to the primary target.",
-      "Apply 2 Defense Down to the primary target.",
-      "Apply 2 Slow to the primary target."
+      "If Ability Energy is not full, Apply +3 Offense Down for 2 turns to the primary target.",
+      "If Ability Energy is not full, Apply +3 Defense Down for 2 turns to the primary target.",
+      "If Ability Energy is not full, Apply +3 Slow for 2 turns to the primary target.",
+      "If Ability Energy is not full, attack for 258% Piercing instead.",
+      "Otherwise, Apply +2 Offense Down to the primary target.",
+      "Otherwise, Apply +2 Defense Down to the primary target.",
+      "Otherwise, Apply +2 Slow to the primary target."
     ],
     "notes": []
   },
@@ -3412,14 +3411,13 @@
     "notes": []
   },
   "Sersi": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nIf assisting a ETERNAL ally, attack for 53% damage + 3% Piercing instead.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.\\nOtherwise, If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nIf assisting a ETERNAL ally, attack for 53% damage + 3% Piercing instead.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If assisting a ETERNAL ally, attack for 53% damage + 3% Piercing instead.",
-      "If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
-      "Otherwise, If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target."
+      "If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target."
     ],
     "notes": []
   },

@@ -206,6 +206,15 @@ function parseConditions(action) {
           }
       }
 
+      // Self energy level conditions (ability energy bar)
+      if (oi.owner && oi.owner.energy_level) {
+          if (oi.owner.energy_level === 'partial_energy') {
+              conditions.push('If Ability Energy is not full');
+          } else if (oi.owner.energy_level === 'full_energy') {
+              conditions.push('If Ability Energy is full');
+          }
+      }
+
       // Self barrier threshold conditions
       if (oi.owner && oi.owner.barrier_pct) {
           const bp = oi.owner.barrier_pct;
@@ -283,6 +292,13 @@ function parseConditions(action) {
                       conditions.push(`If this character has more than ${threshold}% Health`);
                   } else if (hp.if === 'greater_or_equal') {
                       conditions.push(`If this character has ${threshold}% or more Health`);
+                  }
+              }
+              if (sub.owner && sub.owner.energy_level) {
+                  if (sub.owner.energy_level === 'partial_energy') {
+                      conditions.push('If Ability Energy is not full');
+                  } else if (sub.owner.energy_level === 'full_energy') {
+                      conditions.push('If Ability Energy is full');
                   }
               }
               if (sub.target && sub.target.procs) {
@@ -1881,7 +1897,14 @@ function processCharacter(charName, charData) {
   }
 
   // Deduplicate effects and notes
-  const uniqueEffects = [...new Set(effects)];
+  // Also remove "Otherwise, X" when "X" already exists (basic counter/assist duplicating safety)
+  const uniqueEffects = [...new Set(effects)].filter(e => {
+      if (e.startsWith('Otherwise, ')) {
+          const withoutOtherwise = e.substring('Otherwise, '.length);
+          return !effects.some(other => other === withoutOtherwise);
+      }
+      return true;
+  });
   effects.length = 0;
   effects.push(...uniqueEffects);
 
