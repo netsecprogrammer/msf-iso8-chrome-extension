@@ -3,3 +3,6 @@ debug_*.js
 audit*.js
 node_modules/
 *.log
+package.json
+package-lock.json
+localization/

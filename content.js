@@ -5,11 +5,51 @@
 
   const DATA_URL = 'https://raw.githubusercontent.com/netsecprogrammer/msf-iso8-chrome-extension/master/iso8_data.json';
 
+  // Active locale dictionary for status effect highlighting (set before formatting)
+  let activeLocaleDict = null;
+
   const ISO8_ICON_SVG = `<svg class="msf-iso8-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#e94560"/>
     <path d="M2 17L12 22L22 17" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M2 12L12 17L22 12" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
+
+  // Extract language code from URL (e.g., /fr/characters/sersi -> "fr")
+  function getLanguageFromUrl() {
+    const path = window.location.pathname;
+    const match = path.match(/^\/([a-z]{2})\/characters\//);
+    return match ? match[1] : 'en';
+  }
+
+  // Load locale translations dictionary
+  let localeData = null;
+  async function loadLocaleData() {
+    if (localeData !== null) return localeData;
+    try {
+      const url = chrome.runtime.getURL('locales.json');
+      const resp = await fetch(url);
+      localeData = await resp.json();
+      return localeData;
+    } catch (err) {
+      console.warn('MSF ISO-8: Could not load locales.json', err);
+      localeData = {};
+      return localeData;
+    }
+  }
+
+  // Translate a text string by replacing English terms with localized equivalents
+  function localizeText(text, dict) {
+    if (!dict || Object.keys(dict).length === 0) return text;
+    // Sort keys by length descending so longer matches take priority
+    // (e.g., "Defense Up" before "Defense", "Offense Down" before "Offense")
+    const terms = Object.keys(dict).sort((a, b) => b.length - a.length);
+    for (const en of terms) {
+      if (text.includes(en)) {
+        text = text.split(en).join(dict[en]);
+      }
+    }
+    return text;
+  }
 
   // Extract character ID from URL
   function getCharacterIdFromUrl() {
@@ -103,7 +143,19 @@
       'Silence', 'Brick Material'
     ];
 
-    const statusPattern = new RegExp(`\\b(${statusEffects.join('|')})\\b`, 'gi');
+    // Add localized status effect names so they get highlighted too
+    if (activeLocaleDict) {
+      const localized = [];
+      for (const en of statusEffects) {
+        if (activeLocaleDict[en]) localized.push(activeLocaleDict[en]);
+      }
+      statusEffects.push(...localized);
+    }
+
+    // Sort by length descending so longer matches take priority
+    statusEffects.sort((a, b) => b.length - a.length);
+
+    const statusPattern = new RegExp(`(${statusEffects.map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
     text = text.replace(statusPattern, '<span class="msf-iso8-status-effect">$1</span>');
 
     // Style "On Counter," / "On Assist," / "Otherwise," prefixes
@@ -113,8 +165,282 @@
     return text;
   }
 
+  // Sentence-level templates per language (sourced from Scopely's official translations)
+  // Each language's phrasing is taken directly from Scopely's localized ability descriptions.
+  // Helper: translate trait name via dict and lowercase it
+  function _traitLoc(trait, dict) { const t = localizeText(trait, dict); return t.toLowerCase(); }
+
+  // Shared regex patterns (reused across all languages)
+  const _P = {
+    forcedDmgPierce: /^When forced to attack an ally, this character deals (.+?)% damage \+ (.+?)% Piercing to (.+?) characters\.$/,
+    forcedDmg:       /^When forced to attack an ally, this character deals (.+?)% damage to (.+?) characters\.$/,
+    flipEffects:     /^If (.+?) is an ally, Flip (\d+) positive effect\(s\) to negative on the primary target\.$/,
+    flipRandom:      /^If (.+?) is an ally, Flip (\d+) random positive effects to negative effects on the primary target\.$/,
+    applyProc:       /^Apply (.+?) to the primary target\.$/,
+    applyCount:      /^Apply (\d+) (.+?) to the primary target\.$/,
+    applyPlusDur:    /^Apply \+(\d+) (.+?) for (\d+) turns to the primary target\.$/,
+    applyPlus:       /^Apply \+(\d+) (.+?) to the primary target\.$/,
+    applyAllies:     /^Apply \+(\d+) (.+?) to allies\.$/,
+    gainPlus:        /^Gain \+(\d+) (.+?)\.$/,
+    gainSpeedBar:    /^Gain (\d+)% Speed Bar\.$/,
+    reduceSpeedBar:  /^Reduce Speed Bar by (\d+)%\.$/,
+    gain:            /^Gain (.+?)\.$/,
+    healthGain:      /^If this character has (\d+)% or less Health, Gain (.+?)\.$/,
+    healthGeneric:   /^If this character has (\d+)% or less Health, (.+)$/,
+  };
+
+  const SENTENCE_TEMPLATES = {
+    // ==================== FRENCH ====================
+    fr: {
+      damageLine: (dmg, pierce, drain) => {
+        const p = [];
+        if (dmg > 0) p.push(`<span class="msf-iso8-damage-value">${dmg} %</span> de dégâts`);
+        if (pierce > 0) p.push(`<span class="msf-iso8-piercing-value">${pierce} %</span> de dégâts perforants`);
+        if (drain > 0) p.push(`<span class="msf-iso8-drain-value">${drain} %</span> de drain de vie`);
+        return p.length > 0 ? `⚔️ Attaque la cible principale et inflige ${p.join(' + ')}` : null;
+      },
+      title: 'ISO-8 Contre/Appui',
+      patterns: [
+        { match: _P.forcedDmgPierce, replace: (m, d, p, tr) => `Lors d'une attaque forcée contre un allié, inflige ${d} % de dégâts + ${p} % de dégâts perforants aux personnages ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        { match: _P.forcedDmg, replace: (m, d, tr) => `Lors d'une attaque forcée contre un allié, inflige ${d} % de dégâts aux personnages ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        { match: _P.flipEffects, replace: (m, n, c) => `Si ${n} est parmi les alliés, convertit ${c} effets bénéfiques aléatoires en effets nuisibles sur la cible principale.` },
+        { match: _P.flipRandom, replace: (m, n, c) => `Si ${n} est parmi les alliés, convertit ${c} effets bénéfiques aléatoires en effets nuisibles sur la cible principale.` },
+        { match: _P.applyProc, replace: (m, pr) => `Applique ${pr} à la cible principale.` },
+        { match: _P.applyCount, replace: (m, c, pr) => `Applique ${c} fois ${pr} à la cible principale.` },
+        { match: _P.applyPlusDur, replace: (m, c, pr, t) => `Applique +${c} ${pr} pendant ${t} tours à la cible principale.` },
+        { match: _P.applyPlus, replace: (m, c, pr) => `Applique +${c} ${pr} à la cible principale.` },
+        { match: _P.applyAllies, replace: (m, c, pr) => `Applique +${c} ${pr} aux alliés.` },
+        { match: _P.gainPlus, replace: (m, c, pr) => `Obtient +${c} ${pr}.` },
+        { match: _P.gainSpeedBar, replace: (m, p) => `Obtient ${p} % de jauge de vitesse.` },
+        { match: _P.reduceSpeedBar, replace: (m, p) => `Réduit la jauge de vitesse de ${p} %.` },
+        { match: _P.gain, replace: (m, pr) => `Obtient ${pr}.` },
+        { match: _P.healthGain, replace: (m, p, pr) => `Si ce personnage a ${p} % de vie ou moins, obtient ${pr}.` },
+        { match: _P.healthGeneric, replace: (m, p, r) => `Si ce personnage a ${p} % de vie ou moins, ${r}` },
+      ],
+    },
+    // ==================== GERMAN ====================
+    de: {
+      damageLine: (dmg, pierce, drain) => {
+        const p = [];
+        if (dmg > 0) p.push(`<span class="msf-iso8-damage-value">${dmg} %</span> Schaden`);
+        if (pierce > 0) p.push(`<span class="msf-iso8-piercing-value">${pierce} %</span> Durchdringungsschaden`);
+        if (drain > 0) p.push(`<span class="msf-iso8-drain-value">${drain} %</span> Lebensentzug`);
+        return p.length > 0 ? `⚔️ Greift das Primärziel an und fügt ihm ${p.join(' + ')} zu` : null;
+      },
+      title: 'ISO-8 Konter/Assist',
+      patterns: [
+        { match: _P.forcedDmgPierce, replace: (m, d, p, tr) => `Wenn dieser Charakter dazu gezwungen wird, einen Verbündeten anzugreifen, fügt er ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Charakteren ${d} % Schaden + ${p} % Durchdringungsschaden zu.` },
+        { match: _P.forcedDmg, replace: (m, d, tr) => `Wenn dieser Charakter dazu gezwungen wird, einen Verbündeten anzugreifen, fügt er ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Charakteren ${d} % Schaden zu.` },
+        { match: _P.flipEffects, replace: (m, n, c) => `Wandelt ${c} zufällige positive Effekte vom Primärziel in negative Effekte um, wenn ${n} ein Verbündeter ist.` },
+        { match: _P.flipRandom, replace: (m, n, c) => `Wandelt ${c} zufällige positive Effekte vom Primärziel in negative Effekte um, wenn ${n} ein Verbündeter ist.` },
+        { match: _P.applyProc, replace: (m, pr) => `Wendet ${pr} auf das Primärziel an.` },
+        { match: _P.applyCount, replace: (m, c, pr) => `Wendet ${c}-mal ${pr} auf das Primärziel an.` },
+        { match: _P.applyPlusDur, replace: (m, c, pr, t) => `Wendet +${c} ${pr} für ${t} Runden auf das Primärziel an.` },
+        { match: _P.applyPlus, replace: (m, c, pr) => `Wendet +${c} ${pr} auf das Primärziel an.` },
+        { match: _P.applyAllies, replace: (m, c, pr) => `Wendet +${c} ${pr} auf Verbündete an.` },
+        { match: _P.gainPlus, replace: (m, c, pr) => `Erhält +${c} ${pr}.` },
+        { match: _P.gainSpeedBar, replace: (m, p) => `Erhält ${p} % Geschwindigkeitsleiste.` },
+        { match: _P.reduceSpeedBar, replace: (m, p) => `Verringert die Geschwindigkeitsleiste um ${p} %.` },
+        { match: _P.gain, replace: (m, pr) => `Erhält ${pr}.` },
+        { match: _P.healthGain, replace: (m, p, pr) => `Wenn dieser Charakter ${p} % oder weniger LP hat, erhält ${pr}.` },
+        { match: _P.healthGeneric, replace: (m, p, r) => `Wenn dieser Charakter ${p} % oder weniger LP hat, ${r}` },
+      ],
+    },
+    // ==================== SPANISH ====================
+    es: {
+      damageLine: (dmg, pierce, drain) => {
+        const p = [];
+        if (dmg > 0) p.push(`<span class="msf-iso8-damage-value">${dmg} %</span> de daño`);
+        if (pierce > 0) p.push(`<span class="msf-iso8-piercing-value">${pierce} %</span> de daño penetrante`);
+        if (drain > 0) p.push(`<span class="msf-iso8-drain-value">${drain} %</span> de absorción`);
+        return p.length > 0 ? `⚔️ Ataca al objetivo principal e inflige un ${p.join(' + ')}` : null;
+      },
+      title: 'ISO-8 Contra/Asistencia',
+      patterns: [
+        { match: _P.forcedDmgPierce, replace: (m, d, p, tr) => `Cuando se le obliga a atacar a un aliado, este personaje inflige un ${d} % de daño + ${p} % de daño penetrante a los personajes ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        { match: _P.forcedDmg, replace: (m, d, tr) => `Cuando se le obliga a atacar a un aliado, este personaje inflige un ${d} % de daño a los personajes ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        { match: _P.flipEffects, replace: (m, n, c) => `Si ${n} es un aliado, convierte ${c} efectos positivos aleatorios del objetivo principal en negativos.` },
+        { match: _P.flipRandom, replace: (m, n, c) => `Si ${n} es un aliado, convierte ${c} efectos positivos aleatorios del objetivo principal en negativos.` },
+        { match: _P.applyProc, replace: (m, pr) => `Aplica ${pr} al objetivo principal.` },
+        { match: _P.applyCount, replace: (m, c, pr) => `Aplica ${c} cargas de ${pr} al objetivo principal.` },
+        { match: _P.applyPlusDur, replace: (m, c, pr, t) => `Aplica +${c} ${pr} durante ${t} turnos al objetivo principal.` },
+        { match: _P.applyPlus, replace: (m, c, pr) => `Aplica +${c} ${pr} al objetivo principal.` },
+        { match: _P.applyAllies, replace: (m, c, pr) => `Aplica +${c} ${pr} a los aliados.` },
+        { match: _P.gainPlus, replace: (m, c, pr) => `Obtiene +${c} ${pr}.` },
+        { match: _P.gainSpeedBar, replace: (m, p) => `Obtiene ${p} % de barra de velocidad.` },
+        { match: _P.reduceSpeedBar, replace: (m, p) => `Reduce la barra de velocidad en un ${p} %.` },
+        { match: _P.gain, replace: (m, pr) => `Obtiene ${pr}.` },
+        { match: _P.healthGain, replace: (m, p, pr) => `Si este personaje tiene ${p} % de salud o menos, obtiene ${pr}.` },
+        { match: _P.healthGeneric, replace: (m, p, r) => `Si este personaje tiene ${p} % de salud o menos, ${r}` },
+      ],
+    },
+    // ==================== PORTUGUESE ====================
+    pt: {
+      damageLine: (dmg, pierce, drain) => {
+        const p = [];
+        if (dmg > 0) p.push(`<span class="msf-iso8-damage-value">${dmg}%</span> de dano`);
+        if (pierce > 0) p.push(`<span class="msf-iso8-piercing-value">${pierce}%</span> de perfuração`);
+        if (drain > 0) p.push(`<span class="msf-iso8-drain-value">${drain}%</span> de dreno de vida`);
+        return p.length > 0 ? `⚔️ Ataque o alvo primário com ${p.join(' + ')}` : null;
+      },
+      title: 'ISO-8 Contra/Assistência',
+      patterns: [
+        { match: _P.forcedDmgPierce, replace: (m, d, p, tr) => `Quando forçado a atacar um aliado, este personagem causa ${d}% de dano + ${p}% de perfuração a personagens ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        { match: _P.forcedDmg, replace: (m, d, tr) => `Quando forçado a atacar um aliado, este personagem causa ${d}% de dano a personagens ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        { match: _P.flipEffects, replace: (m, n, c) => `Se ${n} for um aliado, inverta ${c} efeitos positivos aleatórios para efeitos negativos no alvo primário.` },
+        { match: _P.flipRandom, replace: (m, n, c) => `Se ${n} for um aliado, inverta ${c} efeitos positivos aleatórios para efeitos negativos no alvo primário.` },
+        { match: _P.applyProc, replace: (m, pr) => `Aplique ${pr} ao alvo primário.` },
+        { match: _P.applyCount, replace: (m, c, pr) => `Aplique ${c} de ${pr} ao alvo primário.` },
+        { match: _P.applyPlusDur, replace: (m, c, pr, t) => `Aplique +${c} ${pr} por ${t} turnos ao alvo primário.` },
+        { match: _P.applyPlus, replace: (m, c, pr) => `Aplique +${c} ${pr} ao alvo primário.` },
+        { match: _P.applyAllies, replace: (m, c, pr) => `Aplique +${c} ${pr} aos aliados.` },
+        { match: _P.gainPlus, replace: (m, c, pr) => `Receba +${c} ${pr}.` },
+        { match: _P.gainSpeedBar, replace: (m, p) => `Receba ${p}% de barra de velocidade.` },
+        { match: _P.reduceSpeedBar, replace: (m, p) => `Reduza a barra de velocidade em ${p}%.` },
+        { match: _P.gain, replace: (m, pr) => `Receba ${pr}.` },
+        { match: _P.healthGain, replace: (m, p, pr) => `Se este personagem tiver ${p}% de vida ou menos, receba ${pr}.` },
+        { match: _P.healthGeneric, replace: (m, p, r) => `Se este personagem tiver ${p}% de vida ou menos, ${r}` },
+      ],
+    },
+    // ==================== ITALIAN ====================
+    it: {
+      damageLine: (dmg, pierce, drain) => {
+        const p = [];
+        if (dmg > 0) p.push(`<span class="msf-iso8-damage-value">${dmg}%</span> di danno`);
+        if (pierce > 0) p.push(`<span class="msf-iso8-piercing-value">${pierce}%</span> di Perforazione`);
+        if (drain > 0) p.push(`<span class="msf-iso8-drain-value">${drain}%</span> di drenaggio`);
+        return p.length > 0 ? `⚔️ Attacca il bersaglio primario per il ${p.join(' + ')}` : null;
+      },
+      title: 'ISO-8 Contro/Assistenza',
+      patterns: [
+        { match: _P.forcedDmgPierce, replace: (m, d, p, tr) => `Quando costretta ad attaccare un alleato, questo personaggio infligge ${d}% di danno + ${p}% di Perforazione ai personaggi ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        { match: _P.forcedDmg, replace: (m, d, tr) => `Quando costretta ad attaccare un alleato, questo personaggio infligge ${d}% di danno ai personaggi ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        { match: _P.flipEffects, replace: (m, n, c) => `Se ${n} è un alleato, trasforma ${c} effetti positivi casuali in effetti negativi sul bersaglio primario.` },
+        { match: _P.flipRandom, replace: (m, n, c) => `Se ${n} è un alleato, trasforma ${c} effetti positivi casuali in effetti negativi sul bersaglio primario.` },
+        { match: _P.applyProc, replace: (m, pr) => `Applica ${pr} al bersaglio primario.` },
+        { match: _P.applyCount, replace: (m, c, pr) => `Applica ${c} di ${pr} al bersaglio primario.` },
+        { match: _P.applyPlusDur, replace: (m, c, pr, t) => `Applica +${c} ${pr} per ${t} turni al bersaglio primario.` },
+        { match: _P.applyPlus, replace: (m, c, pr) => `Applica +${c} ${pr} al bersaglio primario.` },
+        { match: _P.applyAllies, replace: (m, c, pr) => `Applica +${c} ${pr} agli alleati.` },
+        { match: _P.gainPlus, replace: (m, c, pr) => `Ottiene +${c} ${pr}.` },
+        { match: _P.gainSpeedBar, replace: (m, p) => `Ottiene ${p}% di barra velocità.` },
+        { match: _P.reduceSpeedBar, replace: (m, p) => `Riduce la barra velocità del ${p}%.` },
+        { match: _P.gain, replace: (m, pr) => `Ottiene ${pr}.` },
+        { match: _P.healthGain, replace: (m, p, pr) => `Se questo personaggio ha il ${p}% o meno di Salute, ottiene ${pr}.` },
+        { match: _P.healthGeneric, replace: (m, p, r) => `Se questo personaggio ha il ${p}% o meno di Salute, ${r}` },
+      ],
+    },
+    // ==================== JAPANESE ====================
+    ja: {
+      damageLine: (dmg, pierce, drain) => {
+        const p = [];
+        if (dmg > 0) p.push(`<span class="msf-iso8-damage-value">${dmg}%</span>のダメージ`);
+        if (pierce > 0) p.push(`<span class="msf-iso8-piercing-value">${pierce}%</span>の貫通効果`);
+        if (drain > 0) p.push(`<span class="msf-iso8-drain-value">${drain}%</span>の吸収`);
+        return p.length > 0 ? `⚔️ メインターゲットを${p.join(' + ')}で攻撃` : null;
+      },
+      title: 'ISO-8 カウンター/アシスト',
+      patterns: [
+        { match: _P.forcedDmgPierce, replace: (m, d, p, tr) => `味方を攻撃させられた場合、このキャラクターが${localizeText(tr, SENTENCE_TEMPLATES._activeDict)}キャラクターに${d}%のダメージ + ${p}%の貫通効果を与える。` },
+        { match: _P.forcedDmg, replace: (m, d, tr) => `味方を攻撃させられた場合、このキャラクターが${localizeText(tr, SENTENCE_TEMPLATES._activeDict)}キャラクターに${d}%のダメージを与える。` },
+        { match: _P.flipEffects, replace: (m, n, c) => `味方に${n}がいる場合、メインターゲットに付与されているランダムなポジティブ効果${c}個をネガティブ効果に反転。` },
+        { match: _P.flipRandom, replace: (m, n, c) => `味方に${n}がいる場合、メインターゲットに付与されているランダムなポジティブ効果${c}個をネガティブ効果に反転。` },
+        { match: _P.applyProc, replace: (m, pr) => `メインターゲットに${pr}を適用。` },
+        { match: _P.applyCount, replace: (m, c, pr) => `メインターゲットに${pr}を${c}個適用。` },
+        { match: _P.applyPlusDur, replace: (m, c, pr, t) => `メインターゲットに+${c}${pr}を${t}ターン適用。` },
+        { match: _P.applyPlus, replace: (m, c, pr) => `メインターゲットに+${c}${pr}を適用。` },
+        { match: _P.applyAllies, replace: (m, c, pr) => `味方に+${c}${pr}を適用。` },
+        { match: _P.gainPlus, replace: (m, c, pr) => `+${c}${pr}を獲得。` },
+        { match: _P.gainSpeedBar, replace: (m, p) => `スピードバーを${p}%獲得。` },
+        { match: _P.reduceSpeedBar, replace: (m, p) => `スピードバーを${p}%減少。` },
+        { match: _P.gain, replace: (m, pr) => `${pr}を獲得。` },
+        { match: _P.healthGain, replace: (m, p, pr) => `このキャラクターの体力が${p}%以下の場合、${pr}を獲得。` },
+        { match: _P.healthGeneric, replace: (m, p, r) => `このキャラクターの体力が${p}%以下の場合、${r}` },
+      ],
+    },
+    // ==================== KOREAN ====================
+    ko: {
+      damageLine: (dmg, pierce, drain) => {
+        const p = [];
+        if (dmg > 0) p.push(`<span class="msf-iso8-damage-value">${dmg}%</span> 대미지`);
+        if (pierce > 0) p.push(`<span class="msf-iso8-piercing-value">${pierce}%</span> 관통 대미지`);
+        if (drain > 0) p.push(`<span class="msf-iso8-drain-value">${drain}%</span> 흡수`);
+        return p.length > 0 ? `⚔️ 주 공격 대상에게 ${p.join(' + ')}를 줍니다` : null;
+      },
+      title: 'ISO-8 반격/지원',
+      patterns: [
+        { match: _P.forcedDmgPierce, replace: (m, d, p, tr) => `아군을 공격하도록 조종당한 경우, 이 캐릭터는 ${localizeText(tr, SENTENCE_TEMPLATES._activeDict)} 특성 캐릭터에게 ${d}% 대미지 + ${p}% 관통 대미지를 줍니다.` },
+        { match: _P.forcedDmg, replace: (m, d, tr) => `아군을 공격하도록 조종당한 경우, 이 캐릭터는 ${localizeText(tr, SENTENCE_TEMPLATES._activeDict)} 특성 캐릭터에게 ${d}% 대미지를 줍니다.` },
+        { match: _P.flipEffects, replace: (m, n, c) => `${n}(이)가 아군이면 주 공격 대상에게 적용된 무작위 버프 ${c}개를 디버프로 바꿉니다.` },
+        { match: _P.flipRandom, replace: (m, n, c) => `${n}(이)가 아군이면 주 공격 대상에게 적용된 무작위 버프 ${c}개를 디버프로 바꿉니다.` },
+        { match: _P.applyProc, replace: (m, pr) => `주 공격 대상에게 ${pr}을 적용합니다.` },
+        { match: _P.applyCount, replace: (m, c, pr) => `주 공격 대상에게 ${pr}을 ${c}회 적용합니다.` },
+        { match: _P.applyPlusDur, replace: (m, c, pr, t) => `주 공격 대상에게 +${c} ${pr}을 ${t}턴간 적용합니다.` },
+        { match: _P.applyPlus, replace: (m, c, pr) => `주 공격 대상에게 +${c} ${pr}을 적용합니다.` },
+        { match: _P.applyAllies, replace: (m, c, pr) => `아군에게 +${c} ${pr}을 적용합니다.` },
+        { match: _P.gainPlus, replace: (m, c, pr) => `+${c} ${pr}을 획득합니다.` },
+        { match: _P.gainSpeedBar, replace: (m, p) => `속도 게이지를 ${p}% 획득합니다.` },
+        { match: _P.reduceSpeedBar, replace: (m, p) => `속도 게이지를 ${p}% 감소시킵니다.` },
+        { match: _P.gain, replace: (m, pr) => `${pr}을 획득합니다.` },
+        { match: _P.healthGain, replace: (m, p, pr) => `이 캐릭터의 체력이 ${p}% 이하이면 ${pr}을 획득합니다.` },
+        { match: _P.healthGeneric, replace: (m, p, r) => `이 캐릭터의 체력이 ${p}% 이하이면 ${r}` },
+      ],
+    },
+    // ==================== RUSSIAN ====================
+    ru: {
+      damageLine: (dmg, pierce, drain) => {
+        const p = [];
+        if (dmg > 0) p.push(`<span class="msf-iso8-damage-value">${dmg} %</span> урона`);
+        if (pierce > 0) p.push(`<span class="msf-iso8-piercing-value">${pierce} %</span> проникающего урона`);
+        if (drain > 0) p.push(`<span class="msf-iso8-drain-value">${drain} %</span> высасывания`);
+        return p.length > 0 ? `⚔️ Наносит основной цели ${p.join(' + ')}` : null;
+      },
+      title: 'ISO-8 Контратака/Помощь',
+      patterns: [
+        { match: _P.forcedDmgPierce, replace: (m, d, p, tr) => `Если персонаж вынужден атаковать союзника, он наносит персонажам-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} ${d} % урона + ${p} % проникающего урона.` },
+        { match: _P.forcedDmg, replace: (m, d, tr) => `Если персонаж вынужден атаковать союзника, он наносит персонажам-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} ${d} % урона.` },
+        { match: _P.flipEffects, replace: (m, n, c) => `Если среди союзников есть ${n}, превращает ${c} случ. положит. эфф. на основной цели в отрицательные.` },
+        { match: _P.flipRandom, replace: (m, n, c) => `Если среди союзников есть ${n}, превращает ${c} случ. положит. эфф. на основной цели в отрицательные.` },
+        { match: _P.applyProc, replace: (m, pr) => `Применяет ${pr} к основной цели.` },
+        { match: _P.applyCount, replace: (m, c, pr) => `Применяет ${c} зар. ${pr} к основной цели.` },
+        { match: _P.applyPlusDur, replace: (m, c, pr, t) => `Применяет +${c} ${pr} на ${t} ходов к основной цели.` },
+        { match: _P.applyPlus, replace: (m, c, pr) => `Применяет +${c} ${pr} к основной цели.` },
+        { match: _P.applyAllies, replace: (m, c, pr) => `Применяет +${c} ${pr} к союзникам.` },
+        { match: _P.gainPlus, replace: (m, c, pr) => `Получает +${c} ${pr}.` },
+        { match: _P.gainSpeedBar, replace: (m, p) => `Получает ${p} % шкалы скорости.` },
+        { match: _P.reduceSpeedBar, replace: (m, p) => `Уменьшает шкалу скорости на ${p} %.` },
+        { match: _P.gain, replace: (m, pr) => `Получает ${pr}.` },
+        { match: _P.healthGain, replace: (m, p, pr) => `Если у персонажа ${p} % здоровья или менее, получает ${pr}.` },
+        { match: _P.healthGeneric, replace: (m, p, r) => `Если у персонажа ${p} % здоровья или менее, ${r}` },
+      ],
+    },
+  };
+
+  // Apply sentence-level templates if available, falling back to find-and-replace
+  function localizeEffect(text, lang, dict) {
+    const templates = SENTENCE_TEMPLATES[lang];
+    if (templates && templates.patterns) {
+      // Make dict available to template replace functions for inline lookups
+      SENTENCE_TEMPLATES._activeDict = dict;
+      for (const p of templates.patterns) {
+        const match = text.match(p.match);
+        if (match) {
+          let result = p.replace(...match);
+          // Also apply dictionary for any remaining terms (trait names, proc names)
+          return localizeText(result, dict);
+        }
+      }
+    }
+    // Fallback: simple find-and-replace
+    return localizeText(text, dict);
+  }
+
   // Format the damage line
-  function formatDamageLine(data) {
+  function formatDamageLine(data, lang) {
+    const templates = SENTENCE_TEMPLATES[lang];
+    if (templates && templates.damageLine) {
+      return templates.damageLine(data.damage, data.piercing, data.drain);
+    }
     const parts = [];
     if (data.damage > 0) {
       parts.push(`<span class="msf-iso8-damage-value">${data.damage}%</span> Damage`);
@@ -129,16 +455,22 @@
   }
 
   // Create the ISO-8 info panel
-  function createIso8Panel(charId, data) {
+  function createIso8Panel(charId, data, dict, lang) {
     const container = document.createElement('div');
     container.className = 'msf-iso8-container';
     container.id = 'msf-iso8-panel';
+
+    const t = (text) => localizeEffect(text, lang, dict);
+    activeLocaleDict = dict;
+
+    const templates = SENTENCE_TEMPLATES[lang];
+    const title = (templates && templates.title) || 'ISO-8 Counter/Assist';
 
     let effectsHtml = '';
     if (data.effects && data.effects.length > 0) {
       const effectItems = data.effects.map(effect => {
         const effectClass = classifyEffect(effect);
-        const formattedEffect = formatEffectText(effect);
+        const formattedEffect = formatEffectText(t(effect));
         return `<li class="msf-iso8-effect-item ${effectClass}">${formattedEffect}</li>`;
       }).join('');
       effectsHtml = `<ul class="msf-iso8-effects-list">${effectItems}</ul>`;
@@ -147,20 +479,22 @@
     let notesHtml = '';
     if (data.notes && data.notes.length > 0) {
       const noteItems = data.notes.map(note => {
-        return `<li class="msf-iso8-note-item">${note}</li>`;
+        return `<li class="msf-iso8-note-item">${t(note)}</li>`;
       }).join('');
       notesHtml = `<ul class="msf-iso8-notes-list">${noteItems}</ul>`;
     }
 
-    const damageLine = formatDamageLine(data);
+    const damageLine = formatDamageLine(data, lang);
     const damageHtml = damageLine
-      ? `<div class="msf-iso8-damage-line">⚔️ Attack primary target for ${damageLine}</div>`
+      ? (templates && templates.damageLine
+        ? `<div class="msf-iso8-damage-line">${damageLine}</div>`
+        : `<div class="msf-iso8-damage-line">⚔️ Attack primary target for ${damageLine}</div>`)
       : '';
 
     container.innerHTML = `
       <div class="msf-iso8-header">
         ${ISO8_ICON_SVG}
-        <h3 class="msf-iso8-title">ISO-8 Counter/Assist</h3>
+        <h3 class="msf-iso8-title">${title}</h3>
         <button class="msf-iso8-close-btn" aria-label="Close ISO-8 Panel">×</button>
       </div>
       <div class="msf-iso8-content">
@@ -241,7 +575,8 @@
     const charId = getCharacterIdFromUrl();
     if (!charId) return;
 
-    console.log('MSF ISO-8: Looking up data for', charId);
+    const lang = getLanguageFromUrl();
+    console.log('MSF ISO-8: Looking up data for', charId, '(lang:', lang + ')');
 
     const iso8Data = await loadIso8Data();
     if (!iso8Data) {
@@ -249,12 +584,24 @@
       return;
     }
 
+    // Load locale dictionary for non-English pages
+    let dict = null;
+    if (lang !== 'en') {
+      const allLocales = await loadLocaleData();
+      dict = allLocales[lang] || null;
+      if (dict) {
+        console.log('MSF ISO-8: Loaded', Object.keys(dict).length, 'translations for', lang);
+      } else {
+        console.log('MSF ISO-8: No translations available for', lang);
+      }
+    }
+
     const data = iso8Data[charId];
     let panel;
 
     if (data) {
       console.log('MSF ISO-8: Found data for', charId);
-      panel = createIso8Panel(charId, data);
+      panel = createIso8Panel(charId, data, dict, lang);
     } else {
       // Fuzzy matching
       const variations = [
@@ -281,7 +628,7 @@
 
       if (foundData) {
         console.log('MSF ISO-8: Found data for', foundKey, '(matched from', charId, ')');
-        panel = createIso8Panel(foundKey, foundData);
+        panel = createIso8Panel(foundKey, foundData, dict, lang);
       } else {
         console.log('MSF ISO-8: No data found for', charId);
         panel = createNotFoundPanel(charId);
