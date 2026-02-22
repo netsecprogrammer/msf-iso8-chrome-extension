@@ -2391,7 +2391,7 @@
     "notes": []
   },
   "MsMarvelClassic": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf the primary target is ABSOLUTE A-FORCE, Apply Defense Up to the most injured without Defense Up ally.\\nIf the primary target is ABSOLUTE A-FORCE, Gain +1 Regeneration.\\nIn WAR, Heal a random ABSOLUTE A-FORCE ally for 10% of Max Health.\\nApply +3 Charged, up to a maximum of 3 to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf the primary target is ABSOLUTE A-FORCE, Apply Defense Up to the most injured without Defense Up ally.\\nIf the primary target is ABSOLUTE A-FORCE, Gain +1 Regeneration.\\nIn WAR, Heal a random ABSOLUTE A-FORCE ally for 10% of Max Health.\\nIf self has 2 or less Charged, Apply +3 Charged, up to a maximum of 3 to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
@@ -2399,7 +2399,7 @@
       "If the primary target is ABSOLUTE A-FORCE, Apply Defense Up to the most injured without Defense Up ally.",
       "If the primary target is ABSOLUTE A-FORCE, Gain +1 Regeneration.",
       "In WAR, Heal a random ABSOLUTE A-FORCE ally for 10% of Max Health.",
-      "Apply +3 Charged, up to a maximum of 3 to allies."
+      "If self has 2 or less Charged, Apply +3 Charged, up to a maximum of 3 to allies."
     ],
     "notes": []
   },
@@ -2602,7 +2602,7 @@
     "notes": []
   },
   "Nova": {
-    "description": "Attack primary target for 300% damage + 17% Piercing.\\nIn WAR, OFFENSE, If the primary target has Barrier, Remove Barrier from the primary target.\\nNot in WAR, Clear 2 positive effect(s) from the primary target.\\nIn WAR, Clear 4 positive effect(s) from the primary target.\\nIn WAR, OFFENSE, If self has Nova Force Tracking, +250% damage + 17% Piercing.",
+    "description": "In WAR, OFFENSE, attack primary target for 300% damage + 17% Piercing.\\nIn WAR, OFFENSE, If the primary target has Barrier, Remove Barrier from the primary target.\\nNot in WAR, Clear 2 positive effect(s) from the primary target.\\nIn WAR, Clear 4 positive effect(s) from the primary target.\\nIn WAR, OFFENSE, If self has Nova Force Tracking, +250% damage + 17% Piercing.",
     "damage": 300,
     "piercing": 17,
     "drain": 0,
@@ -3053,14 +3053,14 @@
     "notes": []
   },
   "RedHulk": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nIf self has 5+ Charged, +100% damage.\\nIf self has 5+ Charged, If any enemy has positive effects, Flip 2 positive effect(s) to negative on the primary target.\\nIf any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.\\nIn WAR, If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nIf self has 5+ Charged, +100% damage.\\nIf self has 5+ Charged, If any enemy has positive effects, Flip 2 positive effect(s) to negative on the primary target.\\nIf self has less than 5 Charged, If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.\\nIn WAR, If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If self has 5+ Charged, +100% damage.",
       "If self has 5+ Charged, If any enemy has positive effects, Flip 2 positive effect(s) to negative on the primary target.",
-      "If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.",
+      "If self has less than 5 Charged, If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.",
       "In WAR, If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target."
     ],
     "notes": []
@@ -3580,7 +3580,7 @@
     "notes": []
   },
   "SilverSurfer": {
-    "description": "Attack primary target for 236% Piercing.\\nIf self has any negative effects, Steal all negative effect(s) from the primary target.\\nOtherwise, Steal all positive effect(s) from the primary target, excluding Taunt.\\nOn Assist, Steal all positive effect(s) from the primary target, excluding Taunt.",
+    "description": "If self has Offense Up, attack primary target for 236% Piercing.\\nIf self has any negative effects, Steal all negative effect(s) from the primary target.\\nOtherwise, Steal all positive effect(s) from the primary target, excluding Taunt.\\nOn Assist, Steal all positive effect(s) from the primary target, excluding Taunt.",
     "damage": 0,
     "piercing": 236,
     "drain": 0,
@@ -3824,13 +3824,13 @@
     "notes": []
   },
   "Sunspot": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply +1 Charged, up to a maximum of 10 to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nIf self has less than 10 Charged, Apply +1 Charged, up to a maximum of 10 to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Bleed to the primary target.",
-      "Apply +1 Charged, up to a maximum of 10 to allies."
+      "If self has less than 10 Charged, Apply +1 Charged, up to a maximum of 10 to allies."
     ],
     "notes": []
   },
@@ -4195,7 +4195,7 @@
     "notes": []
   },
   "UnionJack": {
-    "description": "Attack primary target for 270% damage + 17% Piercing.\\nNot in RAID, Flip 1 positive effect(s) to negative on the primary target.\\nIn RAID, Flip 3 positive effect(s) to negative on the primary target.\\nIf self has Charged, Reduce the duration of Charged by 1 on allies.",
+    "description": "If self has 1+ Charged, attack primary target for 270% damage + 17% Piercing.\\nNot in RAID, Flip 1 positive effect(s) to negative on the primary target.\\nIn RAID, Flip 3 positive effect(s) to negative on the primary target.\\nIf self has Charged, Reduce the duration of Charged by 1 on allies.",
     "damage": 270,
     "piercing": 17,
     "drain": 0,

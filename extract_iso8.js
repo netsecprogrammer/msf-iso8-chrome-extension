@@ -256,6 +256,10 @@ function parseConditions(action) {
                       conditions.push(`If self has ${dur.than}+ ${procName}`);
                   } else if (dur.if === 'greater') {
                       conditions.push(`If self has more than ${dur.than} ${procName}`);
+                  } else if (dur.if === 'less_or_equal') {
+                      conditions.push(`If self has ${dur.than} or less ${procName}`);
+                  } else if (dur.if === 'less') {
+                      conditions.push(`If self has less than ${dur.than} ${procName}`);
                   }
               }
           }
@@ -305,6 +309,8 @@ function parseConditions(action) {
                       if (dur && dur.than !== undefined) {
                           if (dur.if === 'greater_or_equal') conditions.push(`If self has ${dur.than}+ ${procName}`);
                           else if (dur.if === 'greater') conditions.push(`If self has more than ${dur.than} ${procName}`);
+                          else if (dur.if === 'less_or_equal') conditions.push(`If self has ${dur.than} or less ${procName}`);
+                          else if (dur.if === 'less') conditions.push(`If self has less than ${dur.than} ${procName}`);
                       }
                   }
               }
@@ -702,6 +708,7 @@ function processCharacter(charName, charData) {
   let drain = 0;
   let critChance = 0;
   let critDmg = 0;
+  let mainStatsCondition = ''; // Track if main stats came from a conditional action
   const effects = [];
   const notes = [];
 
@@ -1056,6 +1063,9 @@ function processCharacter(charName, charData) {
                 }
             } else {
                 // Main stats (unconditional, or first conditional when no base exists yet)
+                if (isPositivelyConditional && conditionPrefix) {
+                    mainStatsCondition = conditionPrefix;
+                }
                 if (localDmg > 0) damage = localDmg;
                 if (localPierce > 0) piercing = localPierce;
                 if (localDrain > 0) drain = localDrain;
@@ -1845,13 +1855,17 @@ function processCharacter(charName, charData) {
   }
 
   // Generate description
-  let description = `Attack ${mainAttackTarget} for `;
+  let description = mainStatsCondition
+      ? `${mainStatsCondition}attack ${mainAttackTarget} for `
+      : `Attack ${mainAttackTarget} for `;
   if (damage > 0) {
       description += `${damage}% damage`;
       if (piercing > 0) description += ` + ${piercing}% Piercing`;
   } else {
       if (piercing > 0) description += `${piercing}% Piercing`;
-      else description = `Attack ${mainAttackTarget}`; // Fallback if no dmg/piercing
+      else description = mainStatsCondition
+          ? `${mainStatsCondition}attack ${mainAttackTarget}`
+          : `Attack ${mainAttackTarget}`; // Fallback if no dmg/piercing
   }
 
   if (drain > 0) description += ` + ${drain}% Drain`;
