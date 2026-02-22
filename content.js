@@ -338,6 +338,13 @@
     selfHasMoreNotModeProlongNegExcl: /^If self has more than (\d+) (.+?), Not in (.+?), Prolong the duration of all negative effects, excluding (.+?) by (\d+)\.$/,
     barrierMostInjured:        /^Barrier for (\d+)% of Max Health to the most injured ally\.$/,
     onAssistDmg:               /^On Assist, \+(\d+)% damage\.$/,
+    // --- Batch 6 patterns ---
+    onTriggerGainPlus:         /^On (Counter|Crit), Gain \+(\d+) (.+?)\.$/,
+    flipNegToPosAllies:        /^Flip (\d+) negative effect\(s\) to positive on allies\.$/,
+    stealProcGiveAllies:       /^Steal (.+?) from the primary target and give to allies\.$/,
+    selfHasCritBoost:          /^If self has (.+?), \+(\d+)% Crit Chance\.$/,
+    traitAllyExistsDmg:        /^If an? (.+?) ally exists, \+(\d+)% damage\.$/,
+    applyProcMostInjuredTrait: /^Apply (.+?) to the most injured (.+?) ally\.$/,
   };
 
   const SENTENCE_TEMPLATES = {
@@ -472,6 +479,13 @@
         { match: _P.selfHasMoreNotModeProlongNegExcl, replace: (m, n, proc, mode, excl, c) => `Si ce personnage a plus de ${n} ${proc}, ${_notModeLoc(mode, 'fr')}, prolonge la durée de tous les effets nuisibles, sauf ${excl}, de ${c}.` },
         { match: _P.barrierMostInjured, replace: (m, p) => `Barrière de ${p} % de la vie max. à l'allié le plus blessé.` },
         { match: _P.onAssistDmg, replace: (m, p) => `En assistance, +${p} % de dégâts.` },
+        // --- Batch 6 patterns ---
+        { match: _P.onTriggerGainPlus, replace: (m, trig, c, pr) => `${trig === 'Counter' ? 'En contre' : 'Sur coup critique'}, obtient +${c} ${pr}.` },
+        { match: _P.flipNegToPosAllies, replace: (m, c) => `Convertit ${c} effet(s) nuisible(s) en bénéfique(s) sur les alliés.` },
+        { match: _P.stealProcGiveAllies, replace: (m, pr) => `Vole ${pr} de la cible principale et le donne aux alliés.` },
+        { match: _P.selfHasCritBoost, replace: (m, pr, p) => `Si ce personnage a ${pr}, +${p} % de chance de coup critique.` },
+        { match: _P.traitAllyExistsDmg, replace: (m, tr, p) => `Si un allié ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} existe, +${p} % de dégâts.` },
+        { match: _P.applyProcMostInjuredTrait, replace: (m, pr, tr) => `Applique ${pr} à l'allié ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} le plus blessé.` },
       ],
     },
     // ==================== GERMAN ====================
@@ -605,6 +619,13 @@
         { match: _P.selfHasMoreNotModeProlongNegExcl, replace: (m, n, proc, mode, excl, c) => `Wenn dieser Charakter mehr als ${n} ${proc} hat, ${_notModeLoc(mode, 'de')}: verlängert die Dauer aller negativen Effekte, außer ${excl}, um ${c}.` },
         { match: _P.barrierMostInjured, replace: (m, p) => `Barriere für ${p} % der max. LP für den am schwersten verletzten Verbündeten.` },
         { match: _P.onAssistDmg, replace: (m, p) => `Bei Assist: +${p} % Schaden.` },
+        // --- Batch 6 patterns ---
+        { match: _P.onTriggerGainPlus, replace: (m, trig, c, pr) => `Bei ${trig === 'Counter' ? 'Konter' : 'kritischem Treffer'}: Erhält +${c} ${pr}.` },
+        { match: _P.flipNegToPosAllies, replace: (m, c) => `Wandelt ${c} negative(n) Effekt(e) bei Verbündeten in positive um.` },
+        { match: _P.stealProcGiveAllies, replace: (m, pr) => `Stiehlt ${pr} vom Primärziel und gibt es Verbündeten.` },
+        { match: _P.selfHasCritBoost, replace: (m, pr, p) => `Wenn dieser Charakter ${pr} hat, +${p} % kritische Trefferchance.` },
+        { match: _P.traitAllyExistsDmg, replace: (m, tr, p) => `Wenn ein ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeter existiert, +${p} % Schaden.` },
+        { match: _P.applyProcMostInjuredTrait, replace: (m, pr, tr) => `Wendet ${pr} auf den am schwersten verletzten ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten an.` },
       ],
     },
     // ==================== SPANISH ====================
@@ -738,6 +759,13 @@
         { match: _P.selfHasMoreNotModeProlongNegExcl, replace: (m, n, proc, mode, excl, c) => `Si este personaje tiene más de ${n} ${proc}, ${_notModeLoc(mode, 'es')}, prolonga la duración de todos los efectos negativos, excepto ${excl}, en ${c}.` },
         { match: _P.barrierMostInjured, replace: (m, p) => `Barrera del ${p} % de la salud máxima al aliado más herido.` },
         { match: _P.onAssistDmg, replace: (m, p) => `En asistencia, +${p} % de daño.` },
+        // --- Batch 6 patterns ---
+        { match: _P.onTriggerGainPlus, replace: (m, trig, c, pr) => `En ${trig === 'Counter' ? 'contraataque' : 'golpe crítico'}, obtiene +${c} ${pr}.` },
+        { match: _P.flipNegToPosAllies, replace: (m, c) => `Convierte ${c} efecto(s) negativo(s) en positivo(s) en los aliados.` },
+        { match: _P.stealProcGiveAllies, replace: (m, pr) => `Roba ${pr} del objetivo principal y lo da a los aliados.` },
+        { match: _P.selfHasCritBoost, replace: (m, pr, p) => `Si este personaje tiene ${pr}, +${p} % de probabilidad de golpe crítico.` },
+        { match: _P.traitAllyExistsDmg, replace: (m, tr, p) => `Si existe un aliado ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}, +${p} % de daño.` },
+        { match: _P.applyProcMostInjuredTrait, replace: (m, pr, tr) => `Aplica ${pr} al aliado ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} más herido.` },
       ],
     },
     // ==================== PORTUGUESE ====================
@@ -871,6 +899,13 @@
         { match: _P.selfHasMoreNotModeProlongNegExcl, replace: (m, n, proc, mode, excl, c) => `Se tiver mais de ${n} ${proc}, ${_notModeLoc(mode, 'pt')}, prolonga a duração de todos os efeitos negativos, exceto ${excl}, em ${c}.` },
         { match: _P.barrierMostInjured, replace: (m, p) => `Barreira de ${p}% da vida máxima ao aliado mais ferido.` },
         { match: _P.onAssistDmg, replace: (m, p) => `Em assistência, +${p}% de dano.` },
+        // --- Batch 6 patterns ---
+        { match: _P.onTriggerGainPlus, replace: (m, trig, c, pr) => `Em ${trig === 'Counter' ? 'contra-ataque' : 'crítico'}, obtém +${c} ${pr}.` },
+        { match: _P.flipNegToPosAllies, replace: (m, c) => `Converte ${c} efeito(s) negativo(s) em positivo(s) nos aliados.` },
+        { match: _P.stealProcGiveAllies, replace: (m, pr) => `Rouba ${pr} do alvo primário e dá aos aliados.` },
+        { match: _P.selfHasCritBoost, replace: (m, pr, p) => `Se tiver ${pr}, +${p}% de chance de crítico.` },
+        { match: _P.traitAllyExistsDmg, replace: (m, tr, p) => `Se um aliado ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} existir, +${p}% de dano.` },
+        { match: _P.applyProcMostInjuredTrait, replace: (m, pr, tr) => `Aplique ${pr} ao aliado ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} mais ferido.` },
       ],
     },
     // ==================== ITALIAN ====================
@@ -1004,6 +1039,13 @@
         { match: _P.selfHasMoreNotModeProlongNegExcl, replace: (m, n, proc, mode, excl, c) => `Se questo personaggio ha più di ${n} ${proc}, ${_notModeLoc(mode, 'it')}, prolunga la durata di tutti gli effetti negativi, escluso ${excl}, di ${c}.` },
         { match: _P.barrierMostInjured, replace: (m, p) => `Barriera del ${p}% della salute massima all'alleato più ferito.` },
         { match: _P.onAssistDmg, replace: (m, p) => `In assistenza, +${p}% di danno.` },
+        // --- Batch 6 patterns ---
+        { match: _P.onTriggerGainPlus, replace: (m, trig, c, pr) => `In ${trig === 'Counter' ? 'contrattacco' : 'colpo critico'}, ottiene +${c} ${pr}.` },
+        { match: _P.flipNegToPosAllies, replace: (m, c) => `Converte ${c} effetto/i negativo/i in positivo/i sugli alleati.` },
+        { match: _P.stealProcGiveAllies, replace: (m, pr) => `Ruba ${pr} dal bersaglio primario e lo dà agli alleati.` },
+        { match: _P.selfHasCritBoost, replace: (m, pr, p) => `Se questo personaggio ha ${pr}, +${p}% probabilità di colpo critico.` },
+        { match: _P.traitAllyExistsDmg, replace: (m, tr, p) => `Se esiste un alleato ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}, +${p}% di danno.` },
+        { match: _P.applyProcMostInjuredTrait, replace: (m, pr, tr) => `Applica ${pr} all'alleato ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} più ferito.` },
       ],
     },
     // ==================== JAPANESE ====================
@@ -1137,6 +1179,13 @@
         { match: _P.selfHasMoreNotModeProlongNegExcl, replace: (m, n, proc, mode, excl, c) => `このキャラクターが${n}を超える${proc}を持っている場合、${_notModeLoc(mode, 'ja')}、${excl}を除く全てのネガティブ効果の持続時間を${c}延長。` },
         { match: _P.barrierMostInjured, replace: (m, p) => `最も負傷した味方に最大体力の${p}%のバリアを付与。` },
         { match: _P.onAssistDmg, replace: (m, p) => `アシスト時、+${p}%ダメージ。` },
+        // --- Batch 6 patterns ---
+        { match: _P.onTriggerGainPlus, replace: (m, trig, c, pr) => `${trig === 'Counter' ? 'カウンター' : 'クリティカル'}時、+${c}${pr}を獲得。` },
+        { match: _P.flipNegToPosAllies, replace: (m, c) => `味方のネガティブ効果を${c}個ポジティブに変換。` },
+        { match: _P.stealProcGiveAllies, replace: (m, pr) => `メインターゲットから${pr}を奪い味方に付与。` },
+        { match: _P.selfHasCritBoost, replace: (m, pr, p) => `このキャラクターが${pr}を持っている場合、+${p}%クリティカル率。` },
+        { match: _P.traitAllyExistsDmg, replace: (m, tr, p) => `${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方が存在する場合、+${p}%ダメージ。` },
+        { match: _P.applyProcMostInjuredTrait, replace: (m, pr, tr) => `最も負傷した${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方に${pr}を適用。` },
       ],
     },
     // ==================== KOREAN ====================
@@ -1270,6 +1319,13 @@
         { match: _P.selfHasMoreNotModeProlongNegExcl, replace: (m, n, proc, mode, excl, c) => `이 캐릭터가 ${n}을 초과하는 ${proc}을 가지고 있으면 ${_notModeLoc(mode, 'ko')}, ${excl}을 제외한 모든 부정적 효과의 지속 시간을 ${c} 연장합니다.` },
         { match: _P.barrierMostInjured, replace: (m, p) => `가장 부상당한 아군에게 최대 체력의 ${p}% 보호막을 부여합니다.` },
         { match: _P.onAssistDmg, replace: (m, p) => `지원 시, +${p}% 대미지.` },
+        // --- Batch 6 patterns ---
+        { match: _P.onTriggerGainPlus, replace: (m, trig, c, pr) => `${trig === 'Counter' ? '반격' : '치명타'} 시, +${c} ${pr}을 획득합니다.` },
+        { match: _P.flipNegToPosAllies, replace: (m, c) => `아군의 부정적 효과 ${c}개를 긍정적으로 변환합니다.` },
+        { match: _P.stealProcGiveAllies, replace: (m, pr) => `주요 대상에게서 ${pr}을 훔쳐 아군에게 부여합니다.` },
+        { match: _P.selfHasCritBoost, replace: (m, pr, p) => `이 캐릭터가 ${pr}을 가지고 있으면 +${p}% 치명타 확률.` },
+        { match: _P.traitAllyExistsDmg, replace: (m, tr, p) => `${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군이 존재하면 +${p}% 대미지.` },
+        { match: _P.applyProcMostInjuredTrait, replace: (m, pr, tr) => `가장 부상당한 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군에게 ${pr}을 적용합니다.` },
       ],
     },
     // ==================== RUSSIAN ====================
@@ -1403,6 +1459,13 @@
         { match: _P.selfHasMoreNotModeProlongNegExcl, replace: (m, n, proc, mode, excl, c) => `Если у этого персонажа более ${n} ${proc}, ${_notModeLoc(mode, 'ru')}: продлевает длительность всех отрицательных эффектов, кроме ${excl}, на ${c}.` },
         { match: _P.barrierMostInjured, replace: (m, p) => `Барьер в ${p}% от макс. здоровья для самого раненого союзника.` },
         { match: _P.onAssistDmg, replace: (m, p) => `При поддержке: +${p}% урона.` },
+        // --- Batch 6 patterns ---
+        { match: _P.onTriggerGainPlus, replace: (m, trig, c, pr) => `При ${trig === 'Counter' ? 'контратаке' : 'крит. ударе'}: получает +${c} ${pr}.` },
+        { match: _P.flipNegToPosAllies, replace: (m, c) => `Переворачивает ${c} негативных эффектов в позитивные у союзников.` },
+        { match: _P.stealProcGiveAllies, replace: (m, pr) => `Крадёт ${pr} у основной цели и передаёт союзникам.` },
+        { match: _P.selfHasCritBoost, replace: (m, pr, p) => `Если у персонажа есть ${pr}, +${p}% шанс крит. удара.` },
+        { match: _P.traitAllyExistsDmg, replace: (m, tr, p) => `Если есть союзник-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}, +${p}% урона.` },
+        { match: _P.applyProcMostInjuredTrait, replace: (m, pr, tr) => `Применяет ${pr} к самому раненому союзнику-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
       ],
     },
   };
