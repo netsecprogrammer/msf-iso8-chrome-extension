@@ -130,7 +130,7 @@ function extractModeText(oi) {
     let result = '';
 
     if (oi.mode) {
-        result = oi.mode === 'AVA' ? 'WAR' : oi.mode === 'PVP' ? 'CRUCIBLE' : oi.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : oi.mode === 'INSANITY' ? 'INCURSION' : oi.mode;
+        result = oi.mode === 'AVA' ? 'WAR' : oi.mode === 'PVP' ? 'CRUCIBLE' : oi.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : oi.mode === 'INSANITY' ? 'INCURSION' : oi.mode === 'BATTLEGROUNDS' ? 'ARENA' : oi.mode;
     }
     if (oi.combat_side) {
         const side = oi.combat_side === 'offense' ? 'OFFENSE' : 'DEFENSE';
@@ -181,10 +181,14 @@ function parseConditions(action) {
       if (oi.owner && oi.owner.health_pct) {
           const hp = oi.owner.health_pct;
           const threshold = hp.than || 0;
-          if (hp.if === 'less' || hp.if === 'less_or_equal') {
-              conditions.push(`If self is below ${threshold}% Health`);
-          } else if (hp.if === 'greater' || hp.if === 'greater_or_equal') {
-              conditions.push(`If self is above ${threshold}% Health`);
+          if (hp.if === 'less') {
+              conditions.push(`If this character has less than ${threshold}% Health`);
+          } else if (hp.if === 'less_or_equal') {
+              conditions.push(`If this character has ${threshold}% or less Health`);
+          } else if (hp.if === 'greater') {
+              conditions.push(`If this character has more than ${threshold}% Health`);
+          } else if (hp.if === 'greater_or_equal') {
+              conditions.push(`If this character has ${threshold}% or more Health`);
           }
       }
 
@@ -198,10 +202,14 @@ function parseConditions(action) {
               if (sub.owner && sub.owner.health_pct) {
                   const hp = sub.owner.health_pct;
                   const threshold = hp.than || 0;
-                  if (hp.if === 'less' || hp.if === 'less_or_equal') {
-                      conditions.push(`If self is below ${threshold}% Health`);
-                  } else if (hp.if === 'greater' || hp.if === 'greater_or_equal') {
-                      conditions.push(`If self is above ${threshold}% Health`);
+                  if (hp.if === 'less') {
+                      conditions.push(`If this character has less than ${threshold}% Health`);
+                  } else if (hp.if === 'less_or_equal') {
+                      conditions.push(`If this character has ${threshold}% or less Health`);
+                  } else if (hp.if === 'greater') {
+                      conditions.push(`If this character has more than ${threshold}% Health`);
+                  } else if (hp.if === 'greater_or_equal') {
+                      conditions.push(`If this character has ${threshold}% or more Health`);
                   }
               }
               if (sub.target && sub.target.procs) {
@@ -274,7 +282,7 @@ function parseConditions(action) {
       if (oi.not) {
           const neg = oi.not;
           if (neg.mode) {
-              const modeName = neg.mode === 'AVA' ? 'WAR' : neg.mode === 'PVP' ? 'CRUCIBLE' : neg.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : neg.mode === 'INSANITY' ? 'INCURSION' : neg.mode;
+              const modeName = neg.mode === 'AVA' ? 'WAR' : neg.mode === 'PVP' ? 'CRUCIBLE' : neg.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : neg.mode === 'INSANITY' ? 'INCURSION' : neg.mode === 'BATTLEGROUNDS' ? 'ARENA' : neg.mode;
               conditions.push(`Not in ${modeName}`);
           }
           if (neg.owner && neg.owner.procs) {
@@ -394,7 +402,12 @@ function parseConditions(action) {
   return '';
 }
 
-function getTargetText(target) {
+// Buffs that are inherently self-targeting (even when data says target: ally)
+const SELF_ONLY_PROCS = new Set([
+    'Stealth', 'InvisibleNonPersist', 'Taunt'
+]);
+
+function getTargetText(target, procNames) {
     if (!target) return 'the primary target';
 
     if (target.relation === 'ally') {
@@ -411,7 +424,10 @@ function getTargetText(target) {
         if (target.type === 'by_most_stat') return `a ${traits}ally`;
 
         if (!limit) {
-            // No limit specified = all allies
+            // Check if all procs are self-only types (Stealth, Taunt)
+            if (procNames && procNames.length > 0 && procNames.every(p => SELF_ONLY_PROCS.has(p))) {
+                return 'self';
+            }
             if (traits) return `all ${traits}allies`;
             return 'allies';
         }
@@ -488,6 +504,40 @@ function processCharacter(charName, charData) {
           });
       }
   });
+
+  // Pre-scan: check if victim_cant_revive is on ALL stat_modifier actions (making it unconditional)
+  const statModActions = allActions.filter(a => a.stat_modifier);
+  const activeStatModActions = statModActions.filter(a => {
+      const maxPct = a.action_pct
+          ? (Array.isArray(a.action_pct) ? a.action_pct[a.action_pct.length - 1] : a.action_pct)
+          : 100;
+      return maxPct > 0;
+  });
+  const allHaveVictimCantRevive = activeStatModActions.length > 0 &&
+      activeStatModActions.every(a => a.victim_cant_revive);
+
+  // Pre-scan: detect action-level "ignores Defense Up" pattern
+  // (multiple actions with same base piercing, one with DefenseUp condition has doubled piercing)
+  let actionLevelIgnoresDefUp = false;
+  if (activeStatModActions.length >= 2) {
+      const piercingValues = [];
+      let hasDefUpCondAction = false;
+      for (const a of activeStatModActions) {
+          const oi = a.only_if;
+          const oiStr = oi ? JSON.stringify(oi) : '';
+          const pierce = a.stat_modifier.find(m => m.stat === 'armor_pierce_pct');
+          if (pierce && pierce.delta) {
+              const val = getMax(pierce.delta);
+              piercingValues.push(val);
+              if (oiStr.includes('"DefenseUp"') && !oiStr.includes('"not"')) {
+                  hasDefUpCondAction = true;
+              }
+          }
+      }
+      if (hasDefUpCondAction && new Set(piercingValues).size > 1) {
+          actionLevelIgnoresDefUp = true;
+      }
+  }
 
   // Iterate all actions
   let prevActionWasVisible = false; // Track if previous action produced visible output
@@ -616,7 +666,17 @@ function processCharacter(charName, charData) {
       const isAllyTargetConditional = action.only_if_target && JSON.stringify(action.only_if_target).includes('"relationship":"ally"');
 
       // 1. Stats (Damage/Piercing)
-      if (action.stat_modifier) {
+      // Skip DefenseUp variant actions when action-level "ignores Defense Up" is detected
+      const actionOnlyIfStr = action.only_if ? JSON.stringify(action.only_if) : '';
+      const isDefUpVariantAction = actionLevelIgnoresDefUp && actionOnlyIfStr.includes('"DefenseUp"') &&
+          !actionOnlyIfStr.includes('"not"');
+      if (isDefUpVariantAction && action.stat_modifier) {
+          // Don't process this action's stats — the "ignores Defense Up" note handles it
+          if (!notes.includes("This attack ignores Defense Up.")) {
+              notes.push("This attack ignores Defense Up.");
+          }
+      }
+      if (action.stat_modifier && !isDefUpVariantAction) {
         let localDmg = 0;
         let localPierce = 0;
         let localDrain = 0;
@@ -753,11 +813,10 @@ function processCharacter(charName, charData) {
             if (ai.owner && ai.owner.health_pct) {
                 const hp = ai.owner.health_pct;
                 const threshold = hp.than || 0;
-                if (hp.if === 'less' || hp.if === 'less_or_equal') {
-                    condParts.push(`If self is below ${threshold}% Health`);
-                } else if (hp.if === 'greater' || hp.if === 'greater_or_equal') {
-                    condParts.push(`If self is above ${threshold}% Health`);
-                }
+                if (hp.if === 'less') condParts.push(`If this character has less than ${threshold}% Health`);
+                else if (hp.if === 'less_or_equal') condParts.push(`If this character has ${threshold}% or less Health`);
+                else if (hp.if === 'greater') condParts.push(`If this character has more than ${threshold}% Health`);
+                else if (hp.if === 'greater_or_equal') condParts.push(`If this character has ${threshold}% or more Health`);
             }
             if (ai.owner && ai.owner.barrier_pct) {
                 const bp = ai.owner.barrier_pct;
@@ -808,8 +867,10 @@ function processCharacter(charName, charData) {
                     if (sub.owner && sub.owner.health_pct) {
                         const hp = sub.owner.health_pct;
                         const threshold = hp.than || 0;
-                        if (hp.if === 'less' || hp.if === 'less_or_equal') condParts.push(`If self is below ${threshold}% Health`);
-                        else if (hp.if === 'greater' || hp.if === 'greater_or_equal') condParts.push(`If self is above ${threshold}% Health`);
+                        if (hp.if === 'less') condParts.push(`If this character has less than ${threshold}% Health`);
+                        else if (hp.if === 'less_or_equal') condParts.push(`If this character has ${threshold}% or less Health`);
+                        else if (hp.if === 'greater') condParts.push(`If this character has more than ${threshold}% Health`);
+                        else if (hp.if === 'greater_or_equal') condParts.push(`If this character has ${threshold}% or more Health`);
                     }
                 }
             }
@@ -827,8 +888,10 @@ function processCharacter(charName, charData) {
                     if (sub.owner && sub.owner.health_pct) {
                         const hp = sub.owner.health_pct;
                         const threshold = hp.than || 0;
-                        if (hp.if === 'less' || hp.if === 'less_or_equal') orParts.push(`self is below ${threshold}% Health`);
-                        else if (hp.if === 'greater' || hp.if === 'greater_or_equal') orParts.push(`self is above ${threshold}% Health`);
+                        if (hp.if === 'less') orParts.push(`this character has less than ${threshold}% Health`);
+                        else if (hp.if === 'less_or_equal') orParts.push(`this character has ${threshold}% or less Health`);
+                        else if (hp.if === 'greater') orParts.push(`this character has more than ${threshold}% Health`);
+                        else if (hp.if === 'greater_or_equal') orParts.push(`this character has ${threshold}% or more Health`);
                     }
                     if (sub.traits && sub.traits.has_any) {
                         orParts.push(`self is ${sub.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase()}`);
@@ -850,14 +913,21 @@ function processCharacter(charName, charData) {
 
       // victim_cant_revive can appear on any action (not just stat_modifier ones)
       if (action.victim_cant_revive) {
-          let cantReviveNote;
-          if (conditionPrefix) {
-              cantReviveNote = `${conditionPrefix}characters killed by this attack cannot be revived.`;
+          const cantReviveNote = "Enemies killed by this attack cannot be revived.";
+          if (allHaveVictimCantRevive) {
+              // All actions have it — unconditional note
+              if (!notes.includes(cantReviveNote)) {
+                  notes.push(cantReviveNote);
+              }
+          } else if (conditionPrefix) {
+              const condNote = `${conditionPrefix}enemies killed by this attack cannot be revived.`;
+              if (!notes.includes(condNote)) {
+                  notes.push(condNote);
+              }
           } else {
-              cantReviveNote = "Characters killed by this attack cannot be revived.";
-          }
-          if (!notes.includes(cantReviveNote)) {
-              notes.push(cantReviveNote);
+              if (!notes.includes(cantReviveNote)) {
+                  notes.push(cantReviveNote);
+              }
           }
       }
 
@@ -881,7 +951,8 @@ function processCharacter(charName, charData) {
         });
 
         const globalApplyCount = getMax(action.apply_count);
-        let targetText = getTargetText(action.target);
+        const procNamesList = action.procs.map(p => p.proc);
+        let targetText = getTargetText(action.target, procNamesList);
         // If no target specified, buff procs default to self (debuffs stay on primary target)
         if (!action.target) {
             const allDebuffs = action.procs.every(p => DEBUFF_PROCS.has(p.proc));

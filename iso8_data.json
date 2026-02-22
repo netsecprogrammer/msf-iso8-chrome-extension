@@ -35,14 +35,14 @@
     "notes": []
   },
   "AgathaHarkness": {
-    "description": "Attack primary target for 210% Piercing.\\nIf the primary target is MYSTIC, Drain 5% of target's Max Health.\\nApply +1 Deflect, up to a maximum of 3 to a random DARKHOLD or NIGHTSTALKER ally.\\nIn BATTLEGROUNDS, Attack an additional enemy.",
+    "description": "Attack primary target for 210% Piercing.\\nIf the primary target is MYSTIC, Drain 5% of target's Max Health.\\nApply +1 Deflect, up to a maximum of 3 to a random DARKHOLD or NIGHTSTALKER ally.\\nIn ARENA, Attack an additional enemy.",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
     "effects": [
       "If the primary target is MYSTIC, Drain 5% of target's Max Health.",
       "Apply +1 Deflect, up to a maximum of 3 to a random DARKHOLD or NIGHTSTALKER ally.",
-      "In BATTLEGROUNDS, Attack an additional enemy."
+      "In ARENA, Attack an additional enemy."
     ],
     "notes": []
   },
@@ -179,20 +179,20 @@
     "notes": []
   },
   "Apocalypse": {
-    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nApply Offense Up to allies.\\nApply Speed Up to allies.\\nIf self is below 100% Health, Heal allies for 5% of Max Health.\\nIf self has Charged, Apply Stun to the primary target.\\nIf self has Charged, Clear 1 Charged from allies.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nApply Offense Up to allies.\\nApply Speed Up to allies.\\nIf this character has less than 100% Health, Heal allies for 5% of Max Health.\\nIf self has Charged, Apply Stun to the primary target.\\nIf self has Charged, Clear 1 Charged from allies.\\nApply Bleed to the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 100,
     "effects": [
       "Apply Offense Up to allies.",
       "Apply Speed Up to allies.",
-      "If self is below 100% Health, Heal allies for 5% of Max Health.",
+      "If this character has less than 100% Health, Heal allies for 5% of Max Health.",
       "If self has Charged, Apply Stun to the primary target.",
       "If self has Charged, Clear 1 Charged from allies.",
       "Apply Bleed to the primary target."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived.",
+      "Enemies killed by this attack cannot be revived.",
       "This attack cannot be countered.",
       "This attack cannot be blocked.",
       "This attack cannot be dodged.",
@@ -290,13 +290,13 @@
       "Clear 2 positive effect(s) from the primary target."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived."
     ]
   },
   "BlackCat": {
-    "description": "Attack primary target for 456% Piercing.\\nApply Slow to the primary target.\\nApply 2 Bleed to the primary target.\\nReduce Speed Bar by 5%.\\nGain 5% Speed Bar.\\nApply +1 Charged to allies.\\nIf self is below 30% Health, Apply Stealth to allies.",
+    "description": "Attack primary target for 228% Piercing.\\nApply Slow to the primary target.\\nApply 2 Bleed to the primary target.\\nReduce Speed Bar by 5%.\\nGain 5% Speed Bar.\\nApply +1 Charged to allies.\\nIf this character has 30% or less Health, Gain Stealth.",
     "damage": 0,
-    "piercing": 456,
+    "piercing": 228,
     "drain": 0,
     "effects": [
       "Apply Slow to the primary target.",
@@ -304,12 +304,11 @@
       "Reduce Speed Bar by 5%.",
       "Gain 5% Speed Bar.",
       "Apply +1 Charged to allies.",
-      "If self is below 30% Health, Apply Stealth to allies."
+      "If this character has 30% or less Health, Gain Stealth."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived.",
-      "In BATTLEGROUNDS, OFFENSE, characters killed by this attack cannot be revived.",
-      "In BATTLEGROUNDS, OFFENSE, If the primary target has Defense Up, characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived.",
+      "This attack ignores Defense Up."
     ]
   },
   "BlackKnight": {
@@ -380,7 +379,7 @@
     ],
     "notes": [
       "This attack ignores Defense Up.",
-      "Characters killed by this attack cannot be revived.",
+      "Enemies killed by this attack cannot be revived.",
       "This attack cannot miss.",
       "This attack cannot be dodged.",
       "This attack cannot be blocked."
@@ -1147,7 +1146,7 @@
       "Apply +1 Charged to allies."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived."
     ]
   },
   "GhostSpider": {
@@ -1166,13 +1165,13 @@
     ]
   },
   "Gladiator": {
-    "description": "Attack primary target for 203% damage + 17% Piercing + 25% Drain.\\nIf self is below 50% Health, +25% Drain.\\nIf self is above 50% Health, Apply Offense Down for 2 turns to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing + 25% Drain.\\nIf this character has less than 50% Health, +25% Drain.\\nIf this character has 50% or more Health, Apply Offense Down for 2 turns to the primary target.",
     "damage": 203,
     "piercing": 17,
     "drain": 25,
     "effects": [
-      "If self is below 50% Health, +25% Drain.",
-      "If self is above 50% Health, Apply Offense Down for 2 turns to the primary target."
+      "If this character has less than 50% Health, +25% Drain.",
+      "If this character has 50% or more Health, Apply Offense Down for 2 turns to the primary target."
     ],
     "notes": []
   },
@@ -1186,7 +1185,7 @@
       "Apply Defense Down for 2 turns to the primary target."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived."
     ]
   },
   "Graviton": {
@@ -1357,7 +1356,7 @@
       "Apply Bleed to the primary target."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived."
     ]
   },
   "Hellcat": {
@@ -1393,7 +1392,7 @@
       "Steal Revive Once from the primary target and give to allies."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived.",
+      "Enemies killed by this attack cannot be revived.",
       "This attack cannot be dodged."
     ]
   },
@@ -1427,12 +1426,12 @@
     "notes": []
   },
   "Hulk": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf self is below 50% Health or self has Charged, +50% damage.\\nIf self has Charged, Reduce the duration of Charged by 1.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf this character has 50% or less Health or self has Charged, +50% damage.\\nIf self has Charged, Reduce the duration of Charged by 1.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If self is below 50% Health or self has Charged, +50% damage.",
+      "If this character has 50% or less Health or self has Charged, +50% damage.",
       "If self has Charged, Reduce the duration of Charged by 1."
     ],
     "notes": []
@@ -1772,15 +1771,17 @@
     "notes": []
   },
   "KangTheConqueror": {
-    "description": "Attack primary target for 468% Piercing.\\nIf the primary target has Vulnerable, Gain 20% Speed Bar.\\nApply Disrupted to the primary target.",
+    "description": "Attack primary target for 234% Piercing.\\nIf the primary target has Vulnerable, Gain 20% Speed Bar.\\nApply Disrupted to the primary target.",
     "damage": 0,
-    "piercing": 468,
+    "piercing": 234,
     "drain": 0,
     "effects": [
       "If the primary target has Vulnerable, Gain 20% Speed Bar.",
       "Apply Disrupted to the primary target."
     ],
-    "notes": []
+    "notes": [
+      "This attack ignores Defense Up."
+    ]
   },
   "Karnak": {
     "description": "Attack primary target for 205% damage.\\nClear all Evade from the primary target.",
@@ -1853,7 +1854,7 @@
       "Attack an additional enemy."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived.",
+      "Enemies killed by this attack cannot be revived.",
       "Debuffs from this attack cannot be resisted."
     ]
   },
@@ -2605,7 +2606,7 @@
       "In WAR, OFFENSE, If self has Nova Force Tracking, +250% damage + 17% Piercing."
     ],
     "notes": [
-      "In WAR, OFFENSE, characters killed by this attack cannot be revived."
+      "In WAR, OFFENSE, enemies killed by this attack cannot be revived."
     ]
   },
   "NovaSamAlexander": {
@@ -2999,8 +3000,7 @@
       "Apply Heal Block to the primary target."
     ],
     "notes": [
-      "If the primary target does not have Defense Down, characters killed by this attack cannot be revived.",
-      "If the primary target has Defense Down, characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived."
     ]
   },
   "RavagerTank_Taunt": {
@@ -3263,13 +3263,13 @@
     "notes": []
   },
   "Satana": {
-    "description": "Attack primary target for 120% Piercing.\\nDrain 25% of target's Max Health and redistribute to ACCURSED allies.\\nIn CRUCIBLE SHOWDOWN, If self is above 50% Health, Reduce the duration of negative effects by 1.",
+    "description": "Attack primary target for 120% Piercing.\\nDrain 25% of target's Max Health and redistribute to ACCURSED allies.\\nIn CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1.",
     "damage": 0,
     "piercing": 120,
     "drain": 0,
     "effects": [
       "Drain 25% of target's Max Health and redistribute to ACCURSED allies.",
-      "In CRUCIBLE SHOWDOWN, If self is above 50% Health, Reduce the duration of negative effects by 1."
+      "In CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1."
     ],
     "notes": []
   },
@@ -3364,25 +3364,25 @@
     "notes": []
   },
   "Sentinel_Gun": {
-    "description": "Attack primary target for 181% damage + 15% Piercing.\\nIn RAID, Reduce Speed Bar by 10%.\\nIn RAID, Apply Taunt to allies.",
+    "description": "Attack primary target for 181% damage + 15% Piercing.\\nIn RAID, Reduce Speed Bar by 10%.\\nIn RAID, Gain Taunt.",
     "damage": 181,
     "piercing": 15,
     "drain": 0,
     "effects": [
       "In RAID, Reduce Speed Bar by 10%.",
-      "In RAID, Apply Taunt to allies."
+      "In RAID, Gain Taunt."
     ],
     "notes": []
   },
   "Sentinel_Sword": {
-    "description": "Attack primary target for 265% damage + 17% Piercing.\\nIn RAID, Flip 2 positive effect(s) to negative on the primary target.\\nIn RAID, Apply Bleed to the primary target.\\nIn RAID, Apply Taunt to allies.",
+    "description": "Attack primary target for 265% damage + 17% Piercing.\\nIn RAID, Flip 2 positive effect(s) to negative on the primary target.\\nIn RAID, Apply Bleed to the primary target.\\nIn RAID, Gain Taunt.",
     "damage": 265,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In RAID, Flip 2 positive effect(s) to negative on the primary target.",
       "In RAID, Apply Bleed to the primary target.",
-      "In RAID, Apply Taunt to allies."
+      "In RAID, Gain Taunt."
     ],
     "notes": []
   },
@@ -3625,13 +3625,13 @@
     "notes": []
   },
   "SpiderManNoir": {
-    "description": "Attack primary target for 231% damage + 17% Piercing.\\nIf self is HYDRA, +50% damage.\\nApply Stealth to allies.\\n50% chance to Apply Evade to allies.\\nIn CRUCIBLE SHOWDOWN, Apply Evade to allies.\\nIn RAID, Apply Evade to allies.\\nIn RAID, Apply Regeneration to allies.",
+    "description": "Attack primary target for 231% damage + 17% Piercing.\\nIf self is HYDRA, +50% damage.\\nGain Stealth.\\n50% chance to Apply Evade to allies.\\nIn CRUCIBLE SHOWDOWN, Apply Evade to allies.\\nIn RAID, Apply Evade to allies.\\nIn RAID, Apply Regeneration to allies.",
     "damage": 231,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If self is HYDRA, +50% damage.",
-      "Apply Stealth to allies.",
+      "Gain Stealth.",
       "50% chance to Apply Evade to allies.",
       "In CRUCIBLE SHOWDOWN, Apply Evade to allies.",
       "In RAID, Apply Evade to allies.",
@@ -3682,7 +3682,7 @@
       "Apply Bleed to the primary target."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived."
     ]
   },
   "SpiderWoman": {
@@ -3981,7 +3981,7 @@
     "notes": []
   },
   "TheLeader": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nHeal a random VILLAIN or GAMMA ally for 10% of Max Health.\\nFlip 2 negative effect(s) to positive on a random CABAL ally.\\nClear 1 negative effect(s) from a random VILLAIN ally.\\nApply Stealth for 2 turns to allies.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nHeal a random VILLAIN or GAMMA ally for 10% of Max Health.\\nFlip 2 negative effect(s) to positive on a random CABAL ally.\\nClear 1 negative effect(s) from a random VILLAIN ally.\\nGain Stealth for 2 turns.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
@@ -3989,7 +3989,7 @@
       "Heal a random VILLAIN or GAMMA ally for 10% of Max Health.",
       "Flip 2 negative effect(s) to positive on a random CABAL ally.",
       "Clear 1 negative effect(s) from a random VILLAIN ally.",
-      "Apply Stealth for 2 turns to allies."
+      "Gain Stealth for 2 turns."
     ],
     "notes": []
   },
@@ -4254,14 +4254,14 @@
     "notes": []
   },
   "VampireProtector": {
-    "description": "Attack primary target for 182% damage + 17% Piercing.\\nApply Bleed for 2 turns to the primary target.\\nClear 2 negative effect(s) from allies.\\nApply Taunt to allies.",
+    "description": "Attack primary target for 182% damage + 17% Piercing.\\nApply Bleed for 2 turns to the primary target.\\nClear 2 negative effect(s) from allies.\\nGain Taunt.",
     "damage": 182,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Bleed for 2 turns to the primary target.",
       "Clear 2 negative effect(s) from allies.",
-      "Apply Taunt to allies."
+      "Gain Taunt."
     ],
     "notes": []
   },
@@ -4340,7 +4340,7 @@
       "In CRUCIBLE SHOWDOWN, Apply +1 Trauma to a random ally."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived."
     ]
   },
   "Vulture": {
@@ -4573,7 +4573,7 @@
       "Gain 30% Speed Bar."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived."
     ]
   },
   "ZombieJuggernaut": {
@@ -4611,7 +4611,7 @@
       "Apply Heal Block for 2 turns to the primary target."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "Enemies killed by this attack cannot be revived."
     ]
   }
 }
