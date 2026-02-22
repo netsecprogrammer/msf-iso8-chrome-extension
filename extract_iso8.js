@@ -1021,6 +1021,10 @@ function processCharacter(charName, charData) {
 
         if (hasAttackStats) {
             const isFromBasic = action._source === 'basic';
+            // Check if action has a positive only_if condition (not just a negation base case)
+            const isPositivelyConditional = action.only_if &&
+                !(action.only_if.not && Object.keys(action.only_if).length === 1);
+            const hasBaseStats = damage > 0 || piercing > 0;
             if (isFromBasic || isCrit || isAllyConditional || isAllyTargetConditional) {
                 // Basic counter/assist bonuses, crit bonuses, ally-conditional, and ally-target-conditional stats always go as effect lines
                 const parts = [];
@@ -1040,7 +1044,7 @@ function processCharacter(charName, charData) {
                     }
                 }
                 effects.push(`${conditionPrefix}+${parts.join(' + ')}${targetSuffix}.`);
-            } else if (isConditionalTarget && (damage > 0 || piercing > 0)) {
+            } else if ((isConditionalTarget || (isPositivelyConditional && hasBaseStats)) && hasBaseStats) {
                 // Already have base stats — only add effect line if values differ
                 if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
                     let text = `${conditionPrefix}attack for `;
@@ -1723,19 +1727,18 @@ function processCharacter(charName, charData) {
 
       // 17. Attack Ally (call an ally to assist or attack additional enemies)
       if (action.action === 'attack_ally') {
-          if (action.target && action.target.relation === 'enemy') {
+          // Prioritize ally recipient — this means "call ally to assist"
+          if (action.recipient && action.recipient.relation === 'ally') {
+              const allyText = getTargetText(action.recipient, []);
+              effects.push(`${conditionPrefix}Call ${allyText} to assist.`);
+          } else if (action.target && action.target.relation === 'enemy') {
               effects.push(`${conditionPrefix}Attack an additional enemy.`);
-          } else if (action.recipient) {
-              if (action.recipient.relation === 'ally') {
-                  const allyText = getTargetText(action.recipient, []);
-                  effects.push(`${conditionPrefix}Call ${allyText} to assist.`);
-              } else if (action.recipient.relation === 'enemy') {
-                  const limit = getMax(action.recipient.limit);
-                  if (limit && limit > 1) {
-                      effects.push(`${conditionPrefix}Attack ${limit} additional enemies.`);
-                  } else {
-                      effects.push(`${conditionPrefix}Attack an additional enemy.`);
-                  }
+          } else if (action.recipient && action.recipient.relation === 'enemy') {
+              const limit = getMax(action.recipient.limit);
+              if (limit && limit > 1) {
+                  effects.push(`${conditionPrefix}Attack ${limit} additional enemies.`);
+              } else {
+                  effects.push(`${conditionPrefix}Attack an additional enemy.`);
               }
           }
       }

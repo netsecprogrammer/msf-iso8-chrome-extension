@@ -35,14 +35,14 @@
     "notes": []
   },
   "AgathaHarkness": {
-    "description": "Attack primary target for 210% Piercing.\\nIf the primary target is MYSTIC, Drain 5% of target's Max Health.\\nApply +1 Deflect, up to a maximum of 3 to a random DARKHOLD or NIGHTSTALKER ally.\\nIn ARENA, Attack an additional enemy.",
+    "description": "Attack primary target for 210% Piercing.\\nIf the primary target is MYSTIC, Drain 5% of target's Max Health.\\nApply +1 Deflect, up to a maximum of 3 to a random DARKHOLD or NIGHTSTALKER ally.\\nIn ARENA, Call a random DARKHOLD ally to assist.",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
     "effects": [
       "If the primary target is MYSTIC, Drain 5% of target's Max Health.",
       "Apply +1 Deflect, up to a maximum of 3 to a random DARKHOLD or NIGHTSTALKER ally.",
-      "In ARENA, Attack an additional enemy."
+      "In ARENA, Call a random DARKHOLD ally to assist."
     ],
     "notes": []
   },
@@ -2667,11 +2667,12 @@
     "notes": []
   },
   "OldManLogan": {
-    "description": "Attack primary target for 250% damage + 267% Piercing + 100% Drain.\\nIf self does not have Claws Out, Apply Disrupted to the primary target.\\nIf self has Claws Out, Apply 2 Bleed for 2 turns to the primary target.\\nIf self has Claws Out, Apply Disrupted to the primary target.\\nIn WAR, OFFENSE, If self has Claws Out, Apply Defense Down to the primary target.\\nGain 20% Speed Bar.\\nIn WAR, OFFENSE, Gain 2 Regeneration.\\nOn Ultimate assist, Generate +1 Ability Energy for self.",
+    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nIf self has Claws Out, attack for 267% Piercing + 100% Drain instead.\\nIf self does not have Claws Out, Apply Disrupted to the primary target.\\nIf self has Claws Out, Apply 2 Bleed for 2 turns to the primary target.\\nIf self has Claws Out, Apply Disrupted to the primary target.\\nIn WAR, OFFENSE, If self has Claws Out, Apply Defense Down to the primary target.\\nGain 20% Speed Bar.\\nIn WAR, OFFENSE, Gain 2 Regeneration.\\nOn Ultimate assist, Generate +1 Ability Energy for self.",
     "damage": 250,
-    "piercing": 267,
+    "piercing": 17,
     "drain": 100,
     "effects": [
+      "If self has Claws Out, attack for 267% Piercing + 100% Drain instead.",
       "If self does not have Claws Out, Apply Disrupted to the primary target.",
       "If self has Claws Out, Apply 2 Bleed for 2 turns to the primary target.",
       "If self has Claws Out, Apply Disrupted to the primary target.",
@@ -3003,12 +3004,13 @@
     "notes": []
   },
   "RavagerSupport_Heal": {
-    "description": "Attack primary target for 304% Piercing.\\nClear 1 Deathproof from the primary target.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for 225% Piercing.\\nClear 1 Deathproof from the primary target.\\nIf the primary target has Defense Down, attack for 304% Piercing instead.\\nApply Heal Block to the primary target.",
     "damage": 0,
-    "piercing": 304,
+    "piercing": 225,
     "drain": 0,
     "effects": [
       "Clear 1 Deathproof from the primary target.",
+      "If the primary target has Defense Down, attack for 304% Piercing instead.",
       "Apply Heal Block to the primary target."
     ],
     "notes": [
