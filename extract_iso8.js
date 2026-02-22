@@ -111,6 +111,14 @@ const PROC_MAP = {
   'NovaForceTracking': 'Nova Force Tracking'
 };
 
+// Known debuff proc names (used to infer target when not specified)
+const DEBUFF_PROCS = new Set([
+  'DoT', 'Bleed', 'DefenseDown', 'OffenseDown', 'Slow', 'Stun',
+  'HealBlock', 'AbilityBlock', 'Blind', 'Vulnerable', 'Exposed',
+  'Disrupted', 'Trauma', 'AccuracyDown', 'BombBurst', 'Silence',
+  'Marked', 'BuffBlock', 'LockedDebuff'
+]);
+
 function formatProcName(proc) {
   return PROC_MAP[proc] || proc;
 }
@@ -302,27 +310,33 @@ function parseConditions(action) {
 
 function getTargetText(target) {
     if (!target) return 'the primary target';
-    
+
     if (target.relation === 'ally') {
         const limit = getMax(target.limit);
         let traits = '';
         if (target.filter && target.filter.traits && target.filter.traits.has_any) {
             traits = target.filter.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or ') + ' ';
         }
-        
+
+        // Handle special targeting types
+        if (target.type === 'by_least_health') return `the most injured ${traits}ally`;
+        if (target.type === 'random') return `a random ${traits}ally`;
+        if (target.type === 'by_least_turn_meter') return `the ${traits}ally with the lowest Speed Bar`;
+        if (target.type === 'by_most_stat') return `a ${traits}ally`;
+
         if (!limit || limit === 1) {
             if (traits) return `a random ${traits}ally`;
             return 'self';
         }
-        
+
         if (limit >= 10) {
              if (traits) return `self and all ${traits}allies`;
              return 'allies';
         }
-        
+
         return `${limit} ${traits}allies`;
     }
-    
+
     return 'the primary target';
 }
 
@@ -564,7 +578,12 @@ function processCharacter(charName, charData) {
         });
 
         const globalApplyCount = getMax(action.apply_count);
-        const targetText = getTargetText(action.target);
+        let targetText = getTargetText(action.target);
+        // If no target specified, buff procs default to self (debuffs stay on primary target)
+        if (!action.target) {
+            const allDebuffs = action.procs.every(p => DEBUFF_PROCS.has(p.proc));
+            if (!allDebuffs) targetText = 'self';
+        }
 
         Object.keys(procGroups).forEach(procName => {
             let count = globalApplyCount || procGroups[procName].count;
