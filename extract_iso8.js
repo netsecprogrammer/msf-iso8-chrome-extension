@@ -14,8 +14,12 @@ const OUTPUT_PATH = 'iso8_data.json';
 // Helper to get max value from array or number
 function getMax(val) {
   if (Array.isArray(val)) {
-    return val[val.length - 1];
+    const last = val[val.length - 1];
+    // Handle level-scaled objects like {f: 1, t: 2} — take 't' as max-level value
+    if (last && typeof last === 'object' && last.t !== undefined) return last.t;
+    return last;
   }
+  if (val && typeof val === 'object' && val.t !== undefined) return val.t;
   return val || 0;
 }
 
@@ -109,7 +113,14 @@ const PROC_MAP = {
   'DaimonHellstrom': 'Daimon Hellstrom',
   'MrSinister': 'Mr. Sinister',
   'NovaForceTracking': 'Nova Force Tracking',
-  'XFactor': 'X-Factor'
+  'XFactor': 'X-Factor',
+  'PhantomRider': 'Phantom Rider',
+  'InvisibleStateChecker': 'Absorbed Powers',
+  'SpawnedWithHeroAllies': 'Spawned With Hero Allies',
+  'NewMutant': 'New Mutant',
+  'NewWarrior': 'New Warrior',
+  'Champion': 'Champion',
+  'Accursed': 'Accursed'
 };
 
 // Known debuff proc names (used to infer target when not specified)
@@ -192,6 +203,49 @@ function parseConditions(action) {
           }
       }
 
+      // Self barrier threshold conditions
+      if (oi.owner && oi.owner.barrier_pct) {
+          const bp = oi.owner.barrier_pct;
+          const threshold = bp.than || 0;
+          if (bp.if === 'greater_or_equal') {
+              conditions.push(`If this character has ${threshold}% or more Barrier`);
+          } else if (bp.if === 'greater') {
+              conditions.push(`If this character has more than ${threshold}% Barrier`);
+          } else if (bp.if === 'not_equal' && threshold === 0) {
+              conditions.push(`If this character has Barrier`);
+          } else if (bp.if === 'equal' && threshold === 0) {
+              conditions.push(`If this character has no Barrier`);
+          }
+      }
+
+      // Target barrier threshold conditions
+      if (oi.target && oi.target.barrier_pct) {
+          const bp = oi.target.barrier_pct;
+          const threshold = bp.than || 0;
+          if (bp.if === 'not_equal' && threshold === 0) {
+              conditions.push(`If the primary target has Barrier`);
+          } else if (bp.if === 'equal' && threshold === 0) {
+              conditions.push(`If the primary target has no Barrier`);
+          } else if (bp.if === 'greater_or_equal') {
+              conditions.push(`If the primary target has ${threshold}% or more Barrier`);
+          }
+      }
+
+      // Owner proc_duration_check conditions (e.g., "If 5+ Charged")
+      if (oi.owner && oi.owner.proc_duration_check) {
+          for (const pdc of oi.owner.proc_duration_check) {
+              const procName = formatProcName(pdc.proc);
+              const dur = pdc.duration;
+              if (dur && dur.than !== undefined) {
+                  if (dur.if === 'greater_or_equal') {
+                      conditions.push(`If self has ${dur.than}+ ${procName}`);
+                  } else if (dur.if === 'greater') {
+                      conditions.push(`If self has more than ${dur.than} ${procName}`);
+                  }
+              }
+          }
+      }
+
       // Owner/target procs inside and/or arrays (e.g., Nova: {and: [{owner: {procs}}, {mode}]})
       if (oi.and) {
           for (const sub of oi.and) {
@@ -215,6 +269,29 @@ function parseConditions(action) {
               if (sub.target && sub.target.procs) {
                   const procs = sub.target.procs.map(p => formatProcName(p)).join(' or ');
                   conditions.push(`If the primary target has ${procs}`);
+              }
+              if (sub.owner && sub.owner.barrier_pct) {
+                  const bp = sub.owner.barrier_pct;
+                  const threshold = bp.than || 0;
+                  if (bp.if === 'greater_or_equal') conditions.push(`If this character has ${threshold}% or more Barrier`);
+                  else if (bp.if === 'greater') conditions.push(`If this character has more than ${threshold}% Barrier`);
+                  else if (bp.if === 'not_equal' && threshold === 0) conditions.push(`If this character has Barrier`);
+              }
+              if (sub.target && sub.target.barrier_pct) {
+                  const bp = sub.target.barrier_pct;
+                  const threshold = bp.than || 0;
+                  if (bp.if === 'not_equal' && threshold === 0) conditions.push(`If the primary target has Barrier`);
+                  else if (bp.if === 'equal' && threshold === 0) conditions.push(`If the primary target has no Barrier`);
+              }
+              if (sub.owner && sub.owner.proc_duration_check) {
+                  for (const pdc of sub.owner.proc_duration_check) {
+                      const procName = formatProcName(pdc.proc);
+                      const dur = pdc.duration;
+                      if (dur && dur.than !== undefined) {
+                          if (dur.if === 'greater_or_equal') conditions.push(`If self has ${dur.than}+ ${procName}`);
+                          else if (dur.if === 'greater') conditions.push(`If self has more than ${dur.than} ${procName}`);
+                      }
+                  }
               }
           }
       }
@@ -402,9 +479,10 @@ function parseConditions(action) {
   return '';
 }
 
-// Buffs that are inherently self-targeting (even when data says target: ally)
+// Buffs that are inherently self-targeting (even when data says target: ally with no limit)
 const SELF_ONLY_PROCS = new Set([
-    'Stealth', 'InvisibleNonPersist', 'Taunt'
+    'Stealth', 'InvisibleNonPersist', 'Taunt',
+    'OffenseUp', 'SpeedUp', 'DefenseUp', 'Counter', 'Evade', 'DebuffBlock'
 ]);
 
 function getTargetText(target, procNames) {
@@ -412,19 +490,19 @@ function getTargetText(target, procNames) {
 
     if (target.relation === 'ally') {
         const limit = getMax(target.limit);
-        let traits = '';
-        if (target.filter && target.filter.traits && target.filter.traits.has_any) {
-            traits = target.filter.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or ') + ' ';
-        }
+        let traits = extractTraitsFromFilter(target.filter);
 
         // Handle special targeting types
         if (target.type === 'by_least_health') return `the most injured ${traits}ally`;
         if (target.type === 'random') return `a random ${traits}ally`;
         if (target.type === 'by_least_turn_meter') return `the ${traits}ally with the lowest Speed Bar`;
-        if (target.type === 'by_most_stat') return `a ${traits}ally`;
+        if (target.type === 'by_most_stat') {
+            const statName = target.by_stat ? formatStatName(target.by_stat) : '';
+            return statName ? `the ${traits}ally with the highest ${statName}` : `an ${traits}ally`;
+        }
 
         if (!limit) {
-            // Check if all procs are self-only types (Stealth, Taunt)
+            // Check if all procs are self-only types
             if (procNames && procNames.length > 0 && procNames.every(p => SELF_ONLY_PROCS.has(p))) {
                 return 'self';
             }
@@ -444,7 +522,97 @@ function getTargetText(target, procNames) {
         return `${limit} ${traits}allies`;
     }
 
+    // Enemy targeting with explicit limit (multi-target attacks)
+    if (target.relation === 'enemy') {
+        const limit = getMax(target.limit);
+        if (limit && limit > 1) return `${limit} enemies`;
+        return 'the primary target';
+    }
+
+    // No relation specified but has a limit (enemy multi-target)
+    if (!target.relation && target.limit) {
+        const limit = getMax(target.limit);
+        if (limit && limit > 1) return `${limit} enemies`;
+    }
+
     return 'the primary target';
+}
+
+// Extract trait text from a target filter, handling all formats
+function extractTraitsFromFilter(filter) {
+    if (!filter) return '';
+    let parts = [];
+
+    // Simple format: filter.traits.has_any
+    if (filter.traits) {
+        if (Array.isArray(filter.traits)) {
+            // Plain array format: filter.traits = ["NewAvenger"]
+            parts.push(filter.traits.map(t => formatProcName(t).toUpperCase()).join(' or '));
+        } else if (filter.traits.has_any) {
+            parts.push(filter.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or '));
+        } else if (filter.traits.and) {
+            // Compound traits: filter.traits.and = [{has_any: ["Hero"]}, {has_any: ["SpiderVerse"]}]
+            const andParts = filter.traits.and
+                .filter(sub => sub.has_any)
+                .map(sub => sub.has_any.map(t => formatProcName(t).toUpperCase()).join(' or '));
+            if (andParts.length > 0) parts.push(andParts.join(' '));
+        }
+        if (filter.traits.not && filter.traits.not.has_any) {
+            parts.push('non-' + filter.traits.not.has_any.map(t => formatProcName(t).toUpperCase()).join('/'));
+        }
+    }
+
+    // Nested and-array format: filter.and = [{traits: {has_any: [...]}}, ...]
+    if (filter.and) {
+        for (const sub of filter.and) {
+            if (sub.traits && sub.traits.has_any) {
+                parts.push(sub.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or '));
+            }
+            if (sub.or) {
+                const orTraits = [];
+                for (const osub of sub.or) {
+                    if (osub.traits && osub.traits.has_any) {
+                        orTraits.push(...osub.traits.has_any.map(t => formatProcName(t).toUpperCase()));
+                    }
+                    if (osub.character) {
+                        orTraits.push(...osub.character.map(c => formatProcName(c)));
+                    }
+                }
+                if (orTraits.length > 0) parts.push(orTraits.join(' or '));
+            }
+            if (sub.character) {
+                parts.push(sub.character.map(c => formatProcName(c)).join(' or '));
+            }
+        }
+    }
+
+    // Or-array format: filter.or = [{traits: {has_any: [...]}}, ...]
+    if (filter.or) {
+        const orParts = [];
+        for (const sub of filter.or) {
+            if (sub.traits && sub.traits.has_any) {
+                orParts.push(...sub.traits.has_any.map(t => formatProcName(t).toUpperCase()));
+            }
+        }
+        if (orParts.length > 0) parts.push(orParts.join(' or '));
+    }
+
+    return parts.length > 0 ? parts.join(' ') + ' ' : '';
+}
+
+// Map internal stat names to display names
+function formatStatName(stat) {
+    const statMap = {
+        'damage': 'Damage',
+        'ability_damage_pct': 'Damage',
+        'armor_pierce_pct': 'Piercing',
+        'health': 'Health',
+        'speed': 'Speed',
+        'focus': 'Focus',
+        'resist': 'Resist',
+        'armor': 'Armor',
+    };
+    return statMap[stat] || stat;
 }
 
 function processCharacter(charName, charData) {
@@ -519,9 +687,11 @@ function processCharacter(charName, charData) {
   // Pre-scan: detect action-level "ignores Defense Up" pattern
   // (multiple actions with same base piercing, one with DefenseUp condition has doubled piercing)
   let actionLevelIgnoresDefUp = false;
+  let ignoresDefUpModePrefix = '';
   if (activeStatModActions.length >= 2) {
       const piercingValues = [];
       let hasDefUpCondAction = false;
+      let defUpActionOi = null;
       for (const a of activeStatModActions) {
           const oi = a.only_if;
           const oiStr = oi ? JSON.stringify(oi) : '';
@@ -531,11 +701,33 @@ function processCharacter(charName, charData) {
               piercingValues.push(val);
               if (oiStr.includes('"DefenseUp"') && !oiStr.includes('"not"')) {
                   hasDefUpCondAction = true;
+                  defUpActionOi = oi;
               }
           }
       }
       if (hasDefUpCondAction && new Set(piercingValues).size > 1) {
           actionLevelIgnoresDefUp = true;
+          // Extract mode scope from the DefenseUp variant action
+          if (defUpActionOi) {
+              const modeParts = [];
+              const extractMode = (obj) => {
+                  if (!obj) return;
+                  if (obj.mode) {
+                      const m = obj.mode === 'AVA' ? 'WAR' : obj.mode === 'PVP' ? 'CRUCIBLE' : obj.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : obj.mode === 'INSANITY' ? 'INCURSION' : obj.mode === 'BATTLEGROUNDS' ? 'ARENA' : obj.mode;
+                      modeParts.push(m);
+                  }
+                  if (obj.combat_side) modeParts.push(obj.combat_side.toUpperCase());
+              };
+              if (defUpActionOi.and) {
+                  for (const sub of defUpActionOi.and) extractMode(sub);
+              } else {
+                  extractMode(defUpActionOi);
+              }
+              // Remove DefenseUp-related parts, keep mode/side
+              if (modeParts.length > 0) {
+                  ignoresDefUpModePrefix = `On ${modeParts.join(' ')}, `;
+              }
+          }
       }
   }
 
@@ -566,7 +758,8 @@ function processCharacter(charName, charData) {
       // Handle action_cond: "if_prev_skipped" — fallback when previous conditional action didn't fire
       // Only show "Otherwise" if the previous action was visible AND had a condition the user can see
       if (action.action_cond === 'if_prev_skipped' && prevActionWasVisible && prevActionWasConditional) {
-          conditionPrefix = (action._counterAssistPrefix || '') + 'Otherwise, ';
+          const ownConditions = parseConditions(action);
+          conditionPrefix = (action._counterAssistPrefix || '') + 'Otherwise, ' + (ownConditions || '');
       } else if (action.action_cond === 'if_prev_skipped') {
           // Previous action was invisible or unconditional, drop "Otherwise"
           conditionPrefix = (action._counterAssistPrefix || '') + parseConditions(action);
@@ -672,8 +865,11 @@ function processCharacter(charName, charData) {
           !actionOnlyIfStr.includes('"not"');
       if (isDefUpVariantAction && action.stat_modifier) {
           // Don't process this action's stats — the "ignores Defense Up" note handles it
-          if (!notes.includes("This attack ignores Defense Up.")) {
-              notes.push("This attack ignores Defense Up.");
+          const defUpNote = ignoresDefUpModePrefix
+              ? `${ignoresDefUpModePrefix}this attack ignores Defense Up.`
+              : 'This attack ignores Defense Up.';
+          if (!notes.includes(defUpNote)) {
+              notes.push(defUpNote);
           }
       }
       if (action.stat_modifier && !isDefUpVariantAction) {
@@ -689,7 +885,7 @@ function processCharacter(charName, charData) {
           if (mod.stat === 'ability_damage_pct') {
             const val = getMax(mod.delta);
             if (!mod.apply_if) {
-                localDmg = val;
+                if (val > localDmg) localDmg = val; // Keep highest unconditional value
             } else if (mod.apply_if.not) {
                 // "not X" conditions indicate the base/default state
                 // Covers: Blade (not DefenseUp), EmmaFrost (not Charged), etc.
@@ -704,19 +900,22 @@ function processCharacter(charName, charData) {
             }
 
             if (!mod.apply_if) {
-                localPierce = val;
+                if (val > localPierce) localPierce = val; // Keep highest unconditional value
             } else if (mod.apply_if.not) {
                 // "not X" conditions indicate the base/default state
                 // Covers: Blade/SuperSkrull (not DefenseUp variants)
                 if (val > localPierce) localPierce = val;
             }
           } else if (mod.stat === 'drain_pct') {
-            localDrain = getMax(mod.delta);
+            if (!mod.apply_if) {
+                const val = getMax(mod.delta);
+                if (val > localDrain) localDrain = val; // Keep highest unconditional value
+            }
           }
         });
 
         if (ignoresDefenseUp) {
-            if (!notes.includes("This attack ignores Defense Up.")) {
+            if (!notes.some(n => n.includes("This attack ignores Defense Up."))) {
                 notes.push("This attack ignores Defense Up.");
             }
         }
@@ -822,6 +1021,17 @@ function processCharacter(charName, charData) {
                 const bp = ai.owner.barrier_pct;
                 if (bp.if === 'greater' && bp.than === 0) condParts.push('If self has Barrier');
                 else if (bp.if === 'equal' && bp.than === 0) condParts.push('If self has no Barrier');
+                else if (bp.if === 'greater_or_equal') condParts.push(`If self has ${bp.than}% or more Barrier`);
+            }
+            if (ai.owner && ai.owner.proc_duration_check) {
+                for (const pdc of ai.owner.proc_duration_check) {
+                    const procName = formatProcName(pdc.proc);
+                    const dur = pdc.duration;
+                    if (dur && dur.than !== undefined) {
+                        if (dur.if === 'greater_or_equal') condParts.push(`If self has ${dur.than}+ ${procName}`);
+                        else if (dur.if === 'greater') condParts.push(`If self has more than ${dur.than} ${procName}`);
+                    }
+                }
             }
 
             // Self trait conditions
@@ -871,6 +1081,26 @@ function processCharacter(charName, charData) {
                         else if (hp.if === 'less_or_equal') condParts.push(`If this character has ${threshold}% or less Health`);
                         else if (hp.if === 'greater') condParts.push(`If this character has more than ${threshold}% Health`);
                         else if (hp.if === 'greater_or_equal') condParts.push(`If this character has ${threshold}% or more Health`);
+                    }
+                    if (sub.owner && sub.owner.proc_duration_check) {
+                        for (const pdc of sub.owner.proc_duration_check) {
+                            const procName = formatProcName(pdc.proc);
+                            const dur = pdc.duration;
+                            if (dur && dur.than !== undefined) {
+                                if (dur.if === 'greater_or_equal') condParts.push(`If self has ${dur.than}+ ${procName}`);
+                                else if (dur.if === 'greater') condParts.push(`If self has more than ${dur.than} ${procName}`);
+                            }
+                        }
+                    }
+                    if (sub.owner && sub.owner.barrier_pct) {
+                        const bp = sub.owner.barrier_pct;
+                        if (bp.if === 'greater_or_equal') condParts.push(`If self has ${bp.than}% or more Barrier`);
+                        else if (bp.if === 'greater' && bp.than === 0) condParts.push('If self has Barrier');
+                    }
+                    if (sub.target && sub.target.barrier_pct) {
+                        const bp = sub.target.barrier_pct;
+                        if (bp.if === 'not_equal' && bp.than === 0) condParts.push('If target has Barrier');
+                        else if (bp.if === 'equal' && bp.than === 0) condParts.push('If target has no Barrier');
                     }
                 }
             }
@@ -1171,7 +1401,12 @@ function processCharacter(charName, charData) {
       if (action.action === 'barrier') {
           const amount = getMax(action.health_pct);
           if (amount > 0) {
-              effects.push(`${conditionPrefix}${chancePrefix}Barrier for ${amount}% of Max Health.`);
+              const targetText = getTargetText(action.target);
+              if (targetText === 'self' || targetText === 'the primary target') {
+                  effects.push(`${conditionPrefix}${chancePrefix}Barrier for ${amount}% of Max Health.`);
+              } else {
+                  effects.push(`${conditionPrefix}${chancePrefix}Barrier for ${amount}% of Max Health to ${targetText}.`);
+              }
           }
       }
 
@@ -1211,9 +1446,13 @@ function processCharacter(charName, charData) {
                   effects.push(`${conditionPrefix}${chancePrefix}Apply +${delta} ${procName}${maxText} to ${targetText}.`);
               }
           } else if (delta > 0) {
-              effects.push(`${conditionPrefix}${chancePrefix}Prolong the duration of ${procName}${excludeText} by ${delta}.`);
+              const prolongTarget = (targetText && targetText !== 'self' && targetText !== 'the primary target')
+                  ? ` on ${targetText}` : '';
+              effects.push(`${conditionPrefix}${chancePrefix}Prolong the duration of ${procName}${excludeText} by ${delta}${prolongTarget}.`);
           } else if (delta < 0) {
-              effects.push(`${conditionPrefix}${chancePrefix}Reduce the duration of ${procName}${excludeText} by ${Math.abs(delta)}.`);
+              const reduceTarget = (targetText && targetText !== 'self' && targetText !== 'the primary target')
+                  ? ` on ${targetText}` : '';
+              effects.push(`${conditionPrefix}${chancePrefix}Reduce the duration of ${procName}${excludeText} by ${Math.abs(delta)}${reduceTarget}.`);
           }
       }
 
@@ -1470,16 +1709,26 @@ function processCharacter(charName, charData) {
   notes.length = 0;
   notes.push(...uniqueNotes);
 
+  // Determine main attack target from the first stat_modifier action
+  let mainAttackTarget = 'primary target';
+  const firstStatAction = activeStatModActions.find(a => {
+      const oi = a.only_if ? JSON.stringify(a.only_if) : '';
+      return !oi.includes('"DefenseUp"') || oi.includes('"not"');
+  });
+  if (firstStatAction && firstStatAction.target && firstStatAction.target.relation === 'ally') {
+      mainAttackTarget = getTargetText(firstStatAction.target);
+  }
+
   // Generate description
-  let description = 'Attack primary target for ';
+  let description = `Attack ${mainAttackTarget} for `;
   if (damage > 0) {
       description += `${damage}% damage`;
       if (piercing > 0) description += ` + ${piercing}% Piercing`;
   } else {
       if (piercing > 0) description += `${piercing}% Piercing`;
-      else description = 'Attack primary target'; // Fallback if no dmg/piercing
+      else description = `Attack ${mainAttackTarget}`; // Fallback if no dmg/piercing
   }
-  
+
   if (drain > 0) description += ` + ${drain}% Drain`;
   
   if (effects.length > 0) {

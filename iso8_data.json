@@ -112,13 +112,13 @@
     "notes": []
   },
   "AmadeusCho": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply 2 Regeneration to the most injured ally.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply 2 Regeneration to the most injured GAMMA or CHAMPION ally.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down to the primary target.",
-      "Apply 2 Regeneration to the most injured ally."
+      "Apply 2 Regeneration to the most injured GAMMA or CHAMPION ally."
     ],
     "notes": []
   },
@@ -179,13 +179,13 @@
     "notes": []
   },
   "Apocalypse": {
-    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nApply Offense Up to allies.\\nApply Speed Up to allies.\\nIf this character has less than 100% Health, Heal allies for 5% of Max Health.\\nIf self has Charged, Apply Stun to the primary target.\\nIf self has Charged, Clear 1 Charged from allies.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nGain Offense Up.\\nGain Speed Up.\\nIf this character has less than 100% Health, Heal allies for 5% of Max Health.\\nIf self has Charged, Apply Stun to the primary target.\\nIf self has Charged, Clear 1 Charged from allies.\\nApply Bleed to the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 100,
     "effects": [
-      "Apply Offense Up to allies.",
-      "Apply Speed Up to allies.",
+      "Gain Offense Up.",
+      "Gain Speed Up.",
       "If this character has less than 100% Health, Heal allies for 5% of Max Health.",
       "If self has Charged, Apply Stun to the primary target.",
       "If self has Charged, Clear 1 Charged from allies.",
@@ -211,13 +211,13 @@
     "notes": []
   },
   "Ares": {
-    "description": "Attack primary target for 177% damage + 19% Piercing.\\nClear 3 positive effect(s) from the primary target.\\nApply Immunity to allies.",
+    "description": "Attack primary target for 177% damage + 19% Piercing.\\nClear 3 positive effect(s) from the primary target.\\nGain Immunity.",
     "damage": 177,
     "piercing": 19,
     "drain": 0,
     "effects": [
       "Clear 3 positive effect(s) from the primary target.",
-      "Apply Immunity to allies."
+      "Gain Immunity."
     ],
     "notes": []
   },
@@ -256,13 +256,13 @@
     "notes": []
   },
   "BetaRayBill": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf target has Defense Up or target has Regeneration, +50% damage.\\nIn RAID, +100% damage.\\nFlip all positive effect(s) to negative on the primary target.\\nGenerate +1 Ability Energy for all allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf target has Defense Up or target has Regeneration, +50% damage.\\nIn RAID, If self has 1+ Regeneration, +100% damage.\\nFlip all positive effect(s) to negative on the primary target.\\nGenerate +1 Ability Energy for all allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If target has Defense Up or target has Regeneration, +50% damage.",
-      "In RAID, +100% damage.",
+      "In RAID, If self has 1+ Regeneration, +100% damage.",
       "Flip all positive effect(s) to negative on the primary target.",
       "Generate +1 Ability Energy for all allies."
     ],
@@ -308,7 +308,7 @@
     ],
     "notes": [
       "Enemies killed by this attack cannot be revived.",
-      "This attack ignores Defense Up."
+      "On ARENA OFFENSE, this attack ignores Defense Up."
     ]
   },
   "BlackKnight": {
@@ -386,7 +386,7 @@
     ]
   },
   "Blastaar": {
-    "description": "Attack primary target for 175% damage + 20% Piercing.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Safeguard by 2.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Immunity by 2.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Taunt by 1.\\nOtherwise, Clear all positive effect(s) from the primary target.\\nIf self does not have Silence, Clear all negative effect(s) from allies.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Gain 30% Speed Bar.\\nIf self does not have Silence, Apply +1 Bomb Burst, up to a maximum of 5 to allies.",
+    "description": "Attack primary target for 175% damage + 20% Piercing.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Safeguard by 2.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Immunity by 2.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Taunt by 1.\\nOtherwise, In CRUCIBLE SHOWDOWN, OFFENSE, Clear all positive effect(s) from the primary target.\\nIf self does not have Silence, Clear all negative effect(s) from allies.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Gain 30% Speed Bar.\\nIf self does not have Silence, Apply +1 Bomb Burst, up to a maximum of 5 to allies.",
     "damage": 175,
     "piercing": 20,
     "drain": 0,
@@ -394,7 +394,7 @@
       "In CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Safeguard by 2.",
       "In CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Immunity by 2.",
       "In CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Taunt by 1.",
-      "Otherwise, Clear all positive effect(s) from the primary target.",
+      "Otherwise, In CRUCIBLE SHOWDOWN, OFFENSE, Clear all positive effect(s) from the primary target.",
       "If self does not have Silence, Clear all negative effect(s) from allies.",
       "In CRUCIBLE SHOWDOWN, OFFENSE, Gain 30% Speed Bar.",
       "If self does not have Silence, Apply +1 Bomb Burst, up to a maximum of 5 to allies."
@@ -428,14 +428,17 @@
     ]
   },
   "BuckyBarnes": {
-    "description": "Attack primary target for 216% damage + 17% Piercing.\\nNot in RAID, Prolong the duration of all negative effects, excluding Ability Block, Stun and Trauma by 1.\\nIn RAID, Prolong the duration of negative effects by 1.\\nIf self has Charged, Reduce the duration of Charged by 1.",
+    "description": "Attack primary target for 216% damage + 17% Piercing.\\nNot in RAID, Prolong the duration of all negative effects, excluding Ability Block, Stun and Trauma by 1.\\nIn RAID, Prolong the duration of negative effects by 1.\\nIf self has Charged, Reduce the duration of Charged by 1 on allies.\\nIf self has more than 1 Charged, Not in RAID, Prolong the duration of all negative effects, excluding Ability Block, Stun and Trauma by 1.\\nIf self has more than 1 Charged, In RAID, Prolong the duration of negative effects by 1.\\nIf self has more than 1 Charged, If self has Charged, Reduce the duration of Charged by 1 on allies.",
     "damage": 216,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Not in RAID, Prolong the duration of all negative effects, excluding Ability Block, Stun and Trauma by 1.",
       "In RAID, Prolong the duration of negative effects by 1.",
-      "If self has Charged, Reduce the duration of Charged by 1."
+      "If self has Charged, Reduce the duration of Charged by 1 on allies.",
+      "If self has more than 1 Charged, Not in RAID, Prolong the duration of all negative effects, excluding Ability Block, Stun and Trauma by 1.",
+      "If self has more than 1 Charged, In RAID, Prolong the duration of negative effects by 1.",
+      "If self has more than 1 Charged, If self has Charged, Reduce the duration of Charged by 1 on allies."
     ],
     "notes": []
   },
@@ -472,15 +475,15 @@
     "notes": []
   },
   "CaptainAmerica": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nApply Defense Up to allies.\\nOn Assist, +250% damage.\\nOn Counter, Apply +1 Defense Up to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nGain Defense Up.\\nOn Assist, +250% damage.\\nOn Counter, Gain +1 Defense Up.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down for 2 turns to the primary target.",
-      "Apply Defense Up to allies.",
+      "Gain Defense Up.",
       "On Assist, +250% damage.",
-      "On Counter, Apply +1 Defense Up to allies."
+      "On Counter, Gain +1 Defense Up."
     ],
     "notes": []
   },
@@ -519,12 +522,12 @@
     "notes": []
   },
   "CaptainMarvel": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf self has Binary, Reduce the duration of Charged by 1.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf self has Binary, Reduce the duration of Charged by 1 on allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If self has Binary, Reduce the duration of Charged by 1."
+      "If self has Binary, Reduce the duration of Charged by 1 on allies."
     ],
     "notes": []
   },
@@ -692,12 +695,12 @@
     "notes": []
   },
   "DaimonHellstrom": {
-    "description": "Attack primary target for 150% Piercing.\\nApply Offense Up to allies.\\nIf Hellcat is an ally, Apply Assist Now to a random ally.",
+    "description": "Attack primary target for 150% Piercing.\\nGain Offense Up.\\nIf Hellcat is an ally, Apply Assist Now to a random ally.",
     "damage": 0,
     "piercing": 150,
     "drain": 0,
     "effects": [
-      "Apply Offense Up to allies.",
+      "Gain Offense Up.",
       "If Hellcat is an ally, Apply Assist Now to a random ally."
     ],
     "notes": []
@@ -734,14 +737,15 @@
     "notes": []
   },
   "DarkBeast": {
-    "description": "Attack primary target for 199% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply Offense Down for 2 turns to the primary target.\\nApply Heal Block for 2 turns to the primary target.",
+    "description": "Attack primary target for 199% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply Offense Down for 2 turns to the primary target.\\nApply Heal Block for 2 turns to the primary target.\\nApply 2 Bleed to 10 enemies.",
     "damage": 199,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
       "Apply Offense Down for 2 turns to the primary target.",
-      "Apply Heal Block for 2 turns to the primary target."
+      "Apply Heal Block for 2 turns to the primary target.",
+      "Apply 2 Bleed to 10 enemies."
     ],
     "notes": []
   },
@@ -757,13 +761,13 @@
     "notes": []
   },
   "Darkhawk": {
-    "description": "Attack primary target for 233% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nApply Offense Up to allies.\\nGain Deflect.",
+    "description": "Attack primary target for 233% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nGain Offense Up.\\nGain Deflect.",
     "damage": 233,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down for 2 turns to the primary target.",
-      "Apply Offense Up to allies.",
+      "Gain Offense Up.",
       "Gain Deflect."
     ],
     "notes": []
@@ -836,7 +840,7 @@
     "notes": []
   },
   "DoctorStrange": {
-    "description": "Attack primary target for 212% Piercing.\\nIf assisting a ASTRAL ally, +25% damage.\\nApply Offense Down for 2 turns to the primary target.\\nDrain 3% of target's Max Health.\\nBarrier for 5% of Max Health.",
+    "description": "Attack primary target for 212% Piercing.\\nIf assisting a ASTRAL ally, +25% damage.\\nApply Offense Down for 2 turns to the primary target.\\nDrain 3% of target's Max Health.\\nBarrier for 5% of Max Health to allies.",
     "damage": 0,
     "piercing": 212,
     "drain": 0,
@@ -844,7 +848,7 @@
       "If assisting a ASTRAL ally, +25% damage.",
       "Apply Offense Down for 2 turns to the primary target.",
       "Drain 3% of target's Max Health.",
-      "Barrier for 5% of Max Health."
+      "Barrier for 5% of Max Health to allies."
     ],
     "notes": [
       "This attack cannot be dodged.",
@@ -852,12 +856,12 @@
     ]
   },
   "DoctorVoodoo": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nHeal a random ally for 8% of Max Health.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nHeal a random DARKHUNTER ally for 8% of Max Health.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Heal a random ally for 8% of Max Health."
+      "Heal a random DARKHUNTER ally for 8% of Max Health."
     ],
     "notes": []
   },
@@ -870,13 +874,13 @@
     "notes": []
   },
   "Doom": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply Disrupted to the primary target.\\nIf self has Charged, Reduce the duration of Charged by 1.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply Disrupted to the primary target.\\nIf self has Charged, Reduce the duration of Charged by 1 on allies.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Disrupted to the primary target.",
-      "If self has Charged, Reduce the duration of Charged by 1."
+      "If self has Charged, Reduce the duration of Charged by 1 on allies."
     ],
     "notes": []
   },
@@ -941,13 +945,13 @@
     "notes": []
   },
   "Elektra": {
-    "description": "Attack primary target for 168% damage + 17% Piercing.\\nIf assisting a SHADOWLAND ally, +25% damage.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 168% damage + 17% Piercing.\\nIf assisting a SHADOWLAND ally, +25% damage.\\nApply Bleed to 2 enemies.",
     "damage": 168,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If assisting a SHADOWLAND ally, +25% damage.",
-      "Apply Bleed to the primary target."
+      "Apply Bleed to 2 enemies."
     ],
     "notes": []
   },
@@ -1023,13 +1027,13 @@
     "notes": []
   },
   "Firestar": {
-    "description": "Attack primary target for 180% Piercing.\\nApply 2 Bleed to the primary target.\\nApply Offense Up to a random ally.\\nOn Crit, Apply +1 Charged, up to a maximum of 5 to allies.",
+    "description": "Attack primary target for 180% Piercing.\\nApply 2 Bleed to the primary target.\\nApply Offense Up to a random NEW WARRIOR or Spider-Man or Iceman ally.\\nOn Crit, Apply +1 Charged, up to a maximum of 5 to allies.",
     "damage": 0,
     "piercing": 180,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "Apply Offense Up to a random ally.",
+      "Apply Offense Up to a random NEW WARRIOR or Spider-Man or Iceman ally.",
       "On Crit, Apply +1 Charged, up to a maximum of 5 to allies."
     ],
     "notes": []
@@ -1150,7 +1154,7 @@
     ]
   },
   "GhostSpider": {
-    "description": "Attack primary target for 208% damage + 17% Piercing.\\nSteal Evade from the primary target and give to allies.\\nIn RAID, If the primary target has Slow, Apply Accuracy Down to the primary target.\\nIn RAID, If the primary target has Slow, Apply Bleed to the primary target.\\nApply Evade to allies.",
+    "description": "Attack primary target for 208% damage + 17% Piercing.\\nSteal Evade from the primary target and give to allies.\\nIn RAID, If the primary target has Slow, Apply Accuracy Down to the primary target.\\nIn RAID, If the primary target has Slow, Apply Bleed to the primary target.\\nGain Evade.",
     "damage": 208,
     "piercing": 17,
     "drain": 0,
@@ -1158,17 +1162,17 @@
       "Steal Evade from the primary target and give to allies.",
       "In RAID, If the primary target has Slow, Apply Accuracy Down to the primary target.",
       "In RAID, If the primary target has Slow, Apply Bleed to the primary target.",
-      "Apply Evade to allies."
+      "Gain Evade."
     ],
     "notes": [
       "This attack cannot be dodged."
     ]
   },
   "Gladiator": {
-    "description": "Attack primary target for 203% damage + 17% Piercing + 25% Drain.\\nIf this character has less than 50% Health, +25% Drain.\\nIf this character has 50% or more Health, Apply Offense Down for 2 turns to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\\nIf this character has less than 50% Health, +25% Drain.\\nIf this character has 50% or more Health, Apply Offense Down for 2 turns to the primary target.",
     "damage": 203,
     "piercing": 17,
-    "drain": 25,
+    "drain": 0,
     "effects": [
       "If this character has less than 50% Health, +25% Drain.",
       "If this character has 50% or more Health, Apply Offense Down for 2 turns to the primary target."
@@ -1253,16 +1257,16 @@
     "notes": []
   },
   "Gwenpool": {
-    "description": "Attack primary target for 278% damage + 17% Piercing.\\nIf the primary target has Barrier, Remove Barrier from the primary target.\\nIf the primary target has Barrier, Barrier for 30% of Max Health.\\nOtherwise, Barrier for 15% of Max Health.\\nIf assisting a RETCON ally, +25% damage.\\nApply Defense Up for 2 turns to a random ally.",
+    "description": "Attack primary target for 278% damage + 17% Piercing.\\nIf the primary target has Barrier, Remove Barrier from the primary target.\\nIf the primary target has Barrier, Barrier for 30% of Max Health to allies.\\nOtherwise, Barrier for 15% of Max Health to allies.\\nIf assisting a RETCON ally, +25% damage.\\nApply Defense Up for 2 turns to a random NEW WARRIOR or RETCON ally.",
     "damage": 278,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If the primary target has Barrier, Remove Barrier from the primary target.",
-      "If the primary target has Barrier, Barrier for 30% of Max Health.",
-      "Otherwise, Barrier for 15% of Max Health.",
+      "If the primary target has Barrier, Barrier for 30% of Max Health to allies.",
+      "Otherwise, Barrier for 15% of Max Health to allies.",
       "If assisting a RETCON ally, +25% damage.",
-      "Apply Defense Up for 2 turns to a random ally."
+      "Apply Defense Up for 2 turns to a random NEW WARRIOR or RETCON ally."
     ],
     "notes": []
   },
@@ -1309,13 +1313,13 @@
     "notes": []
   },
   "HankPym": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nBarrier for 10% of Max Health.\\nBarrier for 15% of Max Health.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nBarrier for 10% of Max Health to a random HERO ally.\\nBarrier for 15% of Max Health to a random HERO ally.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Barrier for 10% of Max Health.",
-      "Barrier for 15% of Max Health."
+      "Barrier for 10% of Max Health to a random HERO ally.",
+      "Barrier for 15% of Max Health to a random HERO ally."
     ],
     "notes": []
   },
@@ -1416,35 +1420,35 @@
     "notes": []
   },
   "HowardTheDuck": {
-    "description": "Attack primary target for 180% damage + 170% Piercing.\\nApply Offense Up for 2 turns to allies.",
+    "description": "Attack primary target for 180% damage + 170% Piercing.\\nGain Offense Up for 2 turns.",
     "damage": 180,
     "piercing": 170,
     "drain": 0,
     "effects": [
-      "Apply Offense Up for 2 turns to allies."
+      "Gain Offense Up for 2 turns."
     ],
     "notes": []
   },
   "Hulk": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf this character has 50% or less Health or self has Charged, +50% damage.\\nIf self has Charged, Reduce the duration of Charged by 1.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf this character has 50% or less Health or self has Charged, +50% damage.\\nIf self has Charged, Reduce the duration of Charged by 1 on allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If this character has 50% or less Health or self has Charged, +50% damage.",
-      "If self has Charged, Reduce the duration of Charged by 1."
+      "If self has Charged, Reduce the duration of Charged by 1 on allies."
     ],
     "notes": []
   },
   "Hulkbuster": {
-    "description": "Attack primary target for 230% damage + 17% Piercing.\\nIn RAID, Barrier for 5% of Max Health.\\nApply Deflect for 2 turns to allies.\\nApply Defense Up for 2 turns to allies.",
+    "description": "Attack primary target for 230% damage + 17% Piercing.\\nIn RAID, Barrier for 5% of Max Health to a random ally.\\nIf this character has 50% or more Barrier, Apply Deflect for 2 turns to allies.\\nIf this character has 25% or more Barrier, Gain Defense Up for 2 turns.",
     "damage": 230,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, Barrier for 5% of Max Health.",
-      "Apply Deflect for 2 turns to allies.",
-      "Apply Defense Up for 2 turns to allies."
+      "In RAID, Barrier for 5% of Max Health to a random ally.",
+      "If this character has 50% or more Barrier, Apply Deflect for 2 turns to allies.",
+      "If this character has 25% or more Barrier, Gain Defense Up for 2 turns."
     ],
     "notes": []
   },
@@ -1571,7 +1575,7 @@
     "notes": []
   },
   "InvisibleWoman": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nBarrier for 10% of Max Health to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
@@ -1579,7 +1583,7 @@
       "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
       "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
       "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
-      "Barrier for 10% of Max Health."
+      "Barrier for 10% of Max Health to allies."
     ],
     "notes": []
   },
@@ -1602,12 +1606,12 @@
     "notes": []
   },
   "IronFistOrson": {
-    "description": "Attack primary target for 216% damage + 17% Piercing.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for 216% damage + 17% Piercing.\\nBarrier for 10% of Max Health to the most injured ally.",
     "damage": 216,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Barrier for 10% of Max Health."
+      "Barrier for 10% of Max Health to the most injured ally."
     ],
     "notes": []
   },
@@ -1625,14 +1629,14 @@
     ]
   },
   "IronManInfinityWar": {
-    "description": "Attack primary target for 240% damage + 15% Piercing.\\nApply +1 Vulnerable, up to a maximum of 3 to the primary target.\\nIn RAID, Reduce Speed Bar by 10%.\\nApply Speed Up to allies.",
+    "description": "Attack primary target for 240% damage + 15% Piercing.\\nApply +1 Vulnerable, up to a maximum of 3 to the primary target.\\nIn RAID, Reduce Speed Bar by 10%.\\nGain Speed Up.",
     "damage": 240,
     "piercing": 15,
     "drain": 0,
     "effects": [
       "Apply +1 Vulnerable, up to a maximum of 3 to the primary target.",
       "In RAID, Reduce Speed Bar by 10%.",
-      "Apply Speed Up to allies."
+      "Gain Speed Up."
     ],
     "notes": []
   },
@@ -1660,7 +1664,7 @@
     "notes": []
   },
   "IronheartMCU": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Defense Down for 2 turns to the primary target.\\nApply +1 Vulnerable, up to a maximum of 3 to the primary target.\\nProlong the duration of all negative effects, excluding Ability Block and Stun by 1.\\nIf 4+ PEGASUS allies, Apply Immunity to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Defense Down for 2 turns to the primary target.\\nApply +1 Vulnerable, up to a maximum of 3 to the primary target.\\nProlong the duration of all negative effects, excluding Ability Block and Stun by 1.\\nIf 4+ PEGASUS allies, Gain Immunity.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
@@ -1668,7 +1672,7 @@
       "Apply Defense Down for 2 turns to the primary target.",
       "Apply +1 Vulnerable, up to a maximum of 3 to the primary target.",
       "Prolong the duration of all negative effects, excluding Ability Block and Stun by 1.",
-      "If 4+ PEGASUS allies, Apply Immunity to allies."
+      "If 4+ PEGASUS allies, Gain Immunity."
     ],
     "notes": []
   },
@@ -1741,7 +1745,7 @@
     "notes": []
   },
   "Kahhori": {
-    "description": "Attack primary target for 135% Piercing + 50% Drain.\\nIf assisting a ABSOLUTE A-FORCE ally, +25% damage.\\nIf the primary target is not MINION, Drain 5% of target's Max Health.\\nIf the primary target is MINION, Drain 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nIf the primary target has Exposed, Apply Accuracy Down to the primary target.\\nIf the primary target has no positive effects, Apply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard by 1.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard by 1.",
+    "description": "Attack primary target for 135% Piercing + 50% Drain.\\nIf assisting a ABSOLUTE A-FORCE ally, +25% damage.\\nIf the primary target is not MINION, Drain 5% of target's Max Health.\\nIf the primary target is MINION, Drain 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nIf the primary target has Exposed, Apply Accuracy Down to the primary target.\\nIf the primary target has no positive effects, Apply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard by 1 on allies.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard by 1 on allies.",
     "damage": 0,
     "piercing": 135,
     "drain": 50,
@@ -1754,18 +1758,18 @@
       "If the primary target has Exposed, Apply Accuracy Down to the primary target.",
       "If the primary target has no positive effects, Apply Exposed to the primary target.",
       "Apply +1 Charged, up to a maximum of 3 to a random ally.",
-      "Prolong the duration of all positive effects, excluding Safeguard by 1.",
-      "On Assist, Prolong the duration of all positive effects, excluding Safeguard by 1."
+      "Prolong the duration of all positive effects, excluding Safeguard by 1 on allies.",
+      "On Assist, Prolong the duration of all positive effects, excluding Safeguard by 1 on allies."
     ],
     "notes": []
   },
   "KamalaKhan": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nBarrier for 5% of Max Health.\\nApply +1 Charged to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nBarrier for 5% of Max Health to allies.\\nApply +1 Charged to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Barrier for 5% of Max Health.",
+      "Barrier for 5% of Max Health to allies.",
       "Apply +1 Charged to allies."
     ],
     "notes": []
@@ -1819,19 +1823,19 @@
     "notes": []
   },
   "Kingpin": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf 3+ UNDERWORLD allies, +15% Crit Chance.\\nIf 3+ UNDERWORLD allies, +15% Crit Chance for each UNDERWORLD ally.\\nOn Crit, Barrier for 10% of Max Health.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf 3+ UNDERWORLD allies, +15% Crit Chance.\\nIf 3+ UNDERWORLD allies, +15% Crit Chance for each UNDERWORLD ally.\\nOn Crit, Barrier for 10% of Max Health to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If 3+ UNDERWORLD allies, +15% Crit Chance.",
       "If 3+ UNDERWORLD allies, +15% Crit Chance for each UNDERWORLD ally.",
-      "On Crit, Barrier for 10% of Max Health."
+      "On Crit, Barrier for 10% of Max Health to allies."
     ],
     "notes": []
   },
   "KittyPryde": {
-    "description": "Attack primary target for 223% damage + 17% Piercing.\\nIf Colossus is an ally, +334% damage + 17% Piercing.\\nClear 2 positive effect(s) from the primary target.\\nApply Speed Up for 2 turns to a random ally.\\nApply Speed Up for 2 turns to the ally with the lowest Speed Bar.",
+    "description": "Attack primary target for 223% damage + 17% Piercing.\\nIf Colossus is an ally, +334% damage + 17% Piercing.\\nClear 2 positive effect(s) from the primary target.\\nApply Speed Up for 2 turns to a random ally.\\nApply Speed Up for 2 turns to the X-MEN ally with the lowest Speed Bar.",
     "damage": 223,
     "piercing": 17,
     "drain": 0,
@@ -1839,7 +1843,7 @@
       "If Colossus is an ally, +334% damage + 17% Piercing.",
       "Clear 2 positive effect(s) from the primary target.",
       "Apply Speed Up for 2 turns to a random ally.",
-      "Apply Speed Up for 2 turns to the ally with the lowest Speed Bar."
+      "Apply Speed Up for 2 turns to the X-MEN ally with the lowest Speed Bar."
     ],
     "notes": []
   },
@@ -1931,12 +1935,12 @@
     "notes": []
   },
   "KreeTank_Counter": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Counter to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nGain Counter.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Counter to allies."
+      "Gain Counter."
     ],
     "notes": []
   },
@@ -1965,25 +1969,25 @@
     ]
   },
   "Lilandra": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nIn CRUCIBLE SHOWDOWN, Apply +1 Deflect to a random ally.\\nOtherwise, Apply +1 Deflect to allies.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nIn CRUCIBLE SHOWDOWN, If the primary target has Barrier, Apply +1 Deflect to a random ally.\\nOtherwise, If the primary target has Barrier, Apply +1 Deflect to allies.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down for 2 turns to the primary target.",
-      "In CRUCIBLE SHOWDOWN, Apply +1 Deflect to a random ally.",
-      "Otherwise, Apply +1 Deflect to allies."
+      "In CRUCIBLE SHOWDOWN, If the primary target has Barrier, Apply +1 Deflect to a random ally.",
+      "Otherwise, If the primary target has Barrier, Apply +1 Deflect to allies."
     ],
     "notes": []
   },
   "LivingMummy": {
-    "description": "Attack primary target for 187% Piercing.\\nIf self has Revive Once, Apply 2 Counter to allies.\\nIf self has Revive Once, Apply 2 Speed Up to allies.\\nHeal the primary target for 15% of Max Health.\\nIn DEFENSE, +250% damage.",
+    "description": "Attack primary target for 187% Piercing.\\nIf self has Revive Once, Gain 2 Counter.\\nIf self has Revive Once, Gain 2 Speed Up.\\nHeal the primary target for 15% of Max Health.\\nIn DEFENSE, +250% damage.",
     "damage": 0,
     "piercing": 187,
     "drain": 0,
     "effects": [
-      "If self has Revive Once, Apply 2 Counter to allies.",
-      "If self has Revive Once, Apply 2 Speed Up to allies.",
+      "If self has Revive Once, Gain 2 Counter.",
+      "If self has Revive Once, Gain 2 Speed Up.",
       "Heal the primary target for 15% of Max Health.",
       "In DEFENSE, +250% damage."
     ],
@@ -2002,48 +2006,48 @@
     "notes": []
   },
   "Loki": {
-    "description": "Attack primary target for 185% Piercing.\\nIn RAID, +100% damage.\\nIf Sylvie is an ally, Apply 3 Bleed to the primary target.\\nIf Sylvie is an ally, Apply 3 Defense Down to the primary target.\\nNot in RAID, 50% chance to Apply Evade to allies.\\nIn RAID, Gain Evade.",
+    "description": "Attack primary target for 185% Piercing.\\nIn RAID, If self has 1+ Regeneration, +100% damage.\\nIf Sylvie is an ally, Apply 3 Bleed to the primary target.\\nIf Sylvie is an ally, Apply 3 Defense Down to the primary target.\\nNot in RAID, 50% chance to Gain Evade.\\nIn RAID, Gain Evade.",
     "damage": 0,
     "piercing": 185,
     "drain": 0,
     "effects": [
-      "In RAID, +100% damage.",
+      "In RAID, If self has 1+ Regeneration, +100% damage.",
       "If Sylvie is an ally, Apply 3 Bleed to the primary target.",
       "If Sylvie is an ally, Apply 3 Defense Down to the primary target.",
-      "Not in RAID, 50% chance to Apply Evade to allies.",
+      "Not in RAID, 50% chance to Gain Evade.",
       "In RAID, Gain Evade."
     ],
     "notes": []
   },
   "LokiMinion": {
-    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Apply +1 Evade to allies.",
+    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Gain +1 Evade.",
     "damage": 0,
     "piercing": 153,
     "drain": 0,
     "effects": [
       "On Assist, +260% Piercing.",
-      "On Counter, 50% chance to Apply +1 Evade to allies."
+      "On Counter, 50% chance to Gain +1 Evade."
     ],
     "notes": []
   },
   "LokiNPC": {
-    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Apply +1 Evade to allies.",
+    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Gain +1 Evade.",
     "damage": 0,
     "piercing": 153,
     "drain": 0,
     "effects": [
       "On Assist, +260% Piercing.",
-      "On Counter, 50% chance to Apply +1 Evade to allies."
+      "On Counter, 50% chance to Gain +1 Evade."
     ],
     "notes": []
   },
   "LokiTeen": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, +100% damage.\\nClear 1 positive effect(s) from the primary target.\\nApply Regeneration to allies.\\nClear 1 negative effect(s) from allies.\\nApply Regeneration to the most injured ally.\\nClear 1 negative effect(s) from the most injured ally.\\nIn RAID, Apply +1 Regeneration to a random BIFROST ally.\\nIf self has Stealth, Clear 1 Stealth from allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, If self has 1+ Regeneration, +100% damage.\\nClear 1 positive effect(s) from the primary target.\\nApply Regeneration to allies.\\nClear 1 negative effect(s) from allies.\\nApply Regeneration to the most injured ally.\\nClear 1 negative effect(s) from the most injured ally.\\nIn RAID, Apply +1 Regeneration to a random BIFROST ally.\\nIf self has Stealth, Clear 1 Stealth from allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, +100% damage.",
+      "In RAID, If self has 1+ Regeneration, +100% damage.",
       "Clear 1 positive effect(s) from the primary target.",
       "Apply Regeneration to allies.",
       "Clear 1 negative effect(s) from allies.",
@@ -2254,13 +2258,13 @@
     ]
   },
   "Mockingbird": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nHeal a random ally for 5% of Max Health.\\nHeal a random ally for 10% of Max Health.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nHeal a random non-NEW AVENGER ally for 5% of Max Health.\\nHeal a random NEW AVENGER ally for 10% of Max Health.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Heal a random ally for 5% of Max Health.",
-      "Heal a random ally for 10% of Max Health."
+      "Heal a random non-NEW AVENGER ally for 5% of Max Health.",
+      "Heal a random NEW AVENGER ally for 10% of Max Health."
     ],
     "notes": []
   },
@@ -2275,18 +2279,18 @@
     "notes": []
   },
   "MoonKnight": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf assisting a SHADOWLAND or NIGHTSTALKER ally, +25% damage.\\nApply Counter to allies.\\nApply Offense Up to allies.\\nApply Speed Up to allies.\\nApply Counter for 2 turns to allies.\\nApply Offense Up for 2 turns to allies.\\nApply Speed Up for 2 turns to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf assisting a SHADOWLAND or NIGHTSTALKER ally, +25% damage.\\nGain Counter.\\nGain Offense Up.\\nGain Speed Up.\\nGain Counter for 2 turns.\\nGain Offense Up for 2 turns.\\nGain Speed Up for 2 turns.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If assisting a SHADOWLAND or NIGHTSTALKER ally, +25% damage.",
-      "Apply Counter to allies.",
-      "Apply Offense Up to allies.",
-      "Apply Speed Up to allies.",
-      "Apply Counter for 2 turns to allies.",
-      "Apply Offense Up for 2 turns to allies.",
-      "Apply Speed Up for 2 turns to allies."
+      "Gain Counter.",
+      "Gain Offense Up.",
+      "Gain Speed Up.",
+      "Gain Counter for 2 turns.",
+      "Gain Offense Up for 2 turns.",
+      "Gain Speed Up for 2 turns."
     ],
     "notes": []
   },
@@ -2418,13 +2422,13 @@
     ]
   },
   "Mysterio": {
-    "description": "Attack primary target for 198% damage + 15% Piercing.\\nClear 3 positive effect(s) from the primary target.\\nApply Evade to allies.\\nApply +1 Charged, up to a maximum of 5 to allies.",
+    "description": "Attack primary target for 198% damage + 15% Piercing.\\nClear 3 positive effect(s) from the primary target.\\nGain Evade.\\nApply +1 Charged, up to a maximum of 5 to allies.",
     "damage": 198,
     "piercing": 15,
     "drain": 0,
     "effects": [
       "Clear 3 positive effect(s) from the primary target.",
-      "Apply Evade to allies.",
+      "Gain Evade.",
       "Apply +1 Charged, up to a maximum of 5 to allies."
     ],
     "notes": []
@@ -2475,25 +2479,25 @@
     "notes": []
   },
   "Nebula": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nDrain 3% of target's Max Health.\\nApply Speed Up to allies.\\nOn Assist, +320% damage.\\nOn Counter, Apply +1 Speed Up to allies.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nDrain 3% of target's Max Health.\\nGain Speed Up.\\nOn Assist, +320% damage.\\nOn Counter, Gain +1 Speed Up.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Drain 3% of target's Max Health.",
-      "Apply Speed Up to allies.",
+      "Gain Speed Up.",
       "On Assist, +320% damage.",
-      "On Counter, Apply +1 Speed Up to allies."
+      "On Counter, Gain +1 Speed Up."
     ],
     "notes": []
   },
   "Negasonic": {
-    "description": "Attack primary target for 255% damage + 17% Piercing.\\nIn WAR, OFFENSE, If PhantomRider is an ally, +128% damage.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 255% damage + 17% Piercing.\\nIn WAR, OFFENSE, If Phantom Rider is an ally, +128% damage.\\nApply Bleed to the primary target.",
     "damage": 255,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, If PhantomRider is an ally, +128% damage.",
+      "In WAR, OFFENSE, If Phantom Rider is an ally, +128% damage.",
       "Apply Bleed to the primary target."
     ],
     "notes": []
@@ -2521,14 +2525,14 @@
     "notes": []
   },
   "NicoMinoru": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nIf self has Arcane Runic, 33% chance to Apply Bleed to the primary target.\\nOtherwise, 50% chance to Apply Defense Up to allies.\\nOtherwise, Heal the most injured ally for 15% of Max Health.\\nIf self does not have Arcane Runic, Apply Arcane Runic to allies.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nIf self has Arcane Runic, 33% chance to Apply Bleed to the primary target.\\nOtherwise, If self has Arcane Runic, 50% chance to Gain Defense Up.\\nOtherwise, If self has Arcane Runic, Heal the most injured ally for 15% of Max Health.\\nIf self does not have Arcane Runic, Apply Arcane Runic to allies.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If self has Arcane Runic, 33% chance to Apply Bleed to the primary target.",
-      "Otherwise, 50% chance to Apply Defense Up to allies.",
-      "Otherwise, Heal the most injured ally for 15% of Max Health.",
+      "Otherwise, If self has Arcane Runic, 50% chance to Gain Defense Up.",
+      "Otherwise, If self has Arcane Runic, Heal the most injured ally for 15% of Max Health.",
       "If self does not have Arcane Runic, Apply Arcane Runic to allies."
     ],
     "notes": []
@@ -2584,13 +2588,13 @@
     "notes": []
   },
   "Northstar": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply Trauma to the primary target.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\\nIf self has 1+ Charged, Apply Offense Down to the primary target.\\nIf self has 10+ Charged, Apply Trauma to the primary target.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
-      "Apply Trauma to the primary target."
+      "If self has 1+ Charged, Apply Offense Down to the primary target.",
+      "If self has 10+ Charged, Apply Trauma to the primary target."
     ],
     "notes": []
   },
@@ -2745,7 +2749,7 @@
     "notes": []
   },
   "PeniParker": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf self has Barrier, +50% damage.\\nClear all positive effect(s) from the primary target.\\nIf 1+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nIf 2+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nIf 3+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nIf 4+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nIf 5+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nApply +1 Deflect, up to a maximum of 5 to a random ally.\\nGenerate +1 Ability Energy for SPIDER SOCIETY allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf self has Barrier, +50% damage.\\nClear all positive effect(s) from the primary target.\\nIf 1+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nIf 2+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nIf 3+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nIf 4+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nIf 5+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.\\nApply +1 Deflect, up to a maximum of 5 to a random HERO SPIDER-VERSE ally.\\nGenerate +1 Ability Energy for SPIDER SOCIETY allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
@@ -2757,19 +2761,19 @@
       "If 3+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.",
       "If 4+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.",
       "If 5+ HERO SPIDER-VERSE allies, Apply +1 Deflect, up to a maximum of 5 to allies.",
-      "Apply +1 Deflect, up to a maximum of 5 to a random ally.",
+      "Apply +1 Deflect, up to a maximum of 5 to a random HERO SPIDER-VERSE ally.",
       "Generate +1 Ability Energy for SPIDER SOCIETY allies."
     ],
     "notes": []
   },
   "PeterBParker": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nApply Regeneration to the most injured ally.\\nApply Evade to the most injured SPIDER SOCIETY ally.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nApply Regeneration to the most injured HERO SPIDER-VERSE ally.\\nApply Evade to the most injured SPIDER SOCIETY ally.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down for 2 turns to the primary target.",
-      "Apply Regeneration to the most injured ally.",
+      "Apply Regeneration to the most injured HERO SPIDER-VERSE ally.",
       "Apply Evade to the most injured SPIDER SOCIETY ally."
     ],
     "notes": []
@@ -2820,13 +2824,13 @@
     "notes": []
   },
   "Polaris": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nBarrier for 10% of Max Health to the most injured ally.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Bleed to the primary target.",
-      "Barrier for 10% of Max Health."
+      "Barrier for 10% of Max Health to the most injured ally."
     ],
     "notes": []
   },
@@ -2935,12 +2939,13 @@
     "notes": []
   },
   "Quake": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Slow for 2 turns to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Slow for 2 turns to the primary target.\\nApply Slow for 2 turns to 10 enemies.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Slow for 2 turns to the primary target."
+      "Apply Slow for 2 turns to the primary target.",
+      "Apply Slow for 2 turns to 10 enemies."
     ],
     "notes": []
   },
@@ -2980,13 +2985,13 @@
     "notes": []
   },
   "RavagerDmg_AoE": {
-    "description": "Attack primary target for 260% damage + 17% Piercing.\\nApply Slow to the primary target.\\nApply Speed Up to allies.",
+    "description": "Attack primary target for 260% damage + 17% Piercing.\\nApply Slow to the primary target.\\nGain Speed Up.",
     "damage": 260,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Slow to the primary target.",
-      "Apply Speed Up to allies."
+      "Gain Speed Up."
     ],
     "notes": []
   },
@@ -3028,23 +3033,24 @@
     "notes": []
   },
   "RedGuardian": {
-    "description": "Attack primary target for 255% damage + 17% Piercing.\\nApply Defense Up to allies.\\nIn WAR, Apply +1 Defense Up to a random ally.",
+    "description": "Attack primary target for 255% damage + 17% Piercing.\\nGain Defense Up.\\nIn WAR, Apply +1 Defense Up to a random ally.",
     "damage": 255,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Defense Up to allies.",
+      "Gain Defense Up.",
       "In WAR, Apply +1 Defense Up to a random ally."
     ],
     "notes": []
   },
   "RedHulk": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nIf any enemy has positive effects, Flip 2 positive effect(s) to negative on the primary target.\\nIf any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.\\nIn WAR, If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nIf self has 5+ Charged, +100% damage.\\nIf self has 5+ Charged, If any enemy has positive effects, Flip 2 positive effect(s) to negative on the primary target.\\nIf any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.\\nIn WAR, If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If any enemy has positive effects, Flip 2 positive effect(s) to negative on the primary target.",
+      "If self has 5+ Charged, +100% damage.",
+      "If self has 5+ Charged, If any enemy has positive effects, Flip 2 positive effect(s) to negative on the primary target.",
       "If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target.",
       "In WAR, If any enemy has positive effects, Flip 1 positive effect(s) to negative on the primary target."
     ],
@@ -3093,14 +3099,14 @@
     ]
   },
   "Rogue": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nRemove Barrier from the primary target.\\nIf self has InvisibleStateChecker, +300% damage.\\nIf self has InvisibleStateChecker, +25% Crit Chance for each HORSEMAN or Apocalypse ally.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nRemove Barrier from the primary target.\\nIf self has Absorbed Powers, +300% damage.\\nIf self has Absorbed Powers, +25% Crit Chance for each HORSEMAN or Apocalypse ally.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Remove Barrier from the primary target.",
-      "If self has InvisibleStateChecker, +300% damage.",
-      "If self has InvisibleStateChecker, +25% Crit Chance for each HORSEMAN or Apocalypse ally."
+      "If self has Absorbed Powers, +300% damage.",
+      "If self has Absorbed Powers, +25% Crit Chance for each HORSEMAN or Apocalypse ally."
     ],
     "notes": []
   },
@@ -3251,25 +3257,25 @@
     "notes": []
   },
   "Sasquatch": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIn RAID or WAR, DEFENSE, Clear 1 negative effect(s) from a random ALPHA FLIGHT ally.\\nApply Defense Up to allies.\\nGain Deflect for 2 turns.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIn RAID or WAR, DEFENSE, Clear 1 negative effect(s) from a random ALPHA FLIGHT ally.\\nGain Defense Up.\\nGain Deflect for 2 turns.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In RAID or WAR, DEFENSE, Clear 1 negative effect(s) from a random ALPHA FLIGHT ally.",
-      "Apply Defense Up to allies.",
+      "Gain Defense Up.",
       "Gain Deflect for 2 turns."
     ],
     "notes": []
   },
   "Satana": {
-    "description": "Attack primary target for 120% Piercing.\\nDrain 25% of target's Max Health and redistribute to ACCURSED allies.\\nIn CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1.",
+    "description": "Attack primary target for 120% Piercing.\\nDrain 25% of target's Max Health and redistribute to ACCURSED allies.\\nIn CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1 on a random ACCURSED ally.",
     "damage": 0,
     "piercing": 120,
     "drain": 0,
     "effects": [
       "Drain 25% of target's Max Health and redistribute to ACCURSED allies.",
-      "In CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1."
+      "In CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1 on a random ACCURSED ally."
     ],
     "notes": []
   },
@@ -3286,7 +3292,7 @@
     "notes": []
   },
   "ScarletWitch": {
-    "description": "Attack primary target for 168% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nApply 3 Offense Down for 2 turns to the primary target.\\nApply 3 Defense Down for 2 turns to the primary target.\\nApply 3 Slow for 2 turns to the primary target.\\nApply Offense Down to the primary target.\\nApply Defense Down to the primary target.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 168% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nApply 3 Offense Down for 2 turns to the primary target.\\nApply 3 Defense Down for 2 turns to the primary target.\\nApply 3 Slow for 2 turns to the primary target.\\nApply 2 Offense Down to the primary target.\\nApply 2 Defense Down to the primary target.\\nApply 2 Slow to the primary target.",
     "damage": 0,
     "piercing": 168,
     "drain": 0,
@@ -3297,9 +3303,9 @@
       "Apply 3 Offense Down for 2 turns to the primary target.",
       "Apply 3 Defense Down for 2 turns to the primary target.",
       "Apply 3 Slow for 2 turns to the primary target.",
-      "Apply Offense Down to the primary target.",
-      "Apply Defense Down to the primary target.",
-      "Apply Slow to the primary target."
+      "Apply 2 Offense Down to the primary target.",
+      "Apply 2 Defense Down to the primary target.",
+      "Apply 2 Slow to the primary target."
     ],
     "notes": []
   },
@@ -3399,14 +3405,14 @@
     "notes": []
   },
   "Sersi": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nIf assisting a ETERNAL ally, +53% damage + 3% Piercing.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.\\nOtherwise, Flip 2 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nIf assisting a ETERNAL ally, +53% damage + 3% Piercing.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.\\nOtherwise, If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If assisting a ETERNAL ally, +53% damage + 3% Piercing.",
       "If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
-      "Otherwise, Flip 2 positive effect(s) to negative on the primary target."
+      "Otherwise, If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target."
     ],
     "notes": []
   },
@@ -3482,12 +3488,12 @@
     "notes": []
   },
   "ShieldSupport_Heal": {
-    "description": "Attack primary target for 87% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nOn Crit, Reduce Speed Bar by 25%.",
+    "description": "Attack primary target for 87% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nOn Crit, Reduce Speed Bar by 25%.",
     "damage": 87,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
+      "Apply Offense Down for 2 turns to the primary target.",
       "On Crit, Reduce Speed Bar by 25%."
     ],
     "notes": []
@@ -3514,12 +3520,12 @@
     "notes": []
   },
   "Shocker": {
-    "description": "Attack primary target for 200% Piercing.\\nApply Assist Now to a SINISTER SIX ally.",
+    "description": "Attack primary target for 200% Piercing.\\nApply Assist Now to the SINISTER SIX ally with the highest Damage.",
     "damage": 0,
     "piercing": 200,
     "drain": 0,
     "effects": [
-      "Apply Assist Now to a SINISTER SIX ally."
+      "Apply Assist Now to the SINISTER SIX ally with the highest Damage."
     ],
     "notes": []
   },
@@ -3590,12 +3596,12 @@
     "notes": []
   },
   "SpiderMan": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, 80% chance to Apply Evade to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, 80% chance to Gain Evade.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, 80% chance to Apply Evade to allies."
+      "In RAID, 80% chance to Gain Evade."
     ],
     "notes": []
   },
@@ -3625,15 +3631,15 @@
     "notes": []
   },
   "SpiderManNoir": {
-    "description": "Attack primary target for 231% damage + 17% Piercing.\\nIf self is HYDRA, +50% damage.\\nGain Stealth.\\n50% chance to Apply Evade to allies.\\nIn CRUCIBLE SHOWDOWN, Apply Evade to allies.\\nIn RAID, Apply Evade to allies.\\nIn RAID, Apply Regeneration to allies.",
+    "description": "Attack primary target for 231% damage + 17% Piercing.\\nIf self is HYDRA, +50% damage.\\nGain Stealth.\\n50% chance to Gain Evade.\\nIn CRUCIBLE SHOWDOWN, Gain Evade.\\nIn RAID, Apply Evade to allies.\\nIn RAID, Apply Regeneration to allies.",
     "damage": 231,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If self is HYDRA, +50% damage.",
       "Gain Stealth.",
-      "50% chance to Apply Evade to allies.",
-      "In CRUCIBLE SHOWDOWN, Apply Evade to allies.",
+      "50% chance to Gain Evade.",
+      "In CRUCIBLE SHOWDOWN, Gain Evade.",
       "In RAID, Apply Evade to allies.",
       "In RAID, Apply Regeneration to allies."
     ],
@@ -3663,12 +3669,12 @@
     "notes": []
   },
   "SpiderSlayer": {
-    "description": "Attack primary target for 228% Piercing.\\nIf the primary target is SINISTER SIX, Apply Offense Up to a ally.",
+    "description": "Attack primary target for 228% Piercing.\\nIf the primary target is SINISTER SIX, Apply Offense Up to the ally with the highest Damage.",
     "damage": 0,
     "piercing": 228,
     "drain": 0,
     "effects": [
-      "If the primary target is SINISTER SIX, Apply Offense Up to a ally."
+      "If the primary target is SINISTER SIX, Apply Offense Up to the ally with the highest Damage."
     ],
     "notes": []
   },
@@ -3740,13 +3746,13 @@
     "notes": []
   },
   "Stature": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf the primary target has Defense Up, Flip 1 positive effect(s) to negative on the primary target.\\nApply Defense Up to a random ally.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf the primary target has Defense Up, Flip 1 positive effect(s) to negative on the primary target.\\nApply Defense Up to a random PYMTECH ally.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If the primary target has Defense Up, Flip 1 positive effect(s) to negative on the primary target.",
-      "Apply Defense Up to a random ally."
+      "Apply Defense Up to a random PYMTECH ally."
     ],
     "notes": []
   },
@@ -3775,12 +3781,13 @@
     "notes": []
   },
   "StrangeSupreme": {
-    "description": "Attack primary target for 210% Piercing.\\nFlip 2 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 210% Piercing.\\nFlip 2 positive effect(s) to negative on the primary target.\\nFlip 2 positive effect(s) to negative on 10 enemies.",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
     "effects": [
-      "Flip 2 positive effect(s) to negative on the primary target."
+      "Flip 2 positive effect(s) to negative on the primary target.",
+      "Flip 2 positive effect(s) to negative on 10 enemies."
     ],
     "notes": []
   },
@@ -3795,14 +3802,14 @@
     "notes": []
   },
   "Sunfire": {
-    "description": "Attack primary target for 242% Piercing.\\nIn RAID, +100% Crit Chance.\\nIf self has Offense Up, Apply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 242% Piercing.\\nIn RAID, +100% Crit Chance.\\nIf self has Offense Up, Apply Bleed to the primary target.\\nIf self has 3+ Offense Up, Apply Bleed to the primary target.",
     "damage": 0,
     "piercing": 242,
     "drain": 0,
     "effects": [
       "In RAID, +100% Crit Chance.",
       "If self has Offense Up, Apply Bleed to the primary target.",
-      "Apply Bleed to the primary target."
+      "If self has 3+ Offense Up, Apply Bleed to the primary target."
     ],
     "notes": []
   },
@@ -3818,15 +3825,15 @@
     "notes": []
   },
   "SuperSkrull": {
-    "description": "Attack primary target for 300% Piercing.\\nIf the primary target has Exposed and has Barrier, Remove Barrier from the primary target.\\nFlip 3 positive effect(s) to negative on the primary target.\\nIf self has SpawnedWithHeroAllies, Apply Disrupted for 2 turns to the primary target.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for 300% Piercing.\\nIf the primary target has Exposed and has Barrier, Remove Barrier from the primary target.\\nFlip 3 positive effect(s) to negative on the primary target.\\nIf self has Spawned With Hero Allies, Apply Disrupted for 2 turns to the primary target.\\nBarrier for 10% of Max Health to allies.",
     "damage": 0,
     "piercing": 300,
     "drain": 0,
     "effects": [
       "If the primary target has Exposed and has Barrier, Remove Barrier from the primary target.",
       "Flip 3 positive effect(s) to negative on the primary target.",
-      "If self has SpawnedWithHeroAllies, Apply Disrupted for 2 turns to the primary target.",
-      "Barrier for 10% of Max Health."
+      "If self has Spawned With Hero Allies, Apply Disrupted for 2 turns to the primary target.",
+      "Barrier for 10% of Max Health to allies."
     ],
     "notes": [
       "This attack ignores Defense Up."
@@ -3843,13 +3850,13 @@
     "notes": []
   },
   "Swarm": {
-    "description": "Attack primary target for 280% damage + 17% Piercing + 50% Drain.\\nIf assisting a INFESTATION ally, +10% Piercing.\\nIf self has Charged, Reduce the duration of Charged by 1.",
+    "description": "Attack primary target for 280% damage + 17% Piercing + 50% Drain.\\nIf assisting a INFESTATION ally, +10% Piercing.\\nIf self has Charged, Reduce the duration of Charged by 1 on allies.",
     "damage": 280,
     "piercing": 17,
     "drain": 50,
     "effects": [
       "If assisting a INFESTATION ally, +10% Piercing.",
-      "If self has Charged, Reduce the duration of Charged by 1."
+      "If self has Charged, Reduce the duration of Charged by 1 on allies."
     ],
     "notes": []
   },
@@ -3877,12 +3884,12 @@
     "notes": []
   },
   "Sylvie": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, +100% damage.\\nFlip all positive effect(s) to negative on the primary target.\\nIn RAID, Reduce Speed Bar by 3% for each BIFROST ally.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAID, If self has 1+ Regeneration, +100% damage.\\nFlip all positive effect(s) to negative on the primary target.\\nIn RAID, Reduce Speed Bar by 3% for each BIFROST ally.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAID, +100% damage.",
+      "In RAID, If self has 1+ Regeneration, +100% damage.",
       "Flip all positive effect(s) to negative on the primary target.",
       "In RAID, Reduce Speed Bar by 3% for each BIFROST ally."
     ],
@@ -3891,13 +3898,13 @@
     ]
   },
   "SymbioteSilverSurfer": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nOtherwise, Flip 3 negative effect(s) to positive on allies.\\nIn RAID, Flip 3 positive effect(s) to negative on the primary target.\\nIn RAID, Flip 3 negative effect(s) to positive on allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nOtherwise, Not in RAID, Flip 3 negative effect(s) to positive on allies.\\nIn RAID, Flip 3 positive effect(s) to negative on the primary target.\\nIn RAID, Flip 3 negative effect(s) to positive on allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip 3 positive effect(s) to negative on the primary target.",
-      "Otherwise, Flip 3 negative effect(s) to positive on allies.",
+      "Otherwise, Not in RAID, Flip 3 negative effect(s) to positive on allies.",
       "In RAID, Flip 3 positive effect(s) to negative on the primary target.",
       "In RAID, Flip 3 negative effect(s) to positive on allies."
     ],
@@ -3914,12 +3921,12 @@
     "notes": []
   },
   "TChalla": {
-    "description": "Attack primary target for 235% damage + 17% Piercing.\\nApply Offense Up to allies.",
+    "description": "Attack primary target for 235% damage + 17% Piercing.\\nGain Offense Up.",
     "damage": 235,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Up to allies."
+      "Gain Offense Up."
     ],
     "notes": []
   },
@@ -3950,13 +3957,13 @@
     "notes": []
   },
   "Thanos": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nOn Assist, +300% damage.\\nOn Counter, Apply +1 Counter to allies.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nOn Assist, +300% damage.\\nOn Counter, Gain +1 Counter.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "On Assist, +300% damage.",
-      "On Counter, Apply +1 Counter to allies."
+      "On Counter, Gain +1 Counter."
     ],
     "notes": []
   },
@@ -4177,14 +4184,14 @@
     "notes": []
   },
   "UnionJack": {
-    "description": "Attack primary target for 270% damage + 17% Piercing.\\nNot in RAID, Flip 1 positive effect(s) to negative on the primary target.\\nIn RAID, Flip 3 positive effect(s) to negative on the primary target.\\nIf self has Charged, Reduce the duration of Charged by 1.",
+    "description": "Attack primary target for 270% damage + 17% Piercing.\\nNot in RAID, Flip 1 positive effect(s) to negative on the primary target.\\nIn RAID, Flip 3 positive effect(s) to negative on the primary target.\\nIf self has Charged, Reduce the duration of Charged by 1 on allies.",
     "damage": 270,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Not in RAID, Flip 1 positive effect(s) to negative on the primary target.",
       "In RAID, Flip 3 positive effect(s) to negative on the primary target.",
-      "If self has Charged, Reduce the duration of Charged by 1."
+      "If self has Charged, Reduce the duration of Charged by 1 on allies."
     ],
     "notes": []
   },
@@ -4213,9 +4220,9 @@
     "notes": []
   },
   "Valkyrie": {
-    "description": "Attack primary target for 20% Piercing.\\nApply +1 Charged, up to a maximum of 10 to allies.",
+    "description": "Attack primary target for 240% Piercing.\\nApply +1 Charged, up to a maximum of 10 to allies.",
     "damage": 0,
-    "piercing": 20,
+    "piercing": 240,
     "drain": 0,
     "effects": [
       "Apply +1 Charged, up to a maximum of 10 to allies."
@@ -4330,7 +4337,7 @@
     "notes": []
   },
   "Void": {
-    "description": "Attack primary target for 225% Piercing.\\nApply Defense Down to the primary target.\\nApply Trauma to the primary target.\\nIn CRUCIBLE SHOWDOWN, Apply +1 Trauma to a random ally.",
+    "description": "Attack the most injured ally for 225% Piercing.\\nApply Defense Down to the primary target.\\nApply Trauma to the primary target.\\nIn CRUCIBLE SHOWDOWN, Apply +1 Trauma to a random ally.",
     "damage": 0,
     "piercing": 225,
     "drain": 0,
@@ -4382,12 +4389,12 @@
     "notes": []
   },
   "War_ShieldSupport_Heal": {
-    "description": "Attack primary target for 87% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nOn Crit, Reduce Speed Bar by 25%.",
+    "description": "Attack primary target for 87% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nOn Crit, Reduce Speed Bar by 25%.",
     "damage": 87,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
+      "Apply Offense Down for 2 turns to the primary target.",
       "On Crit, Reduce Speed Bar by 25%."
     ],
     "notes": []
@@ -4414,13 +4421,14 @@
     "notes": []
   },
   "Warlock": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nApply Stealth to a random ally.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nApply Stealth to a random ally.\\nApply Stealth to a random NEW MUTANT ally.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip 3 positive effect(s) to negative on the primary target.",
-      "Apply Stealth to a random ally."
+      "Apply Stealth to a random ally.",
+      "Apply Stealth to a random NEW MUTANT ally."
     ],
     "notes": []
   },
@@ -4469,24 +4477,24 @@
     "notes": []
   },
   "Wolverine": {
-    "description": "Attack primary target for 182% Piercing.\\nApply 2 Bleed to the primary target.\\nIn RAID or WAR, DEFENSE, Apply Disrupted to the primary target.\\nApply Speed Up to allies.",
+    "description": "Attack primary target for 182% Piercing.\\nApply 2 Bleed to the primary target.\\nIn RAID or WAR, DEFENSE, Apply Disrupted to the primary target.\\nGain Speed Up.",
     "damage": 0,
     "piercing": 182,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
       "In RAID or WAR, DEFENSE, Apply Disrupted to the primary target.",
-      "Apply Speed Up to allies."
+      "Gain Speed Up."
     ],
     "notes": []
   },
   "Wong": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nClear 1 negative effect(s) from the most injured ally.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nClear 1 negative effect(s) from the most injured DARKHOLD ally.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear 1 negative effect(s) from the most injured ally."
+      "Clear 1 negative effect(s) from the most injured DARKHOLD ally."
     ],
     "notes": []
   },
@@ -4503,14 +4511,14 @@
     "notes": []
   },
   "Xavier": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nOn Assist, +89% damage.\\nApply Evade to allies.\\nApply Offense Up to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nOn Assist, +89% damage.\\nGain Evade.\\nGain Offense Up.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "On Assist, +89% damage.",
-      "Apply Evade to allies.",
-      "Apply Offense Up to allies."
+      "Gain Evade.",
+      "Gain Offense Up."
     ],
     "notes": []
   },
