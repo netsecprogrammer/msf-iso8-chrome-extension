@@ -1032,7 +1032,7 @@ function processCharacter(charName, charData) {
             const isPositivelyConditional = action.only_if &&
                 !(action.only_if.not && Object.keys(action.only_if).length === 1);
             const hasBaseStats = damage > 0 || piercing > 0;
-            if (isFromBasic || isCrit || isAllyConditional || isAllyTargetConditional) {
+            if (isFromBasic || isCrit || isAllyConditional) {
                 // Check if this is inherent basic counter/assist damage that should be suppressed
                 // (counter+assist with no action-level conditions and no special targeting)
                 // Only conditional apply_if stats from second pass should be shown for these
@@ -1072,11 +1072,12 @@ function processCharacter(charName, charData) {
                 }
             } else {
                 // Main stats (unconditional, or first conditional when no base exists yet)
-                if (isPositivelyConditional && conditionPrefix) {
+                if ((isPositivelyConditional || isConditionalTarget) && conditionPrefix) {
                     mainStatsCondition = conditionPrefix;
                 }
                 // When if_prev_skipped overwrites main stats, it's the base/default case
                 // Clear mainStatsCondition and show old conditional stats as effect if different
+                // Fully replace all stats since if_prev_skipped is a complete alternative
                 if (action.action_cond === 'if_prev_skipped' && mainStatsCondition) {
                     if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
                         const oldParts = [];
@@ -1088,12 +1089,19 @@ function processCharacter(charName, charData) {
                         }
                     }
                     mainStatsCondition = '';
+                    // Full reset — base replaces conditional entirely
+                    damage = localDmg;
+                    piercing = localPierce;
+                    drain = localDrain;
+                    critChance = localCritChance;
+                    critDmg = localCritDmg;
+                } else {
+                    if (localDmg > 0) damage = localDmg;
+                    if (localPierce > 0) piercing = localPierce;
+                    if (localDrain > 0) drain = localDrain;
+                    if (localCritChance > 0) critChance = localCritChance;
+                    if (localCritDmg > 0) critDmg = localCritDmg;
                 }
-                if (localDmg > 0) damage = localDmg;
-                if (localPierce > 0) piercing = localPierce;
-                if (localDrain > 0) drain = localDrain;
-                if (localCritChance > 0) critChance = localCritChance;
-                if (localCritDmg > 0) critDmg = localCritDmg;
             }
         }
 
@@ -1795,7 +1803,14 @@ function processCharacter(charName, charData) {
           || (maxActionPct > 0 && maxActionPct < 100)
           || ((action.action_cond === 'if_prev_ran' || action.action_cond === 'if_arbitrary_action_ran') && conditionPrefix));
       prevConditionPrefix = conditionPrefix;
-      actionConditionPrefixes.push(conditionPrefix);
+      // For if_prev_skipped base actions, store prefix WITHOUT "Otherwise, " for inheritance
+      // Chained actions (if_arbitrary_action_ran/if_prev_ran) should not inherit "Otherwise"
+      if (action.action_cond === 'if_prev_skipped') {
+          const ownConditions = parseConditions(action);
+          actionConditionPrefixes.push((action._counterAssistPrefix || '') + (ownConditions || ''));
+      } else {
+          actionConditionPrefixes.push(conditionPrefix);
+      }
     });
 
   // Process stat_lock for notes
