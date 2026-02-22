@@ -64,6 +64,9 @@ const PROC_MAP = {
   'Marked': 'Vulnerable',
   'ClawsOut': 'Claws Out',
   'Silence': 'Silence',
+  'BrickMaterial': 'Brick Material',
+  'AssistNow': 'Assist Now',
+  'InvisibleNonPersist': 'Stealth',
   // Trait names used in conditions and targeting
   'AbsoluteAForce': 'Absolute A-Force',
   'NewAvenger': 'New Avenger',
@@ -102,7 +105,9 @@ const PROC_MAP = {
   'Horseman': 'Horseman',
   'Sylvie': 'Sylvie',
   'Ikaris': 'Ikaris',
-  'Daredevil': 'Daredevil'
+  'Daredevil': 'Daredevil',
+  'DaimonHellstrom': 'Daimon Hellstrom',
+  'MrSinister': 'Mr. Sinister'
 };
 
 function formatProcName(proc) {
@@ -314,6 +319,11 @@ function processCharacter(charName, charData) {
       if (!hasCounter && !hasAssist) return;
       // Skip empty_result actions (placeholders)
       if (a.action === 'empty_result') return;
+      // Skip shared template actions that only apply to a specific character
+      // (e.g., "clear Binary on assist" exists on 19+ basics but only Captain Marvel can have Binary)
+      if (a.action === 'proc_remove' && a.procs === 'Binary' &&
+          a.only_if && a.only_if.owner && a.only_if.owner.procs &&
+          a.only_if.owner.procs.includes('Binary') && charName !== 'CaptainMarvel') return;
 
       let prefix = '';
       if (hasCounter && !hasAssist) prefix = 'On Counter, ';
@@ -326,24 +336,25 @@ function processCharacter(charName, charData) {
 
   // Iterate all actions
   let prevActionWasVisible = false; // Track if previous action produced visible output
+  let prevActionWasConditional = false; // Track if previous action had a condition
   allActions.forEach(action => {
       // Check action_pct: if max level chance is 0, skip entirely; if < 100, note probability
       const maxActionPct = action.action_pct
           ? (Array.isArray(action.action_pct) ? action.action_pct[action.action_pct.length - 1] : action.action_pct)
           : 100;
-      if (maxActionPct === 0) { prevActionWasVisible = false; return; }
+      if (maxActionPct === 0) { prevActionWasVisible = false; prevActionWasConditional = false; return; }
 
       // Skip empty_result but track that it was invisible
-      if (action.action === 'empty_result') { prevActionWasVisible = false; return; }
+      if (action.action === 'empty_result') { prevActionWasVisible = false; prevActionWasConditional = false; return; }
 
       let conditionPrefix = (action._counterAssistPrefix || '') + parseConditions(action);
 
       // Handle action_cond: "if_prev_skipped" — fallback when previous conditional action didn't fire
-      // Only show "Otherwise" if the previous action was visible (had a condition the user can see)
-      if (action.action_cond === 'if_prev_skipped' && prevActionWasVisible) {
+      // Only show "Otherwise" if the previous action was visible AND had a condition the user can see
+      if (action.action_cond === 'if_prev_skipped' && prevActionWasVisible && prevActionWasConditional) {
           conditionPrefix = (action._counterAssistPrefix || '') + 'Otherwise, ';
       } else if (action.action_cond === 'if_prev_skipped') {
-          // Previous action was invisible (empty_result or skipped), drop "Otherwise"
+          // Previous action was invisible or unconditional, drop "Otherwise"
           conditionPrefix = (action._counterAssistPrefix || '') + parseConditions(action);
       }
 
@@ -759,6 +770,9 @@ function processCharacter(charName, charData) {
               targetText = 'self';
           }
 
+          // Fallback: if no target handler matched, default to self
+          if (!targetText) targetText = 'self';
+
           effects.push(`${conditionPrefix}${condExtra}Generate +${count} Ability Energy for ${targetText}.`);
       }
 
@@ -891,6 +905,7 @@ function processCharacter(charName, charData) {
 
       // Track that this action produced visible output (for if_prev_skipped handling)
       prevActionWasVisible = true;
+      prevActionWasConditional = !!(action.only_if || action.only_if_target || action.only_if_any || action.only_if_outcome || (maxActionPct > 0 && maxActionPct < 100));
     });
 
   // Process stat_lock for notes
@@ -1007,6 +1022,8 @@ try {
 
   for (const [charId, data] of Object.entries(charDataMap)) {
     if (charId === 'ForceImportVersion' || charId === 'Name') continue;
+    // Skip NPC/tutorial/test characters
+    if (/^NUE|^PVE_|^TestMan$/.test(charId)) continue;
 
     const processed = processCharacter(charId, data);
     if (processed) {

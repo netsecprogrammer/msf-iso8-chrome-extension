@@ -52,7 +52,8 @@
     const lowerEffect = effect.toLowerCase();
     if (lowerEffect.includes('in war')) return 'war-effect';
     if (lowerEffect.includes('in raid')) return 'raid-effect';
-    if (lowerEffect.includes('in crucible')) return 'crucible-effect';
+    if (lowerEffect.includes('in incursion')) return 'incursion-effect';
+    if (lowerEffect.includes('in crucible')) return 'crucible-effect'; // matches both "crucible" and "crucible showdown"
     return '';
   }
 
@@ -86,10 +87,8 @@
     text = text.replace(/\+(\d+)% (Piercing|Damage|Drain|Crit Chance|Focus)/g,
       '+<span class="msf-iso8-bonus-pct-value">$1%</span> $2');
 
-    // Style game mode indicators (WAR, CRUCIBLE, RAID, ARENA, OFFENSE, DEFENSE)
-    text = text.replace(/\b(On|In) (CRUCIBLE OFFENSE|CRUCIBLE DEFENSE|WAR OFFENSE|WAR DEFENSE|RAID OFFENSE|RAID DEFENSE)\b/gi,
-      '$1 <span class="msf-iso8-game-mode">$2</span>');
-    text = text.replace(/\b(In|On) (WAR|RAID|CRUCIBLE|ARENA)\b(?! (OFFENSE|DEFENSE))/gi,
+    // Style game mode indicators (WAR, CRUCIBLE, CRUCIBLE SHOWDOWN, INCURSION, RAID, ARENA, with optional OFFENSE/DEFENSE)
+    text = text.replace(/\b(On|In) ((?:CRUCIBLE SHOWDOWN|CRUCIBLE|WAR|RAID|INCURSION|ARENA)(?:,\s*(?:OFFENSE|DEFENSE))?)\b/gi,
       '$1 <span class="msf-iso8-game-mode">$2</span>');
 
     // Style status effects (buffs and debuffs)
@@ -100,11 +99,16 @@
       'Vulnerable', 'Exposed', 'Disrupted', 'Trauma', 'Immunity', 'Safeguard',
       'Deathproof', 'Revive Once', 'Barrier', 'Empowered', 'Crit Chance Up',
       'Crit Damage Up', 'Assist Now', 'Minor Defense Up', 'Minor Offense Up',
-      'Minor Regeneration'
+      'Minor Regeneration', 'Minor Deflect', 'Accuracy Down', 'Bomb Burst',
+      'Silence', 'Brick Material'
     ];
 
     const statusPattern = new RegExp(`\\b(${statusEffects.join('|')})\\b`, 'gi');
     text = text.replace(statusPattern, '<span class="msf-iso8-status-effect">$1</span>');
+
+    // Style "On Counter," / "On Assist," / "Otherwise," prefixes
+    text = text.replace(/\b(On Counter,|On Assist,|Otherwise,)/g,
+      '<span class="msf-iso8-action-prefix">$1</span>');
 
     return text;
   }
