@@ -133,12 +133,12 @@
     "notes": []
   },
   "AncientOne": {
-    "description": "Attack primary target for 157% Piercing.\\nIf assisting a ASTRAL ally, attack for 25% damage instead.\\nOtherwise, Apply +2 Bleed to the primary target.\\nOn Crit, Apply +2 Bleed to the primary target.",
+    "description": "Attack primary target for 157% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ASTRAL characters.\\nOtherwise, Apply +2 Bleed to the primary target.\\nOn Crit, Apply +2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 157,
     "drain": 0,
     "effects": [
-      "If assisting a ASTRAL ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to ASTRAL characters.",
       "Otherwise, Apply +2 Bleed to the primary target.",
       "On Crit, Apply +2 Bleed to the primary target."
     ],
@@ -155,12 +155,12 @@
     "notes": []
   },
   "AntMan": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nIf assisting a INFESTATION ally, attack for 10% Piercing instead.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a INFESTATION ally, attack for 10% Piercing instead.",
+      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
       "Steal 1 positive effect(s) from the primary target and give to allies, excluding Taunt."
     ],
     "notes": []
@@ -357,12 +357,12 @@
     "notes": []
   },
   "BlackWidow": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\nIf assisting a INFESTATION ally, attack for 10% Piercing instead.\\nSteal all positive effect(s) from the primary target, excluding Taunt.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.\\nSteal all positive effect(s) from the primary target, excluding Taunt.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a INFESTATION ally, attack for 10% Piercing instead.",
+      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
       "Steal all positive effect(s) from the primary target, excluding Taunt."
     ],
     "notes": []
@@ -714,12 +714,12 @@
     "notes": []
   },
   "Daredevil": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf assisting a SHADOWLAND ally, attack for 25% damage instead.\\nIf self is VILLAIN, +200% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nIf self is VILLAIN, +200% damage.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a SHADOWLAND ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
       "If self is VILLAIN, +200% damage."
     ],
     "notes": []
@@ -795,12 +795,12 @@
     "notes": []
   },
   "Deadpool": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf assisting a RETCON ally, attack for 25% damage instead.\\nOtherwise, If self is MINION or target has Safeguard, +10000% Crit Chance.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nOtherwise, If self is MINION or target has Safeguard, +10000% Crit Chance.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a RETCON ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
       "Otherwise, If self is MINION or target has Safeguard, +10000% Crit Chance."
     ],
     "notes": []
@@ -838,12 +838,12 @@
     "notes": []
   },
   "DoctorStrange": {
-    "description": "Attack primary target for 212% Piercing.\\nIf assisting a ASTRAL ally, attack for 25% damage instead.\\nApply Offense Down for 2 turns to the primary target.\\nDrain 3% of target's Max Health.\\nBarrier for 5% of Max Health to allies.",
+    "description": "Attack primary target for 212% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ASTRAL characters.\\nApply Offense Down for 2 turns to the primary target.\\nDrain 3% of target's Max Health.\\nBarrier for 5% of Max Health to allies.",
     "damage": 0,
     "piercing": 212,
     "drain": 0,
     "effects": [
-      "If assisting a ASTRAL ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to ASTRAL characters.",
       "Apply Offense Down for 2 turns to the primary target.",
       "Drain 3% of target's Max Health.",
       "Barrier for 5% of Max Health to allies."
@@ -943,12 +943,12 @@
     "notes": []
   },
   "Elektra": {
-    "description": "Attack primary target for 168% damage + 17% Piercing.\\nIf assisting a SHADOWLAND ally, attack for 25% damage instead.\\nApply Bleed to 2 enemies.",
+    "description": "Attack primary target for 168% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nApply Bleed to 2 enemies.",
     "damage": 168,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a SHADOWLAND ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
       "Apply Bleed to 2 enemies."
     ],
     "notes": []
@@ -974,12 +974,12 @@
     "notes": []
   },
   "EmmaFrostXMen": {
-    "description": "Attack primary target for 193% damage + 17% Piercing.\\nIf assisting a ASTRAL ally, attack for 25% damage instead.\\nApply 2 Bleed to the primary target.\\nApply Regeneration to the most injured ally.\\nGain Regeneration for 2 turns.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for 193% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ASTRAL characters.\\nApply 2 Bleed to the primary target.\\nApply Regeneration to the most injured ally.\\nGain Regeneration for 2 turns.\\nBarrier for 10% of Max Health.",
     "damage": 193,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a ASTRAL ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to ASTRAL characters.",
       "Apply 2 Bleed to the primary target.",
       "Apply Regeneration to the most injured ally.",
       "Gain Regeneration for 2 turns.",
@@ -1014,12 +1014,12 @@
     "notes": []
   },
   "Fantomex": {
-    "description": "Attack primary target for 247% Piercing.\\nIf assisting a X-MEN ally, attack for 25% Piercing instead.\\nOtherwise, Apply +1 Defense Down, up to a maximum of 5 to the primary target.",
+    "description": "Attack primary target for 247% Piercing.\\nWhen forced to attack an ally, this character deals 25% Piercing to X-MEN characters.\\nOtherwise, Apply +1 Defense Down, up to a maximum of 5 to the primary target.",
     "damage": 0,
     "piercing": 247,
     "drain": 0,
     "effects": [
-      "If assisting a X-MEN ally, attack for 25% Piercing instead.",
+      "When forced to attack an ally, this character deals 25% Piercing to X-MEN characters.",
       "Otherwise, Apply +1 Defense Down, up to a maximum of 5 to the primary target."
     ],
     "notes": []
@@ -1255,7 +1255,7 @@
     "notes": []
   },
   "Gwenpool": {
-    "description": "Attack primary target for 278% damage + 17% Piercing.\\nIf the primary target has Barrier, Remove Barrier from the primary target.\\nIf the primary target has Barrier, Barrier for 30% of Max Health to allies.\\nOtherwise, Barrier for 15% of Max Health to allies.\\nIf assisting a RETCON ally, attack for 25% damage instead.\\nApply Defense Up for 2 turns to a random NEW WARRIOR or RETCON ally (excluding self).",
+    "description": "Attack primary target for 278% damage + 17% Piercing.\\nIf the primary target has Barrier, Remove Barrier from the primary target.\\nIf the primary target has Barrier, Barrier for 30% of Max Health to allies.\\nOtherwise, Barrier for 15% of Max Health to allies.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nApply Defense Up for 2 turns to a random NEW WARRIOR or RETCON ally (excluding self).",
     "damage": 278,
     "piercing": 17,
     "drain": 0,
@@ -1263,7 +1263,7 @@
       "If the primary target has Barrier, Remove Barrier from the primary target.",
       "If the primary target has Barrier, Barrier for 30% of Max Health to allies.",
       "Otherwise, Barrier for 15% of Max Health to allies.",
-      "If assisting a RETCON ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
       "Apply Defense Up for 2 turns to a random NEW WARRIOR or RETCON ally (excluding self)."
     ],
     "notes": []
@@ -1526,12 +1526,12 @@
     "notes": []
   },
   "Ikaris": {
-    "description": "Attack primary target for 189% Piercing.\\nIf assisting a ETERNAL ally, attack for 56% Piercing instead.\\nIf Sersi is an ally, Apply Assist Now to a random ally.",
+    "description": "Attack primary target for 189% Piercing.\\nWhen forced to attack an ally, this character deals 56% Piercing to ETERNAL characters.\\nIf Sersi is an ally, Apply Assist Now to a random ally.",
     "damage": 0,
     "piercing": 189,
     "drain": 0,
     "effects": [
-      "If assisting a ETERNAL ally, attack for 56% Piercing instead.",
+      "When forced to attack an ally, this character deals 56% Piercing to ETERNAL characters.",
       "If Sersi is an ally, Apply Assist Now to a random ally."
     ],
     "notes": []
@@ -1701,12 +1701,12 @@
     "notes": []
   },
   "JeffTheLandShark": {
-    "description": "Attack primary target for 210% Piercing.\\nIf assisting a RETCON ally, attack for 25% damage instead.\\nApply Disrupted for 2 turns to the primary target.\\nOn Ultimate assist, Generate +1 Ability Energy for all allies.\\nOn Special assist, Generate +1 Ability Energy for Gwenpool.",
+    "description": "Attack primary target for 210% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nApply Disrupted for 2 turns to the primary target.\\nOn Ultimate assist, Generate +1 Ability Energy for all allies.\\nOn Special assist, Generate +1 Ability Energy for Gwenpool.",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
     "effects": [
-      "If assisting a RETCON ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
       "Apply Disrupted for 2 turns to the primary target.",
       "On Ultimate assist, Generate +1 Ability Energy for all allies.",
       "On Special assist, Generate +1 Ability Energy for Gwenpool."
@@ -1743,12 +1743,12 @@
     "notes": []
   },
   "Kahhori": {
-    "description": "Attack primary target for 135% Piercing + 50% Drain.\\nIf assisting a ABSOLUTE A-FORCE ally, attack for 25% damage instead.\\nIf the primary target is not MINION, Drain 5% of target's Max Health.\\nIf the primary target is MINION, Drain 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nIf the primary target has Exposed, Apply Accuracy Down to the primary target.\\nIf the primary target has no positive effects, Apply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard by 1 on allies.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard by 1 on allies.",
+    "description": "Attack primary target for 135% Piercing + 50% Drain.\\nWhen forced to attack an ally, this character deals 25% damage to ABSOLUTE A-FORCE characters.\\nIf the primary target is not MINION, Drain 5% of target's Max Health.\\nIf the primary target is MINION, Drain 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nIf the primary target has Exposed, Apply Accuracy Down to the primary target.\\nIf the primary target has no positive effects, Apply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard by 1 on allies.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard by 1 on allies.",
     "damage": 0,
     "piercing": 135,
     "drain": 50,
     "effects": [
-      "If assisting a ABSOLUTE A-FORCE ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to ABSOLUTE A-FORCE characters.",
       "If the primary target is not MINION, Drain 5% of target's Max Health.",
       "If the primary target is MINION, Drain 30% of target's Max Health.",
       "Not in WAR, Flip 2 positive effect(s) to negative on the primary target.",
@@ -2113,12 +2113,12 @@
     "notes": []
   },
   "MagnetoPhoenixForce": {
-    "description": "Attack primary target for 150% Piercing.\\nIf assisting a MUTANT ally, attack for 50% Piercing instead.\\nDrain 10% of target's Max Health.\\nApply Disrupted for 2 turns to the primary target.\\nIn CRUCIBLE SHOWDOWN, If 1+ PHOENIX FORCE allies, Call the PHOENIX FORCE ally with the highest Damage to assist.",
+    "description": "Attack primary target for 150% Piercing.\\nWhen forced to attack an ally, this character deals 50% Piercing to MUTANT characters.\\nDrain 10% of target's Max Health.\\nApply Disrupted for 2 turns to the primary target.\\nIn CRUCIBLE SHOWDOWN, If 1+ PHOENIX FORCE allies, Call the PHOENIX FORCE ally with the highest Damage to assist.",
     "damage": 0,
     "piercing": 150,
     "drain": 0,
     "effects": [
-      "If assisting a MUTANT ally, attack for 50% Piercing instead.",
+      "When forced to attack an ally, this character deals 50% Piercing to MUTANT characters.",
       "Drain 10% of target's Max Health.",
       "Apply Disrupted for 2 turns to the primary target.",
       "In CRUCIBLE SHOWDOWN, If 1+ PHOENIX FORCE allies, Call the PHOENIX FORCE ally with the highest Damage to assist."
@@ -2159,12 +2159,12 @@
     "notes": []
   },
   "Medusa": {
-    "description": "Attack primary target for 240% Piercing.\\nIf assisting a ABSOLUTE A-FORCE ally, attack for 25% damage instead.",
+    "description": "Attack primary target for 240% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ABSOLUTE A-FORCE characters.",
     "damage": 0,
     "piercing": 240,
     "drain": 0,
     "effects": [
-      "If assisting a ABSOLUTE A-FORCE ally, attack for 25% damage instead."
+      "When forced to attack an ally, this character deals 25% damage to ABSOLUTE A-FORCE characters."
     ],
     "notes": []
   },
@@ -2278,12 +2278,12 @@
     "notes": []
   },
   "MoonKnight": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf assisting a SHADOWLAND or NIGHTSTALKER ally, attack for 25% damage instead.\\nGain Counter.\\nGain Offense Up.\\nGain Speed Up.\\nGain Counter for 2 turns.\\nGain Offense Up for 2 turns.\\nGain Speed Up for 2 turns.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND or NIGHTSTALKER characters.\\nGain Counter.\\nGain Offense Up.\\nGain Speed Up.\\nGain Counter for 2 turns.\\nGain Offense Up for 2 turns.\\nGain Speed Up for 2 turns.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a SHADOWLAND or NIGHTSTALKER ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND or NIGHTSTALKER characters.",
       "Gain Counter.",
       "Gain Offense Up.",
       "Gain Speed Up.",
@@ -2294,12 +2294,12 @@
     "notes": []
   },
   "Moondragon": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf assisting a ASTRAL ally, attack for 25% damage instead.\\nOtherwise, Drain 5% of target's Max Health.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ASTRAL characters.\\nOtherwise, Drain 5% of target's Max Health.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a ASTRAL ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to ASTRAL characters.",
       "Otherwise, Drain 5% of target's Max Health."
     ],
     "notes": []
@@ -2537,12 +2537,12 @@
     "notes": []
   },
   "NightNurse": {
-    "description": "Attack primary target for 224% damage + 17% Piercing.\\nIf assisting a SHADOWLAND ally, attack for 25% damage instead.\\nApply Slow for 2 turns to the primary target.\\nIf 2+ SHADOWLAND allies, Flip 2 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 224% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nApply Slow for 2 turns to the primary target.\\nIf 2+ SHADOWLAND allies, Flip 2 positive effect(s) to negative on the primary target.",
     "damage": 224,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a SHADOWLAND ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
       "Apply Slow for 2 turns to the primary target.",
       "If 2+ SHADOWLAND allies, Flip 2 positive effect(s) to negative on the primary target."
     ],
@@ -2636,12 +2636,12 @@
     "notes": []
   },
   "Odin": {
-    "description": "Attack primary target for 227% Piercing + 50% Drain.\\nOn Assist, attack for 89% damage instead.\\nOtherwise, Drain 6% of target's Max Health.\\nIf any enemy has positive effects, Clear 2 positive effect(s) from the primary target.\\nClear 2 negative effect(s) from a random ally.\\nTrigger battlefield effect.",
+    "description": "Attack primary target for 227% Piercing + 50% Drain.\\nWhen forced to attack an ally, attack for 89% damage instead.\\nOtherwise, Drain 6% of target's Max Health.\\nIf any enemy has positive effects, Clear 2 positive effect(s) from the primary target.\\nClear 2 negative effect(s) from a random ally.\\nTrigger battlefield effect.",
     "damage": 0,
     "piercing": 227,
     "drain": 50,
     "effects": [
-      "On Assist, attack for 89% damage instead.",
+      "When forced to attack an ally, attack for 89% damage instead.",
       "Otherwise, Drain 6% of target's Max Health.",
       "If any enemy has positive effects, Clear 2 positive effect(s) from the primary target.",
       "Clear 2 negative effect(s) from a random ally.",
@@ -3411,23 +3411,23 @@
     "notes": []
   },
   "Sersi": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nIf assisting a ETERNAL ally, attack for 53% damage + 3% Piercing instead.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 53% damage + 3% Piercing to ETERNAL characters.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a ETERNAL ally, attack for 53% damage + 3% Piercing instead.",
+      "When forced to attack an ally, this character deals 53% damage + 3% Piercing to ETERNAL characters.",
       "If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target."
     ],
     "notes": []
   },
   "ShadowKing": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\\nOn Assist, attack for 25% damage instead.\\nOtherwise, Apply +2 Bleed for 2 turns to the primary target.",
+    "description": "Attack primary target for 203% damage + 17% Piercing.\\nWhen forced to attack an ally, attack for 25% damage instead.\\nOtherwise, Apply +2 Bleed for 2 turns to the primary target.",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "On Assist, attack for 25% damage instead.",
+      "When forced to attack an ally, attack for 25% damage instead.",
       "Otherwise, Apply +2 Bleed for 2 turns to the primary target."
     ],
     "notes": []
@@ -3464,12 +3464,12 @@
     "notes": []
   },
   "SheHulk": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nIf assisting a RETCON ally, attack for 25% damage instead.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nApply Defense Down to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a RETCON ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
       "Apply Defense Down to the primary target."
     ],
     "notes": []
@@ -3625,12 +3625,12 @@
     "notes": []
   },
   "SpiderManBigTime": {
-    "description": "Attack primary target for 300% damage + 20% Piercing.\\nIf assisting a INFESTATION ally, attack for 10% Piercing instead.\\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
+    "description": "Attack primary target for 300% damage + 20% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.\\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
     "damage": 300,
     "piercing": 20,
     "drain": 0,
     "effects": [
-      "If assisting a INFESTATION ally, attack for 10% Piercing instead.",
+      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
       "Apply +1 Defense Down, up to a maximum of 3 to the primary target."
     ],
     "notes": []
@@ -3709,12 +3709,12 @@
     "notes": []
   },
   "SquirrelGirl": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nIf assisting a RETCON ally, attack for 25% damage instead.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nApply Offense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a RETCON ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
       "Apply Offense Down to the primary target."
     ],
     "notes": []
@@ -3856,12 +3856,12 @@
     "notes": []
   },
   "Swarm": {
-    "description": "Attack primary target for 280% damage + 17% Piercing + 50% Drain.\\nIf assisting a INFESTATION ally, attack for 10% Piercing instead.\\nIf self has Charged, Reduce the duration of Charged by 1 on allies.",
+    "description": "Attack primary target for 280% damage + 17% Piercing + 50% Drain.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.\\nIf self has Charged, Reduce the duration of Charged by 1 on allies.",
     "damage": 280,
     "piercing": 17,
     "drain": 50,
     "effects": [
-      "If assisting a INFESTATION ally, attack for 10% Piercing instead.",
+      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
       "If self has Charged, Reduce the duration of Charged by 1 on allies."
     ],
     "notes": []
@@ -4449,12 +4449,12 @@
     "notes": []
   },
   "WhiteTiger": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf assisting a SHADOWLAND ally, attack for 25% damage instead.\\nApply 2 Defense Down for 2 turns to the primary target.\\nApply 2 Slow for 2 turns to the primary target.\\nApply Heal Block to the primary target.\\nApply Defense Down for 2 turns to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nApply 2 Defense Down for 2 turns to the primary target.\\nApply 2 Slow for 2 turns to the primary target.\\nApply Heal Block to the primary target.\\nApply Defense Down for 2 turns to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a SHADOWLAND ally, attack for 25% damage instead.",
+      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
       "Apply 2 Defense Down for 2 turns to the primary target.",
       "Apply 2 Slow for 2 turns to the primary target.",
       "Apply Heal Block to the primary target.",
@@ -4519,12 +4519,12 @@
     "notes": []
   },
   "Xavier": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nOn Assist, attack for 89% damage instead.\\nGain Evade.\\nGain Offense Up.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nWhen forced to attack an ally, attack for 89% damage instead.\\nGain Evade.\\nGain Offense Up.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "On Assist, attack for 89% damage instead.",
+      "When forced to attack an ally, attack for 89% damage instead.",
       "Gain Evade.",
       "Gain Offense Up."
     ],
@@ -4541,12 +4541,12 @@
     "notes": []
   },
   "Yellowjacket": {
-    "description": "Attack primary target for 260% damage + 17% Piercing.\\nIf assisting a INFESTATION ally, attack for 10% Piercing instead.",
+    "description": "Attack primary target for 260% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
     "damage": 260,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If assisting a INFESTATION ally, attack for 10% Piercing instead."
+      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters."
     ],
     "notes": []
   },

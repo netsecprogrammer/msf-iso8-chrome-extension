@@ -523,11 +523,11 @@ function parseConditions(action) {
 
       if (hasAllyRelationship(action.only_if_target)) {
           const traits = extractAllyTraits(action.only_if_target);
-          if (traits) {
-              conditions.push(`If assisting a ${traits} ally`);
-          } else {
-              // No traits — condition is simply "on assist" (ally target vs enemy target)
-              conditions.push('On Assist');
+          // Store ally traits on action for use in stat effect line formatting
+          action._allyTargetTraits = traits || '';
+          conditions.push('When forced to attack an ally');
+          if (!traits) {
+              // No traits — generic ally targeting
           }
       } else {
           const targetCond = extractTargetConditions(action.only_if_target);
@@ -725,6 +725,7 @@ function processCharacter(charName, charData) {
   let critChance = 0;
   let critDmg = 0;
   let mainStatsCondition = ''; // Track if main stats came from a conditional action
+  let mainStatsAllyTraits = ''; // Track ally target traits for "forced to attack ally" wording
   const effects = [];
   const notes = [];
 
@@ -1079,17 +1080,21 @@ function processCharacter(charName, charData) {
             } else if ((isConditionalTarget || (isPositivelyConditional && hasBaseStats)) && hasBaseStats) {
                 // Already have base stats — only add effect line if values differ
                 if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
-                    let text = `${conditionPrefix}attack for `;
-                    if (localDmg > 0) text += `${localDmg}% damage`;
-                    if (localPierce > 0) text += `${localDmg > 0 ? ' + ' : ''}${localPierce}% Piercing`;
-                    if (localDrain > 0) text += ` + ${localDrain}% Drain`;
-                    text += ' instead.';
-                    effects.push(text);
+                    const statParts = [];
+                    if (localDmg > 0) statParts.push(`${localDmg}% damage`);
+                    if (localPierce > 0) statParts.push(`${localPierce}% Piercing`);
+                    if (localDrain > 0) statParts.push(`${localDrain}% Drain`);
+                    if (action._allyTargetTraits) {
+                        effects.push(`${conditionPrefix}this character deals ${statParts.join(' + ')} to ${action._allyTargetTraits} characters.`);
+                    } else {
+                        effects.push(`${conditionPrefix}attack for ${statParts.join(' + ')} instead.`);
+                    }
                 }
             } else {
                 // Main stats (unconditional, or first conditional when no base exists yet)
                 if ((isPositivelyConditional || isConditionalTarget) && conditionPrefix) {
                     mainStatsCondition = conditionPrefix;
+                    mainStatsAllyTraits = action._allyTargetTraits || '';
                 }
                 // When if_prev_skipped overwrites main stats, it's the base/default case
                 // Clear mainStatsCondition and show old conditional stats as effect if different
@@ -1101,10 +1106,15 @@ function processCharacter(charName, charData) {
                         if (piercing > 0) oldParts.push(`${piercing}% Piercing`);
                         if (drain > 0) oldParts.push(`${drain}% Drain`);
                         if (oldParts.length > 0) {
-                            effects.push(`${mainStatsCondition}attack for ${oldParts.join(' + ')} instead.`);
+                            if (mainStatsAllyTraits) {
+                                effects.push(`${mainStatsCondition}this character deals ${oldParts.join(' + ')} to ${mainStatsAllyTraits} characters.`);
+                            } else {
+                                effects.push(`${mainStatsCondition}attack for ${oldParts.join(' + ')} instead.`);
+                            }
                         }
                     }
                     mainStatsCondition = '';
+                    mainStatsAllyTraits = '';
                     // Full reset — base replaces conditional entirely
                     damage = localDmg;
                     piercing = localPierce;
