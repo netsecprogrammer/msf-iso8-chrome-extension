@@ -35,12 +35,12 @@
     "notes": []
   },
   "AgathaHarkness": {
-    "description": "Attack primary target for 210% Piercing.\\nIf the primary target is MYSTIC, Deal 5% of target's Max Health.\\nApply +1 Deflect, up to a maximum of 3 to a random DARKHOLD or NIGHTSTALKER ally.\\nIn BATTLEGROUNDS, Attack an additional enemy.",
+    "description": "Attack primary target for 210% Piercing.\\nIf the primary target is MYSTIC, Drain 5% of target's Max Health.\\nApply +1 Deflect, up to a maximum of 3 to a random DARKHOLD or NIGHTSTALKER ally.\\nIn BATTLEGROUNDS, Attack an additional enemy.",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
     "effects": [
-      "If the primary target is MYSTIC, Deal 5% of target's Max Health.",
+      "If the primary target is MYSTIC, Drain 5% of target's Max Health.",
       "Apply +1 Deflect, up to a maximum of 3 to a random DARKHOLD or NIGHTSTALKER ally.",
       "In BATTLEGROUNDS, Attack an additional enemy."
     ],
@@ -833,14 +833,14 @@
     "notes": []
   },
   "DoctorStrange": {
-    "description": "Attack primary target for 212% Piercing.\\nIf assisting a ASTRAL ally, +25% damage.\\nApply Offense Down for 2 turns to the primary target.\\nDeal 3% of target's Max Health.\\nBarrier for 5% of Max Health.",
+    "description": "Attack primary target for 212% Piercing.\\nIf assisting a ASTRAL ally, +25% damage.\\nApply Offense Down for 2 turns to the primary target.\\nDrain 3% of target's Max Health.\\nBarrier for 5% of Max Health.",
     "damage": 0,
     "piercing": 212,
     "drain": 0,
     "effects": [
       "If assisting a ASTRAL ally, +25% damage.",
       "Apply Offense Down for 2 turns to the primary target.",
-      "Deal 3% of target's Max Health.",
+      "Drain 3% of target's Max Health.",
       "Barrier for 5% of Max Health."
     ],
     "notes": [
@@ -1735,14 +1735,14 @@
     "notes": []
   },
   "Kahhori": {
-    "description": "Attack primary target for 135% Piercing + 50% Drain.\\nIf assisting a ABSOLUTE A-FORCE ally, +25% damage.\\nIf the primary target is not MINION, Deal 5% of target's Max Health.\\nIf the primary target is MINION, Deal 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nIf the primary target has Exposed, Apply Accuracy Down to the primary target.\\nIf the primary target has no positive effects, Apply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard by 1.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard by 1.",
+    "description": "Attack primary target for 135% Piercing + 50% Drain.\\nIf assisting a ABSOLUTE A-FORCE ally, +25% damage.\\nIf the primary target is not MINION, Drain 5% of target's Max Health.\\nIf the primary target is MINION, Drain 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nIf the primary target has Exposed, Apply Accuracy Down to the primary target.\\nIf the primary target has no positive effects, Apply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard by 1.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard by 1.",
     "damage": 0,
     "piercing": 135,
     "drain": 50,
     "effects": [
       "If assisting a ABSOLUTE A-FORCE ally, +25% damage.",
-      "If the primary target is not MINION, Deal 5% of target's Max Health.",
-      "If the primary target is MINION, Deal 30% of target's Max Health.",
+      "If the primary target is not MINION, Drain 5% of target's Max Health.",
+      "If the primary target is MINION, Drain 30% of target's Max Health.",
       "Not in WAR, Flip 2 positive effect(s) to negative on the primary target.",
       "In WAR, Flip all positive effect(s) to negative on the primary target.",
       "If the primary target has Exposed, Apply Accuracy Down to the primary target.",
@@ -2099,13 +2099,13 @@
     "notes": []
   },
   "MagnetoPhoenixForce": {
-    "description": "Attack primary target for 150% Piercing.\\nIf assisting a MUTANT ally, +50% Piercing.\\nOtherwise, Deal 100% of target's Max Health.\\nOtherwise, Apply +1 Disrupted for 2 turns to the primary target.",
+    "description": "Attack primary target for 150% Piercing.\\nIf assisting a MUTANT ally, +50% Piercing.\\nOtherwise, Drain 10% of target's Max Health.\\nOtherwise, Apply +1 Disrupted for 2 turns to the primary target.",
     "damage": 0,
     "piercing": 150,
     "drain": 0,
     "effects": [
       "If assisting a MUTANT ally, +50% Piercing.",
-      "Otherwise, Deal 100% of target's Max Health.",
+      "Otherwise, Drain 10% of target's Max Health.",
       "Otherwise, Apply +1 Disrupted for 2 turns to the primary target."
     ],
     "notes": []
@@ -2278,13 +2278,13 @@
     "notes": []
   },
   "Moondragon": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf assisting a ASTRAL ally, +25% damage.\\nOtherwise, Deal 5% of target's Max Health.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf assisting a ASTRAL ally, +25% damage.\\nOtherwise, Drain 5% of target's Max Health.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If assisting a ASTRAL ally, +25% damage.",
-      "Otherwise, Deal 5% of target's Max Health."
+      "Otherwise, Drain 5% of target's Max Health."
     ],
     "notes": []
   },
@@ -2300,25 +2300,25 @@
     "notes": []
   },
   "Morbius": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf the primary target has Bleed, Deal 10% of target's Max Health.\\nIn WAR, OFFENSE, Apply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf the primary target has Bleed, Drain 10% of target's Max Health and redistribute to allies.\\nIn WAR, OFFENSE, Apply 2 Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If the primary target has Bleed, Deal 10% of target's Max Health.",
+      "If the primary target has Bleed, Drain 10% of target's Max Health and redistribute to allies.",
       "In WAR, OFFENSE, Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
   "MorganLeFay": {
-    "description": "Attack primary target for 248% damage + 17% Piercing.\\nOn Crit, Steal all positive effect(s) from the primary target, excluding Taunt.\\nSteal 2 positive effect(s) from the primary target, excluding Taunt.\\nDeal 10% of target's Max Health.",
+    "description": "Attack primary target for 248% damage + 17% Piercing.\\nOn Crit, Steal all positive effect(s) from the primary target, excluding Taunt.\\nSteal 2 positive effect(s) from the primary target, excluding Taunt.\\nDrain 10% of target's Max Health and redistribute to allies.",
     "damage": 248,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "On Crit, Steal all positive effect(s) from the primary target, excluding Taunt.",
       "Steal 2 positive effect(s) from the primary target, excluding Taunt.",
-      "Deal 10% of target's Max Health."
+      "Drain 10% of target's Max Health and redistribute to allies."
     ],
     "notes": []
   },
@@ -2462,12 +2462,12 @@
     "notes": []
   },
   "Nebula": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nDeal 3% of target's Max Health.\\nGain Speed Up.\\nOn Assist, +320% damage.\\nOn Counter, Gain +1 Speed Up.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nDrain 3% of target's Max Health.\\nGain Speed Up.\\nOn Assist, +320% damage.\\nOn Counter, Gain +1 Speed Up.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Deal 3% of target's Max Health.",
+      "Drain 3% of target's Max Health.",
       "Gain Speed Up.",
       "On Assist, +320% damage.",
       "On Counter, Gain +1 Speed Up."
@@ -2485,12 +2485,12 @@
     "notes": []
   },
   "Nemesis": {
-    "description": "Attack primary target for 148% damage + 17% Piercing.\\nDeal 5% of target's Max Health.",
+    "description": "Attack primary target for 148% damage + 17% Piercing.\\nDrain 5% of target's Max Health and redistribute to DEATHSEED allies.",
     "damage": 148,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Deal 5% of target's Max Health."
+      "Drain 5% of target's Max Health and redistribute to DEATHSEED allies."
     ],
     "notes": []
   },
@@ -2619,13 +2619,13 @@
     "notes": []
   },
   "Odin": {
-    "description": "Attack primary target for 227% Piercing + 50% Drain.\\nOn Assist, +89% damage.\\nOtherwise, Deal 3% of target's Max Health.\\nIf any enemy has positive effects, Clear 2 positive effect(s) from the primary target.\\nClear 2 negative effect(s) from a random ally.\\nTrigger battlefield effect.",
+    "description": "Attack primary target for 227% Piercing + 50% Drain.\\nOn Assist, +89% damage.\\nOtherwise, Drain 6% of target's Max Health.\\nIf any enemy has positive effects, Clear 2 positive effect(s) from the primary target.\\nClear 2 negative effect(s) from a random ally.\\nTrigger battlefield effect.",
     "damage": 0,
     "piercing": 227,
     "drain": 50,
     "effects": [
       "On Assist, +89% damage.",
-      "Otherwise, Deal 3% of target's Max Health.",
+      "Otherwise, Drain 6% of target's Max Health.",
       "If any enemy has positive effects, Clear 2 positive effect(s) from the primary target.",
       "Clear 2 negative effect(s) from a random ally.",
       "Trigger battlefield effect."
@@ -2661,12 +2661,12 @@
     "notes": []
   },
   "OmegaRed": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nDeal 7% of target's Max Health.\\nProlong the duration of Bleed by 1.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nDrain 7% of target's Max Health and redistribute to allies.\\nProlong the duration of Bleed by 1.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Deal 7% of target's Max Health.",
+      "Drain 7% of target's Max Health and redistribute to allies.",
       "Prolong the duration of Bleed by 1."
     ],
     "notes": []
@@ -2780,12 +2780,12 @@
     "notes": []
   },
   "Photon": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nDeal 5% of target's Max Health.\\nClear 3 positive effect(s) from the primary target.\\nGain +1 Charged.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nDrain 5% of target's Max Health.\\nClear 3 positive effect(s) from the primary target.\\nGain +1 Charged.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Deal 5% of target's Max Health.",
+      "Drain 5% of target's Max Health.",
       "Clear 3 positive effect(s) from the primary target.",
       "Gain +1 Charged."
     ],
@@ -2928,15 +2928,15 @@
     "notes": []
   },
   "Quasar": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nIn WAR, OFFENSE, Flip all negative effect(s) to positive on self.\\nApply +1 Offense Up, up to a maximum of 3 to the primary target.\\nIf the primary target is COSMIC, Deal 10% of target's Max Health.\\nIn WAR, OFFENSE, If the primary target is not COSMIC, Deal 10% of target's Max Health.\\nApply Slow to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nIn WAR, OFFENSE, Flip all negative effect(s) to positive on self.\\nApply +1 Offense Up, up to a maximum of 3 to the primary target.\\nIf the primary target is COSMIC, Drain 10% of target's Max Health.\\nIn WAR, OFFENSE, If the primary target is not COSMIC, Drain 10% of target's Max Health.\\nApply Slow to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In WAR, OFFENSE, Flip all negative effect(s) to positive on self.",
       "Apply +1 Offense Up, up to a maximum of 3 to the primary target.",
-      "If the primary target is COSMIC, Deal 10% of target's Max Health.",
-      "In WAR, OFFENSE, If the primary target is not COSMIC, Deal 10% of target's Max Health.",
+      "If the primary target is COSMIC, Drain 10% of target's Max Health.",
+      "In WAR, OFFENSE, If the primary target is not COSMIC, Drain 10% of target's Max Health.",
       "Apply Slow to the primary target."
     ],
     "notes": []
@@ -3247,12 +3247,12 @@
     "notes": []
   },
   "Satana": {
-    "description": "Attack primary target for 120% Piercing.\\nDeal 7% of target's Max Health.\\nIn CRUCIBLE SHOWDOWN, Reduce the duration of negative effects by 1.",
+    "description": "Attack primary target for 120% Piercing.\\nDrain 25% of target's Max Health and redistribute to ACCURSED allies.\\nIn CRUCIBLE SHOWDOWN, Reduce the duration of negative effects by 1.",
     "damage": 0,
     "piercing": 120,
     "drain": 0,
     "effects": [
-      "Deal 7% of target's Max Health.",
+      "Drain 25% of target's Max Health and redistribute to ACCURSED allies.",
       "In CRUCIBLE SHOWDOWN, Reduce the duration of negative effects by 1."
     ],
     "notes": []
@@ -3371,13 +3371,13 @@
     "notes": []
   },
   "Sentry": {
-    "description": "Attack primary target for 225% damage + 17% Piercing + 20% Drain.\\nFlip 2 positive effect(s) to negative on the primary target.\\nDeal 5% of target's Max Health.\\nGain 10% Speed Bar.",
+    "description": "Attack primary target for 225% damage + 17% Piercing + 20% Drain.\\nFlip 2 positive effect(s) to negative on the primary target.\\nDrain 5% of allies' Max Health.\\nGain 10% Speed Bar.",
     "damage": 225,
     "piercing": 17,
     "drain": 20,
     "effects": [
       "Flip 2 positive effect(s) to negative on the primary target.",
-      "Deal 5% of target's Max Health.",
+      "Drain 5% of allies' Max Health.",
       "Gain 10% Speed Bar."
     ],
     "notes": []
@@ -4555,13 +4555,13 @@
     ]
   },
   "ZombieJuggernaut": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nIn WAR, OFFENSE, If the primary target has Bleed, Deal 5% of target's Max Health.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nIn WAR, OFFENSE, If the primary target has Bleed, Drain 5% of target's Max Health.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "In WAR, OFFENSE, If the primary target has Bleed, Deal 5% of target's Max Health."
+      "In WAR, OFFENSE, If the primary target has Bleed, Drain 5% of target's Max Health."
     ],
     "notes": [
       "This attack cannot be dodged.",

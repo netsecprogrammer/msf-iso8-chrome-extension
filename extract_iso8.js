@@ -795,11 +795,40 @@ function processCharacter(charName, charData) {
         }
       }
 
-      // 5. Health Redistribute
+      // 5. Health Redistribute (drain HP from target, optionally heal allies)
       if (action.action === 'health_redistribute') {
           const drainPct = getMax(action.drain_pct);
-          if (drainPct > 0) {
-              effects.push(`${conditionPrefix}Deal ${drainPct}% of target's Max Health.`);
+          const maxDrainPct = getMax(action.max_drain_pct);
+          const healMulti = getMax(action.heal_multi);
+
+          // Effective drain is capped by max_drain_pct when present
+          const effectiveDrain = (maxDrainPct > 0) ? maxDrainPct : drainPct;
+
+          if (effectiveDrain > 0) {
+              // Determine drain source (usually enemy, but Sentry drains allies)
+              const drainsAllies = action.target && action.target.relation === 'ally';
+              const sourceText = drainsAllies ? "allies'" : "target's";
+
+              let text = `${conditionPrefix}${chancePrefix}Drain ${effectiveDrain}% of ${sourceText} Max Health`;
+
+              // Add heal/redistribute info when heal_multi > 0
+              if (healMulti > 0 && action.to) {
+                  let toText = 'allies';
+                  if (action.to.filter) {
+                      const traits = action.to.filter.traits;
+                      if (traits) {
+                          const traitList = Array.isArray(traits)
+                              ? traits
+                              : (traits.has_any || []);
+                          const traitText = traitList.map(t => formatProcName(t).toUpperCase()).join(' or ');
+                          if (traitText) toText = `${traitText} allies`;
+                      }
+                  }
+                  text += ` and redistribute to ${toText}`;
+              }
+
+              text += '.';
+              effects.push(text);
           } else {
               effects.push(`${conditionPrefix}Redistribute health.`);
           }
