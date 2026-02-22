@@ -1033,6 +1033,14 @@ function processCharacter(charName, charData) {
                 !(action.only_if.not && Object.keys(action.only_if).length === 1);
             const hasBaseStats = damage > 0 || piercing > 0;
             if (isFromBasic || isCrit || isAllyConditional || isAllyTargetConditional) {
+                // Check if this is inherent basic counter/assist damage that should be suppressed
+                // (counter+assist with no action-level conditions and no special targeting)
+                // Only conditional apply_if stats from second pass should be shown for these
+                const isInherentBasicDmg = isFromBasic && action.counter === true && action.assist !== undefined
+                    && !action.only_if && !action.only_if_target && !action.only_if_any && !action.only_if_outcome
+                    && !(action.target && action.target.primary_selection === 'exclude_from_pool');
+
+                if (!isInherentBasicDmg) {
                 // Basic counter/assist bonuses, crit bonuses, ally-conditional, and ally-target-conditional stats always go as effect lines
                 const parts = [];
                 if (localDmg > 0) parts.push(`${localDmg}% damage`);
@@ -1051,6 +1059,7 @@ function processCharacter(charName, charData) {
                     }
                 }
                 effects.push(`${conditionPrefix}+${parts.join(' + ')}${targetSuffix}.`);
+                }
             } else if ((isConditionalTarget || (isPositivelyConditional && hasBaseStats)) && hasBaseStats) {
                 // Already have base stats — only add effect line if values differ
                 if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
@@ -1257,6 +1266,13 @@ function processCharacter(charName, charData) {
             if (condParts.length === 0) return; // Can't parse condition, skip
 
             const condText = condParts.join(', ');
+            // Deduplicate: skip if another effect already ends with the same core text
+            // (e.g., safety "Otherwise, If X, +Y" and basic "If X, +Y" are duplicates)
+            const coreEffect = val > 0
+                ? `${condText}, +${val}% ${statName}.`
+                : `${condText}, ${val}% ${statName}.`;
+            if (effects.some(e => e.endsWith(coreEffect))) return;
+
             if (val > 0) {
                 effects.push(`${conditionPrefix}${condText}, +${val}% ${statName}.`);
             } else {

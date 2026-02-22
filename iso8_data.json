@@ -797,15 +797,13 @@
     "notes": []
   },
   "Deadpool": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf assisting a RETCON ally, +25% damage.\\nOtherwise, If self is MINION or target has Safeguard, +10000% Crit Chance.\\n+220% damage.\\nIf self is MINION or target has Safeguard, +10000% Crit Chance.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf assisting a RETCON ally, +25% damage.\\nOtherwise, If self is MINION or target has Safeguard, +10000% Crit Chance.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If assisting a RETCON ally, +25% damage.",
-      "Otherwise, If self is MINION or target has Safeguard, +10000% Crit Chance.",
-      "+220% damage.",
-      "If self is MINION or target has Safeguard, +10000% Crit Chance."
+      "Otherwise, If self is MINION or target has Safeguard, +10000% Crit Chance."
     ],
     "notes": []
   },
@@ -4362,13 +4360,12 @@
     ]
   },
   "Vulture": {
-    "description": "Attack primary target for 190% damage + 17% Piercing.\\n+20% damage for each negative effect on the primary target.\\n+250% damage.\\nIf target has 50% or less Health, +150% damage.",
+    "description": "Attack primary target for 190% damage + 17% Piercing.\\n+20% damage for each negative effect on the primary target.\\nIf target has 50% or less Health, +150% damage.",
     "damage": 190,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "+20% damage for each negative effect on the primary target.",
-      "+250% damage.",
       "If target has 50% or less Health, +150% damage."
     ],
     "notes": []
