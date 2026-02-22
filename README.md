@@ -9,7 +9,8 @@ A Chrome extension that displays ISO-8 Counter Attack/Assist ability information
 - **Smart Formatting:** Shows damage percentages, piercing values, and highlights key effects.
 - **Game Mode Styling:** Special color-coding for WAR, RAID, and CRUCIBLE-specific bonuses.
 - **Dynamic Navigation:** Works seamlessly with the site's navigation (SPA) without page reloads.
-- **Global Support:** Works on all language versions of the site (e.g., /fr/, /de/, /en/).
+- **Localization:** Translates the Counter/Assist panel into 8 languages using Scopely's official phrasing patterns. Sentence-level templates produce natural, grammatically correct descriptions — not just word-for-word replacements.
+- **Global Support:** Automatically detects the site language from the URL and displays the panel in the matching language.
 - **Dismissible:** Includes a close button to hide the panel when not needed.
 
 ## Screenshot
@@ -64,13 +65,28 @@ git clone https://github.com/netsecprogrammer/msf-iso8-chrome-extension.git
 - **Caching:** Data is cached locally in your browser for 24 hours to ensure fast loading and offline support.
 - **Security:** Strict Content Security Policy (CSP) ensures only trusted data from this repository is loaded.
 
+## Supported Languages
+
+| Language | URL Path | Panel Title |
+|----------|----------|-------------|
+| English | `/en/` | ISO-8 Counter/Assist |
+| French | `/fr/` | ISO-8 Contre/Appui |
+| German | `/de/` | ISO-8 Konter/Assist |
+| Spanish | `/es/` | ISO-8 Contra/Asistencia |
+| Portuguese | `/pt/` | ISO-8 Contra/Assistência |
+| Italian | `/it/` | ISO-8 Contro/Assistenza |
+| Japanese | `/ja/` | ISO-8 カウンター/アシスト |
+| Korean | `/ko/` | ISO-8 반격/지원 |
+| Russian | `/ru/` | ISO-8 Контратака/Помощь |
+
 ## Files
 
 | File | Description |
 |------|-------------|
 | `manifest.json` | Chrome extension configuration (V3) |
-| `content.js` | Content script (fetches data, injects panel) |
+| `content.js` | Content script (fetches data, injects panel, localization templates) |
 | `iso8_data.json` | Remote source of truth for character stats |
+| `locales.json` | Translation dictionary for proc names, trait names, and status effects |
 | `styles.css` | Styling for the info panel |
 | `icon48.png` | Small extension icon |
 | `icon128.png` | Large extension icon |
