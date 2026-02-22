@@ -298,8 +298,32 @@ function parseConditions(action) {
           if (obj.target && obj.target.procs) {
               parts.push('has ' + obj.target.procs.map(p => formatProcName(p)).join(' or '));
           }
+          if (obj.target && obj.target.any_proc_of_type) {
+              const type = obj.target.any_proc_of_type;
+              parts.push('has ' + (type === 'buff' ? 'positive effects' : 'negative effects'));
+          }
+          if (obj.target && obj.target.barrier_pct) {
+              parts.push('has Barrier');
+          }
+          if (obj.not) {
+              const neg = obj.not;
+              if (neg.traits && neg.traits.has_any) {
+                  parts.push('is not ' + neg.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or '));
+              }
+              if (neg.target && neg.target.procs) {
+                  parts.push('does not have ' + neg.target.procs.map(p => formatProcName(p)).join(' or '));
+              }
+              if (neg.target && neg.target.any_proc_of_type) {
+                  const type = neg.target.any_proc_of_type;
+                  parts.push('has no ' + (type === 'buff' ? 'positive effects' : 'negative effects'));
+              }
+          }
           if (obj.and) {
-              const subParts = obj.and.map(extractTargetConditions).filter(x=>x);
+              const subParts = obj.and.map(sub => {
+                  // Skip relationship-only entries (handled separately)
+                  if (sub.relationship && !sub.traits && !sub.target && !sub.not) return '';
+                  return extractTargetConditions(sub);
+              }).filter(x=>x);
               if (subParts.length > 0) parts.push(subParts.join(' and '));
           }
           if (obj.or) {
@@ -309,9 +333,38 @@ function parseConditions(action) {
           return parts.join(' and ');
       };
 
-      const targetCond = extractTargetConditions(action.only_if_target);
-      if (targetCond) {
-          conditions.push(`If the primary target ${targetCond}`);
+      // Check if this is an ally-relationship condition (assisting a specific ally type)
+      const hasAllyRelationship = (obj) => {
+          if (obj.relationship === 'ally') return true;
+          if (obj.and) return obj.and.some(sub => hasAllyRelationship(sub));
+          return false;
+      };
+      const extractAllyTraits = (obj) => {
+          if (obj.relationship === 'ally' && obj.traits && obj.traits.has_any) {
+              return obj.traits.has_any.map(t => formatProcName(t).toUpperCase()).join(' or ');
+          }
+          if (obj.and) {
+              for (const sub of obj.and) {
+                  const t = extractAllyTraits(sub);
+                  if (t) return t;
+              }
+          }
+          return '';
+      };
+
+      if (hasAllyRelationship(action.only_if_target)) {
+          const traits = extractAllyTraits(action.only_if_target);
+          if (traits) {
+              conditions.push(`If assisting a ${traits} ally`);
+          } else {
+              // No traits — condition is simply "on assist" (ally target vs enemy target)
+              conditions.push('On Assist');
+          }
+      } else {
+          const targetCond = extractTargetConditions(action.only_if_target);
+          if (targetCond) {
+              conditions.push(`If the primary target ${targetCond}`);
+          }
       }
   }
 
@@ -414,15 +467,24 @@ function processCharacter(charName, charData) {
   // Iterate all actions
   let prevActionWasVisible = false; // Track if previous action produced visible output
   let prevActionWasConditional = false; // Track if previous action had a condition
-  allActions.forEach(action => {
+  let prevConditionPrefix = ''; // Store previous action's condition for if_prev_ran
+  const actionConditionPrefixes = []; // Store condition prefix per action index (for if_arbitrary_action_ran)
+  allActions.forEach((action, actionIdx) => {
       // Check action_pct: if max level chance is 0, skip entirely; if < 100, note probability
       const maxActionPct = action.action_pct
           ? (Array.isArray(action.action_pct) ? action.action_pct[action.action_pct.length - 1] : action.action_pct)
           : 100;
-      if (maxActionPct === 0) { prevActionWasVisible = false; prevActionWasConditional = false; return; }
+      if (maxActionPct === 0) { prevActionWasVisible = false; prevActionWasConditional = false; actionConditionPrefixes.push(''); return; }
 
-      // Skip empty_result but track that it was invisible
-      if (action.action === 'empty_result') { prevActionWasVisible = false; prevActionWasConditional = false; return; }
+      // Skip empty_result but track its condition for if_prev_ran chains
+      if (action.action === 'empty_result') {
+          const emptyCondPrefix = parseConditions(action);
+          prevActionWasVisible = false;
+          prevActionWasConditional = !!(action.only_if || action.only_if_target || action.only_if_any || action.only_if_outcome);
+          prevConditionPrefix = emptyCondPrefix;
+          actionConditionPrefixes.push(emptyCondPrefix);
+          return;
+      }
 
       let conditionPrefix = (action._counterAssistPrefix || '') + parseConditions(action);
 
@@ -433,6 +495,24 @@ function processCharacter(charName, charData) {
       } else if (action.action_cond === 'if_prev_skipped') {
           // Previous action was invisible or unconditional, drop "Otherwise"
           conditionPrefix = (action._counterAssistPrefix || '') + parseConditions(action);
+      }
+
+      // Handle action_cond: "if_prev_ran" — chained effect that inherits previous condition
+      if (action.action_cond === 'if_prev_ran') {
+          const ownConditions = parseConditions(action);
+          if (!ownConditions && prevConditionPrefix) {
+              conditionPrefix = (action._counterAssistPrefix || '') + prevConditionPrefix;
+          }
+      }
+
+      // Handle action_cond: "if_arbitrary_action_ran" — inherits condition from a specific action index
+      if (action.action_cond === 'if_arbitrary_action_ran' && action.arbitrary_action_idx !== undefined) {
+          const ownConditions = parseConditions(action);
+          const refPrefix = actionConditionPrefixes[action.arbitrary_action_idx] || '';
+          if (refPrefix) {
+              // Put inherited condition first, then own conditions (e.g., "Otherwise, On Crit, ...")
+              conditionPrefix = (action._counterAssistPrefix || '') + refPrefix + (ownConditions || '');
+          }
       }
 
       // Handle action_cond: "if_has_crit_result" as a crit condition
@@ -507,6 +587,8 @@ function processCharacter(charName, charData) {
       // only_if_any should ALWAYS produce an effect line (the fallback action_cond: "if_prev_skipped" provides the base)
       const isConditionalTarget = !!action.only_if_target;
       const isAllyConditional = !!action.only_if_any;
+      // Check if only_if_target has relationship="ally" (bonus when assisting a specific ally type)
+      const isAllyTargetConditional = action.only_if_target && JSON.stringify(action.only_if_target).includes('"relationship":"ally"');
 
       // 1. Stats (Damage/Piercing)
       if (action.stat_modifier) {
@@ -560,8 +642,8 @@ function processCharacter(charName, charData) {
 
         if (hasAttackStats) {
             const isFromBasic = action._source === 'basic';
-            if (isFromBasic || isCrit || isAllyConditional) {
-                // Basic counter/assist bonuses, crit bonuses, and ally-conditional stats always go as effect lines
+            if (isFromBasic || isCrit || isAllyConditional || isAllyTargetConditional) {
+                // Basic counter/assist bonuses, crit bonuses, ally-conditional, and ally-target-conditional stats always go as effect lines
                 const parts = [];
                 if (localDmg > 0) parts.push(`${localDmg}% damage`);
                 if (localPierce > 0) parts.push(`${localPierce}% Piercing`);
@@ -1033,9 +1115,13 @@ function processCharacter(charName, charData) {
           effects.push(`${conditionPrefix}Trigger battlefield effect.`);
       }
 
-      // Track that this action produced visible output (for if_prev_skipped handling)
+      // Track that this action produced visible output (for if_prev_skipped/if_prev_ran handling)
       prevActionWasVisible = true;
-      prevActionWasConditional = !!(action.only_if || action.only_if_target || action.only_if_any || action.only_if_outcome || (maxActionPct > 0 && maxActionPct < 100));
+      prevActionWasConditional = !!(action.only_if || action.only_if_target || action.only_if_any || action.only_if_outcome
+          || (maxActionPct > 0 && maxActionPct < 100)
+          || ((action.action_cond === 'if_prev_ran' || action.action_cond === 'if_arbitrary_action_ran') && conditionPrefix));
+      prevConditionPrefix = conditionPrefix;
+      actionConditionPrefixes.push(conditionPrefix);
     });
 
   // Process stat_lock for notes
