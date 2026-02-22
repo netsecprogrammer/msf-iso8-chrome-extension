@@ -1075,6 +1075,20 @@ function processCharacter(charName, charData) {
                 if (isPositivelyConditional && conditionPrefix) {
                     mainStatsCondition = conditionPrefix;
                 }
+                // When if_prev_skipped overwrites main stats, it's the base/default case
+                // Clear mainStatsCondition and show old conditional stats as effect if different
+                if (action.action_cond === 'if_prev_skipped' && mainStatsCondition) {
+                    if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
+                        const oldParts = [];
+                        if (damage > 0) oldParts.push(`${damage}% damage`);
+                        if (piercing > 0) oldParts.push(`${piercing}% Piercing`);
+                        if (drain > 0) oldParts.push(`${drain}% Drain`);
+                        if (oldParts.length > 0) {
+                            effects.push(`${mainStatsCondition}attack for ${oldParts.join(' + ')} instead.`);
+                        }
+                    }
+                    mainStatsCondition = '';
+                }
                 if (localDmg > 0) damage = localDmg;
                 if (localPierce > 0) piercing = localPierce;
                 if (localDrain > 0) drain = localDrain;

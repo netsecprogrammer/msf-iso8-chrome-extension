@@ -2600,7 +2600,7 @@
     "notes": []
   },
   "Nova": {
-    "description": "In WAR, OFFENSE, attack primary target for 300% damage + 17% Piercing.\\nIn WAR, OFFENSE, If the primary target has Barrier, Remove Barrier from the primary target.\\nNot in WAR, Clear 2 positive effect(s) from the primary target.\\nIn WAR, Clear 4 positive effect(s) from the primary target.\\nIn WAR, OFFENSE, If self has Nova Force Tracking, +250% damage + 17% Piercing.",
+    "description": "Attack primary target for 300% damage + 17% Piercing.\\nIn WAR, OFFENSE, If the primary target has Barrier, Remove Barrier from the primary target.\\nNot in WAR, Clear 2 positive effect(s) from the primary target.\\nIn WAR, Clear 4 positive effect(s) from the primary target.\\nIn WAR, OFFENSE, If self has Nova Force Tracking, +250% damage + 17% Piercing.",
     "damage": 300,
     "piercing": 17,
     "drain": 0,
@@ -3578,7 +3578,7 @@
     "notes": []
   },
   "SilverSurfer": {
-    "description": "If self has Offense Up, attack primary target for 236% Piercing.\\nIf self has any negative effects, Steal all negative effect(s) from the primary target.\\nOtherwise, Steal all positive effect(s) from the primary target, excluding Taunt.\\nOn Assist, Steal all positive effect(s) from the primary target, excluding Taunt.",
+    "description": "Attack primary target for 236% Piercing.\\nIf self has any negative effects, Steal all negative effect(s) from the primary target.\\nOtherwise, Steal all positive effect(s) from the primary target, excluding Taunt.\\nOn Assist, Steal all positive effect(s) from the primary target, excluding Taunt.",
     "damage": 0,
     "piercing": 236,
     "drain": 0,
