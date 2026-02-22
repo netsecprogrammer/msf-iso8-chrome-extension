@@ -9,7 +9,7 @@ A Chrome extension that displays ISO-8 Counter Attack/Assist ability information
 - **Smart Formatting:** Shows damage percentages, piercing values, and highlights key effects.
 - **Game Mode Styling:** Special color-coding for WAR, RAID, and CRUCIBLE-specific bonuses.
 - **Dynamic Navigation:** Works seamlessly with the site's navigation (SPA) without page reloads.
-- **Localization:** Translates the Counter/Assist panel into 8 languages using Scopely's official phrasing patterns. Sentence-level templates produce natural, grammatically correct descriptions — not just word-for-word replacements.
+- **Localization:** Translates the Counter/Assist panel into 8 languages using Scopely's official phrasing patterns. Sentence-level templates produce natural, grammatically correct descriptions — not just word-for-word replacements. Currently fully translated for Sersi, with more characters coming soon.
 - **Global Support:** Automatically detects the site language from the URL and displays the panel in the matching language.
 - **Dismissible:** Includes a close button to hide the panel when not needed.
 
