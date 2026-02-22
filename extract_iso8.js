@@ -177,12 +177,32 @@ function parseConditions(action) {
           conditions.push(`If self has ${procs}`);
       }
 
+      // Self health threshold conditions
+      if (oi.owner && oi.owner.health_pct) {
+          const hp = oi.owner.health_pct;
+          const threshold = hp.than || 0;
+          if (hp.if === 'less' || hp.if === 'less_or_equal') {
+              conditions.push(`If self is below ${threshold}% Health`);
+          } else if (hp.if === 'greater' || hp.if === 'greater_or_equal') {
+              conditions.push(`If self is above ${threshold}% Health`);
+          }
+      }
+
       // Owner/target procs inside and/or arrays (e.g., Nova: {and: [{owner: {procs}}, {mode}]})
       if (oi.and) {
           for (const sub of oi.and) {
               if (sub.owner && sub.owner.procs) {
                   const procs = sub.owner.procs.map(p => formatProcName(p)).join(' or ');
                   conditions.push(`If self has ${procs}`);
+              }
+              if (sub.owner && sub.owner.health_pct) {
+                  const hp = sub.owner.health_pct;
+                  const threshold = hp.than || 0;
+                  if (hp.if === 'less' || hp.if === 'less_or_equal') {
+                      conditions.push(`If self is below ${threshold}% Health`);
+                  } else if (hp.if === 'greater' || hp.if === 'greater_or_equal') {
+                      conditions.push(`If self is above ${threshold}% Health`);
+                  }
               }
               if (sub.target && sub.target.procs) {
                   const procs = sub.target.procs.map(p => formatProcName(p)).join(' or ');
@@ -390,7 +410,12 @@ function getTargetText(target) {
         if (target.type === 'by_least_turn_meter') return `the ${traits}ally with the lowest Speed Bar`;
         if (target.type === 'by_most_stat') return `a ${traits}ally`;
 
-        if (!limit || limit === 1) {
+        if (!limit) {
+            // No limit specified = all allies
+            if (traits) return `all ${traits}allies`;
+            return 'allies';
+        }
+        if (limit === 1) {
             if (traits) return `a random ${traits}ally`;
             return 'self';
         }
@@ -676,6 +701,151 @@ function processCharacter(charName, charData) {
                 if (localDrain > 0) drain = localDrain;
             }
         }
+
+        // Second pass: generate effect lines for conditional stat bonuses (positive apply_if)
+        action.stat_modifier.forEach(mod => {
+            if (!mod.delta || !mod.apply_if) return;
+            // Skip pure negation conditions (already handled as base values above)
+            if (mod.apply_if.not && Object.keys(mod.apply_if).length === 1) return;
+            // Skip DefenseUp/DefenseDown piercing conditions (handled by ignoresDefenseUp note)
+            // Only skip for piercing stats — damage bonuses vs DefenseUp targets are genuine
+            if (mod.stat === 'armor_pierce_pct') {
+                const applyIfStr = JSON.stringify(mod.apply_if);
+                if (applyIfStr.includes('"DefenseUp"') || applyIfStr.includes('"DefenseDown"')) return;
+            }
+
+            const val = getMax(mod.delta);
+            if (val === 0) return;
+
+            // Map stat to display name
+            let statName = '';
+            if (mod.stat === 'ability_damage_pct' || mod.stat === 'damage_pct') statName = 'damage';
+            else if (mod.stat === 'armor_pierce_pct') statName = 'Piercing';
+            else if (mod.stat === 'drain_pct') statName = 'Drain';
+            else if (mod.stat === 'crit_chance_pct') { statName = 'Crit Chance'; }
+            else if (mod.stat === 'crit_damage_pct') { statName = 'Crit Damage'; }
+            else return; // skip non-displayable stats (focus_pct, accuracy_pct, etc.)
+
+            // Build condition text from apply_if
+            const condParts = [];
+            const ai = mod.apply_if;
+
+            // Mode conditions
+            const modeText = extractModeText(ai);
+            if (modeText) condParts.push(`In ${modeText}`);
+
+            // Target proc conditions
+            if (ai.target && ai.target.procs) {
+                const procs = ai.target.procs.map(p => formatProcName(p)).join(' or ');
+                condParts.push(`If target has ${procs}`);
+            }
+            if (ai.target && ai.target.barrier_pct) {
+                const bp = ai.target.barrier_pct;
+                if (bp.if === 'equal' && bp.than === 0) condParts.push('If target has no Barrier');
+                else if (bp.if === 'greater' && bp.than === 0) condParts.push('If target has Barrier');
+            }
+
+            // Owner conditions
+            if (ai.owner && ai.owner.procs) {
+                const procs = ai.owner.procs.map(p => formatProcName(p)).join(' or ');
+                condParts.push(`If self has ${procs}`);
+            }
+            if (ai.owner && ai.owner.health_pct) {
+                const hp = ai.owner.health_pct;
+                const threshold = hp.than || 0;
+                if (hp.if === 'less' || hp.if === 'less_or_equal') {
+                    condParts.push(`If self is below ${threshold}% Health`);
+                } else if (hp.if === 'greater' || hp.if === 'greater_or_equal') {
+                    condParts.push(`If self is above ${threshold}% Health`);
+                }
+            }
+            if (ai.owner && ai.owner.barrier_pct) {
+                const bp = ai.owner.barrier_pct;
+                if (bp.if === 'greater' && bp.than === 0) condParts.push('If self has Barrier');
+                else if (bp.if === 'equal' && bp.than === 0) condParts.push('If self has no Barrier');
+            }
+
+            // Self trait conditions
+            if (ai.traits && ai.traits.has_any) {
+                const traits = ai.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                condParts.push(`If self is ${traits}`);
+            }
+
+            // Count conditions
+            if (ai.count && ai.count_filter) {
+                const cf = ai.count_filter;
+                let traitText = '';
+                if (cf.character) {
+                    traitText = cf.character.map(c => formatProcName(c)).join(' or ');
+                } else if (cf.traits && cf.traits.has_any) {
+                    traitText = cf.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                } else if (cf.and) {
+                    for (const sub of cf.and) {
+                        if (sub.traits && sub.traits.has_any) {
+                            traitText = sub.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
+                            break;
+                        }
+                    }
+                }
+                const threshold = ai.count.than || 0;
+                const rel = cf.relationship || 'ally';
+                if (threshold <= 1 && cf.character) {
+                    condParts.push(`If ${traitText} is an ${rel}`);
+                } else if (traitText) {
+                    condParts.push(`If ${threshold}+ ${traitText} ${rel === 'ally' ? 'allies' : rel + 's'}`);
+                }
+            }
+
+            // Conditions inside and/or arrays
+            if (ai.and) {
+                for (const sub of ai.and) {
+                    if (sub.target && sub.target.procs) {
+                        condParts.push(`If target has ${sub.target.procs.map(p => formatProcName(p)).join(' or ')}`);
+                    }
+                    if (sub.owner && sub.owner.procs) {
+                        condParts.push(`If self has ${sub.owner.procs.map(p => formatProcName(p)).join(' or ')}`);
+                    }
+                    if (sub.owner && sub.owner.health_pct) {
+                        const hp = sub.owner.health_pct;
+                        const threshold = hp.than || 0;
+                        if (hp.if === 'less' || hp.if === 'less_or_equal') condParts.push(`If self is below ${threshold}% Health`);
+                        else if (hp.if === 'greater' || hp.if === 'greater_or_equal') condParts.push(`If self is above ${threshold}% Health`);
+                    }
+                }
+            }
+            if (ai.or) {
+                const orParts = [];
+                for (const sub of ai.or) {
+                    // Skip mode-only entries (already handled by extractModeText above)
+                    if (sub.mode && Object.keys(sub).length === 1) continue;
+                    if (sub.target && sub.target.procs) {
+                        orParts.push(`target has ${sub.target.procs.map(p => formatProcName(p)).join(' or ')}`);
+                    }
+                    if (sub.owner && sub.owner.procs) {
+                        orParts.push(`self has ${sub.owner.procs.map(p => formatProcName(p)).join(' or ')}`);
+                    }
+                    if (sub.owner && sub.owner.health_pct) {
+                        const hp = sub.owner.health_pct;
+                        const threshold = hp.than || 0;
+                        if (hp.if === 'less' || hp.if === 'less_or_equal') orParts.push(`self is below ${threshold}% Health`);
+                        else if (hp.if === 'greater' || hp.if === 'greater_or_equal') orParts.push(`self is above ${threshold}% Health`);
+                    }
+                    if (sub.traits && sub.traits.has_any) {
+                        orParts.push(`self is ${sub.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase()}`);
+                    }
+                }
+                if (orParts.length > 0) condParts.push(`If ${orParts.join(' or ')}`);
+            }
+
+            if (condParts.length === 0) return; // Can't parse condition, skip
+
+            const condText = condParts.join(', ');
+            if (val > 0) {
+                effects.push(`${conditionPrefix}${condText}, +${val}% ${statName}.`);
+            } else {
+                effects.push(`${conditionPrefix}${condText}, ${val}% ${statName}.`);
+            }
+        });
       }
 
       // victim_cant_revive can appear on any action (not just stat_modifier ones)
