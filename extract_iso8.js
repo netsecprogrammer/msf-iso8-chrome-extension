@@ -98,6 +98,8 @@ const PROC_MAP = {
   'ColleenWing': 'Colleen Wing',
   'Groot': 'Groot',
   'Gwenpool': 'Gwenpool',
+  'MultipleManMinion': 'Multiple Man',
+  'Horseman': 'Horseman',
   'Sylvie': 'Sylvie',
   'Ikaris': 'Ikaris',
   'Daredevil': 'Daredevil'
@@ -300,16 +302,37 @@ function processCharacter(charName, charData) {
   const effects = [];
   const notes = [];
 
-  // Iterate actions
+  // Collect all actions: safety actions + basic actions tagged with counter/assist
+  const allActions = [];
   if (safety.actions) {
-    safety.actions.forEach(action => {
+    safety.actions.forEach(a => allActions.push({ ...a, _source: 'safety' }));
+  }
+  if (charData.basic && charData.basic.actions) {
+    charData.basic.actions.forEach(a => {
+      const hasCounter = a.counter === true;
+      const hasAssist = a.assist !== undefined;
+      if (!hasCounter && !hasAssist) return;
+      // Skip empty_result actions (placeholders)
+      if (a.action === 'empty_result') return;
+
+      let prefix = '';
+      if (hasCounter && !hasAssist) prefix = 'On Counter, ';
+      else if (hasAssist && !hasCounter) prefix = 'On Assist, ';
+      // both counter+assist → no prefix
+
+      allActions.push({ ...a, _source: 'basic', _counterAssistPrefix: prefix });
+    });
+  }
+
+  // Iterate all actions
+  allActions.forEach(action => {
       // Check action_pct: if max level chance is 0, skip entirely; if < 100, note probability
       const maxActionPct = action.action_pct
           ? (Array.isArray(action.action_pct) ? action.action_pct[action.action_pct.length - 1] : action.action_pct)
           : 100;
       if (maxActionPct === 0) return; // Action never fires at max level
 
-      let conditionPrefix = parseConditions(action);
+      let conditionPrefix = (action._counterAssistPrefix || '') + parseConditions(action);
 
       // Handle action_cond: "if_has_crit_result" as a crit condition
       // (alternate representation of only_if_outcome: ["critical_hit"])
@@ -414,14 +437,14 @@ function processCharacter(charName, charData) {
         const hasAttackStats = localDmg > 0 || localPierce > 0 || localDrain > 0;
 
         if (hasAttackStats) {
-            if (isCrit || isAllyConditional) {
-                // Crit bonuses and ally-conditional stats always go as effect lines
-                let text = `${conditionPrefix}attack for `;
-                if (localDmg > 0) text += `${localDmg}% damage`;
-                if (localPierce > 0) text += `${localDmg > 0 ? ' + ' : ''}${localPierce}% Piercing`;
-                if (localDrain > 0) text += ` + ${localDrain}% Drain`;
-                text += ' instead.';
-                effects.push(text);
+            const isFromBasic = action._source === 'basic';
+            if (isFromBasic || isCrit || isAllyConditional) {
+                // Basic counter/assist bonuses, crit bonuses, and ally-conditional stats always go as effect lines
+                const parts = [];
+                if (localDmg > 0) parts.push(`${localDmg}% damage`);
+                if (localPierce > 0) parts.push(`${localPierce}% Piercing`);
+                if (localDrain > 0) parts.push(`${localDrain}% Drain`);
+                effects.push(`${conditionPrefix}+${parts.join(' + ')}.`);
             } else if (isConditionalTarget && (damage > 0 || piercing > 0)) {
                 // Already have base stats — only add effect line if values differ
                 if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
@@ -456,10 +479,15 @@ function processCharacter(charName, charData) {
            // Skip internal level-scaling procs (e.g., Odin's Basic_Level_1..7)
            if (p.proc && p.proc.startsWith('Basic_Level')) return;
            const name = formatProcName(p.proc);
-           if (!procGroups[name]) procGroups[name] = { count: 0, duration: 0 };
+           if (!procGroups[name]) procGroups[name] = { count: 0, duration: 0, spawnPct: 100 };
            procGroups[name].count++;
            const dur = getMax(p.use_count) || 1;
            if (dur > procGroups[name].duration) procGroups[name].duration = dur;
+           // Track spawn_pct (per-proc chance)
+           if (p.spawn_pct) {
+               const pct = getMax(p.spawn_pct);
+               procGroups[name].spawnPct = Math.min(procGroups[name].spawnPct, pct);
+           }
         });
 
         const globalApplyCount = getMax(action.apply_count);
@@ -468,14 +496,21 @@ function processCharacter(charName, charData) {
         Object.keys(procGroups).forEach(procName => {
             let count = globalApplyCount || procGroups[procName].count;
             const duration = procGroups[procName].duration;
+            const spawnPct = procGroups[procName].spawnPct;
             let durationText = '';
             if (duration > 1) durationText = ` for ${duration} turns`;
 
+            // Combine action-level chance with proc-level spawn chance
+            let fullChancePrefix = chancePrefix;
+            if (!fullChancePrefix && spawnPct > 0 && spawnPct < 100) {
+                fullChancePrefix = `${spawnPct}% chance to `;
+            }
+
             let effectText = '';
             if (targetText === 'self') {
-                effectText = `${conditionPrefix}${chancePrefix}Gain ${count > 1 ? count + ' ' : ''}${procName}${durationText}`;
+                effectText = `${conditionPrefix}${fullChancePrefix}Gain ${count > 1 ? count + ' ' : ''}${procName}${durationText}`;
             } else {
-                effectText = `${conditionPrefix}${chancePrefix}Apply ${count > 1 ? count + ' ' : ''}${procName}${durationText} to ${targetText}`;
+                effectText = `${conditionPrefix}${fullChancePrefix}Apply ${count > 1 ? count + ' ' : ''}${procName}${durationText} to ${targetText}`;
             }
             effects.push(effectText + '.');
         });
@@ -727,7 +762,9 @@ function processCharacter(charName, charData) {
 
               const forEach = fs2.for_each;
               let traitText = '';
-              if (forEach.traits && forEach.traits.has_any) {
+              if (forEach.character) {
+                  traitText = forEach.character.map(c => formatProcName(c)).join(' or ');
+              } else if (forEach.traits && forEach.traits.has_any) {
                   traitText = forEach.traits.has_any.map(t => formatProcName(t)).join(' or ').toUpperCase();
               } else if (forEach.and) {
                   // Extract traits from nested "and" arrays (e.g., Kingpin: Underworld + not Spawned)
@@ -737,6 +774,18 @@ function processCharacter(charName, charData) {
                           break;
                       }
                   }
+              } else if (forEach.or) {
+                  // Extract from "or" arrays (e.g., Rogue: Horseman or Apocalypse)
+                  const parts = [];
+                  for (const sub of forEach.or) {
+                      if (sub.traits && sub.traits.has_any) {
+                          parts.push(...sub.traits.has_any.map(t => formatProcName(t).toUpperCase()));
+                      }
+                      if (sub.character) {
+                          parts.push(...sub.character.map(c => formatProcName(c)));
+                      }
+                  }
+                  traitText = parts.join(' or ');
               } else if (forEach.target && forEach.target.states) {
                   traitText = forEach.target.states.join(' or ').toUpperCase();
               }
@@ -777,8 +826,46 @@ function processCharacter(charName, charData) {
               effects.push(`${conditionPrefix}${foreachCond}+${delta}% ${statName} for each ${traitText} ${relText}.`);
           }
       }
+
+      // 15. Revive (from basic counter/assist, e.g. StarLord_Annihilation reviving Korg)
+      if (action.action === 'revive') {
+          const revivePct = getMax(action.revive_pct);
+          if (revivePct > 0) {
+              let targetName = '';
+              if (action.filter && action.filter.character) {
+                  targetName = action.filter.character.map(c => formatProcName(c)).join(' or ');
+              }
+              const healthPct = action.revive_health && action.revive_health[0]
+                  ? getMax(action.revive_health[0].pct) : 0;
+              if (targetName) {
+                  effects.push(`${conditionPrefix}Revive ${targetName}${healthPct > 0 ? ` at ${healthPct}% Health` : ''}.`);
+              } else {
+                  effects.push(`${conditionPrefix}Revive an ally${healthPct > 0 ? ` at ${healthPct}% Health` : ''}.`);
+              }
+          }
+      }
+
+      // 16. Drain (flat HP drain, from basic counter/assist)
+      if (action.action === 'drain') {
+          const drainAmt = getMax(action.drain_pct) || getMax(action.health_pct);
+          if (drainAmt > 0) {
+              effects.push(`${conditionPrefix}Drain ${drainAmt}% of damage dealt as Health.`);
+          }
+      }
+
+      // 17. Attack Ally (redirect attack to enemy, e.g. Knull)
+      if (action.action === 'attack_ally') {
+          if (action.target && action.target.relation === 'enemy') {
+              effects.push(`${conditionPrefix}Attack an additional enemy.`);
+          }
+      }
+
+      // 18. Set Battlefield Effect (e.g. Odin)
+      if (action.action === 'set_battlefield_effect') {
+          // Battlefield effects are complex; just note their presence
+          effects.push(`${conditionPrefix}Trigger battlefield effect.`);
+      }
     });
-  }
 
   // Process stat_lock for notes
   if (safety.stat_lock) {
