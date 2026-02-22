@@ -47,14 +47,14 @@
     "notes": []
   },
   "AgentVenom": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Defense Down for 2 turns to the primary target.\\nOn Crit, Apply Bleed to the primary target.\\nIn RAID, On Crit, Apply Bleed to the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Defense Down for 2 turns to the primary target.\\nOn Crit, Apply +1 Bleed to the primary target.\\nIn RAID, On Crit, Apply +1 Bleed to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Defense Down for 2 turns to the primary target.",
-      "On Crit, Apply Bleed to the primary target.",
-      "In RAID, On Crit, Apply Bleed to the primary target."
+      "On Crit, Apply +1 Bleed to the primary target.",
+      "In RAID, On Crit, Apply +1 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -133,13 +133,13 @@
     "notes": []
   },
   "AncientOne": {
-    "description": "Attack primary target for 25% damage + 157% Piercing.\\nApply 2 Bleed to the primary target.\\nOn Crit, Apply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 25% damage + 157% Piercing.\\nApply 2 Bleed to the primary target.\\nOn Crit, Apply +2 Bleed to the primary target.",
     "damage": 25,
     "piercing": 157,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "On Crit, Apply 2 Bleed to the primary target."
+      "On Crit, Apply +2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -197,13 +197,13 @@
     ]
   },
   "Archangel": {
-    "description": "Attack primary target for 281% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nIn RAID, Apply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 281% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nIn RAID, Apply +2 Bleed to the primary target.",
     "damage": 281,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "In RAID, Apply 2 Bleed to the primary target."
+      "In RAID, Apply +2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -466,7 +466,7 @@
     "notes": []
   },
   "CaptainAmerica": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nGain Defense Up.\\nOn Assist, +250% damage.\\nOn Counter, Gain Defense Up.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nGain Defense Up.\\nOn Assist, +250% damage.\\nOn Counter, Gain +1 Defense Up.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
@@ -474,7 +474,7 @@
       "Apply Offense Down for 2 turns to the primary target.",
       "Gain Defense Up.",
       "On Assist, +250% damage.",
-      "On Counter, Gain Defense Up."
+      "On Counter, Gain +1 Defense Up."
     ],
     "notes": []
   },
@@ -552,12 +552,12 @@
     "notes": []
   },
   "ColleenWing": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nIn WAR, DEFENSE, Apply Bleed to the primary target.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nIn WAR, DEFENSE, Apply +1 Bleed to the primary target.\\nApply 2 Bleed to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, DEFENSE, Apply Bleed to the primary target.",
+      "In WAR, DEFENSE, Apply +1 Bleed to the primary target.",
       "Apply 2 Bleed to the primary target."
     ],
     "notes": [
@@ -899,13 +899,13 @@
     "notes": []
   },
   "EbonyMaw": {
-    "description": "Attack primary target for 248% Piercing.\\nIf the primary target is HERO and CONTROLLER, Apply Bleed for 2 turns to the primary target.\\nOtherwise, Apply Bleed to the primary target.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 248% Piercing.\\nIf the primary target is HERO and CONTROLLER, Apply +1 Bleed for 2 turns to the primary target.\\nOtherwise, Apply +1 Bleed to the primary target.\\nApply Bleed to the primary target.",
     "damage": 0,
     "piercing": 248,
     "drain": 0,
     "effects": [
-      "If the primary target is HERO and CONTROLLER, Apply Bleed for 2 turns to the primary target.",
-      "Otherwise, Apply Bleed to the primary target.",
+      "If the primary target is HERO and CONTROLLER, Apply +1 Bleed for 2 turns to the primary target.",
+      "Otherwise, Apply +1 Bleed to the primary target.",
       "Apply Bleed to the primary target."
     ],
     "notes": []
@@ -1989,29 +1989,29 @@
     "notes": []
   },
   "LokiMinion": {
-    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Gain Evade.",
+    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Gain +1 Evade.",
     "damage": 0,
     "piercing": 153,
     "drain": 0,
     "effects": [
       "On Assist, +260% Piercing.",
-      "On Counter, 50% chance to Gain Evade."
+      "On Counter, 50% chance to Gain +1 Evade."
     ],
     "notes": []
   },
   "LokiNPC": {
-    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Gain Evade.",
+    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Gain +1 Evade.",
     "damage": 0,
     "piercing": 153,
     "drain": 0,
     "effects": [
       "On Assist, +260% Piercing.",
-      "On Counter, 50% chance to Gain Evade."
+      "On Counter, 50% chance to Gain +1 Evade."
     ],
     "notes": []
   },
   "LokiTeen": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nClear 1 positive effect(s) from the primary target.\\nGain Regeneration.\\nClear 1 negative effect(s) from self.\\nApply Regeneration to the most injured ally.\\nClear 1 negative effect(s) from the most injured ally.\\nIn RAID, Apply Regeneration to a random BIFROST ally.\\nIf self has Stealth, Clear 1 Stealth from self.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nClear 1 positive effect(s) from the primary target.\\nGain Regeneration.\\nClear 1 negative effect(s) from self.\\nApply Regeneration to the most injured ally.\\nClear 1 negative effect(s) from the most injured ally.\\nIn RAID, Apply +1 Regeneration to a random BIFROST ally.\\nIf self has Stealth, Clear 1 Stealth from self.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
@@ -2021,7 +2021,7 @@
       "Clear 1 negative effect(s) from self.",
       "Apply Regeneration to the most injured ally.",
       "Clear 1 negative effect(s) from the most injured ally.",
-      "In RAID, Apply Regeneration to a random BIFROST ally.",
+      "In RAID, Apply +1 Regeneration to a random BIFROST ally.",
       "If self has Stealth, Clear 1 Stealth from self."
     ],
     "notes": []
@@ -2441,7 +2441,7 @@
     "notes": []
   },
   "Nebula": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nDeal 3% of target's Max Health.\\nGain Speed Up.\\nOn Assist, +320% damage.\\nOn Counter, Gain Speed Up.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nDeal 3% of target's Max Health.\\nGain Speed Up.\\nOn Assist, +320% damage.\\nOn Counter, Gain +1 Speed Up.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
@@ -2449,7 +2449,7 @@
       "Deal 3% of target's Max Health.",
       "Gain Speed Up.",
       "On Assist, +320% damage.",
-      "On Counter, Gain Speed Up."
+      "On Counter, Gain +1 Speed Up."
     ],
     "notes": []
   },
@@ -2988,13 +2988,13 @@
     "notes": []
   },
   "RedGuardian": {
-    "description": "Attack primary target for 255% damage + 17% Piercing.\\nGain Defense Up.\\nIn WAR, Apply Defense Up to a random ally.",
+    "description": "Attack primary target for 255% damage + 17% Piercing.\\nGain Defense Up.\\nIn WAR, Apply +1 Defense Up to a random ally.",
     "damage": 255,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Gain Defense Up.",
-      "In WAR, Apply Defense Up to a random ally."
+      "In WAR, Apply +1 Defense Up to a random ally."
     ],
     "notes": []
   },
@@ -3900,13 +3900,13 @@
     "notes": []
   },
   "Thanos": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nOn Assist, +300% damage.\\nOn Counter, Gain Counter.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nOn Assist, +300% damage.\\nOn Counter, Gain +1 Counter.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "On Assist, +300% damage.",
-      "On Counter, Gain Counter."
+      "On Counter, Gain +1 Counter."
     ],
     "notes": []
   },
@@ -4279,14 +4279,14 @@
     "notes": []
   },
   "Void": {
-    "description": "Attack primary target for 225% Piercing.\\nApply Defense Down to the primary target.\\nApply Trauma to the primary target.\\nIn CRUCIBLE SHOWDOWN, Apply Trauma to a random ally.",
+    "description": "Attack primary target for 225% Piercing.\\nApply Defense Down to the primary target.\\nApply Trauma to the primary target.\\nIn CRUCIBLE SHOWDOWN, Apply +1 Trauma to a random ally.",
     "damage": 0,
     "piercing": 225,
     "drain": 0,
     "effects": [
       "Apply Defense Down to the primary target.",
       "Apply Trauma to the primary target.",
-      "In CRUCIBLE SHOWDOWN, Apply Trauma to a random ally."
+      "In CRUCIBLE SHOWDOWN, Apply +1 Trauma to a random ally."
     ],
     "notes": [
       "Characters killed by this attack cannot be revived."

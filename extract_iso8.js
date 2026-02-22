@@ -381,6 +381,23 @@ function processCharacter(charName, charData) {
     });
   }
 
+  // Pre-scan: collect procs that appear in unconditional actions (to detect "+N" additional procs)
+  const unconditionalProcs = new Set();
+  allActions.forEach(action => {
+      const maxPct = action.action_pct
+          ? (Array.isArray(action.action_pct) ? action.action_pct[action.action_pct.length - 1] : action.action_pct)
+          : 100;
+      if (maxPct === 0) return;
+      if (action.action === 'proc' && action.procs &&
+          !action.only_if && !action.only_if_target && !action.only_if_any && !action.only_if_outcome) {
+          action.procs.forEach(p => {
+              if (p.proc && !p.proc.startsWith('Basic_Level')) {
+                  unconditionalProcs.add(formatProcName(p.proc));
+              }
+          });
+      }
+  });
+
   // Iterate all actions
   let prevActionWasVisible = false; // Track if previous action produced visible output
   let prevActionWasConditional = false; // Track if previous action had a condition
@@ -598,11 +615,20 @@ function processCharacter(charName, charData) {
                 fullChancePrefix = `${spawnPct}% chance to `;
             }
 
+            // Use "+N" format when this conditional proc adds to an existing unconditional one
+            const isAdditional = conditionPrefix && unconditionalProcs.has(procName);
+            let countText = '';
+            if (isAdditional) {
+                countText = `+${count} `;
+            } else if (count > 1) {
+                countText = `${count} `;
+            }
+
             let effectText = '';
             if (targetText === 'self') {
-                effectText = `${conditionPrefix}${fullChancePrefix}Gain ${count > 1 ? count + ' ' : ''}${procName}${durationText}`;
+                effectText = `${conditionPrefix}${fullChancePrefix}Gain ${countText}${procName}${durationText}`;
             } else {
-                effectText = `${conditionPrefix}${fullChancePrefix}Apply ${count > 1 ? count + ' ' : ''}${procName}${durationText} to ${targetText}`;
+                effectText = `${conditionPrefix}${fullChancePrefix}Apply ${countText}${procName}${durationText} to ${targetText}`;
             }
             effects.push(effectText + '.');
         });
