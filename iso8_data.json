@@ -164,14 +164,14 @@
     "notes": []
   },
   "AntiVenom": {
-    "description": "Attack primary target for 178% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nTransfer all positive effect(s) from self as negative effects.\\nClear all Heal Block from the primary target.",
+    "description": "Attack primary target for 178% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nTransfer all positive effect(s) from self as negative effects.\\nClear all Heal Block from self.",
     "damage": 178,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Bleed to the primary target.",
       "Transfer all positive effect(s) from self as negative effects.",
-      "Clear all Heal Block from the primary target."
+      "Clear all Heal Block from self."
     ],
     "notes": []
   },
@@ -219,13 +219,11 @@
     "notes": []
   },
   "Azazel": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\n+150% damage.",
+    "description": "Attack primary target for 225% damage + 17% Piercing",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+150% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "BaronMordo": {
@@ -304,7 +302,9 @@
       "Gain Stealth."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "Characters killed by this attack cannot be revived.",
+      "In BATTLEGROUNDS, OFFENSE, characters killed by this attack cannot be revived.",
+      "In BATTLEGROUNDS, OFFENSE, If the primary target has Defense Up, characters killed by this attack cannot be revived."
     ]
   },
   "BlackKnight": {
@@ -434,13 +434,11 @@
     "notes": []
   },
   "Bullseye": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.\\n+270% damage.",
+    "description": "Attack primary target for 163% damage + 17% Piercing",
     "damage": 163,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+270% damage."
-    ],
+    "effects": [],
     "notes": [
       "This attack cannot miss."
     ]
@@ -647,13 +645,11 @@
     "notes": []
   },
   "CullObsidian": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+260% damage to adjacent enemies.",
+    "description": "Attack primary target for 245% damage + 17% Piercing",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+260% damage to adjacent enemies."
-    ],
+    "effects": [],
     "notes": []
   },
   "Cyclops": {
@@ -789,13 +785,11 @@
     "notes": []
   },
   "Deadpool": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+220% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+220% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Deathlok": {
@@ -856,13 +850,11 @@
     "notes": []
   },
   "Domino": {
-    "description": "Attack primary target for 168% damage + 19% Piercing.\\n+210% damage.",
+    "description": "Attack primary target for 168% damage + 19% Piercing",
     "damage": 168,
     "piercing": 19,
     "drain": 0,
-    "effects": [
-      "+210% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Doom": {
@@ -899,13 +891,11 @@
     "notes": []
   },
   "Drax": {
-    "description": "Attack primary target for 160% damage + 17% Piercing + 30% Drain.\\n+250% damage + 30% Drain.",
+    "description": "Attack primary target for 160% damage + 17% Piercing + 30% Drain",
     "damage": 160,
     "piercing": 17,
     "drain": 30,
-    "effects": [
-      "+250% damage + 30% Drain."
-    ],
+    "effects": [],
     "notes": []
   },
   "EbonyMaw": {
@@ -921,13 +911,11 @@
     "notes": []
   },
   "Echo": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\n+200% damage.",
+    "description": "Attack primary target for 200% damage + 17% Piercing",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+200% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Electro": {
@@ -951,13 +939,11 @@
     "notes": []
   },
   "ElsaBloodstone": {
-    "description": "Attack primary target for 337% Piercing.\\n+75% Piercing.",
+    "description": "Attack primary target for 337% Piercing",
     "damage": 0,
     "piercing": 337,
     "drain": 0,
-    "effects": [
-      "+75% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "EmmaFrost": {
@@ -1055,33 +1041,27 @@
     "notes": []
   },
   "GT_HandControl_HealBlock": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "GT_HandDmg_Bonus": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "GT_HandDmg_Unbuff": {
-    "description": "Attack primary target for 165% damage + 37% Piercing.\\n+300% damage + 20% Piercing.",
+    "description": "Attack primary target for 165% damage + 37% Piercing",
     "damage": 165,
     "piercing": 37,
     "drain": 0,
-    "effects": [
-      "+300% damage + 20% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "GT_HandSupport_Heal": {
@@ -1095,13 +1075,11 @@
     "notes": []
   },
   "GT_HandTank_Stealth": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Gambit": {
@@ -1115,13 +1093,11 @@
     "notes": []
   },
   "Gamora": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\n+240% damage.",
+    "description": "Attack primary target for 225% damage + 17% Piercing",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+240% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Ghost": {
@@ -1196,13 +1172,11 @@
     ]
   },
   "Graviton": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+100% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+100% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "GreenGoblinGlider": {
@@ -1275,33 +1249,27 @@
     "notes": []
   },
   "HandControl_HealBlock": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "HandDmg_Bonus": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 245% damage + 17% Piercing",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "HandDmg_Unbuff": {
-    "description": "Attack primary target for 224% damage + 37% Piercing.\\n+320% damage + 20% Piercing.",
+    "description": "Attack primary target for 224% damage + 37% Piercing",
     "damage": 224,
     "piercing": 37,
     "drain": 0,
-    "effects": [
-      "+320% damage + 20% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "HandSupport_Heal": {
@@ -1315,13 +1283,11 @@
     "notes": []
   },
   "HandTank_Stealth": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "HankPym": {
@@ -1347,23 +1313,19 @@
     "notes": []
   },
   "Hawkeye": {
-    "description": "Attack primary target for 131% damage + 37% Piercing.\\n+250% damage + 20% Piercing.",
+    "description": "Attack primary target for 131% damage + 37% Piercing",
     "damage": 131,
     "piercing": 37,
     "drain": 0,
-    "effects": [
-      "+250% damage + 20% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "Heimdall": {
-    "description": "Attack primary target for 234% damage + 17% Piercing.\\n+310% damage.",
+    "description": "Attack primary target for 234% damage + 17% Piercing",
     "damage": 234,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+310% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Hela": {
@@ -1402,15 +1364,14 @@
     "notes": []
   },
   "Hercules": {
-    "description": "Attack primary target for 228% damage + 17% Piercing.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Stealth.\\nClear all Charged from the primary target.\\nSteal Revive Once from the primary target and give to allies.\\n+320% damage.",
+    "description": "Attack primary target for 228% damage + 17% Piercing.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Stealth.\\nClear all Charged from the primary target.\\nSteal Revive Once from the primary target and give to allies.",
     "damage": 228,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Steal 1 positive effect(s) from the primary target and give to allies, excluding Stealth.",
       "Clear all Charged from the primary target.",
-      "Steal Revive Once from the primary target and give to allies.",
-      "+320% damage."
+      "Steal Revive Once from the primary target and give to allies."
     ],
     "notes": [
       "Characters killed by this attack cannot be revived.",
@@ -1429,13 +1390,11 @@
     "notes": []
   },
   "Hobgoblin": {
-    "description": "Attack primary target for 182% Piercing.\\n+50% Piercing.",
+    "description": "Attack primary target for 182% Piercing",
     "damage": 0,
     "piercing": 182,
     "drain": 0,
-    "effects": [
-      "+50% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "HowardTheDuck": {
@@ -1481,34 +1440,29 @@
     "notes": []
   },
   "HydraDmg_AoE": {
-    "description": "Attack primary target for 203% damage + 27% Piercing.\\nApply Slow to the primary target.\\n+270% damage + 20% Piercing to adjacent enemies.",
+    "description": "Attack primary target for 203% damage + 27% Piercing.\\nApply Slow to the primary target.",
     "damage": 203,
     "piercing": 27,
     "drain": 0,
     "effects": [
-      "Apply Slow to the primary target.",
-      "+270% damage + 20% Piercing to adjacent enemies."
+      "Apply Slow to the primary target."
     ],
     "notes": []
   },
   "HydraDmg_Buff": {
-    "description": "Attack primary target for 155% damage + 42% Piercing.\\n+290% damage + 25% Piercing.",
+    "description": "Attack primary target for 155% damage + 42% Piercing",
     "damage": 155,
     "piercing": 42,
     "drain": 0,
-    "effects": [
-      "+290% damage + 25% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "HydraDmg_Single": {
-    "description": "Attack primary target for 183% Piercing.\\n+290% Piercing.",
+    "description": "Attack primary target for 183% Piercing",
     "damage": 0,
     "piercing": 183,
     "drain": 0,
-    "effects": [
-      "+290% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "HydraSupport_Heal": {
@@ -1522,24 +1476,21 @@
     "notes": []
   },
   "HydraTank_Taunt": {
-    "description": "Attack primary target for 155% damage + 42% Piercing.\\n+290% damage + 25% Piercing.",
+    "description": "Attack primary target for 155% damage + 42% Piercing",
     "damage": 155,
     "piercing": 42,
     "drain": 0,
-    "effects": [
-      "+290% damage + 25% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "Hyperion": {
-    "description": "Attack primary target for 244% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nHeal self for 5% of Max Health.\\n+250% damage.",
+    "description": "Attack primary target for 244% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nHeal self for 5% of Max Health.",
     "damage": 244,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Bleed to the primary target.",
-      "Heal self for 5% of Max Health.",
-      "+250% damage."
+      "Heal self for 5% of Max Health."
     ],
     "notes": []
   },
@@ -1623,13 +1574,11 @@
     "notes": []
   },
   "IronFist": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+270% damage to additional enemies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+270% damage to additional enemies."
-    ],
+    "effects": [],
     "notes": []
   },
   "IronFistOrson": {
@@ -1683,13 +1632,11 @@
     "notes": []
   },
   "Ironheart": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+320% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+320% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "IronheartMCU": {
@@ -1765,13 +1712,11 @@
     "notes": []
   },
   "Juggernaut": {
-    "description": "Attack primary target for 217% damage + 17% Piercing.\\n+290% damage.",
+    "description": "Attack primary target for 217% damage + 17% Piercing",
     "damage": 217,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+290% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Kahhori": {
@@ -1815,13 +1760,12 @@
     "notes": []
   },
   "Karnak": {
-    "description": "Attack primary target for 205% damage.\\nClear all Evade from the primary target.\\n+280% damage.",
+    "description": "Attack primary target for 205% damage.\\nClear all Evade from the primary target.",
     "damage": 205,
     "piercing": 0,
     "drain": 0,
     "effects": [
-      "Clear all Evade from the primary target.",
-      "+280% damage."
+      "Clear all Evade from the primary target."
     ],
     "notes": []
   },
@@ -2090,23 +2034,19 @@
     "notes": []
   },
   "LukeCage": {
-    "description": "Attack primary target for 203% damage + 17% Piercing.\\n+330% damage.",
+    "description": "Attack primary target for 203% damage + 17% Piercing",
     "damage": 203,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+330% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "MBaku": {
-    "description": "Attack primary target for 235% damage + 17% Piercing.\\n+300% damage.",
+    "description": "Attack primary target for 235% damage + 17% Piercing",
     "damage": 235,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+300% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "MadelynePryor": {
@@ -2210,23 +2150,19 @@
     ]
   },
   "MercDmg_General": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "MercDmg_Single": {
-    "description": "Attack primary target for 218% damage + 42% Piercing.\\n+290% damage + 25% Piercing.",
+    "description": "Attack primary target for 218% damage + 42% Piercing",
     "damage": 218,
     "piercing": 42,
     "drain": 0,
-    "effects": [
-      "+290% damage + 25% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "MercSupport_Buffs": {
@@ -2240,13 +2176,11 @@
     "notes": []
   },
   "MercTank_Debuff": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "MercTank_Taunt": {
@@ -2365,13 +2299,11 @@
     "notes": []
   },
   "MrFantastic": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\n+300% damage.",
+    "description": "Attack primary target for 225% damage + 17% Piercing",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+300% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "MrFantasticMCU": {
@@ -2385,26 +2317,22 @@
     "notes": []
   },
   "MrNegative": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 2 positive effect(s) to negative on the primary target.\\n+20% Damage for each SPAWNED ally.\\n+300% damage.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 2 positive effect(s) to negative on the primary target.\\n+20% Damage for each SPAWNED ally.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip 2 positive effect(s) to negative on the primary target.",
-      "+20% Damage for each SPAWNED ally.",
-      "+300% damage."
+      "+20% Damage for each SPAWNED ally."
     ],
     "notes": []
   },
   "MrSinister": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\n+300% damage.\\n+50% Damage for each MARAUDERS ally.",
+    "description": "Attack primary target for 225% damage + 17% Piercing",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+300% damage.",
-      "+50% Damage for each MARAUDERS ally."
-    ],
+    "effects": [],
     "notes": []
   },
   "MsMarvel": {
@@ -2432,14 +2360,11 @@
     "notes": []
   },
   "MultipleMan": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+320% damage.\\n+10% Damage for each Multiple Man ally.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+320% damage.",
-      "+10% Damage for each Multiple Man ally."
-    ],
+    "effects": [],
     "notes": []
   },
   "MultipleManMinion": {
@@ -2629,7 +2554,7 @@
     "notes": []
   },
   "Nova": {
-    "description": "Attack primary target for 300% damage + 17% Piercing.\\nIn WAR, OFFENSE, Remove Barrier from the primary target.\\nNot in WAR, Clear 2 positive effect(s) from the primary target.\\nIn WAR, Clear 4 positive effect(s) from the primary target.\\nIn WAR, OFFENSE, +250% damage + 17% Piercing.",
+    "description": "Attack primary target for 300% damage + 17% Piercing.\\nIn WAR, OFFENSE, Remove Barrier from the primary target.\\nNot in WAR, Clear 2 positive effect(s) from the primary target.\\nIn WAR, Clear 4 positive effect(s) from the primary target.\\nIn WAR, OFFENSE, If self has Nova Force Tracking, +250% damage + 17% Piercing.",
     "damage": 300,
     "piercing": 17,
     "drain": 0,
@@ -2637,21 +2562,21 @@
       "In WAR, OFFENSE, Remove Barrier from the primary target.",
       "Not in WAR, Clear 2 positive effect(s) from the primary target.",
       "In WAR, Clear 4 positive effect(s) from the primary target.",
-      "In WAR, OFFENSE, +250% damage + 17% Piercing."
+      "In WAR, OFFENSE, If self has Nova Force Tracking, +250% damage + 17% Piercing."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "In WAR, OFFENSE, characters killed by this attack cannot be revived."
     ]
   },
   "NovaSamAlexander": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nGain Regeneration for 2 turns.\\nIf self has Charged, Clear all negative effect(s) from the primary target.\\nIf self has Charged, Clear 1 Charged from the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nGain Regeneration for 2 turns.\\nIf self has Charged, Clear all negative effect(s) from self.\\nIf self has Charged, Clear 1 Charged from self.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Gain Regeneration for 2 turns.",
-      "If self has Charged, Clear all negative effect(s) from the primary target.",
-      "If self has Charged, Clear 1 Charged from the primary target."
+      "If self has Charged, Clear all negative effect(s) from self.",
+      "If self has Charged, Clear 1 Charged from self."
     ],
     "notes": []
   },
@@ -2693,7 +2618,7 @@
     "notes": []
   },
   "OldManLogan": {
-    "description": "Attack primary target for 250% damage + 250% Piercing + 100% Drain.\\nIf self does not have Claws Out, Apply Disrupted to the primary target.\\nIf self has Claws Out, Apply 2 Bleed for 2 turns to the primary target.\\nIf self has Claws Out, Apply Disrupted to the primary target.\\nIn WAR, OFFENSE, Apply Defense Down to the primary target.\\nGain 20% Speed Bar.\\nIn WAR, OFFENSE, Apply 2 Regeneration to the primary target.\\nOn Ultimate assist, Generate +1 Ability Energy for self.",
+    "description": "Attack primary target for 250% damage + 250% Piercing + 100% Drain.\\nIf self does not have Claws Out, Apply Disrupted to the primary target.\\nIf self has Claws Out, Apply 2 Bleed for 2 turns to the primary target.\\nIf self has Claws Out, Apply Disrupted to the primary target.\\nIn WAR, OFFENSE, If self has Claws Out, Apply Defense Down to the primary target.\\nGain 20% Speed Bar.\\nIn WAR, OFFENSE, Apply 2 Regeneration to the primary target.\\nOn Ultimate assist, Generate +1 Ability Energy for self.",
     "damage": 250,
     "piercing": 250,
     "drain": 100,
@@ -2701,7 +2626,7 @@
       "If self does not have Claws Out, Apply Disrupted to the primary target.",
       "If self has Claws Out, Apply 2 Bleed for 2 turns to the primary target.",
       "If self has Claws Out, Apply Disrupted to the primary target.",
-      "In WAR, OFFENSE, Apply Defense Down to the primary target.",
+      "In WAR, OFFENSE, If self has Claws Out, Apply Defense Down to the primary target.",
       "Gain 20% Speed Bar.",
       "In WAR, OFFENSE, Apply 2 Regeneration to the primary target.",
       "On Ultimate assist, Generate +1 Ability Energy for self."
@@ -2883,23 +2808,19 @@
     "notes": []
   },
   "Punisher": {
-    "description": "Attack primary target for 210% Piercing.\\n+260% Piercing to additional enemies.",
+    "description": "Attack primary target for 210% Piercing",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
-    "effects": [
-      "+260% Piercing to additional enemies."
-    ],
+    "effects": [],
     "notes": []
   },
   "Punisher_Iso8NUE": {
-    "description": "Attack primary target for 165% damage + 37% Piercing.\\n+200% damage + 20% Piercing to additional enemies.",
+    "description": "Attack primary target for 165% damage + 37% Piercing",
     "damage": 165,
     "piercing": 37,
     "drain": 0,
-    "effects": [
-      "+200% damage + 20% Piercing to additional enemies."
-    ],
+    "effects": [],
     "notes": []
   },
   "PvE_DDDoctorDoom": {
@@ -2934,13 +2855,11 @@
     "notes": []
   },
   "PvE_DDInvisibleWoman": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+290% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+290% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "PvE_DDMrFantastic": {
@@ -2954,13 +2873,11 @@
     "notes": []
   },
   "PvE_DDThing": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+250% damage.",
+    "description": "Attack primary target for 245% damage + 17% Piercing",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+250% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Pyro": {
@@ -3039,7 +2956,8 @@
       "Apply Heal Block to the primary target."
     ],
     "notes": [
-      "Characters killed by this attack cannot be revived."
+      "If the primary target does not have Defense Down, characters killed by this attack cannot be revived.",
+      "If the primary target has Defense Down, characters killed by this attack cannot be revived."
     ]
   },
   "RavagerTank_Taunt": {
@@ -3121,92 +3039,80 @@
     "notes": []
   },
   "RocketRaccoon": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+270% damage to adjacent enemies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+270% damage to adjacent enemies."
-    ],
+    "effects": [],
     "notes": [
       "If Groot is an ally, this attack cannot miss.",
       "If Groot is an ally, this attack cannot be dodged."
     ]
   },
   "Rogue": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nRemove Barrier from the primary target.\\n+300% damage.\\n+25% Crit Chance for each HORSEMAN or Apocalypse ally.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nRemove Barrier from the primary target.\\nIf self has InvisibleStateChecker, +300% damage.\\nIf self has InvisibleStateChecker, +25% Crit Chance for each HORSEMAN or Apocalypse ally.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Remove Barrier from the primary target.",
-      "+300% damage.",
-      "+25% Crit Chance for each HORSEMAN or Apocalypse ally."
+      "If self has InvisibleStateChecker, +300% damage.",
+      "If self has InvisibleStateChecker, +25% Crit Chance for each HORSEMAN or Apocalypse ally."
     ],
     "notes": []
   },
   "Ronan": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.\\nClear 2 positive effect(s) from the primary target.\\n+180% damage + 25% Piercing.",
+    "description": "Attack primary target for 163% damage + 17% Piercing.\\nClear 2 positive effect(s) from the primary target.",
     "damage": 163,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear 2 positive effect(s) from the primary target.",
-      "+180% damage + 25% Piercing."
+      "Clear 2 positive effect(s) from the primary target."
     ],
     "notes": []
   },
   "Ronin": {
-    "description": "Attack primary target for 190% Piercing.\\nReduce Speed Bar by 5% for each NEW AVENGER ally.\\n+230% Piercing to additional enemies.",
+    "description": "Attack primary target for 190% Piercing.\\nReduce Speed Bar by 5% for each NEW AVENGER ally.",
     "damage": 0,
     "piercing": 190,
     "drain": 0,
     "effects": [
-      "Reduce Speed Bar by 5% for each NEW AVENGER ally.",
-      "+230% Piercing to additional enemies."
+      "Reduce Speed Bar by 5% for each NEW AVENGER ally."
     ],
     "notes": [
       "This attack cannot be blocked."
     ]
   },
   "S_HandDmg_Bonus": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 245% damage + 17% Piercing",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "S_HandDmg_Unbuff": {
-    "description": "Attack primary target for 224% damage + 37% Piercing.\\n+320% damage + 20% Piercing.",
+    "description": "Attack primary target for 224% damage + 37% Piercing",
     "damage": 224,
     "piercing": 37,
     "drain": 0,
-    "effects": [
-      "+320% damage + 20% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "S_HydraDmg_Buff": {
-    "description": "Attack primary target for 155% damage + 42% Piercing.\\n+240% damage + 20% Piercing.",
+    "description": "Attack primary target for 155% damage + 42% Piercing",
     "damage": 155,
     "piercing": 42,
     "drain": 0,
-    "effects": [
-      "+240% damage + 20% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "S_HydraDmg_Single": {
-    "description": "Attack primary target for 155% damage + 42% Piercing.\\n+290% damage + 25% Piercing.",
+    "description": "Attack primary target for 155% damage + 42% Piercing",
     "damage": 155,
     "piercing": 42,
     "drain": 0,
-    "effects": [
-      "+290% damage + 25% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "S_HydraSupport_Heal": {
@@ -3241,13 +3147,11 @@
     "notes": []
   },
   "S_RavagerDmg_AoE": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "S_RavagerSupport_Heal": {
@@ -3514,13 +3418,11 @@
     "notes": []
   },
   "ShieldDmg_AoE": {
-    "description": "Attack primary target for 135% damage + 52% Piercing.\\n+100% damage + 35% Piercing to adjacent enemies.",
+    "description": "Attack primary target for 135% damage + 52% Piercing",
     "damage": 135,
     "piercing": 52,
     "drain": 0,
-    "effects": [
-      "+100% damage + 35% Piercing to adjacent enemies."
-    ],
+    "effects": [],
     "notes": []
   },
   "ShieldDmg_Defense": {
@@ -3576,13 +3478,12 @@
     "notes": []
   },
   "Shuri": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Heal Block for 2 turns to the primary target.\\n+300% damage to adjacent enemies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Heal Block for 2 turns to the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Heal Block for 2 turns to the primary target.",
-      "+300% damage to adjacent enemies."
+      "Apply Heal Block for 2 turns to the primary target."
     ],
     "notes": []
   },
@@ -3747,13 +3648,12 @@
     "notes": []
   },
   "SquirrelGirl": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\n+300% damage.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Offense Down to the primary target.",
-      "+300% damage."
+      "Apply Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -3867,14 +3767,14 @@
     "notes": []
   },
   "SuperSkrull": {
-    "description": "Attack primary target for 300% Piercing.\\nRemove Barrier from the primary target.\\nFlip 3 positive effect(s) to negative on the primary target.\\nApply Disrupted for 2 turns to the primary target.\\nBarrier for 10% of Max Health.",
+    "description": "Attack primary target for 300% Piercing.\\nRemove Barrier from the primary target.\\nFlip 3 positive effect(s) to negative on the primary target.\\nIf self has SpawnedWithHeroAllies, Apply Disrupted for 2 turns to the primary target.\\nBarrier for 10% of Max Health.",
     "damage": 0,
     "piercing": 300,
     "drain": 0,
     "effects": [
       "Remove Barrier from the primary target.",
       "Flip 3 positive effect(s) to negative on the primary target.",
-      "Apply Disrupted for 2 turns to the primary target.",
+      "If self has SpawnedWithHeroAllies, Apply Disrupted for 2 turns to the primary target.",
       "Barrier for 10% of Max Health."
     ],
     "notes": [
@@ -4020,13 +3920,11 @@
     "notes": []
   },
   "TheHood": {
-    "description": "Attack primary target for 225% Piercing.\\n+50% Piercing.",
+    "description": "Attack primary target for 225% Piercing",
     "damage": 0,
     "piercing": 225,
     "drain": 0,
-    "effects": [
-      "+50% Piercing."
-    ],
+    "effects": [],
     "notes": []
   },
   "TheLeader": {
@@ -4043,13 +3941,11 @@
     "notes": []
   },
   "Thing": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+350% damage.",
+    "description": "Attack primary target for 245% damage + 17% Piercing",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+350% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Thor": {
@@ -4063,13 +3959,11 @@
     "notes": []
   },
   "ThorNPC": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "Thor_InfinityWar": {
@@ -4143,13 +4037,11 @@
     "notes": []
   },
   "UltGreenGoblin": {
-    "description": "Attack primary target for 238% damage + 17% Piercing.\\n+260% damage to adjacent enemies.",
+    "description": "Attack primary target for 238% damage + 17% Piercing",
     "damage": 238,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+260% damage to adjacent enemies."
-    ],
+    "effects": [],
     "notes": []
   },
   "UltSpiderMan": {
@@ -4186,13 +4078,11 @@
     "notes": []
   },
   "UltronDmg_Defense": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+370% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+370% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "UltronDmg_Offense": {
@@ -4226,13 +4116,11 @@
     "notes": []
   },
   "UltronTank_Taunt": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\n+340% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+340% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "UnionJack": {
@@ -4402,13 +4290,12 @@
     ]
   },
   "Vulture": {
-    "description": "Attack primary target for 190% damage + 17% Piercing.\\n+20% damage for each negative effect on the primary target.\\n+250% damage.",
+    "description": "Attack primary target for 190% damage + 17% Piercing.\\n+20% damage for each negative effect on the primary target.",
     "damage": 190,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+20% damage for each negative effect on the primary target.",
-      "+250% damage."
+      "+20% damage for each negative effect on the primary target."
     ],
     "notes": []
   },
@@ -4423,13 +4310,11 @@
     "notes": []
   },
   "War_ShieldDmg_AoE": {
-    "description": "Attack primary target for 135% damage + 52% Piercing.\\n+100% damage + 35% Piercing to adjacent enemies.",
+    "description": "Attack primary target for 135% damage + 52% Piercing",
     "damage": 135,
     "piercing": 52,
     "drain": 0,
-    "effects": [
-      "+100% damage + 35% Piercing to adjacent enemies."
-    ],
+    "effects": [],
     "notes": []
   },
   "War_ShieldDmg_Defense": {
@@ -4486,13 +4371,11 @@
     "notes": []
   },
   "Wasp": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\n+250% damage to additional enemies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+250% damage to additional enemies."
-    ],
+    "effects": [],
     "notes": []
   },
   "WhiteTiger": {
@@ -4585,13 +4468,11 @@
     "notes": []
   },
   "Yellowjacket": {
-    "description": "Attack primary target for 260% damage + 17% Piercing.\\n+230% damage.",
+    "description": "Attack primary target for 260% damage + 17% Piercing",
     "damage": 260,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+230% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "YoYo": {
@@ -4616,13 +4497,11 @@
     "notes": []
   },
   "Zemo": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\n+290% damage.",
+    "description": "Attack primary target for 210% damage + 17% Piercing",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "+290% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "ZombieIronMan": {

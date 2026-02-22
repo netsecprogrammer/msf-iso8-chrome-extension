@@ -107,7 +107,8 @@ const PROC_MAP = {
   'Ikaris': 'Ikaris',
   'Daredevil': 'Daredevil',
   'DaimonHellstrom': 'Daimon Hellstrom',
-  'MrSinister': 'Mr. Sinister'
+  'MrSinister': 'Mr. Sinister',
+  'NovaForceTracking': 'Nova Force Tracking'
 };
 
 function formatProcName(proc) {
@@ -165,6 +166,34 @@ function parseConditions(action) {
       if (oi.owner && oi.owner.procs) {
           const procs = oi.owner.procs.map(p => formatProcName(p)).join(' or ');
           conditions.push(`If self has ${procs}`);
+      }
+
+      // Owner/target procs inside and/or arrays (e.g., Nova: {and: [{owner: {procs}}, {mode}]})
+      if (oi.and) {
+          for (const sub of oi.and) {
+              if (sub.owner && sub.owner.procs) {
+                  const procs = sub.owner.procs.map(p => formatProcName(p)).join(' or ');
+                  conditions.push(`If self has ${procs}`);
+              }
+              if (sub.target && sub.target.procs) {
+                  const procs = sub.target.procs.map(p => formatProcName(p)).join(' or ');
+                  conditions.push(`If the primary target has ${procs}`);
+              }
+          }
+      }
+      if (oi.or) {
+          const ownerProcs = [];
+          const targetProcs = [];
+          for (const sub of oi.or) {
+              if (sub.owner && sub.owner.procs) ownerProcs.push(...sub.owner.procs);
+              if (sub.target && sub.target.procs) targetProcs.push(...sub.target.procs);
+          }
+          if (ownerProcs.length > 0) {
+              conditions.push(`If self has ${ownerProcs.map(p => formatProcName(p)).join(' or ')}`);
+          }
+          if (targetProcs.length > 0) {
+              conditions.push(`If the primary target has ${targetProcs.map(p => formatProcName(p)).join(' or ')}`);
+          }
       }
 
       // Ally count conditions: "If X+ [Trait] allies"
@@ -324,6 +353,10 @@ function processCharacter(charName, charData) {
       if (a.action === 'proc_remove' && a.procs === 'Binary' &&
           a.only_if && a.only_if.owner && a.only_if.owner.procs &&
           a.only_if.owner.procs.includes('Binary') && charName !== 'CaptainMarvel') return;
+      // Skip basic's inherent attack damage (both counter+assist, no conditions, stat_modifier only)
+      // These are the basic ability's own damage stats, not ISO-8 bonuses
+      if (hasCounter && hasAssist && !a.action &&
+          !a.only_if && !a.only_if_target && !a.only_if_any && !a.only_if_outcome) return;
 
       let prefix = '';
       if (hasCounter && !hasAssist) prefix = 'On Counter, ';
@@ -500,8 +533,14 @@ function processCharacter(charName, charData) {
 
       // victim_cant_revive can appear on any action (not just stat_modifier ones)
       if (action.victim_cant_revive) {
-          if (!notes.includes("Characters killed by this attack cannot be revived.")) {
-              notes.push("Characters killed by this attack cannot be revived.");
+          let cantReviveNote;
+          if (conditionPrefix) {
+              cantReviveNote = `${conditionPrefix}characters killed by this attack cannot be revived.`;
+          } else {
+              cantReviveNote = "Characters killed by this attack cannot be revived.";
+          }
+          if (!notes.includes(cantReviveNote)) {
+              notes.push(cantReviveNote);
           }
       }
 
@@ -563,7 +602,19 @@ function processCharacter(charName, charData) {
             else if (action.category === 'debuff') what = 'negative effect(s)';
             else what = 'effects';
         }
-        const targetText = getTargetText(action.target);
+        let targetText = getTargetText(action.target);
+        // If no target specified, infer from context:
+        // - Clearing debuffs with no target = self-cleanse
+        // - "If self has X, remove X" with no target = consuming own proc
+        if (!action.target) {
+            if (action.category === 'debuff') {
+                targetText = 'self';
+            } else if (action.category === 'none' && action.procs &&
+                       action.only_if && action.only_if.owner && action.only_if.owner.procs &&
+                       action.only_if.owner.procs.includes(action.procs)) {
+                targetText = 'self';
+            }
+        }
         if (targetText === 'self') {
              effects.push(`${conditionPrefix}${chancePrefix}Clear ${countText} ${what} from self.`);
         } else {
