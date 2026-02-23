@@ -838,6 +838,70 @@ function processCharacter(charName, charData) {
       }
   }
 
+  // Detect overlap between safety procs and basic counter/assist procs.
+  // When the safety action's proc list already includes the counter/assist bonus
+  // (e.g., Namor: safety has HealBlock+3×Bleed, basic c/a has HealBlock+Bleed),
+  // we show the base count from safety, "+N" for the additional, and suppress
+  // the basic counter/assist's duplicate procs.
+  // Only compare actions with the SAME target to avoid suppressing procs that
+  // go to different targets (e.g., Groot: safety→all allies, basic→most injured).
+  const _additionalProcs = {};  // { procName: additionalCount }
+  const _baseProcs = {};        // { procName: baseCount (from basic) }
+  let _hasOverlap = false;
+
+  function _getProcCounts(action) {
+    const counts = {};
+    const ac = getMax(action.apply_count);
+    let sel = 0;
+    for (const p of action.procs) {
+      if (ac > 0 && sel >= ac) break;
+      if (p.proc && p.proc.startsWith('Basic_Level')) continue;
+      const name = formatProcName(p.proc);
+      counts[name] = (counts[name] || 0) + 1;
+      if (ac > 0) sel++;
+    }
+    return counts;
+  }
+
+  for (const basicAction of allActions) {
+    if (basicAction._source !== 'basic' || basicAction.action !== 'proc' || !basicAction.procs) continue;
+    if (basicAction.only_if || basicAction.only_if_target || basicAction.only_if_any || basicAction.only_if_outcome) continue;
+    const basicTarget = JSON.stringify(basicAction.target || null);
+    const basicCounts = _getProcCounts(basicAction);
+
+    // Find a matching safety action with same target
+    for (const safetyAction of allActions) {
+      if (safetyAction._source !== 'safety' || safetyAction.action !== 'proc' || !safetyAction.procs) continue;
+      if (safetyAction.only_if || safetyAction.only_if_target || safetyAction.only_if_any || safetyAction.only_if_outcome) continue;
+      const safetyTarget = JSON.stringify(safetyAction.target || null);
+      if (safetyTarget !== basicTarget) continue;
+
+      const safetyCounts = _getProcCounts(safetyAction);
+
+      // Check if safety covers ALL of basic's procs
+      let allCovered = true;
+      for (const [name, bCount] of Object.entries(basicCounts)) {
+        if (!safetyCounts[name] || safetyCounts[name] < bCount) {
+          allCovered = false; break;
+        }
+      }
+
+      if (allCovered) {
+        basicAction._suppressed = true;
+        _hasOverlap = true;
+        // Compute additional amounts for overlapping procs
+        for (const [name, bCount] of Object.entries(basicCounts)) {
+          const sCount = safetyCounts[name];
+          _baseProcs[name] = bCount;
+          if (sCount > bCount) {
+            _additionalProcs[name] = sCount - bCount;
+          }
+        }
+        break;
+      }
+    }
+  }
+
   // Iterate all actions
   let prevActionWasVisible = false; // Track if previous action produced visible output
   let prevActionWasConditional = false; // Track if previous action had a condition
@@ -849,6 +913,9 @@ function processCharacter(charName, charData) {
           ? (Array.isArray(action.action_pct) ? action.action_pct[action.action_pct.length - 1] : action.action_pct)
           : 100;
       if (maxActionPct === 0) { prevActionWasVisible = false; prevActionWasConditional = false; actionConditionPrefixes.push(''); return; }
+
+      // Skip basic counter/assist procs that are fully covered by safety procs
+      if (action._suppressed) { prevActionWasVisible = false; actionConditionPrefixes.push(''); return; }
 
       // Skip empty_result but track its condition for if_prev_ran chains
       if (action.action === 'empty_result') {
@@ -1410,20 +1477,48 @@ function processCharacter(charName, charData) {
 
             // Use "+N" format when this conditional proc adds to an existing unconditional one
             const isAdditional = conditionPrefix && unconditionalProcs.has(procName);
-            let countText = '';
-            if (isAdditional) {
-                countText = `+${count} `;
-            } else if (count > 1) {
-                countText = `${count} `;
-            }
 
-            let effectText = '';
-            if (targetText === 'self') {
-                effectText = `${conditionPrefix}${fullChancePrefix}Gain ${countText}${procName}${durationText}`;
+            // For safety procs that overlap with basic counter/assist procs,
+            // split into base count + additional "+N" line
+            const additionalFromOverlap = (action._source === 'safety' && _hasOverlap && _additionalProcs[procName]) || 0;
+            const baseFromOverlap = (action._source === 'safety' && _hasOverlap && _baseProcs[procName]) || 0;
+
+            if (additionalFromOverlap > 0 && !conditionPrefix) {
+                // Show the base count (matching what basic counter/assist applies)
+                const baseCount = baseFromOverlap;
+                let baseCountText = baseCount > 1 ? `${baseCount} ` : '';
+                let baseEffect = '';
+                if (targetText === 'self') {
+                    baseEffect = `${fullChancePrefix}Gain ${baseCountText}${procName}${durationText}`;
+                } else {
+                    baseEffect = `${fullChancePrefix}Apply ${baseCountText}${procName}${durationText} to ${targetText}`;
+                }
+                effects.push(baseEffect + '.');
+
+                // Show the additional as "+N"
+                let addEffect = '';
+                if (targetText === 'self') {
+                    addEffect = `${fullChancePrefix}Gain +${additionalFromOverlap} ${procName}${durationText}`;
+                } else {
+                    addEffect = `${fullChancePrefix}Apply +${additionalFromOverlap} ${procName}${durationText} to ${targetText}`;
+                }
+                effects.push(addEffect + '.');
             } else {
-                effectText = `${conditionPrefix}${fullChancePrefix}Apply ${countText}${procName}${durationText} to ${targetText}`;
+                let countText = '';
+                if (isAdditional) {
+                    countText = `+${count} `;
+                } else if (count > 1) {
+                    countText = `${count} `;
+                }
+
+                let effectText = '';
+                if (targetText === 'self') {
+                    effectText = `${conditionPrefix}${fullChancePrefix}Gain ${countText}${procName}${durationText}`;
+                } else {
+                    effectText = `${conditionPrefix}${fullChancePrefix}Apply ${countText}${procName}${durationText} to ${targetText}`;
+                }
+                effects.push(effectText + '.');
             }
-            effects.push(effectText + '.');
         });
       }
 
