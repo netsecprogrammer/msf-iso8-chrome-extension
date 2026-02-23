@@ -1704,7 +1704,7 @@ function processCharacter(charName, charData) {
               const drainsAllies = action.target && action.target.relation === 'ally';
               const sourceText = drainsAllies ? "allies'" : "target's";
 
-              let text = `${conditionPrefix}${chancePrefix}Drain ${effectiveDrain}% of ${sourceText} Max Health`;
+              let text = `${conditionPrefix}${chancePrefix}Deal ${effectiveDrain}% of ${sourceText} Max Health`;
 
               // Add heal/redistribute info when heal_multi > 0
               if (healMulti > 0 && action.to) {
@@ -1861,6 +1861,12 @@ function processCharacter(charName, charData) {
           let targetText = getTargetText(action.target);
           // Self-buffs with no explicit target default to 'self', not 'the primary target'
           if (!action.target && action.category === 'buff') targetText = 'self';
+          // proc_duration with add_if_not targeting bare {relation: ally} (no limit/filter/type) is self-gain
+          if (action.add_if_not && action.target &&
+              action.target.relation === 'ally' && !action.target.limit && !action.target.filter &&
+              !action.target.type && (targetText === 'allies' || targetText === 'self')) {
+              targetText = 'self';
+          }
           const maxDur = getMax(action.max_duration);
           let maxText = '';
           if (maxDur) maxText = `, up to a maximum of ${maxDur}`;
