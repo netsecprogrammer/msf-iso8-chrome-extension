@@ -127,8 +127,8 @@
     text = text.replace(/\+(\d+)% (Piercing|Damage|Drain|Crit Chance|Focus)/g,
       '+<span class="msf-iso8-bonus-pct-value">$1%</span> $2');
 
-    // Style game mode indicators (WAR, CRUCIBLE, CRUCIBLE SHOWDOWN, INCURSION, RAID, ARENA, with optional OFFENSE/DEFENSE)
-    text = text.replace(/\b(On|In) ((?:CRUCIBLE SHOWDOWN|CRUCIBLE|WAR|RAID|INCURSION|ARENA)(?:,\s*(?:OFFENSE|DEFENSE))?)\b/gi,
+    // Style game mode indicators (WAR, CRUCIBLE, CRUCIBLE SHOWDOWN, INCURSION, RAIDS, ARENA, with optional OFFENSE/DEFENSE)
+    text = text.replace(/\b(On|In) ((?:CRUCIBLE SHOWDOWN|CRUCIBLE|WAR|RAIDS?|INCURSION|ARENA)(?:,\s*(?:OFFENSE|DEFENSE))?)\b/gi,
       '$1 <span class="msf-iso8-game-mode">$2</span>');
 
     // Style status effects (buffs and debuffs)
@@ -172,14 +172,14 @@
 
   // Helper: translate game mode prefix (e.g., "WAR, OFFENSE" -> localized)
   const _modeMap = {
-    fr: { 'WAR, OFFENSE': 'En attaque de guerre', 'RAID or WAR': 'En raid ou en guerre', 'RAID': 'En raid', 'WAR': 'En guerre', 'ARENA OFFENSE': "En attaque d'arène", 'ARENA': "En arène", 'CRUCIBLE SHOWDOWN, OFFENSE': "En attaque de confrontation du Creuset", 'CRUCIBLE SHOWDOWN': 'En confrontation du Creuset', 'HORSEMEN': 'En cavaliers', 'DEFENSE': 'En défense', 'RAID or INCURSION': 'En raid ou en incursion', 'Ultimate': 'ultime' },
-    de: { 'WAR, OFFENSE': 'Bei KRIEGSOFFENSIVE', 'RAID or WAR': 'In RAUBZÜGEN oder im KRIEG', 'RAID': 'In RAUBZÜGEN', 'WAR': 'Im KRIEG', 'ARENA OFFENSE': 'Bei ARENAOFFENSIVE', 'ARENA': 'In der ARENA', 'CRUCIBLE SHOWDOWN, OFFENSE': 'Bei SCHMELZTIEGEL-SHOWDOWN-OFFENSIVE', 'CRUCIBLE SHOWDOWN': 'Bei SCHMELZTIEGEL-SHOWDOWN', 'HORSEMEN': 'Bei REITERN', 'DEFENSE': 'Bei DEFENSIVE', 'RAID or INCURSION': 'In RAUBZÜGEN oder in INKURSION', 'Ultimate': 'ultimative' },
-    es: { 'WAR, OFFENSE': 'Al atacar en guerras', 'RAID or WAR': 'En incursiones o guerras', 'RAID': 'En las incursiones', 'WAR': 'En guerras', 'ARENA OFFENSE': 'En ataque de arena', 'ARENA': 'En arena', 'CRUCIBLE SHOWDOWN, OFFENSE': 'En ataque de enfrentamiento del Crisol', 'CRUCIBLE SHOWDOWN': 'En enfrentamiento del Crisol', 'HORSEMEN': 'En jinetes', 'DEFENSE': 'Al defender', 'RAID or INCURSION': 'En incursiones o invasión', 'Ultimate': 'definitiva' },
-    pt: { 'WAR, OFFENSE': 'Na GUERRA OFENSIVA', 'RAID or WAR': 'Nas INCURSÕES ou GUERRA', 'RAID': 'Nas INCURSÕES', 'WAR': 'Na GUERRA', 'ARENA OFFENSE': 'Na ARENA OFENSIVA', 'ARENA': 'Na ARENA', 'CRUCIBLE SHOWDOWN, OFFENSE': 'No ataque do CONFRONTO DO CADINHO', 'CRUCIBLE SHOWDOWN': 'No CONFRONTO DO CADINHO', 'HORSEMEN': 'Nos CAVALEIROS', 'DEFENSE': 'Na DEFENSIVA', 'RAID or INCURSION': 'Nas INCURSÕES ou INVASÃO', 'Ultimate': 'suprema' },
-    it: { 'WAR, OFFENSE': 'In ATTACCO BELLICO', 'RAID or WAR': 'Negli ASSALTI o in GUERRA', 'RAID': 'Negli ASSALTI', 'WAR': 'In GUERRA', 'ARENA OFFENSE': "In ATTACCO nell'ARENA", 'ARENA': "Nell'ARENA", 'CRUCIBLE SHOWDOWN, OFFENSE': "In ATTACCO nello SCONTRO DEL CROGIOLO", 'CRUCIBLE SHOWDOWN': 'Nello SCONTRO DEL CROGIOLO', 'HORSEMEN': 'Nei CAVALIERI', 'DEFENSE': 'In DIFESA', 'RAID or INCURSION': 'Negli ASSALTI o in INVASIONE', 'Ultimate': 'suprema' },
-    ja: { 'WAR, OFFENSE': '戦争攻撃時', 'RAID or WAR': 'レイドまたは戦争では', 'RAID': 'レイドでは', 'WAR': '戦争では', 'ARENA OFFENSE': 'アリーナ攻撃時', 'ARENA': 'アリーナでは', 'CRUCIBLE SHOWDOWN, OFFENSE': 'クルーシブル対決攻撃時', 'CRUCIBLE SHOWDOWN': 'クルーシブル対決では', 'HORSEMEN': '四騎士では', 'DEFENSE': '防御時', 'RAID or INCURSION': 'レイドまたはインカージョンでは', 'Ultimate': '最強' },
-    ko: { 'WAR, OFFENSE': '전쟁 공격 시', 'RAID or WAR': '레이드 또는 전쟁에서', 'RAID': '레이드에서', 'WAR': '전쟁에서', 'ARENA OFFENSE': '아레나 공격 시', 'ARENA': '아레나에서', 'CRUCIBLE SHOWDOWN, OFFENSE': '크루시블 대결 공격 시', 'CRUCIBLE SHOWDOWN': '크루시블 대결에서', 'HORSEMEN': '기사에서', 'DEFENSE': '방어 시', 'RAID or INCURSION': '레이드 또는 인커전에서', 'Ultimate': '필살' },
-    ru: { 'WAR, OFFENSE': 'Во время АТАКИ НА ВОЙНЕ', 'RAID or WAR': 'В РЕЙДАХ или НА ВОЙНЕ', 'RAID': 'В РЕЙДАХ', 'WAR': 'НА ВОЙНЕ', 'ARENA OFFENSE': 'Во время АТАКИ НА АРЕНЕ', 'ARENA': 'НА АРЕНЕ', 'CRUCIBLE SHOWDOWN, OFFENSE': 'Во время АТАКИ В ГОРНИЛЕ', 'CRUCIBLE SHOWDOWN': 'В ГОРНИЛЕ', 'HORSEMEN': 'У ВСАДНИКОВ', 'DEFENSE': 'Во время ЗАЩИТЫ', 'RAID or INCURSION': 'В РЕЙДАХ или ВТОРЖЕНИИ', 'Ultimate': 'мощной' },
+    fr: { 'WAR, OFFENSE': 'En attaque de guerre', 'RAID or WAR': 'En raid ou en guerre', 'RAIDS or WAR': 'En raid ou en guerre', 'RAID': 'En raid', 'RAIDS': 'En raids', 'WAR': 'En guerre', 'ARENA OFFENSE': "En attaque d'arène", 'ARENA': "En arène", 'CRUCIBLE SHOWDOWN, OFFENSE': "En attaque de confrontation du Creuset", 'CRUCIBLE SHOWDOWN': 'En confrontation du Creuset', 'HORSEMEN': 'En cavaliers', 'DEFENSE': 'En défense', 'RAID or INCURSION': 'En raid ou en incursion', 'RAIDS or INCURSION': 'En raids ou en incursion', 'Ultimate': 'ultime' },
+    de: { 'WAR, OFFENSE': 'Bei KRIEGSOFFENSIVE', 'RAID or WAR': 'In RAUBZÜGEN oder im KRIEG', 'RAIDS or WAR': 'In RAUBZÜGEN oder im KRIEG', 'RAID': 'In RAUBZÜGEN', 'RAIDS': 'In RAUBZÜGEN', 'WAR': 'Im KRIEG', 'ARENA OFFENSE': 'Bei ARENAOFFENSIVE', 'ARENA': 'In der ARENA', 'CRUCIBLE SHOWDOWN, OFFENSE': 'Bei SCHMELZTIEGEL-SHOWDOWN-OFFENSIVE', 'CRUCIBLE SHOWDOWN': 'Bei SCHMELZTIEGEL-SHOWDOWN', 'HORSEMEN': 'Bei REITERN', 'DEFENSE': 'Bei DEFENSIVE', 'RAID or INCURSION': 'In RAUBZÜGEN oder in INKURSION', 'RAIDS or INCURSION': 'In RAUBZÜGEN oder in INKURSION', 'Ultimate': 'ultimative' },
+    es: { 'WAR, OFFENSE': 'Al atacar en guerras', 'RAID or WAR': 'En incursiones o guerras', 'RAIDS or WAR': 'En incursiones o guerras', 'RAID': 'En las incursiones', 'RAIDS': 'En las incursiones', 'WAR': 'En guerras', 'ARENA OFFENSE': 'En ataque de arena', 'ARENA': 'En arena', 'CRUCIBLE SHOWDOWN, OFFENSE': 'En ataque de enfrentamiento del Crisol', 'CRUCIBLE SHOWDOWN': 'En enfrentamiento del Crisol', 'HORSEMEN': 'En jinetes', 'DEFENSE': 'Al defender', 'RAID or INCURSION': 'En incursiones o invasión', 'RAIDS or INCURSION': 'En incursiones o invasión', 'Ultimate': 'definitiva' },
+    pt: { 'WAR, OFFENSE': 'Na GUERRA OFENSIVA', 'RAID or WAR': 'Nas INCURSÕES ou GUERRA', 'RAIDS or WAR': 'Nas INCURSÕES ou GUERRA', 'RAID': 'Nas INCURSÕES', 'RAIDS': 'Nas INCURSÕES', 'WAR': 'Na GUERRA', 'ARENA OFFENSE': 'Na ARENA OFENSIVA', 'ARENA': 'Na ARENA', 'CRUCIBLE SHOWDOWN, OFFENSE': 'No ataque do CONFRONTO DO CADINHO', 'CRUCIBLE SHOWDOWN': 'No CONFRONTO DO CADINHO', 'HORSEMEN': 'Nos CAVALEIROS', 'DEFENSE': 'Na DEFENSIVA', 'RAID or INCURSION': 'Nas INCURSÕES ou INVASÃO', 'RAIDS or INCURSION': 'Nas INCURSÕES ou INVASÃO', 'Ultimate': 'suprema' },
+    it: { 'WAR, OFFENSE': 'In ATTACCO BELLICO', 'RAID or WAR': 'Negli ASSALTI o in GUERRA', 'RAIDS or WAR': 'Negli ASSALTI o in GUERRA', 'RAID': 'Negli ASSALTI', 'RAIDS': 'Negli ASSALTI', 'WAR': 'In GUERRA', 'ARENA OFFENSE': "In ATTACCO nell'ARENA", 'ARENA': "Nell'ARENA", 'CRUCIBLE SHOWDOWN, OFFENSE': "In ATTACCO nello SCONTRO DEL CROGIOLO", 'CRUCIBLE SHOWDOWN': 'Nello SCONTRO DEL CROGIOLO', 'HORSEMEN': 'Nei CAVALIERI', 'DEFENSE': 'In DIFESA', 'RAID or INCURSION': 'Negli ASSALTI o in INVASIONE', 'RAIDS or INCURSION': 'Negli ASSALTI o in INVASIONE', 'Ultimate': 'suprema' },
+    ja: { 'WAR, OFFENSE': '戦争攻撃時', 'RAID or WAR': 'レイドまたは戦争では', 'RAIDS or WAR': 'レイドまたは戦争では', 'RAID': 'レイドでは', 'RAIDS': 'レイドでは', 'WAR': '戦争では', 'ARENA OFFENSE': 'アリーナ攻撃時', 'ARENA': 'アリーナでは', 'CRUCIBLE SHOWDOWN, OFFENSE': 'クルーシブル対決攻撃時', 'CRUCIBLE SHOWDOWN': 'クルーシブル対決では', 'HORSEMEN': '四騎士では', 'DEFENSE': '防御時', 'RAID or INCURSION': 'レイドまたはインカージョンでは', 'RAIDS or INCURSION': 'レイドまたはインカージョンでは', 'Ultimate': '最強' },
+    ko: { 'WAR, OFFENSE': '전쟁 공격 시', 'RAID or WAR': '레이드 또는 전쟁에서', 'RAIDS or WAR': '레이드 또는 전쟁에서', 'RAID': '레이드에서', 'RAIDS': '레이드에서', 'WAR': '전쟁에서', 'ARENA OFFENSE': '아레나 공격 시', 'ARENA': '아레나에서', 'CRUCIBLE SHOWDOWN, OFFENSE': '크루시블 대결 공격 시', 'CRUCIBLE SHOWDOWN': '크루시블 대결에서', 'HORSEMEN': '기사에서', 'DEFENSE': '방어 시', 'RAID or INCURSION': '레이드 또는 인커전에서', 'RAIDS or INCURSION': '레이드 또는 인커전에서', 'Ultimate': '필살' },
+    ru: { 'WAR, OFFENSE': 'Во время АТАКИ НА ВОЙНЕ', 'RAID or WAR': 'В РЕЙДАХ или НА ВОЙНЕ', 'RAIDS or WAR': 'В РЕЙДАХ или НА ВОЙНЕ', 'RAID': 'В РЕЙДАХ', 'RAIDS': 'В РЕЙДАХ', 'WAR': 'НА ВОЙНЕ', 'ARENA OFFENSE': 'Во время АТАКИ НА АРЕНЕ', 'ARENA': 'НА АРЕНЕ', 'CRUCIBLE SHOWDOWN, OFFENSE': 'Во время АТАКИ В ГОРНИЛЕ', 'CRUCIBLE SHOWDOWN': 'В ГОРНИЛЕ', 'HORSEMEN': 'У ВСАДНИКОВ', 'DEFENSE': 'Во время ЗАЩИТЫ', 'RAID or INCURSION': 'В РЕЙДАХ или ВТОРЖЕНИИ', 'RAIDS or INCURSION': 'В РЕЙДАХ или ВТОРЖЕНИИ', 'Ultimate': 'мощной' },
   };
   function _modeLoc(mode, lang) {
     return (_modeMap[lang] && _modeMap[lang][mode]) || mode;
@@ -280,8 +280,8 @@
     onCounterChanceGain:   /^On Counter, (\d+)% chance to Gain \+(\d+) (.+?)\.$/,
     // Group 3: Steal, Barrier, Energy
     stealPosExcluding:     /^Steal (\d+) positive effect\(s\) from the primary target and give to allies, excluding (.+?)\.$/,
-    barrierAllies:         /^Barrier for (\d+)% of Max Health to allies\.$/,
-    barrierMostInjuredNonSummon: /^Barrier for (\d+)% of Max Health to the most injured non-Summoned ally\.$/,
+    barrierAllies:         /^Barrier for (\d+)% of (?:this character's )?Max Health to allies\.$/,
+    barrierMostInjuredNonSummon: /^Barrier for (\d+)% of (?:this character's )?Max Health to the most injured non-Summoned ally\.$/,
     genEnergyRandomAlly:   /^Generate \+(\d+) Ability Energy for a random ally\.$/,
     // Group 4: Self-condition + Duration + Misc
     selfHasReduceDur:      /^If self has (.+?), Reduce the duration of (.+?) by (\d+) on allies\.$/,
@@ -352,7 +352,7 @@
     onAssistApplyMaxAllies:    /^On Assist, Apply \+(\d+) (.+?), up to a maximum of (\d+) to allies\.$/,
     selfHasMoreModeProlongNeg: /^If self has more than (\d+) (.+?), In (.+?), Prolong the duration of negative effects by (\d+)\.$/,
     selfHasMoreNotModeProlongNegExcl: /^If self has more than (\d+) (.+?), Not in (.+?), Prolong the duration of all negative effects, excluding (.+?) by (\d+)\.$/,
-    barrierMostInjured:        /^Barrier for (\d+)% of Max Health to the most injured ally\.$/,
+    barrierMostInjured:        /^Barrier for (\d+)% of (?:this character's )?Max Health to the most injured ally\.$/,
     onAssistDmg:               /^On Assist, \+(\d+)% damage\.$/,
     // --- Batch 6 patterns ---
     onTriggerGainPlus:         /^On (Counter|Crit), Gain \+(\d+) (.+?)\.$/,
@@ -391,7 +391,7 @@
     otherwiseFlipPos:          /^Otherwise, Flip (\d+) positive effect\(s\) to negative on the primary target\.$/,
     modeNoteAttackCant:        /^In (.+?), this attack cannot be (.+?)\.$/,
     // --- Batch 9 patterns ---
-    barrierSelf:               /^Barrier for (\d+)% of Max Health\.$/,
+    barrierSelf:               /^Barrier for (\d+)% of (?:this character's )?Max Health\.$/,
     prolongProcBy:             /^Prolong the duration of (.+?) by (\d+)\.$/,
     notModeChanceApply:        /^Not in (.+?), (\d+)% chance to Apply (.+?) to the primary target\.$/,
     modeChanceGain:            /^In (.+?), (\d+)% chance to Gain (.+?)\.$/,
@@ -406,7 +406,7 @@
     copyPosGiveExcl:           /^Copy (\d+) positive effect\(s\) from the primary target and give to allies, excluding (.+?)\.$/,
     targetTraitGainProc:       /^If the primary target is (.+?), Gain (.+?)\.$/,
     flipPosNEnemies:           /^Flip (\d+) positive effect\(s\) to negative on (\d+) enemies\.$/,
-    barrierRandomTraitAlly:    /^Barrier for (\d+)% of Max Health to a random (.+?) ally\.$/,
+    barrierRandomTraitAlly:    /^Barrier for (\d+)% of (?:this character's )?Max Health to a random (.+?) ally\.$/,
     // --- Batch 10 patterns ---
     piercingAdditional:        /^\+(\d+)% Piercing to additional enemies\.$/,
     dmgPierceAdditional:       /^\+(\d+)% damage \+ (\d+)% Piercing to additional enemies\.$/,
@@ -438,7 +438,7 @@
     onAssistTargetHasClearAllProc: /^On Assist, If the primary target has (.+?), Clear all (.+?) from the primary target\.$/,
     targetTraitApplyCountDur:  /^If the primary target is (.+?), Apply (\d+) (.+?) for (\d+) turns to the primary target\.$/,
     targetTraitApplyCount:     /^If the primary target is (.+?), Apply (\d+) (.+?) to the primary target\.$/,
-    onCritBarrierAllies:       /^On Crit, Barrier for (\d+)% of Max Health to allies\.$/,
+    onCritBarrierAllies:       /^On Crit, Barrier for (\d+)% of (?:this character's )?Max Health to allies\.$/,
     ifTraitAlliesCritChance:   /^If (\d+)\+ (.+?) allies, \+(\d+)% Crit Chance\.$/,
     ifTraitAlliesCritPerAlly:  /^If (\d+)\+ (.+?) allies, \+(\d+)% Crit Chance for each (.+?) ally\.$/,
     // --- Batch 12 patterns ---
@@ -476,7 +476,7 @@
     selfLessCountAnyEnemyFlip: /^If self has less than (\d+) (.+?), If any enemy has positive effects, Flip (\d+) positive effect\(s\) to negative on the primary target\.$/,
     modeOnCritProlongNegExcl:  /^In (.+?), On Crit, Prolong the duration of all negative effects, excluding (.+?), by (\d+)\.$/,
     modeOnCritProlongProc:     /^In (.+?), On Crit, Prolong the duration of (.+?) by (\d+)\.$/,
-    modeBarrierRandomAlly:     /^In (.+?), Barrier for (\d+)% of Max Health to a random ally\.$/,
+    modeBarrierRandomAlly:     /^In (.+?), Barrier for (\d+)% of (?:this character's )?Max Health to a random ally\.$/,
     // --- Batch 14 patterns ---
     modeEnergyFullOnCritGenRandomAlly: /^In (.+?), If Ability Energy is full, On Crit, Generate \+(\d+) Ability Energy for a random ally\.$/,
     modeEnergyFullOnCritGenSelf: /^In (.+?), If Ability Energy is full, On Crit, Generate \+(\d+) Ability Energy for self\.$/,
@@ -501,8 +501,8 @@
     otherwiseSelfHasHealInjured:/^Otherwise, If self has (.+?), Heal the most injured ally for (\d+)% of Max Health\.$/,
     // --- Batch 15 patterns (final) ---
     targetHasRemoveTarget:     /^If the primary target has (.+?), Remove (.+?) from the primary target\.$/,
-    targetHasBarrierAllies:    /^If the primary target has (.+?), Barrier for (\d+)% of Max Health to allies\.$/,
-    otherwiseBarrierAllies:    /^Otherwise, Barrier for (\d+)% of Max Health to allies\.$/,
+    targetHasBarrierAllies:    /^If the primary target has (.+?), Barrier for (\d+)% of (?:this character's )?Max Health to allies\.$/,
+    otherwiseBarrierAllies:    /^Otherwise, Barrier for (\d+)% of (?:this character's )?Max Health to allies\.$/,
     applyDurRandomTraitOrAllyExcl: /^Apply (.+?) for (\d+) turns to a random (.+?) or (.+?) ally \(excluding self\)\.$/,
     energyNotFullApplyCountDurTarget: /^If Ability Energy is not full, Apply \+(\d+) (.+?) for (\d+) turns to the primary target\.$/,
     energyNotFullAttackPierce: /^If Ability Energy is not full, attack for (\d+)% Piercing instead\.$/,
@@ -548,11 +548,12 @@
     applyProcDurAllTraitAllies:  /^Apply (.+?) for (\d+) turns to all (.+?) allies\.$/,
     applyMaxAllTraitAllies:      /^Apply \+(\d+) (.+?), up to a maximum of (\d+) to all (.+?) allies\.$/,
     healAllTraitAllies:          /^Heal all (.+?) allies for (\d+)% of Max Health\.$/,
-    barrierAllTraitAllies:       /^Barrier for (\d+)% of Max Health to all (.+?) allies\.$/,
+    barrierAllTraitAllies:       /^Barrier for (\d+)% of (?:this character's )?Max Health to all (.+?) allies\.$/,
     flipNegToPosAllTraitAllies:  /^Flip (\d+) negative effect\(s\) to positive on all (.+?) allies\.$/,
     clearNegAllTraitAllies:      /^Clear (\d+) negative effect\(s\) from all (.+?) allies\.$/,
     applyProcAlliesBelowHealth:  /^Apply (.+?) to allies below (\d+)% Health\.$/,
-    modeBarrierAllies:           /^In (.+?), Barrier for (\d+)% of Max Health to allies\.$/,
+    modeBarrierAllies:           /^In (.+?), Barrier for (\d+)% of (?:this character's )?Max Health to allies\.$/,
+    modeBarrierSelfAndAllAllies: /^In (.+?), Barrier for (\d+)% of (?:this character's )?Max Health to self and all allies\.$/,
     modeApplyAllTraitAllies:     /^In (.+?), Apply \+(\d+) (.+?) to all (.+?) allies\.$/,
     modeHealAllTraitAllies:      /^In (.+?), Heal all (.+?) allies for (\d+)% of Max Health\.$/,
     modeOrSubClearNegAllTraitAllies: /^In (.+?) or (.+?), (.+?), Clear (\d+) negative effect\(s\) from all (.+?) allies\.$/,
@@ -902,6 +903,7 @@
         { match: _P.clearNegAllTraitAllies, replace: (m, c, tr) => `Retire ${c} effet(s) nuisible(s) de tous les alliés ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.applyProcAlliesBelowHealth, replace: (m, pr, p) => `Applique ${pr} aux alliés en dessous de ${p} % de vie.` },
         { match: _P.modeBarrierAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'fr')}, barrière de ${p} % de la vie max. aux alliés.` },
+        { match: _P.modeBarrierSelfAndAllAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'fr')}, barrière de ${p} % de la vie max. à soi et à tous les alliés.` },
         { match: _P.modeApplyAllTraitAllies, replace: (m, mode, c, pr, tr) => `${_modeLoc(mode, 'fr')}, applique +${c} ${pr} à tous les alliés ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'fr')}, soigne tous les alliés ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} de ${hp} % de la vie max.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'fr')} ou ${_modeLoc(m2, 'fr')}, ${sub}, retire ${c} effet(s) nuisible(s) de tous les alliés ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
@@ -1250,6 +1252,7 @@
         { match: _P.clearNegAllTraitAllies, replace: (m, c, tr) => `Entfernt ${c} negative(n) Effekt(e) von allen ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten.` },
         { match: _P.applyProcAlliesBelowHealth, replace: (m, pr, p) => `Wendet ${pr} auf Verbündete unter ${p} % Gesundheit an.` },
         { match: _P.modeBarrierAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'de')}: Barriere für ${p} % der max. Gesundheit für Verbündete.` },
+        { match: _P.modeBarrierSelfAndAllAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'de')}: Barriere für ${p} % der max. Gesundheit für sich selbst und alle Verbündeten.` },
         { match: _P.modeApplyAllTraitAllies, replace: (m, mode, c, pr, tr) => `${_modeLoc(mode, 'de')}: Wendet +${c} ${pr} auf alle ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten an.` },
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'de')}: Heilt alle ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten um ${hp} % der max. LP.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'de')} oder ${_modeLoc(m2, 'de')}, ${sub}: Entfernt ${c} negative(n) Effekt(e) von allen ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten.` },
@@ -1598,6 +1601,7 @@
         { match: _P.clearNegAllTraitAllies, replace: (m, c, tr) => `Elimina ${c} efecto(s) negativo(s) de todos los aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.applyProcAlliesBelowHealth, replace: (m, pr, p) => `Aplica ${pr} a los aliados por debajo del ${p} % de salud.` },
         { match: _P.modeBarrierAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'es')}, barrera del ${p} % de la salud máxima a los aliados.` },
+        { match: _P.modeBarrierSelfAndAllAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'es')}, barrera del ${p} % de la salud máxima a sí mismo y a todos los aliados.` },
         { match: _P.modeApplyAllTraitAllies, replace: (m, mode, c, pr, tr) => `${_modeLoc(mode, 'es')}, aplica +${c} ${pr} a todos los aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'es')}, cura a todos los aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} en ${hp} % de salud máxima.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'es')} o ${_modeLoc(m2, 'es')}, ${sub}, elimina ${c} efecto(s) negativo(s) de todos los aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
@@ -1946,6 +1950,7 @@
         { match: _P.clearNegAllTraitAllies, replace: (m, c, tr) => `Remove ${c} efeito(s) negativo(s) de todos os aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
         { match: _P.applyProcAlliesBelowHealth, replace: (m, pr, p) => `Aplica ${pr} aos aliados abaixo de ${p}% de saúde.` },
         { match: _P.modeBarrierAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'pt')}, barreira de ${p}% da saúde máxima aos aliados.` },
+        { match: _P.modeBarrierSelfAndAllAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'pt')}, barreira de ${p}% da saúde máxima a si mesmo e a todos os aliados.` },
         { match: _P.modeApplyAllTraitAllies, replace: (m, mode, c, pr, tr) => `${_modeLoc(mode, 'pt')}, aplique +${c} ${pr} a todos os aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'pt')}, cura todos os aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} em ${hp}% da vida máxima.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'pt')} ou ${_modeLoc(m2, 'pt')}, ${sub}, remove ${c} efeito(s) negativo(s) de todos os aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
@@ -2294,6 +2299,7 @@
         { match: _P.clearNegAllTraitAllies, replace: (m, c, tr) => `Rimuove ${c} effetto/i negativo/i da tutti gli alleati ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
         { match: _P.applyProcAlliesBelowHealth, replace: (m, pr, p) => `Applica ${pr} agli alleati sotto il ${p}% di salute.` },
         { match: _P.modeBarrierAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'it')}, barriera del ${p}% della salute massima agli alleati.` },
+        { match: _P.modeBarrierSelfAndAllAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'it')}, barriera del ${p}% della salute massima a sé stessi e a tutti gli alleati.` },
         { match: _P.modeApplyAllTraitAllies, replace: (m, mode, c, pr, tr) => `${_modeLoc(mode, 'it')}, applica +${c} ${pr} a tutti gli alleati ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'it')}, cura tutti gli alleati ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} del ${hp}% della salute massima.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'it')} o ${_modeLoc(m2, 'it')}, ${sub}, rimuove ${c} effetto/i negativo/i da tutti gli alleati ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
@@ -2642,6 +2648,7 @@
         { match: _P.clearNegAllTraitAllies, replace: (m, c, tr) => `すべての${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方からネガティブ効果を${c}個除去。` },
         { match: _P.applyProcAlliesBelowHealth, replace: (m, pr, p) => `体力${p}%以下の味方に${pr}を適用。` },
         { match: _P.modeBarrierAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'ja')}、味方に最大体力の${p}%のバリアを付与。` },
+        { match: _P.modeBarrierSelfAndAllAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'ja')}、自身とすべての味方に最大体力の${p}%のバリアを付与。` },
         { match: _P.modeApplyAllTraitAllies, replace: (m, mode, c, pr, tr) => `${_modeLoc(mode, 'ja')}、すべての${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方に+${c}${pr}を適用。` },
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'ja')}、すべての${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方を最大体力の${hp}%回復。` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'ja')}または${_modeLoc(m2, 'ja')}、${sub}、すべての${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方からネガティブ効果を${c}個除去。` },
@@ -2990,6 +2997,7 @@
         { match: _P.clearNegAllTraitAllies, replace: (m, c, tr) => `모든 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군의 부정적 효과를 ${c}개 제거합니다.` },
         { match: _P.applyProcAlliesBelowHealth, replace: (m, pr, p) => `체력 ${p}% 이하인 아군에게 ${pr}을 적용합니다.` },
         { match: _P.modeBarrierAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'ko')}, 아군에게 최대 체력의 ${p}% 보호막을 부여합니다.` },
+        { match: _P.modeBarrierSelfAndAllAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'ko')}, 자신과 모든 아군에게 최대 체력의 ${p}% 보호막을 부여합니다.` },
         { match: _P.modeApplyAllTraitAllies, replace: (m, mode, c, pr, tr) => `${_modeLoc(mode, 'ko')}, 모든 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군에게 +${c} ${pr}을 적용합니다.` },
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'ko')}, 모든 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군을 최대 체력의 ${hp}% 회복합니다.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'ko')} 또는 ${_modeLoc(m2, 'ko')}, ${sub}, 모든 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군의 부정적 효과 ${c}개를 제거합니다.` },
@@ -3338,6 +3346,7 @@
         { match: _P.clearNegAllTraitAllies, replace: (m, c, tr) => `Снимает ${c} отрицательных эффектов со всех союзников-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.applyProcAlliesBelowHealth, replace: (m, pr, p) => `Применяет ${pr} на союзников ниже ${p} % здоровья.` },
         { match: _P.modeBarrierAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'ru')}: барьер в ${p} % от макс. здоровья союзникам.` },
+        { match: _P.modeBarrierSelfAndAllAllies, replace: (m, mode, p) => `${_modeLoc(mode, 'ru')}: барьер в ${p} % от макс. здоровья себе и всем союзникам.` },
         { match: _P.modeApplyAllTraitAllies, replace: (m, mode, c, pr, tr) => `${_modeLoc(mode, 'ru')}, применяет +${c} ${pr} ко всем союзникам-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'ru')}: исцеляет всех союзников-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} на ${hp}% от макс. здоровья.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'ru')} или ${_modeLoc(m2, 'ru')}, ${sub}: снимает ${c} отрицательных эффектов со всех союзников-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },

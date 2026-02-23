@@ -144,7 +144,7 @@ function extractModeText(oi) {
     let result = '';
 
     if (oi.mode) {
-        result = oi.mode === 'AVA' ? 'WAR' : oi.mode === 'PVP' ? 'CRUCIBLE' : oi.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : oi.mode === 'INSANITY' ? 'INCURSION' : oi.mode === 'BATTLEGROUNDS' ? 'ARENA' : oi.mode;
+        result = oi.mode === 'AVA' ? 'WAR' : oi.mode === 'PVP' ? 'CRUCIBLE' : oi.mode === 'GRAND_TOURNAMENT' ? 'CRUCIBLE SHOWDOWN' : oi.mode === 'INSANITY' ? 'INCURSION' : oi.mode === 'BATTLEGROUNDS' ? 'ARENA' : oi.mode === 'RAID' ? 'RAIDS' : oi.mode;
     }
     if (oi.combat_side) {
         const side = oi.combat_side === 'offense' ? 'OFFENSE' : 'DEFENSE';
@@ -606,6 +606,10 @@ function getTargetText(target, procNames) {
         }
 
         if (limit >= 10) {
+             if (target.primary_selection === 'include_in_pool') {
+                 if (traits) return `self and all ${traits}allies${healthFilter}`;
+                 return `self and all allies${healthFilter}`;
+             }
              if (traits) return `all ${traits}allies${healthFilter}`;
              return `allies${healthFilter}`;
         }
@@ -1823,9 +1827,9 @@ function processCharacter(charName, charData) {
           if (amount > 0) {
               const targetText = getTargetText(action.target);
               if (targetText === 'self' || targetText === 'the primary target') {
-                  effects.push(`${conditionPrefix}${chancePrefix}Barrier for ${amount}% of Max Health.`);
+                  effects.push(`${conditionPrefix}${chancePrefix}Barrier for ${amount}% of this character's Max Health.`);
               } else {
-                  effects.push(`${conditionPrefix}${chancePrefix}Barrier for ${amount}% of Max Health to ${targetText}.`);
+                  effects.push(`${conditionPrefix}${chancePrefix}Barrier for ${amount}% of this character's Max Health to ${targetText}.`);
               }
           }
       }
