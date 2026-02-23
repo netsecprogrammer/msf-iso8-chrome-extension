@@ -539,6 +539,10 @@
     applyProcNInjuredTrait:      /^Apply (.+?) to the (\d+) most injured (.+?) allies\.$/,
     applyProcNInjured:           /^Apply (.+?) to the (\d+) most injured allies\.$/,
     clearCountNInjuredTrait:     /^Clear (\d+) (.+?) from the (\d+) most injured (.+?) allies\.$/,
+    // --- Complementary pair merge patterns ---
+    applyMaxMostInjured:         /^Apply \+(\d+) (.+?), up to a maximum of (\d+), to the most injured ally\.$/,
+    ifAllyTraitApplyInstead:     /^If that ally is (.+?), apply (\d+) (.+?) for (\d+) turns instead\.$/,
+    ifAllyTraitApplyDeltaInstead:/^If that ally is (.+?), apply \+(\d+) (.+?) instead\.$/,
   };
 
   const SENTENCE_TEMPLATES = {
@@ -870,6 +874,10 @@
         { match: _P.applyProcNInjuredTrait, replace: (m, pr, n, tr) => `Applique ${pr} aux ${n} alliés ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} les plus blessés.` },
         { match: _P.applyProcNInjured, replace: (m, pr, n) => `Applique ${pr} aux ${n} alliés les plus blessés.` },
         { match: _P.clearCountNInjuredTrait, replace: (m, c, pr, n, tr) => `Supprime ${c} ${pr} des ${n} alliés ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} les plus blessés.` },
+        // Complementary pair merge patterns
+        { match: _P.applyMaxMostInjured, replace: (m, c, pr, max) => `Applique +${c} ${pr}, jusqu'à un maximum de ${max}, à l'allié le plus blessé.` },
+        { match: _P.ifAllyTraitApplyInstead, replace: (m, tr, c, pr, t) => `Si cet allié est ${tr}, applique ${c} ${pr} pendant ${t} tours à la place.` },
+        { match: _P.ifAllyTraitApplyDeltaInstead, replace: (m, tr, c, pr) => `Si cet allié est ${tr}, applique +${c} ${pr} à la place.` },
       ],
     },
     // ==================== GERMAN ====================
@@ -1200,6 +1208,10 @@
         { match: _P.applyProcNInjuredTrait, replace: (m, pr, n, tr) => `Wendet ${pr} auf die ${n} am schwersten verletzten ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten an.` },
         { match: _P.applyProcNInjured, replace: (m, pr, n) => `Wendet ${pr} auf die ${n} am schwersten verletzten Verbündeten an.` },
         { match: _P.clearCountNInjuredTrait, replace: (m, c, pr, n, tr) => `Entfernt ${c} ${pr} von den ${n} am schwersten verletzten ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten.` },
+        // Complementary pair merge patterns
+        { match: _P.applyMaxMostInjured, replace: (m, c, pr, max) => `Wendet +${c} ${pr} auf den am schwersten verletzten Verbündeten an, bis maximal ${max}.` },
+        { match: _P.ifAllyTraitApplyInstead, replace: (m, tr, c, pr, t) => `Wenn dieser Verbündete ${tr} ist, wende stattdessen ${c} ${pr} für ${t} Runden an.` },
+        { match: _P.ifAllyTraitApplyDeltaInstead, replace: (m, tr, c, pr) => `Wenn dieser Verbündete ${tr} ist, wende stattdessen +${c} ${pr} an.` },
       ],
     },
     // ==================== SPANISH ====================
@@ -1530,6 +1542,10 @@
         { match: _P.applyProcNInjuredTrait, replace: (m, pr, n, tr) => `Aplica ${pr} a los ${n} aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} más heridos.` },
         { match: _P.applyProcNInjured, replace: (m, pr, n) => `Aplica ${pr} a los ${n} aliados más heridos.` },
         { match: _P.clearCountNInjuredTrait, replace: (m, c, pr, n, tr) => `Elimina ${c} ${pr} de los ${n} aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} más heridos.` },
+        // Complementary pair merge patterns
+        { match: _P.applyMaxMostInjured, replace: (m, c, pr, max) => `Aplica +${c} ${pr}, hasta un máximo de ${max}, al aliado más herido.` },
+        { match: _P.ifAllyTraitApplyInstead, replace: (m, tr, c, pr, t) => `Si ese aliado es ${tr}, aplica ${c} ${pr} durante ${t} turnos en su lugar.` },
+        { match: _P.ifAllyTraitApplyDeltaInstead, replace: (m, tr, c, pr) => `Si ese aliado es ${tr}, aplica +${c} ${pr} en su lugar.` },
       ],
     },
     // ==================== PORTUGUESE ====================
@@ -1860,6 +1876,10 @@
         { match: _P.applyProcNInjuredTrait, replace: (m, pr, n, tr) => `Aplica ${pr} aos ${n} aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} mais feridos.` },
         { match: _P.applyProcNInjured, replace: (m, pr, n) => `Aplica ${pr} aos ${n} aliados mais feridos.` },
         { match: _P.clearCountNInjuredTrait, replace: (m, c, pr, n, tr) => `Remove ${c} ${pr} dos ${n} aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} mais feridos.` },
+        // Complementary pair merge patterns
+        { match: _P.applyMaxMostInjured, replace: (m, c, pr, max) => `Aplique +${c} ${pr}, até um máximo de ${max}, ao aliado mais ferido.` },
+        { match: _P.ifAllyTraitApplyInstead, replace: (m, tr, c, pr, t) => `Se esse aliado for ${tr}, aplique ${c} ${pr} por ${t} turnos ao invés.` },
+        { match: _P.ifAllyTraitApplyDeltaInstead, replace: (m, tr, c, pr) => `Se esse aliado for ${tr}, aplique +${c} ${pr} ao invés.` },
       ],
     },
     // ==================== ITALIAN ====================
@@ -2190,6 +2210,10 @@
         { match: _P.applyProcNInjuredTrait, replace: (m, pr, n, tr) => `Applica ${pr} ai ${n} alleati ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} più feriti.` },
         { match: _P.applyProcNInjured, replace: (m, pr, n) => `Applica ${pr} ai ${n} alleati più feriti.` },
         { match: _P.clearCountNInjuredTrait, replace: (m, c, pr, n, tr) => `Rimuove ${c} ${pr} dai ${n} alleati ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} più feriti.` },
+        // Complementary pair merge patterns
+        { match: _P.applyMaxMostInjured, replace: (m, c, pr, max) => `Applica +${c} ${pr}, fino a un massimo di ${max}, all'alleato più ferito.` },
+        { match: _P.ifAllyTraitApplyInstead, replace: (m, tr, c, pr, t) => `Se quell'alleato è ${tr}, applica ${c} ${pr} per ${t} turni invece.` },
+        { match: _P.ifAllyTraitApplyDeltaInstead, replace: (m, tr, c, pr) => `Se quell'alleato è ${tr}, applica +${c} ${pr} invece.` },
       ],
     },
     // ==================== JAPANESE ====================
@@ -2520,6 +2544,10 @@
         { match: _P.applyProcNInjuredTrait, replace: (m, pr, n, tr) => `最も負傷した${n}人の${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方に${pr}を適用。` },
         { match: _P.applyProcNInjured, replace: (m, pr, n) => `最も負傷した${n}人の味方に${pr}を適用。` },
         { match: _P.clearCountNInjuredTrait, replace: (m, c, pr, n, tr) => `最も負傷した${n}人の${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方から${c}${pr}を解除。` },
+        // Complementary pair merge patterns
+        { match: _P.applyMaxMostInjured, replace: (m, c, pr, max) => `最も負傷した味方に+${c}${pr}を適用（最大${max}）。` },
+        { match: _P.ifAllyTraitApplyInstead, replace: (m, tr, c, pr, t) => `その味方が${tr}の場合、代わりに${c}個の${pr}を${t}ターン適用。` },
+        { match: _P.ifAllyTraitApplyDeltaInstead, replace: (m, tr, c, pr) => `その味方が${tr}の場合、代わりに+${c}${pr}を適用。` },
       ],
     },
     // ==================== KOREAN ====================
@@ -2850,6 +2878,10 @@
         { match: _P.applyProcNInjuredTrait, replace: (m, pr, n, tr) => `가장 부상당한 ${n}명의 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군에게 ${pr}을 적용.` },
         { match: _P.applyProcNInjured, replace: (m, pr, n) => `가장 부상당한 ${n}명의 아군에게 ${pr}을 적용.` },
         { match: _P.clearCountNInjuredTrait, replace: (m, c, pr, n, tr) => `가장 부상당한 ${n}명의 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군에게서 ${c} ${pr}을 제거.` },
+        // Complementary pair merge patterns
+        { match: _P.applyMaxMostInjured, replace: (m, c, pr, max) => `가장 부상이 심한 아군에게 +${c} ${pr}을 적용합니다 (최대 ${max}).` },
+        { match: _P.ifAllyTraitApplyInstead, replace: (m, tr, c, pr, t) => `해당 아군이 ${tr}인 경우, 대신 ${c}개의 ${pr}을 ${t}턴 동안 적용합니다.` },
+        { match: _P.ifAllyTraitApplyDeltaInstead, replace: (m, tr, c, pr) => `해당 아군이 ${tr}인 경우, 대신 +${c} ${pr}을 적용합니다.` },
       ],
     },
     // ==================== RUSSIAN ====================
@@ -3180,6 +3212,10 @@
         { match: _P.applyProcNInjuredTrait, replace: (m, pr, n, tr) => `Применяет ${pr} к ${n} самым раненым союзникам-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.applyProcNInjured, replace: (m, pr, n) => `Применяет ${pr} к ${n} самым раненым союзникам.` },
         { match: _P.clearCountNInjuredTrait, replace: (m, c, pr, n, tr) => `Удаляет ${c} ${pr} с ${n} самых раненых союзников-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        // Complementary pair merge patterns
+        { match: _P.applyMaxMostInjured, replace: (m, c, pr, max) => `Применяет +${c} ${pr} к наиболее раненому союзнику, до максимума ${max}.` },
+        { match: _P.ifAllyTraitApplyInstead, replace: (m, tr, c, pr, t) => `Если этот союзник — ${tr}, вместо этого применяет ${c} ${pr} на ${t} хода.` },
+        { match: _P.ifAllyTraitApplyDeltaInstead, replace: (m, tr, c, pr) => `Если этот союзник — ${tr}, вместо этого применяет +${c} ${pr}.` },
       ],
     },
   };

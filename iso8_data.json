@@ -504,13 +504,13 @@
     "notes": []
   },
   "CaptainCarter": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf the primary target is REBIRTH or OUT OF TIME, Apply 2 Regeneration for 2 turns to the most injured ally.\\nGain Regeneration.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Regeneration to the most injured ally.\\nIf that ally is REBIRTH or OUT OF TIME, apply 2 Regeneration for 2 turns instead.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If the primary target is REBIRTH or OUT OF TIME, Apply 2 Regeneration for 2 turns to the most injured ally.",
-      "Gain Regeneration."
+      "Apply Regeneration to the most injured ally.",
+      "If that ally is REBIRTH or OUT OF TIME, apply 2 Regeneration for 2 turns instead."
     ],
     "notes": []
   },
@@ -4312,13 +4312,13 @@
     "notes": []
   },
   "VivVision": {
-    "description": "Attack primary target for 204% damage + 17% Piercing.\\nIf the primary target is BIONIC AVENGER, Apply +2 Deflect, up to a maximum of 5 to the most injured ally.\\nGain +1 Deflect, up to a maximum of 5.\\nIn RAID, Generate +1 Ability Energy for Vision.",
+    "description": "Attack primary target for 204% damage + 17% Piercing.\\nApply +1 Deflect, up to a maximum of 5, to the most injured ally.\\nIf that ally is BIONIC AVENGER, apply +2 Deflect instead.\\nIn RAID, Generate +1 Ability Energy for Vision.",
     "damage": 204,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If the primary target is BIONIC AVENGER, Apply +2 Deflect, up to a maximum of 5 to the most injured ally.",
-      "Gain +1 Deflect, up to a maximum of 5.",
+      "Apply +1 Deflect, up to a maximum of 5, to the most injured ally.",
+      "If that ally is BIONIC AVENGER, apply +2 Deflect instead.",
       "In RAID, Generate +1 Ability Energy for Vision."
     ],
     "notes": []

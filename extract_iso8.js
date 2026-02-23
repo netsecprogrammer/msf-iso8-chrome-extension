@@ -905,6 +905,50 @@ function processCharacter(charName, charData) {
     }
   }
 
+  // Pre-scan for complementary only_if_target pairs (CaptainCarter, VivVision pattern)
+  // One action has only_if_target.traits.has_any (enhanced, targets ally) and the other has
+  // only_if_target.traits.not.has_any with the same traits (base, targets self).
+  // Merge them into blog-style "Apply X to ally. If that ally is TRAIT, apply Y instead."
+  for (let i = 0; i < allActions.length; i++) {
+    const a = allActions[i];
+    // Enhanced action: only_if_target.traits.has_any (positive check), targets ally
+    if (!a.only_if_target || !a.only_if_target.traits || !a.only_if_target.traits.has_any) continue;
+    if (a.only_if_target.traits.not) continue; // has both positive and negated — not our pattern
+    if (!a.target || a.target.relation !== 'ally') continue;
+    const enhTraits = a.only_if_target.traits.has_any;
+
+    let firstBase = null;
+    for (let j = 0; j < allActions.length; j++) {
+      if (i === j) continue;
+      const b = allActions[j];
+      // Base action: only_if_target.traits.not.has_any (negated check)
+      if (!b.only_if_target || !b.only_if_target.traits || !b.only_if_target.traits.not || !b.only_if_target.traits.not.has_any) continue;
+      const baseTraits = b.only_if_target.traits.not.has_any;
+
+      // Same traits
+      if (enhTraits.length !== baseTraits.length || !enhTraits.every(t => baseTraits.includes(t))) continue;
+      // Same action type
+      if (a.action !== b.action) continue;
+      // Shared procs
+      let sharedProc = false;
+      if (a.action === 'proc' && a.procs && b.procs) {
+        sharedProc = a.procs.some(ap => b.procs.some(bp => ap.proc === bp.proc));
+      } else if (a.action === 'proc_duration' && a.only_procs && b.only_procs) {
+        sharedProc = a.only_procs.some(p => b.only_procs.includes(p));
+      }
+      if (!sharedProc) continue;
+      // Base targets self (no target or not ally)
+      if (b.target && b.target.relation === 'ally') continue;
+
+      // Mark ALL matching base actions (safety + basic duplicates)
+      b._complementarySkip = true;
+      if (!firstBase) firstBase = b;
+    }
+    if (firstBase) {
+      a._complementaryMerge = { baseAction: firstBase, traits: enhTraits };
+    }
+  }
+
   // Iterate all actions
   let prevActionWasVisible = false; // Track if previous action produced visible output
   let prevActionWasConditional = false; // Track if previous action had a condition
@@ -919,6 +963,56 @@ function processCharacter(charName, charData) {
 
       // Skip basic counter/assist procs that are fully covered by safety procs
       if (action._suppressed) { prevActionWasVisible = false; actionConditionPrefixes.push(''); return; }
+
+      // Skip complementary base actions (merged output is handled by enhanced action)
+      if (action._complementarySkip) { prevActionWasVisible = false; actionConditionPrefixes.push(''); return; }
+
+      // Generate merged complementary pair output
+      if (action._complementaryMerge) {
+          const { baseAction, traits } = action._complementaryMerge;
+          const traitText = traits.map(t => formatProcName(t).toUpperCase()).join(' or ');
+          const enhProcNames = action.procs ? action.procs.map(p => p.proc) : action.only_procs;
+          const enhTargetText = getTargetText(action.target, enhProcNames);
+
+          if (action.action === 'proc' && action.procs && baseAction.procs) {
+              // CaptainCarter pattern: proc type
+              const baseProcName = formatProcName(baseAction.procs[0].proc);
+              const baseGlobalApply = getMax(baseAction.apply_count);
+              const baseCount = baseGlobalApply > 0 ? baseGlobalApply : baseAction.procs.length;
+              const baseDur = getMax(baseAction.procs[0].use_count) || 1;
+              const baseDurText = baseDur > 1 ? ` for ${baseDur} turns` : '';
+              const baseCountText = baseCount > 1 ? `${baseCount} ` : '';
+
+              const enhProcName = formatProcName(action.procs[0].proc);
+              const enhGlobalApply = getMax(action.apply_count);
+              const enhCount = enhGlobalApply > 0 ? enhGlobalApply : action.procs.length;
+              const enhDur = getMax(action.procs[0].use_count) || 1;
+              const enhDurText = enhDur > 1 ? ` for ${enhDur} turns` : '';
+
+              // Base: "Apply Regeneration to the most injured ally."
+              effects.push(`Apply ${baseCountText}${baseProcName}${baseDurText} to ${enhTargetText}.`);
+              // Condition: "If that ally is REBIRTH or OUT OF TIME, apply 2 Regeneration for 2 turns instead."
+              effects.push(`If that ally is ${traitText}, apply ${enhCount} ${enhProcName}${enhDurText} instead.`);
+          } else if (action.action === 'proc_duration' && action.add_if_not) {
+              // VivVision pattern: proc_duration with add_if_not
+              const procName = action.only_procs && action.only_procs.length > 0 ? formatProcName(action.only_procs[0]) : 'effects';
+              const baseDelta = getMax(baseAction.delta);
+              const enhDelta = getMax(action.delta);
+              const maxDur = getMax(action.max_duration);
+              const maxText = maxDur ? `, up to a maximum of ${maxDur},` : '';
+
+              // Base: "Apply +1 Deflect, up to a maximum of 5, to the most injured ally."
+              effects.push(`Apply +${baseDelta} ${procName}${maxText} to ${enhTargetText}.`);
+              // Condition: "If that ally is BIONIC AVENGER, apply +2 Deflect instead."
+              effects.push(`If that ally is ${traitText}, apply +${enhDelta} ${procName} instead.`);
+          }
+
+          prevActionWasVisible = true;
+          prevActionWasConditional = false;
+          prevConditionPrefix = '';
+          actionConditionPrefixes.push('');
+          return;
+      }
 
       // Skip empty_result but track its condition for if_prev_ran chains
       if (action.action === 'empty_result') {
