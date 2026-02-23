@@ -1636,11 +1636,11 @@ function processCharacter(charName, charData) {
           } else if (delta > 0) {
               const prolongTarget = (targetText && targetText !== 'self' && targetText !== 'the primary target')
                   ? ` on ${targetText}` : '';
-              effects.push(`${conditionPrefix}${chancePrefix}Prolong the duration of ${procName}${excludeText} by ${delta}${prolongTarget}.`);
+              effects.push(`${conditionPrefix}${chancePrefix}Prolong the duration of ${procName}${excludeText}${excludeText ? ',' : ''} by ${delta}${prolongTarget}.`);
           } else if (delta < 0) {
               const reduceTarget = (targetText && targetText !== 'self' && targetText !== 'the primary target')
                   ? ` on ${targetText}` : '';
-              effects.push(`${conditionPrefix}${chancePrefix}Reduce the duration of ${procName}${excludeText} by ${Math.abs(delta)}${reduceTarget}.`);
+              effects.push(`${conditionPrefix}${chancePrefix}Reduce the duration of ${procName}${excludeText}${excludeText ? ',' : ''} by ${Math.abs(delta)}${reduceTarget}.`);
           }
       }
 

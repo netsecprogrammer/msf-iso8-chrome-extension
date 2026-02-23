@@ -249,8 +249,8 @@
     targetHasApply:        /^If the primary target has (.+?), Apply (.+?) to the primary target\.$/,
     targetNoPosApply:      /^If the primary target has no positive effects, Apply (.+?) to the primary target\.$/,
     applyUpToMaxRandomAlly:/^Apply \+(\d+) (.+?), up to a maximum of (\d+) to a random ally\.$/,
-    prolongPosExcluding:   /^Prolong the duration of all positive effects, excluding (.+?) by (\d+) on allies\.$/,
-    onAssistProlongPos:    /^On Assist, Prolong the duration of all positive effects, excluding (.+?) by (\d+) on allies\.$/,
+    prolongPosExcluding:   /^Prolong the duration of all positive effects, excluding (.+?), by (\d+) on allies\.$/,
+    onAssistProlongPos:    /^On Assist, Prolong the duration of all positive effects, excluding (.+?), by (\d+) on allies\.$/,
     // Odin
     forcedDmgInstead:      /^When forced to attack an ally, attack for (\d+)% damage instead\.$/,
     otherwiseDrain:        /^Otherwise, Drain (\d+)% of target's Max Health\.$/,
@@ -285,7 +285,7 @@
     genEnergyRandomAlly:   /^Generate \+(\d+) Ability Energy for a random ally\.$/,
     // Group 4: Self-condition + Duration + Misc
     selfHasReduceDur:      /^If self has (.+?), Reduce the duration of (.+?) by (\d+) on allies\.$/,
-    prolongNegExcluding:   /^Prolong the duration of all negative effects, excluding (.+?) by (\d+)\.$/,
+    prolongNegExcluding:   /^Prolong the duration of all negative effects, excluding (.+?), by (\d+)\.$/,
     drainDmgDealt:         /^Drain (\d+)% of damage dealt as Health\.$/,
     drainFlat:             /^Drain (\d+)% of target's Max Health\.$/,
     chanceApply:           /^(\d+)% chance to Apply (.+?) to the primary target\.$/,
@@ -343,7 +343,7 @@
     modeNoteCantDodge:         /^In (.+?), this attack cannot be dodged\.$/,
     modeTargetHasReduceDur:    /^In (.+?), If the primary target has (.+?), Reduce the duration of (.+?) by (\d+)\.$/,
     modeProlongNeg:            /^In (.+?), Prolong the duration of negative effects by (\d+)\.$/,
-    notModeProlongNegExcl:     /^Not in (.+?), Prolong the duration of all negative effects, excluding (.+?) by (\d+)\.$/,
+    notModeProlongNegExcl:     /^Not in (.+?), Prolong the duration of all negative effects, excluding (.+?), by (\d+)\.$/,
     // Group 6: Misc
     stealAllExcluding:         /^Steal all positive effect\(s\) from the primary target, excluding (.+?)\.$/,
     stealAllGiveExcluding:     /^Steal all positive effect\(s\) from the primary target and give to allies, excluding (.+?)\.$/,
@@ -472,7 +472,7 @@
     targetHasAndHasRemoveBarrier: /^If the primary target has (.+?) and has (.+?), Remove Barrier from the primary target\.$/,
     selfHasCountAnyEnemyFlip:  /^If self has (\d+)\+ (.+?), If any enemy has positive effects, Flip (\d+) positive effect\(s\) to negative on the primary target\.$/,
     selfLessCountAnyEnemyFlip: /^If self has less than (\d+) (.+?), If any enemy has positive effects, Flip (\d+) positive effect\(s\) to negative on the primary target\.$/,
-    modeOnCritProlongNegExcl:  /^In (.+?), On Crit, Prolong the duration of all negative effects, excluding (.+?) by (\d+)\.$/,
+    modeOnCritProlongNegExcl:  /^In (.+?), On Crit, Prolong the duration of all negative effects, excluding (.+?), by (\d+)\.$/,
     modeOnCritProlongProc:     /^In (.+?), On Crit, Prolong the duration of (.+?) by (\d+)\.$/,
     modeBarrierRandomAlly:     /^In (.+?), Barrier for (\d+)% of Max Health to a random ally\.$/,
     // --- Batch 14 patterns ---
