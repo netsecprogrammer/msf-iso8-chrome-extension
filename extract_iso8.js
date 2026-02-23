@@ -745,9 +745,7 @@ function processCharacter(charName, charData) {
     charData.basic.actions.forEach(a => {
       const hasCounter = a.counter === true;
       const hasAssist = a.assist !== undefined;
-      const isChainAction = a.target && a.target.type &&
-          (a.target.type === 'direct_neighbor' || a.target.type === 'direct_neighbor_repeatable');
-      if (!hasCounter && !hasAssist && !isChainAction) return;
+      if (!hasCounter && !hasAssist) return;
       // Skip empty_result actions (placeholders)
       if (a.action === 'empty_result') return;
       // Skip shared template actions that only apply to a specific character
@@ -764,6 +762,9 @@ function processCharacter(charName, charData) {
           !hasConditionalStats &&
           !(a.target && (a.target.primary_selection === 'exclude_from_pool' ||
                          a.target.primary_selection === 'exclude_as_first'))) return;
+      // Note: chain actions (direct_neighbor) that fire on counter/assist already have
+      // counter/assist flags set (e.g. Punisher). Chain actions without those flags are
+      // part of the basic's normal attack and should NOT be included here.
 
       let prefix = '';
       if (hasCounter && !hasAssist) prefix = 'On Counter, ';
