@@ -1377,8 +1377,26 @@ function processCharacter(charName, charData) {
             if (!allDebuffs) targetText = 'self';
         }
 
+        // When globalApplyCount is set, it means "select N procs from the ordered list"
+        // Recount per-type based on which procs are actually selected
+        if (globalApplyCount > 0) {
+            Object.keys(procGroups).forEach(k => { procGroups[k].count = 0; });
+            let selected = 0;
+            for (const p of action.procs) {
+                if (selected >= globalApplyCount) break;
+                if (p.proc && p.proc.startsWith('Basic_Level')) continue;
+                const name = formatProcName(p.proc);
+                if (procGroups[name]) procGroups[name].count++;
+                selected++;
+            }
+            // Remove groups with 0 count (not selected at this level)
+            Object.keys(procGroups).forEach(k => {
+                if (procGroups[k].count === 0) delete procGroups[k];
+            });
+        }
+
         Object.keys(procGroups).forEach(procName => {
-            let count = globalApplyCount || procGroups[procName].count;
+            let count = procGroups[procName].count;
             const duration = procGroups[procName].duration;
             const spawnPct = procGroups[procName].spawnPct;
             let durationText = '';

@@ -228,14 +228,13 @@
     "notes": []
   },
   "BaronMordo": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply 2 Defense Down to the primary target.\\nApply 2 Offense Down to the primary target.\\nApply 2 Slow to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Defense Down to the primary target.\\nApply Offense Down to the primary target..",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Defense Down to the primary target.",
-      "Apply 2 Offense Down to the primary target.",
-      "Apply 2 Slow to the primary target."
+      "Apply Defense Down to the primary target.",
+      "Apply Offense Down to the primary target."
     ],
     "notes": []
   },
@@ -344,14 +343,14 @@
     "notes": []
   },
   "BlackPantherShuri": {
-    "description": "Attack primary target for 173% Piercing.\\nApply 3 Slow to the primary target.\\nApply 3 Defense Down to the primary target.\\nApply 3 Heal Block to the primary target.",
+    "description": "Attack primary target for 173% Piercing.\\nApply Slow to the primary target.\\nApply Defense Down to the primary target.\\nApply Heal Block to the primary target.",
     "damage": 0,
     "piercing": 173,
     "drain": 0,
     "effects": [
-      "Apply 3 Slow to the primary target.",
-      "Apply 3 Defense Down to the primary target.",
-      "Apply 3 Heal Block to the primary target."
+      "Apply Slow to the primary target.",
+      "Apply Defense Down to the primary target.",
+      "Apply Heal Block to the primary target."
     ],
     "notes": []
   },
@@ -460,13 +459,13 @@
     "notes": []
   },
   "Cannonball": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 2 Offense Down for 2 turns to the primary target.\\nApply 2 Slow for 2 turns to the primary target.\\nApply +1 Deflect, up to a maximum of 3 to allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nApply Slow for 2 turns to the primary target.\\nApply +1 Deflect, up to a maximum of 3 to allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Offense Down for 2 turns to the primary target.",
-      "Apply 2 Slow for 2 turns to the primary target.",
+      "Apply Offense Down for 2 turns to the primary target.",
+      "Apply Slow for 2 turns to the primary target.",
       "Apply +1 Deflect, up to a maximum of 3 to allies."
     ],
     "notes": []
@@ -495,15 +494,15 @@
     "notes": []
   },
   "CaptainBritain": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nIf target has no Barrier, +75% damage.\\nClear all positive effect(s) from the primary target.\\nApply 2 Deflect for 2 turns to a random HERO ally.\\nApply 2 Defense Up for 2 turns to a random HERO ally.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nIf target has no Barrier, +75% damage.\\nClear all positive effect(s) from the primary target.\\nApply Deflect for 2 turns to a random HERO ally.\\nApply Defense Up for 2 turns to a random HERO ally.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If target has no Barrier, +75% damage.",
       "Clear all positive effect(s) from the primary target.",
-      "Apply 2 Deflect for 2 turns to a random HERO ally.",
-      "Apply 2 Defense Up for 2 turns to a random HERO ally."
+      "Apply Deflect for 2 turns to a random HERO ally.",
+      "Apply Defense Up for 2 turns to a random HERO ally."
     ],
     "notes": []
   },
@@ -1638,16 +1637,16 @@
     "notes": []
   },
   "IronPatriot": {
-    "description": "Attack primary target for 220% damage + 17% Piercing.\\nClear 1 Immunity from the primary target.\\nApply 4 Defense Down for 2 turns to the primary target.\\nApply 4 Heal Block for 2 turns to the primary target.\\nApply 4 Disrupted for 2 turns to the primary target.\\nApply 4 Slow for 2 turns to the primary target.\\nApply Defense Down for 2 turns to the primary target.",
+    "description": "Attack primary target for 220% damage + 17% Piercing.\\nClear 1 Immunity from the primary target.\\nApply Defense Down for 2 turns to the primary target.\\nApply Heal Block for 2 turns to the primary target.\\nApply Disrupted for 2 turns to the primary target.\\nApply Slow for 2 turns to the primary target.\\nApply Defense Down for 2 turns to the primary target.",
     "damage": 220,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Clear 1 Immunity from the primary target.",
-      "Apply 4 Defense Down for 2 turns to the primary target.",
-      "Apply 4 Heal Block for 2 turns to the primary target.",
-      "Apply 4 Disrupted for 2 turns to the primary target.",
-      "Apply 4 Slow for 2 turns to the primary target.",
+      "Apply Defense Down for 2 turns to the primary target.",
+      "Apply Heal Block for 2 turns to the primary target.",
+      "Apply Disrupted for 2 turns to the primary target.",
+      "Apply Slow for 2 turns to the primary target.",
       "Apply Defense Down for 2 turns to the primary target."
     ],
     "notes": []
@@ -1686,7 +1685,7 @@
     ]
   },
   "JeanGrey": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn RAID, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAID, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAID, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nApply 2 Heal Block for 2 turns to the primary target.\\nApply 2 Defense Down for 2 turns to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn RAID, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAID, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAID, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nApply Heal Block for 2 turns to the primary target.\\nApply Defense Down for 2 turns to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
@@ -1694,8 +1693,8 @@
       "In RAID, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
       "In RAID, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
       "In RAID, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
-      "Apply 2 Heal Block for 2 turns to the primary target.",
-      "Apply 2 Defense Down for 2 turns to the primary target."
+      "Apply Heal Block for 2 turns to the primary target.",
+      "Apply Defense Down for 2 turns to the primary target."
     ],
     "notes": []
   },
@@ -1978,13 +1977,13 @@
     "notes": []
   },
   "LivingMummy": {
-    "description": "Attack primary target for 187% Piercing.\\nIf self has Revive Once, Gain 2 Counter.\\nIf self has Revive Once, Gain 2 Speed Up.\\nHeal the primary target for 15% of Max Health.\\nIn DEFENSE, +250% damage.",
+    "description": "Attack primary target for 187% Piercing.\\nIf self has Revive Once, Gain Counter.\\nIf self has Revive Once, Gain Speed Up.\\nHeal the primary target for 15% of Max Health.\\nIn DEFENSE, +250% damage.",
     "damage": 0,
     "piercing": 187,
     "drain": 0,
     "effects": [
-      "If self has Revive Once, Gain 2 Counter.",
-      "If self has Revive Once, Gain 2 Speed Up.",
+      "If self has Revive Once, Gain Counter.",
+      "If self has Revive Once, Gain Speed Up.",
       "Heal the primary target for 15% of Max Health.",
       "In DEFENSE, +250% damage."
     ],
@@ -2003,14 +2002,14 @@
     "notes": []
   },
   "Loki": {
-    "description": "Attack primary target for 185% Piercing.\\nIn RAID, If self has 1+ Regeneration, +100% damage.\\nIf Sylvie is an ally, Apply 3 Bleed to the primary target.\\nIf Sylvie is an ally, Apply 3 Defense Down to the primary target.\\nNot in RAID, 50% chance to Gain Evade.\\nIn RAID, Gain Evade.",
+    "description": "Attack primary target for 185% Piercing.\\nIn RAID, If self has 1+ Regeneration, +100% damage.\\nIf Sylvie is an ally, Apply 2 Bleed to the primary target.\\nIf Sylvie is an ally, Apply Defense Down to the primary target.\\nNot in RAID, 50% chance to Gain Evade.\\nIn RAID, Gain Evade.",
     "damage": 0,
     "piercing": 185,
     "drain": 0,
     "effects": [
       "In RAID, If self has 1+ Regeneration, +100% damage.",
-      "If Sylvie is an ally, Apply 3 Bleed to the primary target.",
-      "If Sylvie is an ally, Apply 3 Defense Down to the primary target.",
+      "If Sylvie is an ally, Apply 2 Bleed to the primary target.",
+      "If Sylvie is an ally, Apply Defense Down to the primary target.",
       "Not in RAID, 50% chance to Gain Evade.",
       "In RAID, Gain Evade."
     ],
@@ -2464,15 +2463,15 @@
     "notes": []
   },
   "Namor": {
-    "description": "Attack primary target for 240% damage + 35% Piercing + 100% Crit Chance.\\nApply 4 Heal Block for 2 turns to the primary target.\\nApply 4 Bleed to the primary target.\\nApply 2 Heal Block for 2 turns to the primary target.\\nApply 2 Bleed to the primary target.",
+    "description": "Attack primary target for 240% damage + 35% Piercing + 100% Crit Chance.\\nApply Heal Block for 2 turns to the primary target.\\nApply 3 Bleed to the primary target.\\nApply Heal Block for 2 turns to the primary target.\\nApply Bleed to the primary target.",
     "damage": 240,
     "piercing": 35,
     "drain": 0,
     "effects": [
-      "Apply 4 Heal Block for 2 turns to the primary target.",
-      "Apply 4 Bleed to the primary target.",
-      "Apply 2 Heal Block for 2 turns to the primary target.",
-      "Apply 2 Bleed to the primary target."
+      "Apply Heal Block for 2 turns to the primary target.",
+      "Apply 3 Bleed to the primary target.",
+      "Apply Heal Block for 2 turns to the primary target.",
+      "Apply Bleed to the primary target."
     ],
     "notes": []
   },
@@ -2623,13 +2622,13 @@
     "notes": []
   },
   "Oath": {
-    "description": "Attack primary target for 185% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 2 Heal Block to the primary target.\\nIn RAID, Apply Exposed to the primary target.",
+    "description": "Attack primary target for 185% Piercing.\\nApply Bleed to the primary target.\\nApply Heal Block to the primary target.\\nIn RAID, Apply Exposed to the primary target.",
     "damage": 0,
     "piercing": 185,
     "drain": 0,
     "effects": [
-      "Apply 2 Bleed to the primary target.",
-      "Apply 2 Heal Block to the primary target.",
+      "Apply Bleed to the primary target.",
+      "Apply Heal Block to the primary target.",
       "In RAID, Apply Exposed to the primary target."
     ],
     "notes": []
@@ -3013,13 +3012,13 @@
     ]
   },
   "RavagerTank_Taunt": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf the primary target is PROTECTOR, Apply 2 Defense Down for 2 turns to the primary target.\\nIf the primary target is PROTECTOR, Apply 2 Disrupted to the primary target.\\nGain Taunt.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf the primary target is PROTECTOR, Apply Defense Down for 2 turns to the primary target.\\nIf the primary target is PROTECTOR, Apply Disrupted to the primary target.\\nGain Taunt.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If the primary target is PROTECTOR, Apply 2 Defense Down for 2 turns to the primary target.",
-      "If the primary target is PROTECTOR, Apply 2 Disrupted to the primary target.",
+      "If the primary target is PROTECTOR, Apply Defense Down for 2 turns to the primary target.",
+      "If the primary target is PROTECTOR, Apply Disrupted to the primary target.",
       "Gain Taunt."
     ],
     "notes": []
@@ -3315,14 +3314,14 @@
     "notes": []
   },
   "ScientistSupreme": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\nApply 3 Offense Down to the primary target.\\nApply 3 Defense Down to the primary target.\\nApply 3 Slow to the primary target.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply Defense Down to the primary target.\\nApply Slow to the primary target.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 3 Offense Down to the primary target.",
-      "Apply 3 Defense Down to the primary target.",
-      "Apply 3 Slow to the primary target."
+      "Apply Offense Down to the primary target.",
+      "Apply Defense Down to the primary target.",
+      "Apply Slow to the primary target."
     ],
     "notes": [
       "This attack cannot miss.",
@@ -3973,13 +3972,13 @@
     "notes": []
   },
   "ThanosEndgame": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply 3 Heal Block for 2 turns to the primary target.\\nApply 3 Bleed to the primary target.\\nReduce Speed Bar by 5%.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Heal Block for 2 turns to the primary target.\\nApply 2 Bleed to the primary target.\\nReduce Speed Bar by 5%.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 3 Heal Block for 2 turns to the primary target.",
-      "Apply 3 Bleed to the primary target.",
+      "Apply Heal Block for 2 turns to the primary target.",
+      "Apply 2 Bleed to the primary target.",
       "Reduce Speed Bar by 5%."
     ],
     "notes": []
@@ -4120,13 +4119,13 @@
     "notes": []
   },
   "Ultimus": {
-    "description": "Attack primary target for 200% damage + 47% Piercing.\\n50% chance to Apply 2 Ability Block to the primary target.\\n50% chance to Apply 2 Defense Down to the primary target.\\nAttack an additional enemy.",
+    "description": "Attack primary target for 200% damage + 47% Piercing.\\n50% chance to Apply Ability Block to the primary target.\\n50% chance to Apply Defense Down to the primary target.\\nAttack an additional enemy.",
     "damage": 200,
     "piercing": 47,
     "drain": 0,
     "effects": [
-      "50% chance to Apply 2 Ability Block to the primary target.",
-      "50% chance to Apply 2 Defense Down to the primary target.",
+      "50% chance to Apply Ability Block to the primary target.",
+      "50% chance to Apply Defense Down to the primary target.",
       "Attack an additional enemy."
     ],
     "notes": []
@@ -4289,14 +4288,14 @@
     "notes": []
   },
   "Venom": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nApply 2 Bleed to the primary target.\\nApply 2 Heal Block to the primary target.\\nGain 20% Speed Bar.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nApply Bleed to the primary target.\\nApply Heal Block to the primary target.\\nGain 20% Speed Bar.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip 3 positive effect(s) to negative on the primary target.",
-      "Apply 2 Bleed to the primary target.",
-      "Apply 2 Heal Block to the primary target.",
+      "Apply Bleed to the primary target.",
+      "Apply Heal Block to the primary target.",
       "Gain 20% Speed Bar."
     ],
     "notes": [
@@ -4448,14 +4447,14 @@
     "notes": []
   },
   "WhiteTiger": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nApply 2 Defense Down for 2 turns to the primary target.\\nApply 2 Slow for 2 turns to the primary target.\\nApply Heal Block to the primary target.\\nApply Defense Down for 2 turns to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nApply Defense Down for 2 turns to the primary target.\\nApply Slow for 2 turns to the primary target.\\nApply Heal Block to the primary target.\\nApply Defense Down for 2 turns to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
-      "Apply 2 Defense Down for 2 turns to the primary target.",
-      "Apply 2 Slow for 2 turns to the primary target.",
+      "Apply Defense Down for 2 turns to the primary target.",
+      "Apply Slow for 2 turns to the primary target.",
       "Apply Heal Block to the primary target.",
       "Apply Defense Down for 2 turns to the primary target."
     ],
@@ -4506,13 +4505,13 @@
     "notes": []
   },
   "X23": {
-    "description": "Attack primary target for 238% Piercing.\\nApply 2 Heal Block for 2 turns to the primary target.\\nApply 2 Bleed for 2 turns to the primary target.\\nApply +1 Evade, up to a maximum of 3 to allies.",
+    "description": "Attack primary target for 238% Piercing.\\nApply Heal Block for 2 turns to the primary target.\\nApply Bleed for 2 turns to the primary target.\\nApply +1 Evade, up to a maximum of 3 to allies.",
     "damage": 0,
     "piercing": 238,
     "drain": 0,
     "effects": [
-      "Apply 2 Heal Block for 2 turns to the primary target.",
-      "Apply 2 Bleed for 2 turns to the primary target.",
+      "Apply Heal Block for 2 turns to the primary target.",
+      "Apply Bleed for 2 turns to the primary target.",
       "Apply +1 Evade, up to a maximum of 3 to allies."
     ],
     "notes": []
