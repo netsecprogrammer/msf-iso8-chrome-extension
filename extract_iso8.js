@@ -1560,7 +1560,20 @@ function processCharacter(charName, charData) {
         let count = getMax(action.count) || 1;
         const countText = count >= 10 ? 'all' : `${count}`;
         const targetText = getTargetText(action.target);
-        if (action.category === 'debuff') {
+        if (action.specific_procs && action.specific_procs.length > 0) {
+            // Specific proc flip: "Flip Defense Up on the primary target."
+            const procNames = action.specific_procs.map(p => formatProcName(p));
+            let procText;
+            if (procNames.length === 1) {
+                procText = procNames[0];
+            } else {
+                const last = procNames.pop();
+                procText = procNames.join(', ') + ' and ' + last;
+            }
+            // Specific debuff flips on allies are self-cleanse (e.g. Quasar flipping Disrupted)
+            const flipTarget = (action.category === 'debuff' && targetText === 'allies') ? 'self' : targetText;
+            effects.push(`${conditionPrefix}${chancePrefix}Flip ${procText} on ${flipTarget}.`);
+        } else if (action.category === 'debuff') {
              effects.push(`${conditionPrefix}${chancePrefix}Flip ${countText} negative effect(s) to positive on ${targetText}.`);
         } else {
              effects.push(`${conditionPrefix}${chancePrefix}Flip ${countText} positive effect(s) to negative on ${targetText}.`);
@@ -1735,7 +1748,9 @@ function processCharacter(charName, charData) {
               }
           }
 
-          const targetText = getTargetText(action.target);
+          let targetText = getTargetText(action.target);
+          // Self-buffs with no explicit target default to 'self', not 'the primary target'
+          if (!action.target && action.category === 'buff') targetText = 'self';
           const maxDur = getMax(action.max_duration);
           let maxText = '';
           if (maxDur) maxText = `, up to a maximum of ${maxDur}`;

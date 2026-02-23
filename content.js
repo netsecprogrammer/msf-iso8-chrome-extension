@@ -522,6 +522,17 @@
     modeTargetHasApply:        /^In (.+?), If the primary target has (.+?), Apply (.+?) to the primary target\.$/,
     selfHasMoreThanSelfHasReduceDurAllies: /^If self has more than (\d+) (.+?), If self has (.+?), Reduce the duration of (.+?) by (\d+) on allies\.$/,
     modeIfNotFullIfTargetIsApply: /^In (.+?), If (.+?) is not full, If the primary target is (.+?), Apply (.+?) to the primary target\.$/,
+    // --- Fix: specific proc flip patterns ---
+    flipSpecificTarget:          /^Flip (.+?) on the primary target\.$/,
+    flipSpecificAllies:          /^Flip (.+?) on allies\.$/,
+    modeFlipSpecificTarget:      /^In (.+?), Flip (.+?) on the primary target\.$/,
+    modeFlipSpecificAllies:      /^In (.+?), Flip (.+?) on allies\.$/,
+    otherwiseFlipSpecificTarget: /^Otherwise, Flip (.+?) on the primary target\.$/,
+    targetHasFlipSpecific:       /^If the primary target has (.+?), Flip (.+?) on the primary target\.$/,
+    flipSpecificSelf:            /^Flip (.+?) on self\.$/,
+    modeFlipSpecificSelf:        /^In (.+?), Flip (.+?) on self\.$/,
+    // --- Fix: self-buff gain with max ---
+    gainPlusMax:                 /^Gain \+(\d+) (.+?), up to a maximum of (\d+)\.$/,
   };
 
   const SENTENCE_TEMPLATES = {
@@ -838,6 +849,16 @@
         { match: _P.anyEnemyHasFlipTarget, replace: (m, c) => `Si un ennemi a des effets bénéfiques, convertit ${c} effet(s) bénéfique(s) en nuisible(s) sur la cible principale.` },
         { match: _P.copyCountExclTwo, replace: (m, c, pr1, pr2) => `Copie ${c} effet(s) bénéfique(s) de la cible principale, sauf ${pr1} et ${pr2}.` },
         { match: _P.selfHasProcClearAllNegAllies, replace: (m, pr) => `Si ce personnage a ${pr}, retire tous les effet(s) nuisible(s) des alliés.` },
+        // --- Fix: specific proc flip + self-buff gain ---
+        { match: _P.flipSpecificTarget, replace: (m, pr) => `Convertit ${pr} sur la cible principale.` },
+        { match: _P.flipSpecificAllies, replace: (m, pr) => `Convertit ${pr} sur les alliés.` },
+        { match: _P.flipSpecificSelf, replace: (m, pr) => `Convertit ${pr} sur soi-même.` },
+        { match: _P.modeFlipSpecificTarget, replace: (m, mode, pr) => `${_modeLoc(mode, 'fr')}, convertit ${pr} sur la cible principale.` },
+        { match: _P.modeFlipSpecificAllies, replace: (m, mode, pr) => `${_modeLoc(mode, 'fr')}, convertit ${pr} sur les alliés.` },
+        { match: _P.modeFlipSpecificSelf, replace: (m, mode, pr) => `${_modeLoc(mode, 'fr')}, convertit ${pr} sur soi-même.` },
+        { match: _P.otherwiseFlipSpecificTarget, replace: (m, pr) => `Sinon, convertit ${pr} sur la cible principale.` },
+        { match: _P.targetHasFlipSpecific, replace: (m, cond, pr) => `Si la cible principale a ${cond}, convertit ${pr} sur la cible principale.` },
+        { match: _P.gainPlusMax, replace: (m, c, pr, max) => `Obtient +${c} ${pr}, jusqu'à un maximum de ${max}.` },
       ],
     },
     // ==================== GERMAN ====================
@@ -1153,6 +1174,16 @@
         { match: _P.anyEnemyHasFlipTarget, replace: (m, c) => `Wenn ein Gegner positive Effekte hat, wandle ${c} positive(n) Effekt(e) in negative auf dem Hauptziel um.` },
         { match: _P.copyCountExclTwo, replace: (m, c, pr1, pr2) => `Kopiere ${c} positive(n) Effekt(e) vom Hauptziel, außer ${pr1} und ${pr2}.` },
         { match: _P.selfHasProcClearAllNegAllies, replace: (m, pr) => `Wenn selbst ${pr} hat, entferne alle negative(n) Effekt(e) von Verbündeten.` },
+        // --- Fix: specific proc flip + self-buff gain ---
+        { match: _P.flipSpecificTarget, replace: (m, pr) => `Wandelt ${pr} auf dem Primärziel um.` },
+        { match: _P.flipSpecificAllies, replace: (m, pr) => `Wandelt ${pr} auf Verbündeten um.` },
+        { match: _P.flipSpecificSelf, replace: (m, pr) => `Wandelt ${pr} auf sich selbst um.` },
+        { match: _P.modeFlipSpecificTarget, replace: (m, mode, pr) => `${_modeLoc(mode, 'de')}: Wandelt ${pr} auf dem Primärziel um.` },
+        { match: _P.modeFlipSpecificAllies, replace: (m, mode, pr) => `${_modeLoc(mode, 'de')}: Wandelt ${pr} auf Verbündeten um.` },
+        { match: _P.modeFlipSpecificSelf, replace: (m, mode, pr) => `${_modeLoc(mode, 'de')}: Wandelt ${pr} auf sich selbst um.` },
+        { match: _P.otherwiseFlipSpecificTarget, replace: (m, pr) => `Andernfalls: Wandelt ${pr} auf dem Primärziel um.` },
+        { match: _P.targetHasFlipSpecific, replace: (m, cond, pr) => `Wenn das Primärziel ${cond} hat: Wandelt ${pr} auf dem Primärziel um.` },
+        { match: _P.gainPlusMax, replace: (m, c, pr, max) => `Erhält +${c} ${pr}, bis maximal ${max}.` },
       ],
     },
     // ==================== SPANISH ====================
@@ -1468,6 +1499,16 @@
         { match: _P.anyEnemyHasFlipTarget, replace: (m, c) => `Si algún enemigo tiene efectos positivos, convierte ${c} efecto(s) positivo(s) en negativo(s) en el objetivo principal.` },
         { match: _P.copyCountExclTwo, replace: (m, c, pr1, pr2) => `Copia ${c} efecto(s) positivo(s) del objetivo principal, excepto ${pr1} y ${pr2}.` },
         { match: _P.selfHasProcClearAllNegAllies, replace: (m, pr) => `Si este personaje tiene ${pr}, elimina todos los efecto(s) negativo(s) de los aliados.` },
+        // --- Fix: specific proc flip + self-buff gain ---
+        { match: _P.flipSpecificTarget, replace: (m, pr) => `Convierte ${pr} en el objetivo principal.` },
+        { match: _P.flipSpecificAllies, replace: (m, pr) => `Convierte ${pr} en los aliados.` },
+        { match: _P.flipSpecificSelf, replace: (m, pr) => `Convierte ${pr} en sí mismo.` },
+        { match: _P.modeFlipSpecificTarget, replace: (m, mode, pr) => `${_modeLoc(mode, 'es')}, convierte ${pr} en el objetivo principal.` },
+        { match: _P.modeFlipSpecificAllies, replace: (m, mode, pr) => `${_modeLoc(mode, 'es')}, convierte ${pr} en los aliados.` },
+        { match: _P.modeFlipSpecificSelf, replace: (m, mode, pr) => `${_modeLoc(mode, 'es')}, convierte ${pr} en sí mismo.` },
+        { match: _P.otherwiseFlipSpecificTarget, replace: (m, pr) => `De lo contrario, convierte ${pr} en el objetivo principal.` },
+        { match: _P.targetHasFlipSpecific, replace: (m, cond, pr) => `Si el objetivo principal tiene ${cond}, convierte ${pr} en el objetivo principal.` },
+        { match: _P.gainPlusMax, replace: (m, c, pr, max) => `Obtiene +${c} ${pr}, hasta un máximo de ${max}.` },
       ],
     },
     // ==================== PORTUGUESE ====================
@@ -1783,6 +1824,16 @@
         { match: _P.anyEnemyHasFlipTarget, replace: (m, c) => `Se algum inimigo tiver efeitos positivos, converte ${c} efeito(s) positivo(s) em negativo(s) no alvo principal.` },
         { match: _P.copyCountExclTwo, replace: (m, c, pr1, pr2) => `Copia ${c} efeito(s) positivo(s) do alvo principal, exceto ${pr1} e ${pr2}.` },
         { match: _P.selfHasProcClearAllNegAllies, replace: (m, pr) => `Se este personagem tiver ${pr}, remove todos os efeito(s) negativo(s) dos aliados.` },
+        // --- Fix: specific proc flip + self-buff gain ---
+        { match: _P.flipSpecificTarget, replace: (m, pr) => `Converte ${pr} no alvo principal.` },
+        { match: _P.flipSpecificAllies, replace: (m, pr) => `Converte ${pr} nos aliados.` },
+        { match: _P.flipSpecificSelf, replace: (m, pr) => `Converte ${pr} em si mesmo.` },
+        { match: _P.modeFlipSpecificTarget, replace: (m, mode, pr) => `${_modeLoc(mode, 'pt')}, converte ${pr} no alvo principal.` },
+        { match: _P.modeFlipSpecificAllies, replace: (m, mode, pr) => `${_modeLoc(mode, 'pt')}, converte ${pr} nos aliados.` },
+        { match: _P.modeFlipSpecificSelf, replace: (m, mode, pr) => `${_modeLoc(mode, 'pt')}, converte ${pr} em si mesmo.` },
+        { match: _P.otherwiseFlipSpecificTarget, replace: (m, pr) => `Caso contrário, converte ${pr} no alvo principal.` },
+        { match: _P.targetHasFlipSpecific, replace: (m, cond, pr) => `Se o alvo principal tiver ${cond}, converte ${pr} no alvo principal.` },
+        { match: _P.gainPlusMax, replace: (m, c, pr, max) => `Obtém +${c} ${pr}, até um máximo de ${max}.` },
       ],
     },
     // ==================== ITALIAN ====================
@@ -2098,6 +2149,16 @@
         { match: _P.anyEnemyHasFlipTarget, replace: (m, c) => `Se un nemico ha effetti positivi, converte ${c} effetto/i positivo/i in negativo/i sul bersaglio principale.` },
         { match: _P.copyCountExclTwo, replace: (m, c, pr1, pr2) => `Copia ${c} effetto/i positivo/i dal bersaglio principale, esclusi ${pr1} e ${pr2}.` },
         { match: _P.selfHasProcClearAllNegAllies, replace: (m, pr) => `Se questo personaggio ha ${pr}, rimuovi tutti gli effetto/i negativo/i dagli alleati.` },
+        // --- Fix: specific proc flip + self-buff gain ---
+        { match: _P.flipSpecificTarget, replace: (m, pr) => `Converte ${pr} sul bersaglio principale.` },
+        { match: _P.flipSpecificAllies, replace: (m, pr) => `Converte ${pr} sugli alleati.` },
+        { match: _P.flipSpecificSelf, replace: (m, pr) => `Converte ${pr} su se stesso.` },
+        { match: _P.modeFlipSpecificTarget, replace: (m, mode, pr) => `${_modeLoc(mode, 'it')}, converte ${pr} sul bersaglio principale.` },
+        { match: _P.modeFlipSpecificAllies, replace: (m, mode, pr) => `${_modeLoc(mode, 'it')}, converte ${pr} sugli alleati.` },
+        { match: _P.modeFlipSpecificSelf, replace: (m, mode, pr) => `${_modeLoc(mode, 'it')}, converte ${pr} su se stesso.` },
+        { match: _P.otherwiseFlipSpecificTarget, replace: (m, pr) => `Altrimenti, converte ${pr} sul bersaglio principale.` },
+        { match: _P.targetHasFlipSpecific, replace: (m, cond, pr) => `Se il bersaglio principale ha ${cond}, converte ${pr} sul bersaglio principale.` },
+        { match: _P.gainPlusMax, replace: (m, c, pr, max) => `Ottiene +${c} ${pr}, fino a un massimo di ${max}.` },
       ],
     },
     // ==================== JAPANESE ====================
@@ -2413,6 +2474,16 @@
         { match: _P.anyEnemyHasFlipTarget, replace: (m, c) => `敵がバフを持つ場合、メインターゲットの${c}個のバフをデバフに変換。` },
         { match: _P.copyCountExclTwo, replace: (m, c, pr1, pr2) => `メインターゲットから${c}個のバフをコピー、${pr1}と${pr2}を除く。` },
         { match: _P.selfHasProcClearAllNegAllies, replace: (m, pr) => `自分が${pr}を持つ場合、味方から全てのデバフを除去。` },
+        // --- Fix: specific proc flip + self-buff gain ---
+        { match: _P.flipSpecificTarget, replace: (m, pr) => `メインターゲットの${pr}を反転。` },
+        { match: _P.flipSpecificAllies, replace: (m, pr) => `味方の${pr}を反転。` },
+        { match: _P.flipSpecificSelf, replace: (m, pr) => `自分の${pr}を反転。` },
+        { match: _P.modeFlipSpecificTarget, replace: (m, mode, pr) => `${_modeLoc(mode, 'ja')}、メインターゲットの${pr}を反転。` },
+        { match: _P.modeFlipSpecificAllies, replace: (m, mode, pr) => `${_modeLoc(mode, 'ja')}、味方の${pr}を反転。` },
+        { match: _P.modeFlipSpecificSelf, replace: (m, mode, pr) => `${_modeLoc(mode, 'ja')}、自分の${pr}を反転。` },
+        { match: _P.otherwiseFlipSpecificTarget, replace: (m, pr) => `それ以外の場合、メインターゲットの${pr}を反転。` },
+        { match: _P.targetHasFlipSpecific, replace: (m, cond, pr) => `メインターゲットが${cond}を持つ場合、メインターゲットの${pr}を反転。` },
+        { match: _P.gainPlusMax, replace: (m, c, pr, max) => `+${c} ${pr}を獲得、最大${max}まで。` },
       ],
     },
     // ==================== KOREAN ====================
@@ -2728,6 +2799,16 @@
         { match: _P.anyEnemyHasFlipTarget, replace: (m, c) => `적이 긍정적 효과를 보유한 경우, 주요 대상의 ${c}개의 긍정적 효과를 부정적으로 전환.` },
         { match: _P.copyCountExclTwo, replace: (m, c, pr1, pr2) => `주요 대상에서 ${c}개의 긍정적 효과를 복사, ${pr1} 및 ${pr2} 제외.` },
         { match: _P.selfHasProcClearAllNegAllies, replace: (m, pr) => `자신이 ${pr}을(를) 보유한 경우, 아군의 모든 부정적 효과 제거.` },
+        // --- Fix: specific proc flip + self-buff gain ---
+        { match: _P.flipSpecificTarget, replace: (m, pr) => `주요 대상의 ${pr}을(를) 전환.` },
+        { match: _P.flipSpecificAllies, replace: (m, pr) => `아군의 ${pr}을(를) 전환.` },
+        { match: _P.flipSpecificSelf, replace: (m, pr) => `자신의 ${pr}을(를) 전환.` },
+        { match: _P.modeFlipSpecificTarget, replace: (m, mode, pr) => `${_modeLoc(mode, 'ko')}, 주요 대상의 ${pr}을(를) 전환.` },
+        { match: _P.modeFlipSpecificAllies, replace: (m, mode, pr) => `${_modeLoc(mode, 'ko')}, 아군의 ${pr}을(를) 전환.` },
+        { match: _P.modeFlipSpecificSelf, replace: (m, mode, pr) => `${_modeLoc(mode, 'ko')}, 자신의 ${pr}을(를) 전환.` },
+        { match: _P.otherwiseFlipSpecificTarget, replace: (m, pr) => `그렇지 않으면, 주요 대상의 ${pr}을(를) 전환.` },
+        { match: _P.targetHasFlipSpecific, replace: (m, cond, pr) => `주요 대상이 ${cond}을(를) 보유한 경우, 주요 대상의 ${pr}을(를) 전환.` },
+        { match: _P.gainPlusMax, replace: (m, c, pr, max) => `+${c} ${pr} 획득, 최대 ${max}까지.` },
       ],
     },
     // ==================== RUSSIAN ====================
@@ -3043,6 +3124,16 @@
         { match: _P.anyEnemyHasFlipTarget, replace: (m, c) => `Если у врага есть положительные эффекты, переворачивает ${c} положительный(е) эффект(ы) в отрицательные на основной цели.` },
         { match: _P.copyCountExclTwo, replace: (m, c, pr1, pr2) => `Копирует ${c} положительный(е) эффект(ы) с основной цели, кроме ${pr1} и ${pr2}.` },
         { match: _P.selfHasProcClearAllNegAllies, replace: (m, pr) => `Если у персонажа ${pr}, удаляет все отрицательный(е) эффект(ы) у союзников.` },
+        // --- Fix: specific proc flip + self-buff gain ---
+        { match: _P.flipSpecificTarget, replace: (m, pr) => `Переворачивает ${pr} на основной цели.` },
+        { match: _P.flipSpecificAllies, replace: (m, pr) => `Переворачивает ${pr} на союзниках.` },
+        { match: _P.flipSpecificSelf, replace: (m, pr) => `Переворачивает ${pr} на себе.` },
+        { match: _P.modeFlipSpecificTarget, replace: (m, mode, pr) => `${_modeLoc(mode, 'ru')}: переворачивает ${pr} на основной цели.` },
+        { match: _P.modeFlipSpecificAllies, replace: (m, mode, pr) => `${_modeLoc(mode, 'ru')}: переворачивает ${pr} на союзниках.` },
+        { match: _P.modeFlipSpecificSelf, replace: (m, mode, pr) => `${_modeLoc(mode, 'ru')}: переворачивает ${pr} на себе.` },
+        { match: _P.otherwiseFlipSpecificTarget, replace: (m, pr) => `В противном случае: переворачивает ${pr} на основной цели.` },
+        { match: _P.targetHasFlipSpecific, replace: (m, cond, pr) => `Если у основной цели ${cond}: переворачивает ${pr} на основной цели.` },
+        { match: _P.gainPlusMax, replace: (m, c, pr, max) => `Получает +${c} ${pr}, до максимума ${max}.` },
       ],
     },
   };
