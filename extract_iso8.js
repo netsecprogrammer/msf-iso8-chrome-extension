@@ -585,7 +585,7 @@ function getTargetText(target, procNames) {
             if (limit > 1) return `the ${limit} most injured ${traits}allies${selfSuffix}`;
             return `the most injured ${traits}ally${selfSuffix}`;
         }
-        if (target.type === 'random') return `a random ${traits}ally${healthFilter}${selfSuffix}`;
+        if (target.type === 'random' && limit < 10) return `a random ${traits}ally${healthFilter}${selfSuffix}`;
         if (target.type === 'by_least_turn_meter') return `the ${traits}ally with the lowest Speed Bar${selfSuffix}`;
         if (target.type === 'by_most_stat') {
             const statName = target.by_stat ? formatStatName(target.by_stat) : '';
@@ -606,7 +606,7 @@ function getTargetText(target, procNames) {
         }
 
         if (limit >= 10) {
-             if (traits) return `self and all ${traits}allies${healthFilter}`;
+             if (traits) return `all ${traits}allies${healthFilter}`;
              return `allies${healthFilter}`;
         }
 
