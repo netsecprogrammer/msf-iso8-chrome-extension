@@ -1030,13 +1030,13 @@
     "notes": []
   },
   "Forge": {
-    "description": "Attack primary target for 165% damage + 17% Piercing.\\nApply Deflect to the most injured X-MEN ally.\\nApply Regeneration to the most injured X-MEN ally.",
+    "description": "Attack primary target for 165% damage + 17% Piercing.\\nApply Deflect to the 10 most injured X-MEN allies.\\nApply Regeneration to the 10 most injured X-MEN allies.",
     "damage": 165,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Deflect to the most injured X-MEN ally.",
-      "Apply Regeneration to the most injured X-MEN ally."
+      "Apply Deflect to the 10 most injured X-MEN allies.",
+      "Apply Regeneration to the 10 most injured X-MEN allies."
     ],
     "notes": []
   },
@@ -1213,13 +1213,13 @@
     "notes": []
   },
   "Groot": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply 2 Regeneration for 2 turns to allies.\\nApply 2 Regeneration for 2 turns to the most injured ally.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\nGain 2 Regeneration for 2 turns.\\nApply 2 Regeneration for 2 turns to the 2 most injured allies.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply 2 Regeneration for 2 turns to allies.",
-      "Apply 2 Regeneration for 2 turns to the most injured ally."
+      "Gain 2 Regeneration for 2 turns.",
+      "Apply 2 Regeneration for 2 turns to the 2 most injured allies."
     ],
     "notes": []
   },
@@ -2560,13 +2560,13 @@
     ]
   },
   "Nobu": {
-    "description": "Attack primary target for 238% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Stealth to the most injured ally.",
+    "description": "Attack primary target for 238% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Stealth to the 2 most injured allies.",
     "damage": 238,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Bleed to the primary target.",
-      "Apply Stealth to the most injured ally."
+      "Apply Stealth to the 2 most injured allies."
     ],
     "notes": []
   },
@@ -2751,14 +2751,14 @@
     "notes": []
   },
   "PeterBParker": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nApply Regeneration to the most injured HERO SPIDER-VERSE ally.\\nApply Evade to the most injured SPIDER SOCIETY ally.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nApply Regeneration to the 2 most injured HERO SPIDER-VERSE allies.\\nApply Evade to the 2 most injured SPIDER SOCIETY allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down for 2 turns to the primary target.",
-      "Apply Regeneration to the most injured HERO SPIDER-VERSE ally.",
-      "Apply Evade to the most injured SPIDER SOCIETY ally."
+      "Apply Regeneration to the 2 most injured HERO SPIDER-VERSE allies.",
+      "Apply Evade to the 2 most injured SPIDER SOCIETY allies."
     ],
     "notes": []
   },
@@ -4476,12 +4476,12 @@
     "notes": []
   },
   "Wong": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nClear 1 negative effect(s) from the most injured DARKHOLD ally.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nClear 1 negative effect(s) from the 10 most injured DARKHOLD allies.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear 1 negative effect(s) from the most injured DARKHOLD ally."
+      "Clear 1 negative effect(s) from the 10 most injured DARKHOLD allies."
     ],
     "notes": []
   },

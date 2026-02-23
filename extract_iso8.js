@@ -581,7 +581,10 @@ function getTargetText(target, procNames) {
         const selfSuffix = excludeSelf ? ' (excluding self)' : '';
 
         // Handle special targeting types
-        if (target.type === 'by_least_health') return `the most injured ${traits}ally${selfSuffix}`;
+        if (target.type === 'by_least_health') {
+            if (limit > 1) return `the ${limit} most injured ${traits}allies${selfSuffix}`;
+            return `the most injured ${traits}ally${selfSuffix}`;
+        }
         if (target.type === 'random') return `a random ${traits}ally${healthFilter}${selfSuffix}`;
         if (target.type === 'by_least_turn_meter') return `the ${traits}ally with the lowest Speed Bar${selfSuffix}`;
         if (target.type === 'by_most_stat') {
@@ -1442,6 +1445,15 @@ function processCharacter(charName, charData) {
         if (!action.target) {
             const allDebuffs = action.procs.every(p => DEBUFF_PROCS.has(p.proc));
             if (!allDebuffs) targetText = 'self';
+        }
+        // When paired with an exclude_from_pool sibling applying the same proc,
+        // this "all allies" action is really "self" (sibling handles the extra targets)
+        if (targetText === 'allies' && action.target && action.target.relation === 'ally' && !getMax(action.target.limit)) {
+            const hasExcludeSibling = allActions.some(other =>
+                other !== action && other.target && other.target.primary_selection === 'exclude_from_pool' &&
+                other.procs && action.procs && other.procs.some(op => action.procs.some(ap => ap.proc === op.proc))
+            );
+            if (hasExcludeSibling) targetText = 'self';
         }
 
         // When globalApplyCount is set, it means "select N procs from the ordered list"
