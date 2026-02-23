@@ -745,7 +745,9 @@ function processCharacter(charName, charData) {
     charData.basic.actions.forEach(a => {
       const hasCounter = a.counter === true;
       const hasAssist = a.assist !== undefined;
-      if (!hasCounter && !hasAssist) return;
+      const isChainAction = a.target && a.target.type &&
+          (a.target.type === 'direct_neighbor' || a.target.type === 'direct_neighbor_repeatable');
+      if (!hasCounter && !hasAssist && !isChainAction) return;
       // Skip empty_result actions (placeholders)
       if (a.action === 'empty_result') return;
       // Skip shared template actions that only apply to a specific character
@@ -759,7 +761,9 @@ function processCharacter(charName, charData) {
       const hasConditionalStats = a.stat_modifier && a.stat_modifier.some(m => m.apply_if);
       if (hasCounter && hasAssist && !a.action &&
           !a.only_if && !a.only_if_target && !a.only_if_any && !a.only_if_outcome &&
-          !hasConditionalStats) return;
+          !hasConditionalStats &&
+          !(a.target && (a.target.primary_selection === 'exclude_from_pool' ||
+                         a.target.primary_selection === 'exclude_as_first'))) return;
 
       let prefix = '';
       if (hasCounter && !hasAssist) prefix = 'On Counter, ';
@@ -1223,7 +1227,8 @@ function processCharacter(charName, charData) {
                 // Only conditional apply_if stats from second pass should be shown for these
                 const isInherentBasicDmg = isFromBasic && action.counter === true && action.assist !== undefined
                     && !action.only_if && !action.only_if_target && !action.only_if_any && !action.only_if_outcome
-                    && !(action.target && action.target.primary_selection === 'exclude_from_pool');
+                    && !(action.target && (action.target.primary_selection === 'exclude_from_pool' ||
+                                          action.target.primary_selection === 'exclude_as_first'));
 
                 if (!isInherentBasicDmg) {
                 // Basic counter/assist bonuses, crit bonuses, ally-conditional, and ally-target-conditional stats always go as effect lines
@@ -1236,14 +1241,35 @@ function processCharacter(charName, charData) {
 
                 // Check if this targets adjacent/chain enemies (not primary target)
                 let targetSuffix = '';
-                if (action.target && action.target.primary_selection === 'exclude_from_pool') {
-                    if (action.target.places_from_primary) {
+                if (action.target && (action.target.primary_selection === 'exclude_from_pool' ||
+                                      action.target.primary_selection === 'exclude_as_first')) {
+                    const chainLimit = getMax(action.target.limit);
+                    const isChain = action.target.type &&
+                        (action.target.type === 'direct_neighbor' || action.target.type === 'direct_neighbor_repeatable');
+
+                    if (isChain && chainLimit === 1) {
+                        targetSuffix = ' to 1 adjacent target';
+                    } else if (isChain && chainLimit > 1) {
+                        targetSuffix = ` to up to ${chainLimit} adjacent targets`;
+                    } else if (action.target.places_from_primary) {
                         targetSuffix = ' to adjacent enemies';
                     } else {
                         targetSuffix = ' to additional enemies';
                     }
                 }
                 effects.push(`${conditionPrefix}+${parts.join(' + ')}${targetSuffix}.`);
+                if (action.target && action.target.stop_if_outcome && targetSuffix) {
+                    for (const outcome of action.target.stop_if_outcome) {
+                        const noteText = outcome === 'counter_attack'
+                            ? 'Chain is broken by counter-attack.'
+                            : outcome === 'dodge'
+                            ? 'Chain is broken by dodge.'
+                            : null;
+                        if (noteText && !notes.includes(noteText)) {
+                            notes.push(noteText);
+                        }
+                    }
+                }
                 }
             } else if ((isConditionalTarget || (isPositivelyConditional && hasBaseStats)) && hasBaseStats) {
                 // Already have base stats — only add effect line if values differ
