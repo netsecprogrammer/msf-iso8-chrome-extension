@@ -1803,7 +1803,7 @@
     ]
   },
   "Karnak": {
-    "description": "Attack primary target for 205% damage.\\nClear all Evade from the primary target.",
+    "description": "Attack primary target for 205% damage + 25% Crit Chance.\\nClear all Evade from the primary target.",
     "damage": 205,
     "piercing": 0,
     "drain": 0,
@@ -2989,13 +2989,13 @@
     "notes": []
   },
   "Quicksilver": {
-    "description": "Attack primary target for 165% Piercing.\\nIf the primary target has positive effects, Clear 2 positive effect(s) from the primary target.\\nIf the primary target has positive effects, attack for 135% Piercing instead.\\nOtherwise, Apply +1 Disrupted to the primary target.",
+    "description": "Attack primary target for 135% Piercing.\\nIf the primary target has positive effects, Clear 2 positive effect(s) from the primary target.\\nOtherwise, attack for 165% Piercing instead.\\nOtherwise, Apply +1 Disrupted to the primary target.",
     "damage": 0,
-    "piercing": 165,
+    "piercing": 135,
     "drain": 0,
     "effects": [
       "If the primary target has positive effects, Clear 2 positive effect(s) from the primary target.",
-      "If the primary target has positive effects, attack for 135% Piercing instead.",
+      "Otherwise, attack for 165% Piercing instead.",
       "Otherwise, Apply +1 Disrupted to the primary target."
     ],
     "notes": []

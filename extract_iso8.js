@@ -526,6 +526,7 @@ function parseConditions(action) {
           const traits = extractAllyTraits(action.only_if_target);
           // Store ally traits on action for use in stat effect line formatting
           action._allyTargetTraits = traits || '';
+          action._isAllyTarget = true;
           conditions.push('When forced to attack an ally');
           if (!traits) {
               // No traits — generic ally targeting
@@ -734,6 +735,8 @@ function processCharacter(charName, charData) {
   let critDmg = 0;
   let mainStatsCondition = ''; // Track if main stats came from a conditional action
   let mainStatsAllyTraits = ''; // Track ally target traits for "forced to attack ally" wording
+  let mainStatsIsAllyTarget = false; // Track whether main stats came from an ally-target condition
+  let mainStatsIsTargetCondition = false; // Track whether main stats came from a target condition (only_if_target)
   const effects = [];
   const notes = [];
 
@@ -1290,32 +1293,53 @@ function processCharacter(charName, charData) {
                 if ((isPositivelyConditional || isConditionalTarget) && conditionPrefix) {
                     mainStatsCondition = conditionPrefix;
                     mainStatsAllyTraits = action._allyTargetTraits || '';
+                    mainStatsIsAllyTarget = !!action._isAllyTarget;
+                    mainStatsIsTargetCondition = isConditionalTarget;
                 }
-                // When if_prev_skipped overwrites main stats, it's the base/default case
-                // Clear mainStatsCondition and show old conditional stats as effect if different
-                // Fully replace all stats since if_prev_skipped is a complete alternative
+                // When if_prev_skipped overwrites main stats, handle based on condition type
                 if (action.action_cond === 'if_prev_skipped' && mainStatsCondition) {
-                    if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
-                        const oldParts = [];
-                        if (damage > 0) oldParts.push(`${damage}% damage`);
-                        if (piercing > 0) oldParts.push(`${piercing}% Piercing`);
-                        if (drain > 0) oldParts.push(`${drain}% Drain`);
-                        if (oldParts.length > 0) {
-                            if (mainStatsAllyTraits) {
-                                effects.push(`${mainStatsCondition}this character deals ${oldParts.join(' + ')} to ${mainStatsAllyTraits} characters.`);
-                            } else {
-                                effects.push(`${mainStatsCondition}attack for ${oldParts.join(' + ')} instead.`);
+                    if (mainStatsIsAllyTarget || !mainStatsIsTargetCondition) {
+                        // Forced-to-attack-ally or owner/self condition: swap to make fallback the base
+                        if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
+                            const oldParts = [];
+                            if (damage > 0) oldParts.push(`${damage}% damage`);
+                            if (piercing > 0) oldParts.push(`${piercing}% Piercing`);
+                            if (drain > 0) oldParts.push(`${drain}% Drain`);
+                            if (oldParts.length > 0) {
+                                if (mainStatsAllyTraits) {
+                                    effects.push(`${mainStatsCondition}this character deals ${oldParts.join(' + ')} to ${mainStatsAllyTraits} characters.`);
+                                } else {
+                                    effects.push(`${mainStatsCondition}attack for ${oldParts.join(' + ')} instead.`);
+                                }
                             }
                         }
+                        mainStatsCondition = '';
+                        mainStatsAllyTraits = '';
+                        mainStatsIsAllyTarget = false;
+                        mainStatsIsTargetCondition = false;
+                        // Full reset — base replaces conditional entirely
+                        damage = localDmg;
+                        piercing = localPierce;
+                        drain = localDrain;
+                        critChance = localCritChance;
+                        critDmg = localCritDmg;
+                    } else {
+                        // Target condition (e.g. "if target has buffs"): keep conditional as base, show skip as "Otherwise"
+                        if (localDmg !== damage || localPierce !== piercing || localDrain !== drain) {
+                            const altParts = [];
+                            if (localDmg > 0) altParts.push(`${localDmg}% damage`);
+                            if (localPierce > 0) altParts.push(`${localPierce}% Piercing`);
+                            if (localDrain > 0) altParts.push(`${localDrain}% Drain`);
+                            if (altParts.length > 0) {
+                                effects.push(`Otherwise, attack for ${altParts.join(' + ')} instead.`);
+                            }
+                        }
+                        mainStatsCondition = '';
+                        mainStatsAllyTraits = '';
+                        mainStatsIsAllyTarget = false;
+                        mainStatsIsTargetCondition = false;
+                        // DON'T swap — keep conditional path as the base stats
                     }
-                    mainStatsCondition = '';
-                    mainStatsAllyTraits = '';
-                    // Full reset — base replaces conditional entirely
-                    damage = localDmg;
-                    piercing = localPierce;
-                    drain = localDrain;
-                    critChance = localCritChance;
-                    critDmg = localCritDmg;
                 } else {
                     if (localDmg > 0) damage = localDmg;
                     if (localPierce > 0) piercing = localPierce;
