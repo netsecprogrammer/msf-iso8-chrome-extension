@@ -230,7 +230,7 @@
     modeSelfHasApply:      /^In (.+?), If self has (.+?), Apply (.+?) to the primary target\.$/,
     onAssistEnergy:        /^On (.+?) assist, Generate \+(\d+) Ability Energy for self\.$/,
     modeReduceSpeedPerAlly:/^In (.+?), Reduce Speed Bar by (\d+)% for each (.+?) ally\.$/,
-    healthHealAllies:      /^If this character has less than (\d+)% Health, Heal allies for (\d+)% of Max Health\.$/,
+    healthHealAllies:      /^If this character has less than (\d+)% Health, Heal for (\d+)% of this character's Max Health\.$/,
     modeIgnoresDefUp:      /^On (.+?), this attack ignores Defense Up\.$/,
     // --- Batch 3 patterns (LokiTeen, Kahhori, Odin, BetaRayBill, PeniParker) ---
     // LokiTeen
@@ -368,13 +368,13 @@
     ifAllyNoteAttackCant:      /^If (.+?) is an ally, this attack cannot be (.+?)\.$/,
     statPerTraitAlly:          /^\+(\d+)% (.+?) for each (.+?) ally\.$/,
     genEnergyForNamed:         /^Generate \+(\d+) Ability Energy for (.+?)\.$/,
-    healRandomTraitAlly:       /^Heal a random (.+?) ally for (\d+)% of Max Health\.$/,
+    healRandomTraitAlly:       /^Heal a random (.+?) ally for (\d+)% of this character's Max Health\.$/,
     targetHasStatBoost:        /^If (?:the primary )?target has (.+?), \+(\d+)% (.+?)\.$/,
     flipNegToPosRandomTraitAlly: /^Flip (\d+) negative effect\(s\) to positive on a random (.+?) ally\.$/,
     dealRedistribute:         /^Deal (\d+)% of target's Max Health and redistribute to (.+?)\.$/,
     selfNotHasApplyAllies:     /^If self does not have (.+?), Apply (.+?) to allies\.$/,
     selfIsTraitDmg:            /^If self is (.+?), \+(\d+)% damage\.$/,
-    healAllies:                /^Heal allies for (\d+)% of Max Health\.$/,
+    healAllies:                /^Heal for (\d+)% of this character's Max Health\.$/,
     stealCountExcluding:       /^Steal (\d+) positive effect\(s\) from the primary target, excluding (.+?)\.$/,
     onCritGainPlusMax:      /^On Crit, Gain \+(\d+) (.+?), up to a maximum of (\d+)\.$/,
     modeGenEnergyTraitAllies:  /^In (.+?), Generate \+(\d+) Ability Energy for (.+?) allies\.$/,
@@ -474,7 +474,7 @@
     selfHasGainSpeedBar:       /^If self has (.+?), Gain (\d+)% Speed Bar\.$/,
     selfHasGainCount:          /^If self has (.+?), Gain (\d+) (.+?)\.$/,
     selfHasGain:               /^If self has (.+?), Gain (.+?)\.$/,
-    healTarget:                /^Heal the primary target for (\d+)% of Max Health\.$/,
+    healTarget:                /^Heal the primary target for (\d+)% of this character's Max Health\.$/,
     ifAllyApplyCount:          /^If (.+?) is an ally, Apply (\d+) (.+?) to the primary target\.$/,
     notModeChanceGain:         /^Not in (.+?), (\d+)% chance to Gain (.+?)\.$/,
     ifAllyDmgPierce:           /^If (.+?) is an ally, \+(\d+)% damage \+ (\d+)% Piercing\.$/,
@@ -517,11 +517,11 @@
     targetTraitApplyCountMaxInjured: /^If the primary target is (.+?), Apply \+(\d+) (.+?), up to a maximum of (\d+) to the most injured ally\.$/,
     modeGenEnergyChar:         /^In (.+?), Generate \+(\d+) Ability Energy for (.+?)\.$/,
     targetTraitApplyInjuredWithout: /^If the primary target is (.+?), Apply (.+?) to the most injured without (.+?) ally\.$/,
-    modeHealRandomTraitAlly:   /^In (.+?), Heal a random (.+?) ally for (\d+)% of Max Health\.$/,
+    modeHealRandomTraitAlly:   /^In (.+?), Heal a random (.+?) ally for (\d+)% of this character's Max Health\.$/,
     selfHasOrLessGainMax:/^If self has (\d+) or less (.+?), Gain \+(\d+) (.+?), up to a maximum of (\d+)\.$/,
     selfHasProcChanceApplyTarget:/^If self has (.+?), (\d+)% chance to Apply (.+?) to the primary target\.$/,
     otherwiseSelfHasChanceGain:/^Otherwise, If self has (.+?), (\d+)% chance to Gain (.+?)\.$/,
-    otherwiseSelfHasHealInjured:/^Otherwise, If self has (.+?), Heal the most injured ally for (\d+)% of Max Health\.$/,
+    otherwiseSelfHasHealInjured:/^Otherwise, If self has (.+?), Heal the most injured ally or self for (\d+)% of this character's Max Health\.$/,
     // --- Batch 15 patterns (final) ---
     targetHasRemoveTarget:     /^If the primary target has (.+?), Remove (.+?) from the primary target\.$/,
     targetHasBarrierAllies:    /^If the primary target has (.+?), Barrier for (\d+)% of (?:this character's )?Max Health to allies\.$/,
@@ -570,7 +570,7 @@
     applyProcAllTraitAllies:     /^Apply (.+?) to all (.+?) allies\.$/,
     applyProcDurAllTraitAllies:  /^Apply (.+?) for (\d+) turns to all (.+?) allies\.$/,
     applyMaxAllTraitAllies:      /^Apply \+(\d+) (.+?), up to a maximum of (\d+) to all (.+?) allies\.$/,
-    healAllTraitAllies:          /^Heal all (.+?) allies for (\d+)% of Max Health\.$/,
+    healAllTraitAllies:          /^Heal all (.+?) allies for (\d+)% of this character's Max Health\.$/,
     barrierAllTraitAllies:       /^Barrier for (\d+)% of (?:this character's )?Max Health to all (.+?) allies\.$/,
     flipNegToPosAllTraitAllies:  /^Flip (\d+) negative effect\(s\) to positive on all (.+?) allies\.$/,
     clearNegAllTraitAllies:      /^Clear (\d+) negative effect\(s\) from all (.+?) allies\.$/,
@@ -578,7 +578,7 @@
     modeBarrierAllies:           /^In (.+?), Barrier for (\d+)% of (?:this character's )?Max Health to allies\.$/,
     modeBarrierSelfAndAllAllies: /^In (.+?), Barrier for (\d+)% of (?:this character's )?Max Health to self and all allies\.$/,
     modeApplyAllTraitAllies:     /^In (.+?), Apply \+(\d+) (.+?) to all (.+?) allies\.$/,
-    modeHealAllTraitAllies:      /^In (.+?), Heal all (.+?) allies for (\d+)% of Max Health\.$/,
+    modeHealAllTraitAllies:      /^In (.+?), Heal all (.+?) allies for (\d+)% of this character's Max Health\.$/,
     modeOrSubClearNegAllTraitAllies: /^In (.+?) or (.+?), (.+?), Clear (\d+) negative effect\(s\) from all (.+?) allies\.$/,
     modeHealthReduceDurAllTraitAllies: /^In (.+?), If this character has more than (\d+)% Health, Reduce the duration of negative effects by (\d+) on all (.+?) allies\.$/,
     // --- Extra Focus patterns ---
@@ -589,7 +589,8 @@
     selfHasExtraFocus:           /^If self has (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
     modeSubTargetHasExtraFocus:  /^In (.+?), (.+?), If the primary target has (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
     otherwiseModeSubExtraFocus:  /^Otherwise, In (.+?), (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
-    healMostInjuredAlly:         /^Heal the most injured ally for (\d+)% of Max Health\.$/,
+    healMostInjuredAlly:         /^Heal the most injured ally or self for (\d+)% of this character's Max Health\.$/,
+    firstTimeGainProc:           /^The first time this ability is used, gain (.+?)\.$/,
   };
 
   const SENTENCE_TEMPLATES = {
@@ -970,6 +971,7 @@
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'fr')}, ${sub}, si la cible principale a ${proc}, cette attaque gagne +${p} % de Focus supplémentaire.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Sinon, ${_modeLoc(mode, 'fr')}, ${sub}, cette attaque gagne +${p} % de Focus supplémentaire.` },
         { match: _P.healMostInjuredAlly, replace: (m, p) => `Soigne l'allié le plus blessé de ${p} % de la vie max.` },
+        { match: _P.firstTimeGainProc, replace: (m, proc) => `La première fois que cette capacité est utilisée, obtient ${proc}.` },
       ],
     },
     // ==================== GERMAN ====================
@@ -1349,6 +1351,7 @@
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'de')}, ${sub}: Wenn das Primärziel ${proc} hat, erhält dieser Angriff +${p} % zusätzlichen Fokus.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Andernfalls, ${_modeLoc(mode, 'de')}, ${sub}: Dieser Angriff erhält +${p} % zusätzlichen Fokus.` },
         { match: _P.healMostInjuredAlly, replace: (m, p) => `Heilt den am meisten verletzten Verbündeten um ${p} % der max. LP.` },
+        { match: _P.firstTimeGainProc, replace: (m, proc) => `Bei der ersten Nutzung dieser Fähigkeit erhält man ${proc}.` },
       ],
     },
     // ==================== SPANISH ====================
@@ -1728,6 +1731,7 @@
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'es')}, ${sub}, si el objetivo principal tiene ${proc}, este ataque gana +${p} % de Focus adicional.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `De lo contrario, ${_modeLoc(mode, 'es')}, ${sub}, este ataque gana +${p} % de Focus adicional.` },
         { match: _P.healMostInjuredAlly, replace: (m, p) => `Cura al aliado más herido en un ${p} % de la salud máxima.` },
+        { match: _P.firstTimeGainProc, replace: (m, proc) => `La primera vez que se usa esta habilidad, obtiene ${proc}.` },
       ],
     },
     // ==================== PORTUGUESE ====================
@@ -2107,6 +2111,7 @@
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'pt')}, ${sub}, se o alvo primário tiver ${proc}, este ataque ganha +${p}% de Foco adicional.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Caso contrário, ${_modeLoc(mode, 'pt')}, ${sub}, este ataque ganha +${p}% de Foco adicional.` },
         { match: _P.healMostInjuredAlly, replace: (m, p) => `Cura o aliado mais ferido em ${p}% da vida máxima.` },
+        { match: _P.firstTimeGainProc, replace: (m, proc) => `Na primeira vez que esta habilidade é usada, obtém ${proc}.` },
       ],
     },
     // ==================== ITALIAN ====================
@@ -2486,6 +2491,7 @@
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'it')}, ${sub}, se il bersaglio primario ha ${proc}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Altrimenti, ${_modeLoc(mode, 'it')}, ${sub}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
         { match: _P.healMostInjuredAlly, replace: (m, p) => `L'alleato più ferito viene curato del ${p}% della salute massima.` },
+        { match: _P.firstTimeGainProc, replace: (m, proc) => `La prima volta che questa abilità viene usata, ottiene ${proc}.` },
       ],
     },
     // ==================== JAPANESE ====================
@@ -2865,6 +2871,7 @@
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'ja')}、${sub}、メインターゲットが${proc}を持っている場合、この攻撃は+${p}%の追加フォーカスを得る。` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `それ以外で、${_modeLoc(mode, 'ja')}、${sub}、この攻撃は+${p}%の追加フォーカスを得る。` },
         { match: _P.healMostInjuredAlly, replace: (m, p) => `最も負傷した味方を最大体力の${p}%回復。` },
+        { match: _P.firstTimeGainProc, replace: (m, proc) => `このアビリティの初回使用時、${proc}を獲得。` },
       ],
     },
     // ==================== KOREAN ====================
@@ -3244,6 +3251,7 @@
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'ko')}, ${sub}, 주요 대상이 ${proc}을 보유하면, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `그렇지 않으면, ${_modeLoc(mode, 'ko')}, ${sub}, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
         { match: _P.healMostInjuredAlly, replace: (m, p) => `가장 부상이 심한 아군을 최대 체력의 ${p}% 회복합니다.` },
+        { match: _P.firstTimeGainProc, replace: (m, proc) => `이 능력을 처음 사용할 때 ${proc}을 획득합니다.` },
       ],
     },
     // ==================== RUSSIAN ====================
@@ -3623,6 +3631,7 @@
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'ru')}, ${sub}: если у основной цели есть ${proc}, эта атака получает +${p} % дополнительного фокуса.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Иначе, ${_modeLoc(mode, 'ru')}, ${sub}: эта атака получает +${p} % дополнительного фокуса.` },
         { match: _P.healMostInjuredAlly, replace: (m, p) => `Исцеляет наиболее раненого союзника на ${p} % от макс. здоровья.` },
+        { match: _P.firstTimeGainProc, replace: (m, proc) => `При первом использовании этой способности получает ${proc}.` },
       ],
     },
   };

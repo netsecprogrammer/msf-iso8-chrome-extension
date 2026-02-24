@@ -71,6 +71,7 @@ const PROC_MAP = {
   'BrickMaterial': 'Brick Material',
   'AssistNow': 'Assist Now',
   'InvisibleNonPersist': 'Stealth',
+  'CrescentMoon': 'Crescent Moon',
   // Trait names used in conditions and targeting
   'AbsoluteAForce': 'Absolute A-Force',
   'NewAvenger': 'New Avenger',
@@ -1598,6 +1599,25 @@ function processCharacter(charName, charData) {
             });
         }
 
+        // Detect tracking proc pattern: action applies both X and XTracking,
+        // with condition "if self does not have XTracking" → "first time only, gain X"
+        if (action.only_if && action.only_if.not && action.only_if.not.owner &&
+            action.only_if.not.owner.procs) {
+            const trackingProcs = action.only_if.not.owner.procs;
+            const appliedProcs = action.procs.map(p => p.proc);
+            for (const tp of trackingProcs) {
+                if (tp.endsWith('Tracking') && appliedProcs.includes(tp)) {
+                    const baseName = tp.replace(/Tracking$/, '');
+                    if (appliedProcs.includes(baseName)) {
+                        const formattedName = formatProcName(baseName);
+                        effects.push(`The first time this ability is used, gain ${formattedName}.`);
+                        Object.keys(procGroups).forEach(k => delete procGroups[k]);
+                        break;
+                    }
+                }
+            }
+        }
+
         Object.keys(procGroups).forEach(procName => {
             let count = procGroups[procName].count;
             const duration = procGroups[procName].duration;
@@ -1762,8 +1782,18 @@ function processCharacter(charName, charData) {
               const targetText = getTargetText(action.target);
               if (targetText === 'self') {
                   effects.push(`${conditionPrefix}Heal self for ${healPct}% of Max Health.`);
+              } else if (targetText === 'allies') {
+                  // All allies (including self) — simplify wording
+                  effects.push(`${conditionPrefix}Heal for ${healPct}% of this character's Max Health.`);
               } else {
-                  effects.push(`${conditionPrefix}Heal ${targetText} for ${healPct}% of Max Health.`);
+                  // For by_least_health ally targets, add "or self" if self not excluded
+                  let orSelf = '';
+                  if (action.target && action.target.type === 'by_least_health' &&
+                      action.target.relation === 'ally' &&
+                      !targetText.includes('excluding self')) {
+                      orSelf = ' or self';
+                  }
+                  effects.push(`${conditionPrefix}Heal ${targetText}${orSelf} for ${healPct}% of this character's Max Health.`);
               }
           }
       }

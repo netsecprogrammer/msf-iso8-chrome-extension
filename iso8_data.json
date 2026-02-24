@@ -175,14 +175,14 @@
     "notes": []
   },
   "Apocalypse": {
-    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nGain Offense Up.\\nGain Speed Up.\\nIf this character has less than 100% Health, Heal allies for 5% of Max Health.\\nIf self has Charged, Apply Stun to the primary target.\\nIf self has Charged, Clear 1 Charged from allies.\\nApply Bleed to the primary target.",
+    "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nGain Offense Up.\\nGain Speed Up.\\nIf this character has less than 100% Health, Heal for 5% of this character's Max Health.\\nIf self has Charged, Apply Stun to the primary target.\\nIf self has Charged, Clear 1 Charged from allies.\\nApply Bleed to the primary target.",
     "damage": 250,
     "piercing": 17,
     "drain": 100,
     "effects": [
       "Gain Offense Up.",
       "Gain Speed Up.",
-      "If this character has less than 100% Health, Heal allies for 5% of Max Health.",
+      "If this character has less than 100% Health, Heal for 5% of this character's Max Health.",
       "If self has Charged, Apply Stun to the primary target.",
       "If self has Charged, Clear 1 Charged from allies.",
       "Apply Bleed to the primary target."
@@ -853,12 +853,12 @@
     ]
   },
   "DoctorVoodoo": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nHeal all DARK HUNTER allies for 8% of Max Health.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nHeal all DARK HUNTER allies for 8% of this character's Max Health.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Heal all DARK HUNTER allies for 8% of Max Health."
+      "Heal all DARK HUNTER allies for 8% of this character's Max Health."
     ],
     "notes": []
   },
@@ -931,15 +931,14 @@
     "notes": []
   },
   "Eclipse": {
-    "description": "Attack primary target for 237% damage + 17% Piercing.\\nHeal allies for 5% of Max Health.\\nHeal the most injured ally for 5% of Max Health.\\nIf self does not have CrescentMoonTracking, Apply CrescentMoon to allies.\\nIf self does not have CrescentMoonTracking, Apply CrescentMoonTracking to allies.",
+    "description": "Attack primary target for 237% damage + 17% Piercing.\\nHeal for 5% of this character's Max Health.\\nHeal the most injured ally or self for 5% of this character's Max Health.\\nThe first time this ability is used, gain Crescent Moon.",
     "damage": 237,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Heal allies for 5% of Max Health.",
-      "Heal the most injured ally for 5% of Max Health.",
-      "If self does not have CrescentMoonTracking, Apply CrescentMoon to allies.",
-      "If self does not have CrescentMoonTracking, Apply CrescentMoonTracking to allies."
+      "Heal for 5% of this character's Max Health.",
+      "Heal the most injured ally or self for 5% of this character's Max Health.",
+      "The first time this ability is used, gain Crescent Moon."
     ],
     "notes": []
   },
@@ -1518,13 +1517,13 @@
     "notes": []
   },
   "Hyperion": {
-    "description": "Attack primary target for 244% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nHeal allies for 5% of Max Health.",
+    "description": "Attack primary target for 244% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nHeal for 5% of this character's Max Health.",
     "damage": 244,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Bleed to the primary target.",
-      "Heal allies for 5% of Max Health."
+      "Heal for 5% of this character's Max Health."
     ],
     "notes": []
   },
@@ -2007,14 +2006,14 @@
     "notes": []
   },
   "LivingMummy": {
-    "description": "Attack primary target for 187% Piercing.\\nIf self has Revive Once, Gain Counter.\\nIf self has Revive Once, Gain Speed Up.\\nHeal the primary target for 15% of Max Health.",
+    "description": "Attack primary target for 187% Piercing.\\nIf self has Revive Once, Gain Counter.\\nIf self has Revive Once, Gain Speed Up.\\nHeal the primary target for 15% of this character's Max Health.",
     "damage": 0,
     "piercing": 187,
     "drain": 0,
     "effects": [
       "If self has Revive Once, Gain Counter.",
       "If self has Revive Once, Gain Speed Up.",
-      "Heal the primary target for 15% of Max Health."
+      "Heal the primary target for 15% of this character's Max Health."
     ],
     "notes": []
   },
@@ -2280,13 +2279,13 @@
     ]
   },
   "Mockingbird": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nHeal all non-NEW AVENGER allies for 5% of Max Health.\\nHeal all NEW AVENGER allies for 10% of Max Health.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nHeal all non-NEW AVENGER allies for 5% of this character's Max Health.\\nHeal all NEW AVENGER allies for 10% of this character's Max Health.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Heal all non-NEW AVENGER allies for 5% of Max Health.",
-      "Heal all NEW AVENGER allies for 10% of Max Health."
+      "Heal all non-NEW AVENGER allies for 5% of this character's Max Health.",
+      "Heal all NEW AVENGER allies for 10% of this character's Max Health."
     ],
     "notes": []
   },
@@ -2409,14 +2408,14 @@
     "notes": []
   },
   "MsMarvelClassic": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf the primary target is ABSOLUTE A-FORCE, Apply Defense Up to the most injured without Defense Up ally.\\nIf the primary target is ABSOLUTE A-FORCE, Gain +1 Regeneration.\\nIn WAR, Heal all ABSOLUTE A-FORCE allies for 10% of Max Health.\\nIf self has 2 or less Charged, Gain +3 Charged, up to a maximum of 3.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf the primary target is ABSOLUTE A-FORCE, Apply Defense Up to the most injured without Defense Up ally.\\nIf the primary target is ABSOLUTE A-FORCE, Gain +1 Regeneration.\\nIn WAR, Heal all ABSOLUTE A-FORCE allies for 10% of this character's Max Health.\\nIf self has 2 or less Charged, Gain +3 Charged, up to a maximum of 3.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If the primary target is ABSOLUTE A-FORCE, Apply Defense Up to the most injured without Defense Up ally.",
       "If the primary target is ABSOLUTE A-FORCE, Gain +1 Regeneration.",
-      "In WAR, Heal all ABSOLUTE A-FORCE allies for 10% of Max Health.",
+      "In WAR, Heal all ABSOLUTE A-FORCE allies for 10% of this character's Max Health.",
       "If self has 2 or less Charged, Gain +3 Charged, up to a maximum of 3."
     ],
     "notes": []
@@ -2543,14 +2542,14 @@
     "notes": []
   },
   "NicoMinoru": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nIf self has Arcane Runic, 33% chance to Apply Bleed to the primary target.\\nOtherwise, If self has Arcane Runic, 50% chance to Gain Defense Up.\\nOtherwise, If self has Arcane Runic, Heal the most injured ally for 15% of Max Health.\\nIf self does not have Arcane Runic, Apply Arcane Runic to allies.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nIf self has Arcane Runic, 33% chance to Apply Bleed to the primary target.\\nOtherwise, If self has Arcane Runic, 50% chance to Gain Defense Up.\\nOtherwise, If self has Arcane Runic, Heal the most injured ally or self for 15% of this character's Max Health.\\nIf self does not have Arcane Runic, Apply Arcane Runic to allies.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If self has Arcane Runic, 33% chance to Apply Bleed to the primary target.",
       "Otherwise, If self has Arcane Runic, 50% chance to Gain Defense Up.",
-      "Otherwise, If self has Arcane Runic, Heal the most injured ally for 15% of Max Health.",
+      "Otherwise, If self has Arcane Runic, Heal the most injured ally or self for 15% of this character's Max Health.",
       "If self does not have Arcane Runic, Apply Arcane Runic to allies."
     ],
     "notes": []
@@ -4046,12 +4045,12 @@
     "notes": []
   },
   "TheLeader": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nHeal all VILLAIN or GAMMA allies for 10% of Max Health.\\nFlip 2 negative effect(s) to positive on all CABAL allies.\\nClear 1 negative effect(s) from all VILLAIN allies.\\nGain Stealth for 2 turns.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nHeal all VILLAIN or GAMMA allies for 10% of this character's Max Health.\\nFlip 2 negative effect(s) to positive on all CABAL allies.\\nClear 1 negative effect(s) from all VILLAIN allies.\\nGain Stealth for 2 turns.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Heal all VILLAIN or GAMMA allies for 10% of Max Health.",
+      "Heal all VILLAIN or GAMMA allies for 10% of this character's Max Health.",
       "Flip 2 negative effect(s) to positive on all CABAL allies.",
       "Clear 1 negative effect(s) from all VILLAIN allies.",
       "Gain Stealth for 2 turns."
