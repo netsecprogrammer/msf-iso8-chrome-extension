@@ -714,13 +714,12 @@
     "notes": []
   },
   "Daredevil": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to DARINGWARRIOR characters.\\nIf self is VILLAIN, +200% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to DARINGWARRIOR characters.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to DARINGWARRIOR characters.",
-      "If self is VILLAIN, +200% damage."
+      "When forced to attack an ally, this character deals 25% damage to DARINGWARRIOR characters."
     ],
     "notes": []
   },
@@ -1002,7 +1001,7 @@
     "notes": []
   },
   "Falcon": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIn WAR, +120% Piercing.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
@@ -1012,8 +1011,7 @@
       "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
       "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
       "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
-      "In WAR, +120% Piercing."
+      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies."
     ],
     "notes": []
   },
@@ -2009,15 +2007,14 @@
     "notes": []
   },
   "LivingMummy": {
-    "description": "Attack primary target for 187% Piercing.\\nIf self has Revive Once, Gain Counter.\\nIf self has Revive Once, Gain Speed Up.\\nHeal the primary target for 15% of Max Health.\\nIn DEFENSE, +250% damage.",
+    "description": "Attack primary target for 187% Piercing.\\nIf self has Revive Once, Gain Counter.\\nIf self has Revive Once, Gain Speed Up.\\nHeal the primary target for 15% of Max Health.",
     "damage": 0,
     "piercing": 187,
     "drain": 0,
     "effects": [
       "If self has Revive Once, Gain Counter.",
       "If self has Revive Once, Gain Speed Up.",
-      "Heal the primary target for 15% of Max Health.",
-      "In DEFENSE, +250% damage."
+      "Heal the primary target for 15% of Max Health."
     ],
     "notes": []
   },
@@ -2085,13 +2082,11 @@
     "notes": []
   },
   "Longshot": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf an X-FACTOR ally exists, +210% damage.",
+    "description": "Attack primary target for 210% damage + 17% Piercing",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "If an X-FACTOR ally exists, +210% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "LukeCage": {
@@ -2631,15 +2626,14 @@
     "notes": []
   },
   "Nova": {
-    "description": "Attack primary target for 300% damage + 17% Piercing.\\nIn WAR, OFFENSE, If the primary target has Barrier, Remove Barrier from the primary target.\\nNot in WAR, Clear 2 positive effect(s) from the primary target.\\nIn WAR, Clear 4 positive effect(s) from the primary target.\\nIn WAR, OFFENSE, If self has Nova Force Tracking, +250% damage + 17% Piercing.",
+    "description": "Attack primary target for 300% damage + 17% Piercing.\\nIn WAR, OFFENSE, If the primary target has Barrier, Remove Barrier from the primary target.\\nNot in WAR, Clear 2 positive effect(s) from the primary target.\\nIn WAR, Clear 4 positive effect(s) from the primary target.",
     "damage": 300,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In WAR, OFFENSE, If the primary target has Barrier, Remove Barrier from the primary target.",
       "Not in WAR, Clear 2 positive effect(s) from the primary target.",
-      "In WAR, Clear 4 positive effect(s) from the primary target.",
-      "In WAR, OFFENSE, If self has Nova Force Tracking, +250% damage + 17% Piercing."
+      "In WAR, Clear 4 positive effect(s) from the primary target."
     ],
     "notes": [
       "In WAR, OFFENSE, enemies killed by this attack cannot be revived."
@@ -2814,13 +2808,12 @@
     "notes": []
   },
   "PhantomRider": {
-    "description": "Attack primary target for 225% damage + 17% Piercing + 30% Drain.\\nApply 2 Bleed to the primary target.\\nIf the primary target has Bleed, +270% damage.",
+    "description": "Attack primary target for 225% damage + 17% Piercing + 30% Drain.\\nApply 2 Bleed to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 30,
     "effects": [
-      "Apply 2 Bleed to the primary target.",
-      "If the primary target has Bleed, +270% damage."
+      "Apply 2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -3144,14 +3137,12 @@
     ]
   },
   "Rogue": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nRemove Barrier from the primary target.\\nIf self has Absorbed Powers, +300% damage.\\nIf self has Absorbed Powers, +25% Crit Chance for each HORSEMAN or Apocalypse ally.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nRemove Barrier from the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Remove Barrier from the primary target.",
-      "If self has Absorbed Powers, +300% damage.",
-      "If self has Absorbed Powers, +25% Crit Chance for each HORSEMAN or Apocalypse ally."
+      "Remove Barrier from the primary target."
     ],
     "notes": []
   },
@@ -3504,13 +3495,11 @@
     "notes": []
   },
   "Shatterstar": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf an X-FACTOR ally exists, +150% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "If an X-FACTOR ally exists, +150% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "SheHulk": {
@@ -3729,13 +3718,11 @@
     "notes": []
   },
   "SpiderPunk": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nIf 1+ WEBWARRIOR allies, +300% damage.",
+    "description": "Attack primary target for 245% damage + 17% Piercing",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
-    "effects": [
-      "If 1+ WEBWARRIOR allies, +300% damage."
-    ],
+    "effects": [],
     "notes": []
   },
   "SpiderSlayer": {

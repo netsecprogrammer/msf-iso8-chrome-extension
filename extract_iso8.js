@@ -753,13 +753,12 @@ function processCharacter(charName, charData) {
       if (a.action === 'proc_remove' && a.procs === 'Binary' &&
           a.only_if && a.only_if.owner && a.only_if.owner.procs &&
           a.only_if.owner.procs.includes('Binary') && charName !== 'CaptainMarvel') return;
-      // Skip basic's inherent attack damage (counter/assist with no conditions, stat_modifier only)
+      // Skip basic's inherent attack damage (counter/assist with stat_modifier only, no action)
       // These are the basic ability's own damage stats, not ISO-8 bonuses
-      // Applies to counter+assist, counter-only, and assist-only inherent damage
+      // Action-level conditions (only_if) just gate when the basic fires, not what ISO-8 effect applies
       // But keep actions where stat_modifiers have apply_if (conditional bonuses like Vulture)
       const hasConditionalStats = a.stat_modifier && a.stat_modifier.some(m => m.apply_if);
       if ((hasCounter || hasAssist) && !a.action &&
-          !a.only_if && !a.only_if_target && !a.only_if_any && !a.only_if_outcome &&
           !hasConditionalStats &&
           !(a.target && (a.target.primary_selection === 'exclude_from_pool' ||
                          a.target.primary_selection === 'exclude_as_first'))) return;
@@ -1228,7 +1227,6 @@ function processCharacter(charName, charData) {
                 // (counter+assist with no action-level conditions and no special targeting)
                 // Only conditional apply_if stats from second pass should be shown for these
                 const isInherentBasicDmg = isFromBasic && (action.counter === true || action.assist !== undefined)
-                    && !action.only_if && !action.only_if_target && !action.only_if_any && !action.only_if_outcome
                     && !(action.target && (action.target.primary_selection === 'exclude_from_pool' ||
                                           action.target.primary_selection === 'exclude_as_first'));
 
