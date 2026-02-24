@@ -1938,9 +1938,16 @@ function processCharacter(charName, charData) {
                   ? ` on ${targetText}` : '';
               effects.push(`${conditionPrefix}${chancePrefix}Prolong the duration of ${procName}${excludeText}${excludeText ? ',' : ''} by ${delta}${prolongTarget}.`);
           } else if (delta < 0) {
-              const reduceTarget = (targetText && targetText !== 'self' && targetText !== 'the primary target')
-                  ? ` on ${targetText}` : '';
-              effects.push(`${conditionPrefix}${chancePrefix}Reduce the duration of ${procName}${excludeText}${excludeText ? ',' : ''} by ${Math.abs(delta)}${reduceTarget}.`);
+              // When consuming a specific named proc on allies/self, use "Lose N [proc]" wording
+              // Only match explicit ally-targeting (not default-to-self from buff category)
+              if (action.only_procs && action.only_procs.length > 0 &&
+                  action.target && action.target.relation === 'ally') {
+                  effects.push(`${conditionPrefix}${chancePrefix}Lose ${Math.abs(delta)} ${procName}.`);
+              } else {
+                  const reduceTarget = (targetText && targetText !== 'self' && targetText !== 'the primary target')
+                      ? ` on ${targetText}` : '';
+                  effects.push(`${conditionPrefix}${chancePrefix}Reduce the duration of ${procName}${excludeText}${excludeText ? ',' : ''} by ${Math.abs(delta)}${reduceTarget}.`);
+              }
           }
       }
 
@@ -2129,9 +2136,9 @@ function processCharacter(charName, charData) {
           if (focusMod) {
               const focusVal = getMax(focusMod.delta);
               if (focusVal > 0) {
-                  const focusNote = `${conditionPrefix}This attack gains +${focusVal}% Extra Focus.`;
-                  if (!notes.includes(focusNote)) {
-                      notes.push(focusNote);
+                  const focusLine = `${conditionPrefix}This attack gains +${focusVal}% Extra Focus.`;
+                  if (!effects.includes(focusLine)) {
+                      effects.push(focusLine);
                   }
               }
           }
