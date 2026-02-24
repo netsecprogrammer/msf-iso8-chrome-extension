@@ -753,11 +753,12 @@ function processCharacter(charName, charData) {
       if (a.action === 'proc_remove' && a.procs === 'Binary' &&
           a.only_if && a.only_if.owner && a.only_if.owner.procs &&
           a.only_if.owner.procs.includes('Binary') && charName !== 'CaptainMarvel') return;
-      // Skip basic's inherent attack damage (both counter+assist, no conditions, stat_modifier only)
+      // Skip basic's inherent attack damage (counter/assist with no conditions, stat_modifier only)
       // These are the basic ability's own damage stats, not ISO-8 bonuses
+      // Applies to counter+assist, counter-only, and assist-only inherent damage
       // But keep actions where stat_modifiers have apply_if (conditional bonuses like Vulture)
       const hasConditionalStats = a.stat_modifier && a.stat_modifier.some(m => m.apply_if);
-      if (hasCounter && hasAssist && !a.action &&
+      if ((hasCounter || hasAssist) && !a.action &&
           !a.only_if && !a.only_if_target && !a.only_if_any && !a.only_if_outcome &&
           !hasConditionalStats &&
           !(a.target && (a.target.primary_selection === 'exclude_from_pool' ||
@@ -1226,7 +1227,7 @@ function processCharacter(charName, charData) {
                 // Check if this is inherent basic counter/assist damage that should be suppressed
                 // (counter+assist with no action-level conditions and no special targeting)
                 // Only conditional apply_if stats from second pass should be shown for these
-                const isInherentBasicDmg = isFromBasic && action.counter === true && action.assist !== undefined
+                const isInherentBasicDmg = isFromBasic && (action.counter === true || action.assist !== undefined)
                     && !action.only_if && !action.only_if_target && !action.only_if_any && !action.only_if_outcome
                     && !(action.target && (action.target.primary_selection === 'exclude_from_pool' ||
                                           action.target.primary_selection === 'exclude_as_first'));
@@ -2092,6 +2093,20 @@ function processCharacter(charName, charData) {
       if (action.action === 'set_battlefield_effect') {
           // Battlefield effects are complex; just note their presence
           effects.push(`${conditionPrefix}Trigger battlefield effect.`);
+      }
+
+      // 19. Extra Focus on proc actions (stat_modifier with focus_pct on proc/proc_flip/proc_transfer/etc.)
+      if (action.action && action.stat_modifier) {
+          const focusMod = action.stat_modifier.find(m => m.stat === 'focus_pct');
+          if (focusMod) {
+              const focusVal = getMax(focusMod.delta);
+              if (focusVal > 0) {
+                  const focusNote = `${conditionPrefix}This attack gains +${focusVal}% Extra Focus.`;
+                  if (!notes.includes(focusNote)) {
+                      notes.push(focusNote);
+                  }
+              }
+          }
       }
 
       // Track that this action produced visible output (for if_prev_skipped/if_prev_ran handling)

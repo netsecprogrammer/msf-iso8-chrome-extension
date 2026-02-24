@@ -581,6 +581,14 @@
     modeHealAllTraitAllies:      /^In (.+?), Heal all (.+?) allies for (\d+)% of Max Health\.$/,
     modeOrSubClearNegAllTraitAllies: /^In (.+?) or (.+?), (.+?), Clear (\d+) negative effect\(s\) from all (.+?) allies\.$/,
     modeHealthReduceDurAllTraitAllies: /^In (.+?), If this character has more than (\d+)% Health, Reduce the duration of negative effects by (\d+) on all (.+?) allies\.$/,
+    // --- Extra Focus patterns ---
+    extraFocus:                  /^This attack gains \+(\d+)% Extra Focus\.$/,
+    modeExtraFocus:              /^In (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
+    ifAllyExtraFocus:            /^If (.+?) is an ally, This attack gains \+(\d+)% Extra Focus\.$/,
+    targetHasExtraFocus:         /^If the primary target has (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
+    selfHasExtraFocus:           /^If self has (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
+    modeSubTargetHasExtraFocus:  /^In (.+?), (.+?), If the primary target has (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
+    otherwiseModeSubExtraFocus:  /^Otherwise, In (.+?), (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
   };
 
   const SENTENCE_TEMPLATES = {
@@ -952,6 +960,14 @@
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'fr')}, soigne tous les alliés ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} de ${hp} % de la vie max.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'fr')} ou ${_modeLoc(m2, 'fr')}, ${sub}, retire ${c} effet(s) nuisible(s) de tous les alliés ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.modeHealthReduceDurAllTraitAllies, replace: (m, mode, hp, c, tr) => `${_modeLoc(mode, 'fr')}, si ce personnage a plus de ${hp} % de vie, réduit la durée des effets nuisibles de ${c} sur tous les alliés ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        // --- Extra Focus ---
+        { match: _P.extraFocus, replace: (m, p) => `Cette attaque gagne +${p} % de Focus supplémentaire.` },
+        { match: _P.modeExtraFocus, replace: (m, mode, p) => `${_modeLoc(mode, 'fr')}, cette attaque gagne +${p} % de Focus supplémentaire.` },
+        { match: _P.ifAllyExtraFocus, replace: (m, ally, p) => `Si ${ally} est un allié, cette attaque gagne +${p} % de Focus supplémentaire.` },
+        { match: _P.targetHasExtraFocus, replace: (m, proc, p) => `Si la cible principale a ${proc}, cette attaque gagne +${p} % de Focus supplémentaire.` },
+        { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Si ce personnage a ${proc}, cette attaque gagne +${p} % de Focus supplémentaire.` },
+        { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'fr')}, ${sub}, si la cible principale a ${proc}, cette attaque gagne +${p} % de Focus supplémentaire.` },
+        { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Sinon, ${_modeLoc(mode, 'fr')}, ${sub}, cette attaque gagne +${p} % de Focus supplémentaire.` },
       ],
     },
     // ==================== GERMAN ====================
@@ -1322,6 +1338,14 @@
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'de')}: Heilt alle ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten um ${hp} % der max. LP.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'de')} oder ${_modeLoc(m2, 'de')}, ${sub}: Entfernt ${c} negative(n) Effekt(e) von allen ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten.` },
         { match: _P.modeHealthReduceDurAllTraitAllies, replace: (m, mode, hp, c, tr) => `${_modeLoc(mode, 'de')}: Wenn mehr als ${hp} % Gesundheit, reduziert die Dauer negativer Effekte um ${c} auf allen ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}-Verbündeten.` },
+        // --- Extra Focus ---
+        { match: _P.extraFocus, replace: (m, p) => `Dieser Angriff erhält +${p} % zusätzlichen Fokus.` },
+        { match: _P.modeExtraFocus, replace: (m, mode, p) => `${_modeLoc(mode, 'de')}: Dieser Angriff erhält +${p} % zusätzlichen Fokus.` },
+        { match: _P.ifAllyExtraFocus, replace: (m, ally, p) => `Wenn ${ally} ein Verbündeter ist, erhält dieser Angriff +${p} % zusätzlichen Fokus.` },
+        { match: _P.targetHasExtraFocus, replace: (m, proc, p) => `Wenn das Primärziel ${proc} hat, erhält dieser Angriff +${p} % zusätzlichen Fokus.` },
+        { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Wenn man ${proc} hat: Dieser Angriff erhält +${p} % zusätzlichen Fokus.` },
+        { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'de')}, ${sub}: Wenn das Primärziel ${proc} hat, erhält dieser Angriff +${p} % zusätzlichen Fokus.` },
+        { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Andernfalls, ${_modeLoc(mode, 'de')}, ${sub}: Dieser Angriff erhält +${p} % zusätzlichen Fokus.` },
       ],
     },
     // ==================== SPANISH ====================
@@ -1692,6 +1716,14 @@
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'es')}, cura a todos los aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} en ${hp} % de salud máxima.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'es')} o ${_modeLoc(m2, 'es')}, ${sub}, elimina ${c} efecto(s) negativo(s) de todos los aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.modeHealthReduceDurAllTraitAllies, replace: (m, mode, hp, c, tr) => `${_modeLoc(mode, 'es')}, si tiene más de ${hp} % de salud, reduce la duración de los efectos negativos en ${c} en todos los aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        // --- Extra Focus ---
+        { match: _P.extraFocus, replace: (m, p) => `Este ataque gana +${p} % de Focus adicional.` },
+        { match: _P.modeExtraFocus, replace: (m, mode, p) => `${_modeLoc(mode, 'es')}, este ataque gana +${p} % de Focus adicional.` },
+        { match: _P.ifAllyExtraFocus, replace: (m, ally, p) => `Si ${ally} es un aliado, este ataque gana +${p} % de Focus adicional.` },
+        { match: _P.targetHasExtraFocus, replace: (m, proc, p) => `Si el objetivo principal tiene ${proc}, este ataque gana +${p} % de Focus adicional.` },
+        { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Si tiene ${proc}, este ataque gana +${p} % de Focus adicional.` },
+        { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'es')}, ${sub}, si el objetivo principal tiene ${proc}, este ataque gana +${p} % de Focus adicional.` },
+        { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `De lo contrario, ${_modeLoc(mode, 'es')}, ${sub}, este ataque gana +${p} % de Focus adicional.` },
       ],
     },
     // ==================== PORTUGUESE ====================
@@ -2062,6 +2094,14 @@
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'pt')}, cura todos os aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} em ${hp}% da vida máxima.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'pt')} ou ${_modeLoc(m2, 'pt')}, ${sub}, remove ${c} efeito(s) negativo(s) de todos os aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
         { match: _P.modeHealthReduceDurAllTraitAllies, replace: (m, mode, hp, c, tr) => `${_modeLoc(mode, 'pt')}, se tiver mais de ${hp}% de saúde, reduz a duração dos efeitos negativos em ${c} em todos os aliados ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        // --- Extra Focus ---
+        { match: _P.extraFocus, replace: (m, p) => `Este ataque ganha +${p}% de Foco adicional.` },
+        { match: _P.modeExtraFocus, replace: (m, mode, p) => `${_modeLoc(mode, 'pt')}, este ataque ganha +${p}% de Foco adicional.` },
+        { match: _P.ifAllyExtraFocus, replace: (m, ally, p) => `Se ${ally} for aliado, este ataque ganha +${p}% de Foco adicional.` },
+        { match: _P.targetHasExtraFocus, replace: (m, proc, p) => `Se o alvo primário tiver ${proc}, este ataque ganha +${p}% de Foco adicional.` },
+        { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Se tiver ${proc}, este ataque ganha +${p}% de Foco adicional.` },
+        { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'pt')}, ${sub}, se o alvo primário tiver ${proc}, este ataque ganha +${p}% de Foco adicional.` },
+        { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Caso contrário, ${_modeLoc(mode, 'pt')}, ${sub}, este ataque ganha +${p}% de Foco adicional.` },
       ],
     },
     // ==================== ITALIAN ====================
@@ -2432,6 +2472,14 @@
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'it')}, cura tutti gli alleati ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()} del ${hp}% della salute massima.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'it')} o ${_modeLoc(m2, 'it')}, ${sub}, rimuove ${c} effetto/i negativo/i da tutti gli alleati ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
         { match: _P.modeHealthReduceDurAllTraitAllies, replace: (m, mode, hp, c, tr) => `${_modeLoc(mode, 'it')}, se ha più di ${hp}% di salute, riduce la durata degli effetti negativi di ${c} su tutti gli alleati ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict).toUpperCase()}.` },
+        // --- Extra Focus ---
+        { match: _P.extraFocus, replace: (m, p) => `Questo attacco ottiene +${p}% di Focus aggiuntivo.` },
+        { match: _P.modeExtraFocus, replace: (m, mode, p) => `${_modeLoc(mode, 'it')}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
+        { match: _P.ifAllyExtraFocus, replace: (m, ally, p) => `Se ${ally} è un alleato, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
+        { match: _P.targetHasExtraFocus, replace: (m, proc, p) => `Se il bersaglio primario ha ${proc}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
+        { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Se ha ${proc}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
+        { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'it')}, ${sub}, se il bersaglio primario ha ${proc}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
+        { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Altrimenti, ${_modeLoc(mode, 'it')}, ${sub}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
       ],
     },
     // ==================== JAPANESE ====================
@@ -2802,6 +2850,14 @@
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'ja')}、すべての${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方を最大体力の${hp}%回復。` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'ja')}または${_modeLoc(m2, 'ja')}、${sub}、すべての${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方からネガティブ効果を${c}個除去。` },
         { match: _P.modeHealthReduceDurAllTraitAllies, replace: (m, mode, hp, c, tr) => `${_modeLoc(mode, 'ja')}、体力が${hp}%を超えている場合、すべての${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}の味方のネガティブ効果の持続時間を${c}短縮。` },
+        // --- Extra Focus ---
+        { match: _P.extraFocus, replace: (m, p) => `この攻撃は+${p}%の追加フォーカスを得る。` },
+        { match: _P.modeExtraFocus, replace: (m, mode, p) => `${_modeLoc(mode, 'ja')}、この攻撃は+${p}%の追加フォーカスを得る。` },
+        { match: _P.ifAllyExtraFocus, replace: (m, ally, p) => `${ally}が味方の場合、この攻撃は+${p}%の追加フォーカスを得る。` },
+        { match: _P.targetHasExtraFocus, replace: (m, proc, p) => `メインターゲットが${proc}を持っている場合、この攻撃は+${p}%の追加フォーカスを得る。` },
+        { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `${proc}を持っている場合、この攻撃は+${p}%の追加フォーカスを得る。` },
+        { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'ja')}、${sub}、メインターゲットが${proc}を持っている場合、この攻撃は+${p}%の追加フォーカスを得る。` },
+        { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `それ以外で、${_modeLoc(mode, 'ja')}、${sub}、この攻撃は+${p}%の追加フォーカスを得る。` },
       ],
     },
     // ==================== KOREAN ====================
@@ -3172,6 +3228,14 @@
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'ko')}, 모든 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군을 최대 체력의 ${hp}% 회복합니다.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'ko')} 또는 ${_modeLoc(m2, 'ko')}, ${sub}, 모든 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군의 부정적 효과 ${c}개를 제거합니다.` },
         { match: _P.modeHealthReduceDurAllTraitAllies, replace: (m, mode, hp, c, tr) => `${_modeLoc(mode, 'ko')}, 체력이 ${hp}%를 초과하면, 모든 ${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} 아군의 부정적 효과 지속 시간을 ${c} 감소시킵니다.` },
+        // --- Extra Focus ---
+        { match: _P.extraFocus, replace: (m, p) => `이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
+        { match: _P.modeExtraFocus, replace: (m, mode, p) => `${_modeLoc(mode, 'ko')}, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
+        { match: _P.ifAllyExtraFocus, replace: (m, ally, p) => `${ally}이 아군이면, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
+        { match: _P.targetHasExtraFocus, replace: (m, proc, p) => `주요 대상이 ${proc}을 보유하면, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
+        { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `${proc}을 보유하면, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
+        { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'ko')}, ${sub}, 주요 대상이 ${proc}을 보유하면, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
+        { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `그렇지 않으면, ${_modeLoc(mode, 'ko')}, ${sub}, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
       ],
     },
     // ==================== RUSSIAN ====================
@@ -3542,6 +3606,14 @@
         { match: _P.modeHealAllTraitAllies, replace: (m, mode, tr, hp) => `${_modeLoc(mode, 'ru')}: исцеляет всех союзников-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)} на ${hp}% от макс. здоровья.` },
         { match: _P.modeOrSubClearNegAllTraitAllies, replace: (m, m1, m2, sub, c, tr) => `${_modeLoc(m1, 'ru')} или ${_modeLoc(m2, 'ru')}, ${sub}: снимает ${c} отрицательных эффектов со всех союзников-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
         { match: _P.modeHealthReduceDurAllTraitAllies, replace: (m, mode, hp, c, tr) => `${_modeLoc(mode, 'ru')}: если здоровье больше ${hp} %, снижает длительность отрицательных эффектов на ${c} на всех союзниках-${_traitLoc(tr, SENTENCE_TEMPLATES._activeDict)}.` },
+        // --- Extra Focus ---
+        { match: _P.extraFocus, replace: (m, p) => `Эта атака получает +${p} % дополнительного фокуса.` },
+        { match: _P.modeExtraFocus, replace: (m, mode, p) => `${_modeLoc(mode, 'ru')}: эта атака получает +${p} % дополнительного фокуса.` },
+        { match: _P.ifAllyExtraFocus, replace: (m, ally, p) => `Если ${ally} союзник, эта атака получает +${p} % дополнительного фокуса.` },
+        { match: _P.targetHasExtraFocus, replace: (m, proc, p) => `Если у основной цели есть ${proc}, эта атака получает +${p} % дополнительного фокуса.` },
+        { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Если есть ${proc}: эта атака получает +${p} % дополнительного фокуса.` },
+        { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'ru')}, ${sub}: если у основной цели есть ${proc}, эта атака получает +${p} % дополнительного фокуса.` },
+        { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Иначе, ${_modeLoc(mode, 'ru')}, ${sub}: эта атака получает +${p} % дополнительного фокуса.` },
       ],
     },
   };

@@ -394,6 +394,8 @@
       "If self does not have Silence, Gain +1 Bomb Burst, up to a maximum of 5."
     ],
     "notes": [
+      "In CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, This attack gains +500% Extra Focus.",
+      "Otherwise, In CRUCIBLE SHOWDOWN, OFFENSE, This attack gains +500% Extra Focus.",
       "In CRUCIBLE SHOWDOWN, OFFENSE, this attack cannot be dodged."
     ]
   },
@@ -469,14 +471,13 @@
     "notes": []
   },
   "CaptainAmerica": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nGain Defense Up.\\nOn Assist, +250% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nGain Defense Up.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down for 2 turns to the primary target.",
-      "Gain Defense Up.",
-      "On Assist, +250% damage."
+      "Gain Defense Up."
     ],
     "notes": []
   },
@@ -578,7 +579,10 @@
       "If Kitty Pryde is an ally, Apply Defense Down for 2 turns to the primary target.",
       "If Kitty Pryde is an ally, Apply Slow for 2 turns to the primary target."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +1000% Extra Focus.",
+      "If Kitty Pryde is an ally, This attack gains +1000% Extra Focus."
+    ]
   },
   "CorvusGlaive": {
     "description": "Attack primary target for 200% Piercing.\\nClear 1 positive effect(s) from the primary target.\\nClear 2 positive effect(s) from the primary target.",
@@ -946,7 +950,9 @@
       "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
       "Apply Bleed to 2 enemies."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +1000% Extra Focus."
+    ]
   },
   "ElsaBloodstone": {
     "description": "Attack primary target for 337% Piercing",
@@ -1519,7 +1525,9 @@
     "effects": [
       "Apply Slow to the primary target."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +1000% Extra Focus."
+    ]
   },
   "Ikaris": {
     "description": "Attack primary target for 189% Piercing.\\nWhen forced to attack an ally, this character deals 56% Piercing to ETERNAL characters.\\nIf Sersi is an ally, Apply Assist Now to a random ally.",
@@ -1542,7 +1550,9 @@
       "In WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.",
       "If the primary target is MYSTIC, Reduce Speed Bar by 10%."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +50% Extra Focus."
+    ]
   },
   "InnerDemon_Demon": {
     "description": "Attack primary target for 216% Piercing.\\nApply Stun to the primary target.\\nIn WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.\\nIf the primary target is MYSTIC, Reduce Speed Bar by 10%.",
@@ -1554,7 +1564,9 @@
       "In WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.",
       "If the primary target is MYSTIC, Reduce Speed Bar by 10%."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +50% Extra Focus."
+    ]
   },
   "InnerDemon_Dragon": {
     "description": "Attack primary target for 216% Piercing.\\nApply 2 Bleed to the primary target.\\nIn WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.\\nIf the primary target is MYSTIC, Reduce Speed Bar by 10%.",
@@ -1566,7 +1578,9 @@
       "In WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.",
       "If the primary target is MYSTIC, Reduce Speed Bar by 10%."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +50% Extra Focus."
+    ]
   },
   "InvisibleWoman": {
     "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nBarrier for 10% of this character's Max Health to allies.",
@@ -1842,7 +1856,9 @@
       "Apply Speed Up for 2 turns to a random ally.",
       "Apply Speed Up for 2 turns to the X-MEN ally with the lowest Speed Bar."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +500% Extra Focus."
+    ]
   },
   "Knull": {
     "description": "Attack primary target for 205% Piercing.\\nApply +1 Darkness to the primary target.\\nApply Slow for 2 turns to the primary target.\\nAttack an additional enemy.",
@@ -1961,6 +1977,8 @@
       "If the primary target has Bleed, Apply Defense Down to the primary target."
     ],
     "notes": [
+      "This attack gains +300% Extra Focus.",
+      "If the primary target has Bleed, This attack gains +300% Extra Focus.",
       "This attack cannot miss.",
       "This attack cannot be dodged."
     ]
@@ -2017,23 +2035,21 @@
     "notes": []
   },
   "LokiMinion": {
-    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Gain +1 Evade.",
+    "description": "Attack primary target for 153% Piercing.\\nOn Counter, 50% chance to Gain +1 Evade.",
     "damage": 0,
     "piercing": 153,
     "drain": 0,
     "effects": [
-      "On Assist, +260% Piercing.",
       "On Counter, 50% chance to Gain +1 Evade."
     ],
     "notes": []
   },
   "LokiNPC": {
-    "description": "Attack primary target for 153% Piercing.\\nOn Assist, +260% Piercing.\\nOn Counter, 50% chance to Gain +1 Evade.",
+    "description": "Attack primary target for 153% Piercing.\\nOn Counter, 50% chance to Gain +1 Evade.",
     "damage": 0,
     "piercing": 153,
     "drain": 0,
     "effects": [
-      "On Assist, +260% Piercing.",
       "On Counter, 50% chance to Gain +1 Evade."
     ],
     "notes": []
@@ -2415,6 +2431,7 @@
       "Copy all positive effect(s) from the primary target and give to allies, excluding Taunt and Regeneration."
     ],
     "notes": [
+      "This attack gains +75% Extra Focus.",
       "This attack cannot critically hit."
     ]
   },
@@ -2475,14 +2492,13 @@
     "notes": []
   },
   "Nebula": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nDeal 3% of target's Max Health.\\nGain Speed Up.\\nOn Assist, +320% damage.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nDeal 3% of target's Max Health.\\nGain Speed Up.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Deal 3% of target's Max Health.",
-      "Gain Speed Up.",
-      "On Assist, +320% damage."
+      "Gain Speed Up."
     ],
     "notes": []
   },
@@ -2508,13 +2524,12 @@
     "notes": []
   },
   "NickFury": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nOn Crit, Generate +1 Ability Energy for a random ally.\\nOn Assist, +230% damage.\\nOn Counter, On Crit, Generate +1 Ability Energy for a random ally.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nOn Crit, Generate +1 Ability Energy for a random ally.\\nOn Counter, On Crit, Generate +1 Ability Energy for a random ally.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "On Crit, Generate +1 Ability Energy for a random ally.",
-      "On Assist, +230% damage.",
       "On Counter, On Crit, Generate +1 Ability Energy for a random ally."
     ],
     "notes": []
@@ -2655,7 +2670,9 @@
     "effects": [
       "Clear 2 positive effect(s) from the primary target."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +50% Extra Focus."
+    ]
   },
   "OldManLogan": {
     "description": "Attack primary target for 250% damage + 17% Piercing + 100% Drain.\\nIf self has Claws Out, attack for 267% Piercing + 100% Drain instead.\\nIf self does not have Claws Out, Apply Disrupted to the primary target.\\nIf self has Claws Out, Apply 2 Bleed for 2 turns to the primary target.\\nIf self has Claws Out, Apply Disrupted to the primary target.\\nIn WAR, OFFENSE, If self has Claws Out, Apply Defense Down to the primary target.\\nGain 20% Speed Bar.\\nIn WAR, OFFENSE, Gain 2 Regeneration.\\nOn Ultimate assist, Generate +1 Ability Energy for self.",
@@ -3231,7 +3248,10 @@
       "In RAIDS, Clear 1 Taunt from the primary target.",
       "Steal 1 positive effect(s) from the primary target and give to allies, excluding Taunt."
     ],
-    "notes": []
+    "notes": [
+      "In RAIDS, This attack gains +5000% Extra Focus.",
+      "This attack gains +5000% Extra Focus."
+    ]
   },
   "S_ShieldTank_Stun": {
     "description": "Attack primary target for 200% Piercing.\\nApply Slow to the primary target.",
@@ -3241,7 +3261,9 @@
     "effects": [
       "Apply Slow to the primary target."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +5000% Extra Focus."
+    ]
   },
   "Sabretooth": {
     "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, Flip Defense Up on the primary target.\\nOtherwise, Flip Defense Up on the primary target.\\nIn WAR, Apply Offense Down to the primary target.",
@@ -3253,7 +3275,9 @@
       "Otherwise, Flip Defense Up on the primary target.",
       "In WAR, Apply Offense Down to the primary target."
     ],
-    "notes": []
+    "notes": [
+      "In WAR, This attack gains +500% Extra Focus."
+    ]
   },
   "SamWilson": {
     "description": "Attack primary target for 205% damage + 17% Piercing",
@@ -3409,7 +3433,9 @@
       "Deal 5% of allies' Max Health.",
       "Gain 10% Speed Bar."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +500% Extra Focus."
+    ]
   },
   "Sersi": {
     "description": "Attack primary target for 263% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 53% damage + 3% Piercing to ETERNAL characters.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
@@ -3577,7 +3603,9 @@
       "Apply 2 Bleed to the primary target.",
       "Apply Heal Block for 2 turns to the primary target."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +500% Extra Focus."
+    ]
   },
   "SilverSurfer": {
     "description": "Attack primary target for 236% Piercing.\\nIf self has any negative effects, Steal all negative effect(s) from the primary target.\\nOtherwise, Steal all positive effect(s) from the primary target, excluding Taunt.\\nOn Assist, Steal all positive effect(s) from the primary target, excluding Taunt.",
@@ -3845,7 +3873,9 @@
       "Barrier for 10% of this character's Max Health to allies."
     ],
     "notes": [
-      "This attack ignores Defense Up."
+      "This attack ignores Defense Up.",
+      "This attack gains +200% Extra Focus.",
+      "If self has Spawned With Hero Allies, This attack gains +200% Extra Focus."
     ]
   },
   "SuperiorSpiderMan": {
@@ -3966,12 +3996,11 @@
     "notes": []
   },
   "Thanos": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nOn Assist, +300% damage.\\nOn Counter, Gain +1 Counter.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nOn Counter, Gain +1 Counter.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "On Assist, +300% damage.",
       "On Counter, Gain +1 Counter."
     ],
     "notes": []
@@ -4317,7 +4346,9 @@
       "Apply 2 Bleed to the primary target.",
       "Gain +1 Charged, up to a maximum of 5."
     ],
-    "notes": []
+    "notes": [
+      "This attack gains +150% Extra Focus."
+    ]
   },
   "Vision": {
     "description": "Attack primary target for 174% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIf self is TECH, Apply Offense Down to the primary target.\\nIf self is TECH, Apply Bleed to the primary target.\\nIf self is not TECH, Apply Offense Down to the primary target.\\nIf the primary target is TECH, Apply Bleed to the primary target.",
