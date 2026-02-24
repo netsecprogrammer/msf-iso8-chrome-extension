@@ -714,12 +714,12 @@
     "notes": []
   },
   "Daredevil": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nIf self is VILLAIN, +200% damage.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to DARINGWARRIOR characters.\\nIf self is VILLAIN, +200% damage.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
+      "When forced to attack an ally, this character deals 25% damage to DARINGWARRIOR characters.",
       "If self is VILLAIN, +200% damage."
     ],
     "notes": []
@@ -929,6 +929,19 @@
     "piercing": 17,
     "drain": 0,
     "effects": [],
+    "notes": []
+  },
+  "Eclipse": {
+    "description": "Attack primary target for 237% damage + 17% Piercing.\\nHeal allies for 5% of Max Health.\\nHeal the most injured ally for 5% of Max Health.\\nIf self does not have CrescentMoonTracking, Apply CrescentMoon to allies.\\nIf self does not have CrescentMoonTracking, Apply CrescentMoonTracking to allies.",
+    "damage": 237,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Heal allies for 5% of Max Health.",
+      "Heal the most injured ally for 5% of Max Health.",
+      "If self does not have CrescentMoonTracking, Apply CrescentMoon to allies.",
+      "If self does not have CrescentMoonTracking, Apply CrescentMoonTracking to allies."
+    ],
     "notes": []
   },
   "Electro": {
@@ -2559,6 +2572,16 @@
     ],
     "notes": []
   },
+  "NightThrasher": {
+    "description": "Attack primary target for 247% Piercing.\\nClear 2 positive effect(s) from the primary target.",
+    "damage": 0,
+    "piercing": 247,
+    "drain": 0,
+    "effects": [
+      "Clear 2 positive effect(s) from the primary target."
+    ],
+    "notes": []
+  },
   "Nightcrawler": {
     "description": "Attack primary target for 247% Piercing.\\nIf target has Exposed, +100% Crit Chance.\\nFlip 1 positive effect(s) to negative on the primary target.\\nIn RAIDS, If 3+ X-MEN allies, Apply Ability Block to the primary target.\\nApply Regeneration to allies.",
     "damage": 0,
@@ -3629,6 +3652,16 @@
     "effects": [
       "Clear 2 positive effect(s) from the primary target.",
       "Clear 2 negative effect(s) from allies."
+    ],
+    "notes": []
+  },
+  "Speedball": {
+    "description": "Attack primary target for 247% Piercing.\\nApply Bleed to the primary target.",
+    "damage": 0,
+    "piercing": 247,
+    "drain": 0,
+    "effects": [
+      "Apply Bleed to the primary target."
     ],
     "notes": []
   },

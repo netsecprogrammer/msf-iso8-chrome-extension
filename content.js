@@ -589,6 +589,7 @@
     selfHasExtraFocus:           /^If self has (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
     modeSubTargetHasExtraFocus:  /^In (.+?), (.+?), If the primary target has (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
     otherwiseModeSubExtraFocus:  /^Otherwise, In (.+?), (.+?), This attack gains \+(\d+)% Extra Focus\.$/,
+    healMostInjuredAlly:         /^Heal the most injured ally for (\d+)% of Max Health\.$/,
   };
 
   const SENTENCE_TEMPLATES = {
@@ -968,6 +969,7 @@
         { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Si ce personnage a ${proc}, cette attaque gagne +${p} % de Focus supplémentaire.` },
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'fr')}, ${sub}, si la cible principale a ${proc}, cette attaque gagne +${p} % de Focus supplémentaire.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Sinon, ${_modeLoc(mode, 'fr')}, ${sub}, cette attaque gagne +${p} % de Focus supplémentaire.` },
+        { match: _P.healMostInjuredAlly, replace: (m, p) => `Soigne l'allié le plus blessé de ${p} % de la vie max.` },
       ],
     },
     // ==================== GERMAN ====================
@@ -1346,6 +1348,7 @@
         { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Wenn man ${proc} hat: Dieser Angriff erhält +${p} % zusätzlichen Fokus.` },
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'de')}, ${sub}: Wenn das Primärziel ${proc} hat, erhält dieser Angriff +${p} % zusätzlichen Fokus.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Andernfalls, ${_modeLoc(mode, 'de')}, ${sub}: Dieser Angriff erhält +${p} % zusätzlichen Fokus.` },
+        { match: _P.healMostInjuredAlly, replace: (m, p) => `Heilt den am meisten verletzten Verbündeten um ${p} % der max. LP.` },
       ],
     },
     // ==================== SPANISH ====================
@@ -1724,6 +1727,7 @@
         { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Si tiene ${proc}, este ataque gana +${p} % de Focus adicional.` },
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'es')}, ${sub}, si el objetivo principal tiene ${proc}, este ataque gana +${p} % de Focus adicional.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `De lo contrario, ${_modeLoc(mode, 'es')}, ${sub}, este ataque gana +${p} % de Focus adicional.` },
+        { match: _P.healMostInjuredAlly, replace: (m, p) => `Cura al aliado más herido en un ${p} % de la salud máxima.` },
       ],
     },
     // ==================== PORTUGUESE ====================
@@ -2102,6 +2106,7 @@
         { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Se tiver ${proc}, este ataque ganha +${p}% de Foco adicional.` },
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'pt')}, ${sub}, se o alvo primário tiver ${proc}, este ataque ganha +${p}% de Foco adicional.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Caso contrário, ${_modeLoc(mode, 'pt')}, ${sub}, este ataque ganha +${p}% de Foco adicional.` },
+        { match: _P.healMostInjuredAlly, replace: (m, p) => `Cura o aliado mais ferido em ${p}% da vida máxima.` },
       ],
     },
     // ==================== ITALIAN ====================
@@ -2480,6 +2485,7 @@
         { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Se ha ${proc}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'it')}, ${sub}, se il bersaglio primario ha ${proc}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Altrimenti, ${_modeLoc(mode, 'it')}, ${sub}, questo attacco ottiene +${p}% di Focus aggiuntivo.` },
+        { match: _P.healMostInjuredAlly, replace: (m, p) => `L'alleato più ferito viene curato del ${p}% della salute massima.` },
       ],
     },
     // ==================== JAPANESE ====================
@@ -2858,6 +2864,7 @@
         { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `${proc}を持っている場合、この攻撃は+${p}%の追加フォーカスを得る。` },
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'ja')}、${sub}、メインターゲットが${proc}を持っている場合、この攻撃は+${p}%の追加フォーカスを得る。` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `それ以外で、${_modeLoc(mode, 'ja')}、${sub}、この攻撃は+${p}%の追加フォーカスを得る。` },
+        { match: _P.healMostInjuredAlly, replace: (m, p) => `最も負傷した味方を最大体力の${p}%回復。` },
       ],
     },
     // ==================== KOREAN ====================
@@ -3236,6 +3243,7 @@
         { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `${proc}을 보유하면, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'ko')}, ${sub}, 주요 대상이 ${proc}을 보유하면, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `그렇지 않으면, ${_modeLoc(mode, 'ko')}, ${sub}, 이 공격은 +${p}%의 추가 집중력을 얻습니다.` },
+        { match: _P.healMostInjuredAlly, replace: (m, p) => `가장 부상이 심한 아군을 최대 체력의 ${p}% 회복합니다.` },
       ],
     },
     // ==================== RUSSIAN ====================
@@ -3614,6 +3622,7 @@
         { match: _P.selfHasExtraFocus, replace: (m, proc, p) => `Если есть ${proc}: эта атака получает +${p} % дополнительного фокуса.` },
         { match: _P.modeSubTargetHasExtraFocus, replace: (m, mode, sub, proc, p) => `${_modeLoc(mode, 'ru')}, ${sub}: если у основной цели есть ${proc}, эта атака получает +${p} % дополнительного фокуса.` },
         { match: _P.otherwiseModeSubExtraFocus, replace: (m, mode, sub, p) => `Иначе, ${_modeLoc(mode, 'ru')}, ${sub}: эта атака получает +${p} % дополнительного фокуса.` },
+        { match: _P.healMostInjuredAlly, replace: (m, p) => `Исцеляет наиболее раненого союзника на ${p} % от макс. здоровья.` },
       ],
     },
   };
