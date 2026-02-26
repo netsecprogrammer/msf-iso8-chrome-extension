@@ -6,3 +6,7 @@ node_modules/
 package.json
 package-lock.json
 localization/
+
+# Generated overlay localization files (not part of the Chrome extension)
+iso8_data_*.json
+iso8_overlay_meta.json
