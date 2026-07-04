@@ -51,6 +51,32 @@
   margin-left: 10px;
 }
 
+.msf-iso8-refresh-btn {
+  width: 32px;
+  height: 32px;
+  background: rgba(78, 205, 196, 0.12);
+  border: 1px solid rgba(78, 205, 196, 0.45);
+  border-radius: 6px;
+  color: #4ecdc4;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+  margin-left: 10px;
+  transition: background 0.2s, transform 0.2s, opacity 0.2s;
+}
+
+.msf-iso8-refresh-btn:hover {
+  background: rgba(78, 205, 196, 0.2);
+  transform: scale(1.05);
+}
+
+.msf-iso8-refresh-btn:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+}
+
 .msf-iso8-close-btn:hover {
   opacity: 1;
   transform: scale(1.1);
@@ -61,6 +87,13 @@
 .msf-iso8-content {
   color: #f1f1f1;
   line-height: 1.8;
+}
+
+.msf-iso8-meta {
+  color: #9fb3c8;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
 
 .msf-iso8-damage-line {
@@ -220,6 +253,18 @@
   text-align: center;
 }
 
+.msf-iso8-not-found .msf-iso8-meta {
+  margin: 10px 0 0 0;
+}
+
+.msf-iso8-suggestions {
+  color: #d7e3f0;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 10px;
+  word-break: break-word;
+}
+
 /* Animation for appearance */
 @keyframes slideIn {
   from {
@@ -253,6 +298,12 @@
   
   .msf-iso8-close-btn {
     font-size: 20px;
+    margin-left: 5px;
+  }
+
+  .msf-iso8-refresh-btn {
+    width: 30px;
+    height: 30px;
     margin-left: 5px;
   }
 }

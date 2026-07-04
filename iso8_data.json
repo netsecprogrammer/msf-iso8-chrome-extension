@@ -35,14 +35,14 @@
     "notes": []
   },
   "AgathaHarkness": {
-    "description": "Attack primary target for 210% Piercing.\\nIf the primary target is MYSTIC, Deal 5% of target's Max Health.\\nApply +1 Deflect, up to a maximum of 3 to all DARKHOLD or NIGHTSTALKER allies.\\nIn ARENA, Call a random DARKHOLD ally to assist.",
+    "description": "Attack primary target for 210% Piercing.\\nIf the primary target is MYSTIC, Deal 5% of target's Max Health.\\nApply +1 Deflect, up to a maximum of 3 to all Darkhold or Nightstalker allies.\\nIn ARENA, Call a random Darkhold ally to assist.",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
     "effects": [
       "If the primary target is MYSTIC, Deal 5% of target's Max Health.",
-      "Apply +1 Deflect, up to a maximum of 3 to all DARKHOLD or NIGHTSTALKER allies.",
-      "In ARENA, Call a random DARKHOLD ally to assist."
+      "Apply +1 Deflect, up to a maximum of 3 to all Darkhold or Nightstalker allies.",
+      "In ARENA, Call a random Darkhold ally to assist."
     ],
     "notes": []
   },
@@ -109,13 +109,13 @@
     "notes": []
   },
   "AmadeusCho": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply 2 Regeneration to the most injured GAMMA or CHAMPION ally.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply 2 Regeneration to the most injured Gamma or Champion ally.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down to the primary target.",
-      "Apply 2 Regeneration to the most injured GAMMA or CHAMPION ally."
+      "Apply 2 Regeneration to the most injured Gamma or Champion ally."
     ],
     "notes": []
   },
@@ -130,34 +130,57 @@
     "notes": []
   },
   "AncientOne": {
-    "description": "Attack primary target for 157% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ASTRAL characters.\\nOtherwise, Apply +2 Bleed to the primary target.\\nOn Crit, Apply +2 Bleed to the primary target.",
+    "description": "Attack primary target for 157% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Astral characters.\\nOtherwise, Apply +2 Bleed to the primary target.\\nOn Crit, Apply +2 Bleed to the primary target.",
     "damage": 0,
     "piercing": 157,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to ASTRAL characters.",
+      "When forced to attack an ally, this character deals 25% damage to Astral characters.",
       "Otherwise, Apply +2 Bleed to the primary target.",
       "On Crit, Apply +2 Bleed to the primary target."
     ],
     "notes": []
   },
-  "AnnihilusBug": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.\\nClear 2 positive effect(s) from the primary target.",
-    "damage": 163,
+  "Angel": {
+    "description": "Attack primary target for 191% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.\\nApply Regeneration to all Exalted X-Men allies.",
+    "damage": 191,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear 2 positive effect(s) from the primary target."
+      "When forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.",
+      "Apply Regeneration to all Exalted X-Men allies."
+    ],
+    "notes": []
+  },
+  "Annihilus": {
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf target has Defense Up, +225% damage.\\nShare Drain healing with 5 random allies.",
+    "damage": 225,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "If target has Defense Up, +225% damage.",
+      "Share Drain healing with 5 random allies."
+    ],
+    "notes": []
+  },
+  "AnnihilusBug": {
+    "description": "Attack primary target for 202% damage + 17% Piercing.\\nRemove Barrier from the primary target.\\nSteal 1 negative effect(s) from the primary target.",
+    "damage": 202,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Remove Barrier from the primary target.",
+      "Steal 1 negative effect(s) from the primary target."
     ],
     "notes": []
   },
   "AntMan": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to Infestation characters.\\nSteal 1 positive effect(s) from the primary target and give to allies, excluding Taunt.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
+      "When forced to attack an ally, this character deals 10% Piercing to Infestation characters.",
       "Steal 1 positive effect(s) from the primary target and give to allies, excluding Taunt."
     ],
     "notes": []
@@ -237,14 +260,14 @@
     "notes": []
   },
   "Beast": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nFlip 2 positive effect(s) to negative on the primary target.\\nFlip 1 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nFlip 2 positive effect(s) to negative on the primary target.\\nFlip 1 positive effect(s) to negative on the primary target.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
       "Flip 2 positive effect(s) to negative on the primary target.",
       "Flip 1 positive effect(s) to negative on the primary target."
     ],
@@ -307,14 +330,14 @@
     ]
   },
   "BlackKnight": {
-    "description": "Attack primary target for 267% Piercing.\\nClear 1 positive effect(s) from the primary target.\\nApply +1 Deflect, up to a maximum of 5 to the most injured ally.\\nIf the primary target is OUT OF TIME, Gain +1 Deflect, up to a maximum of 5.",
+    "description": "Attack primary target for 267% Piercing.\\nClear 1 positive effect(s) from the primary target.\\nApply +1 Deflect, up to a maximum of 5 to the most injured ally.\\nIf the primary target is Out of Time, Gain +1 Deflect, up to a maximum of 5.",
     "damage": 0,
     "piercing": 267,
     "drain": 0,
     "effects": [
       "Clear 1 positive effect(s) from the primary target.",
       "Apply +1 Deflect, up to a maximum of 5 to the most injured ally.",
-      "If the primary target is OUT OF TIME, Gain +1 Deflect, up to a maximum of 5."
+      "If the primary target is Out of Time, Gain +1 Deflect, up to a maximum of 5."
     ],
     "notes": []
   },
@@ -353,12 +376,12 @@
     "notes": []
   },
   "BlackWidow": {
-    "description": "Attack primary target for 200% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.\\nSteal all positive effect(s) from the primary target, excluding Taunt.",
+    "description": "Attack primary target for 200% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to Infestation characters.\\nSteal all positive effect(s) from the primary target, excluding Taunt.",
     "damage": 200,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
+      "When forced to attack an ally, this character deals 10% Piercing to Infestation characters.",
       "Steal all positive effect(s) from the primary target, excluding Taunt."
     ],
     "notes": []
@@ -378,6 +401,18 @@
       "This attack cannot be dodged.",
       "This attack cannot be blocked."
     ]
+  },
+  "BladeMighty": {
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Heal Block to the primary target.\\nCall a random Avenger ally to assist.",
+    "damage": 205,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Apply Bleed to the primary target.",
+      "Apply Heal Block to the primary target.",
+      "Call a random Avenger ally to assist."
+    ],
+    "notes": []
   },
   "Blastaar": {
     "description": "Attack primary target for 175% damage + 20% Piercing.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Safeguard by 2.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, This attack gains +500% Extra Focus.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Immunity by 2.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, If the primary target has Safeguard, Reduce the duration of Taunt by 1.\\nOtherwise, In CRUCIBLE SHOWDOWN, OFFENSE, Clear all positive effect(s) from the primary target.\\nOtherwise, In CRUCIBLE SHOWDOWN, OFFENSE, This attack gains +500% Extra Focus.\\nIf self does not have Silence, Clear all negative effect(s) from allies.\\nIn CRUCIBLE SHOWDOWN, OFFENSE, Gain 30% Speed Bar.\\nIf self does not have Silence, Gain +1 Bomb Burst, up to a maximum of 5.",
@@ -505,13 +540,13 @@
     "notes": []
   },
   "CaptainCarter": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Regeneration to the most injured ally.\\nIf that ally is REBIRTH or OUT OF TIME, apply 2 Regeneration for 2 turns instead.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Regeneration to the most injured ally.\\nIf that ally is Rebirth or Out of Time, apply 2 Regeneration for 2 turns instead.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Regeneration to the most injured ally.",
-      "If that ally is REBIRTH or OUT OF TIME, apply 2 Regeneration for 2 turns instead."
+      "If that ally is Rebirth or Out of Time, apply 2 Regeneration for 2 turns instead."
     ],
     "notes": []
   },
@@ -650,12 +685,14 @@
     "notes": []
   },
   "CullObsidian": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\n+260% damage to adjacent enemies.",
-    "damage": 245,
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn WAR, OFFENSE, When forced to attack an ally, this character deals 45% damage + 4% Piercing to Omen characters.\\nGain +1 Counter, up to a maximum of 4.\\nIn WAR, OFFENSE, Gain +1 Deathproof, up to a maximum of 5.",
+    "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "+260% damage to adjacent enemies."
+      "In WAR, OFFENSE, When forced to attack an ally, this character deals 45% damage + 4% Piercing to Omen characters.",
+      "Gain +1 Counter, up to a maximum of 4.",
+      "In WAR, OFFENSE, Gain +1 Deathproof, up to a maximum of 5."
     ],
     "notes": []
   },
@@ -713,22 +750,22 @@
     "notes": []
   },
   "Daredevil": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to DARINGWARRIOR characters.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Daring Warrior characters.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to DARINGWARRIOR characters."
+      "When forced to attack an ally, this character deals 25% damage to Daring Warrior characters."
     ],
     "notes": []
   },
   "DaredevilModern": {
-    "description": "Attack primary target for 158% damage + 17% Piercing.\\nFlip 3 negative effect(s) to positive on all VIGILANTE allies.",
+    "description": "Attack primary target for 158% damage + 17% Piercing.\\nFlip 3 negative effect(s) to positive on all Vigilante allies.",
     "damage": 158,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Flip 3 negative effect(s) to positive on all VIGILANTE allies."
+      "Flip 3 negative effect(s) to positive on all Vigilante allies."
     ],
     "notes": []
   },
@@ -769,13 +806,13 @@
     "notes": []
   },
   "Darkstar": {
-    "description": "Attack primary target for 157% Piercing.\\n+30% Piercing for each WINTER GUARD ally.\\nApply Regeneration to all WINTER GUARD allies.",
+    "description": "Attack primary target for 157% Piercing.\\n+30% Piercing for each Winter Guard ally.\\nApply Regeneration to all Winter Guard allies.",
     "damage": 0,
     "piercing": 157,
     "drain": 0,
     "effects": [
-      "+30% Piercing for each WINTER GUARD ally.",
-      "Apply Regeneration to all WINTER GUARD allies."
+      "+30% Piercing for each Winter Guard ally.",
+      "Apply Regeneration to all Winter Guard allies."
     ],
     "notes": []
   },
@@ -793,12 +830,12 @@
     "notes": []
   },
   "Deadpool": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nOtherwise, If self is MINION or target has Safeguard, +10000% Crit Chance.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Retcon characters.\\nOtherwise, If self is MINION or target has Safeguard, +10000% Crit Chance.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
+      "When forced to attack an ally, this character deals 25% damage to Retcon characters.",
       "Otherwise, If self is MINION or target has Safeguard, +10000% Crit Chance."
     ],
     "notes": []
@@ -836,12 +873,12 @@
     "notes": []
   },
   "DoctorStrange": {
-    "description": "Attack primary target for 212% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ASTRAL characters.\\nApply Offense Down for 2 turns to the primary target.\\nDeal 3% of target's Max Health.\\nBarrier for 5% of this character's Max Health to allies.",
+    "description": "Attack primary target for 212% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Astral characters.\\nApply Offense Down for 2 turns to the primary target.\\nDeal 3% of target's Max Health.\\nBarrier for 5% of this character's Max Health to allies.",
     "damage": 0,
     "piercing": 212,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to ASTRAL characters.",
+      "When forced to attack an ally, this character deals 25% damage to Astral characters.",
       "Apply Offense Down for 2 turns to the primary target.",
       "Deal 3% of target's Max Health.",
       "Barrier for 5% of this character's Max Health to allies."
@@ -852,12 +889,12 @@
     ]
   },
   "DoctorVoodoo": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nHeal all DARK HUNTER allies for 8% of this character's Max Health.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nHeal all Dark Hunter allies for 8% of this character's Max Health.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Heal all DARK HUNTER allies for 8% of this character's Max Health."
+      "Heal all Dark Hunter allies for 8% of this character's Max Health."
     ],
     "notes": []
   },
@@ -911,13 +948,15 @@
     "notes": []
   },
   "EbonyMaw": {
-    "description": "Attack primary target for 248% Piercing.\\nIf the primary target is HERO and is CONTROLLER, Apply +1 Bleed for 2 turns to the primary target.\\nOtherwise, Apply +1 Bleed to the primary target.",
+    "description": "Attack primary target for 240% Piercing.\\nIn WAR, OFFENSE, When forced to attack an ally, this character deals 48% Piercing to Omen characters.\\nIf the primary target is HERO and is CONTROLLER, Apply +2 Bleed for 2 turns to the primary target.\\nApply 2 Bleed to the primary target.\\nOtherwise, Apply +2 Bleed to the primary target.",
     "damage": 0,
-    "piercing": 248,
+    "piercing": 240,
     "drain": 0,
     "effects": [
-      "If the primary target is HERO and is CONTROLLER, Apply +1 Bleed for 2 turns to the primary target.",
-      "Otherwise, Apply +1 Bleed to the primary target."
+      "In WAR, OFFENSE, When forced to attack an ally, this character deals 48% Piercing to Omen characters.",
+      "If the primary target is HERO and is CONTROLLER, Apply +2 Bleed for 2 turns to the primary target.",
+      "Apply 2 Bleed to the primary target.",
+      "Otherwise, Apply +2 Bleed to the primary target."
     ],
     "notes": []
   },
@@ -930,11 +969,12 @@
     "notes": []
   },
   "Eclipse": {
-    "description": "Attack primary target for 237% damage + 17% Piercing.\\nHeal for 5% of this character's Max Health.\\nHeal the most injured ally or self for 5% of this character's Max Health.\\nThe first time this ability is used, gain Crescent Moon.",
+    "description": "Attack primary target for 237% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nHeal for 5% of this character's Max Health.\\nHeal the most injured ally or self for 5% of this character's Max Health.\\nThe first time this ability is used, gain Crescent Moon.",
     "damage": 237,
     "piercing": 17,
     "drain": 0,
     "effects": [
+      "Apply 2 Bleed to the primary target.",
       "Heal for 5% of this character's Max Health.",
       "Heal the most injured ally or self for 5% of this character's Max Health.",
       "The first time this ability is used, gain Crescent Moon."
@@ -952,12 +992,12 @@
     "notes": []
   },
   "Elektra": {
-    "description": "Attack primary target for 168% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nApply Bleed to 2 enemies.\\nThis attack gains +1000% Extra Focus.",
+    "description": "Attack primary target for 168% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Shadowland characters.\\nApply Bleed to 2 enemies.\\nThis attack gains +1000% Extra Focus.",
     "damage": 168,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
+      "When forced to attack an ally, this character deals 25% damage to Shadowland characters.",
       "Apply Bleed to 2 enemies.",
       "This attack gains +1000% Extra Focus."
     ],
@@ -984,12 +1024,12 @@
     "notes": []
   },
   "EmmaFrostXMen": {
-    "description": "Attack primary target for 193% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ASTRAL characters.\\nApply 2 Bleed to the primary target.\\nApply Regeneration to the most injured ally.\\nGain Regeneration for 2 turns.\\nBarrier for 10% of this character's Max Health.",
+    "description": "Attack primary target for 193% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Astral characters.\\nApply 2 Bleed to the primary target.\\nApply Regeneration to the most injured ally.\\nGain Regeneration for 2 turns.\\nBarrier for 10% of this character's Max Health.",
     "damage": 193,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to ASTRAL characters.",
+      "When forced to attack an ally, this character deals 25% damage to Astral characters.",
       "Apply 2 Bleed to the primary target.",
       "Apply Regeneration to the most injured ally.",
       "Gain Regeneration for 2 turns.",
@@ -997,28 +1037,41 @@
     ],
     "notes": []
   },
+  "Executioner": {
+    "description": "Attack primary target for 210% Piercing.\\nApply Heal Block to the primary target.\\nApply Heal Block for 2 turns to 10 enemies.",
+    "damage": 0,
+    "piercing": 210,
+    "drain": 0,
+    "effects": [
+      "Apply Heal Block to the primary target.",
+      "Apply Heal Block for 2 turns to 10 enemies."
+    ],
+    "notes": [
+      "Enemies killed by this attack cannot be revived."
+    ]
+  },
   "Falcon": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies."
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies."
     ],
     "notes": []
   },
   "FalconJoaquin": {
-    "description": "Attack primary target for 188% damage + 17% Piercing.\\nApply Speed Up to all LIBERTY allies.",
+    "description": "Attack primary target for 188% damage + 17% Piercing.\\nApply Speed Up to all Liberty allies.",
     "damage": 188,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Speed Up to all LIBERTY allies."
+      "Apply Speed Up to all Liberty allies."
     ],
     "notes": []
   },
@@ -1034,13 +1087,13 @@
     "notes": []
   },
   "Firestar": {
-    "description": "Attack primary target for 180% Piercing + 25% Crit Chance.\\nApply 2 Bleed to the primary target.\\nApply Offense Up to a random NEW WARRIOR or Spider-Man or Iceman ally.\\nOn Crit, Gain +1 Charged, up to a maximum of 5.",
+    "description": "Attack primary target for 180% Piercing + 25% Crit Chance.\\nApply 2 Bleed to the primary target.\\nApply Offense Up to a random New Warrior or Spider-Man or Iceman ally.\\nOn Crit, Gain +1 Charged, up to a maximum of 5.",
     "damage": 0,
     "piercing": 180,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "Apply Offense Up to a random NEW WARRIOR or Spider-Man or Iceman ally.",
+      "Apply Offense Up to a random New Warrior or Spider-Man or Iceman ally.",
       "On Crit, Gain +1 Charged, up to a maximum of 5."
     ],
     "notes": []
@@ -1251,7 +1304,7 @@
     "notes": []
   },
   "Gwenom": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nFlip 2 positive effect(s) to negative on the primary target.\\nApply 2 Bleed to the primary target.\\nApply Defense Down to the primary target.\\nIn RAIDS, Generate +1 Ability Energy for HIVE-MIND allies.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nFlip 2 positive effect(s) to negative on the primary target.\\nApply 2 Bleed to the primary target.\\nApply Defense Down to the primary target.\\nIn RAIDS, Generate +1 Ability Energy for Hive-Mind allies.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
@@ -1259,12 +1312,12 @@
       "Flip 2 positive effect(s) to negative on the primary target.",
       "Apply 2 Bleed to the primary target.",
       "Apply Defense Down to the primary target.",
-      "In RAIDS, Generate +1 Ability Energy for HIVE-MIND allies."
+      "In RAIDS, Generate +1 Ability Energy for Hive-Mind allies."
     ],
     "notes": []
   },
   "Gwenpool": {
-    "description": "Attack primary target for 278% damage + 17% Piercing.\\nIf the primary target has Barrier, Remove Barrier from the primary target.\\nIf the primary target has Barrier, Barrier for 30% of this character's Max Health to allies.\\nOtherwise, Barrier for 15% of this character's Max Health to allies.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nApply Defense Up for 2 turns to a random NEW WARRIOR or RETCON ally (excluding self).",
+    "description": "Attack primary target for 278% damage + 17% Piercing.\\nIf the primary target has Barrier, Remove Barrier from the primary target.\\nIf the primary target has Barrier, Barrier for 30% of this character's Max Health to allies.\\nOtherwise, Barrier for 15% of this character's Max Health to allies.\\nWhen forced to attack an ally, this character deals 25% damage to Retcon characters.\\nApply Defense Up for 2 turns to a random New Warrior or Retcon ally (excluding self).",
     "damage": 278,
     "piercing": 17,
     "drain": 0,
@@ -1272,8 +1325,8 @@
       "If the primary target has Barrier, Remove Barrier from the primary target.",
       "If the primary target has Barrier, Barrier for 30% of this character's Max Health to allies.",
       "Otherwise, Barrier for 15% of this character's Max Health to allies.",
-      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
-      "Apply Defense Up for 2 turns to a random NEW WARRIOR or RETCON ally (excluding self)."
+      "When forced to attack an ally, this character deals 25% damage to Retcon characters.",
+      "Apply Defense Up for 2 turns to a random New Warrior or Retcon ally (excluding self)."
     ],
     "notes": []
   },
@@ -1371,12 +1424,12 @@
     ]
   },
   "Hellcat": {
-    "description": "Attack primary target for 135% Piercing.\\nIn WAR, On Crit, If 3+ BRIMSTONE allies, Apply Ability Block to the primary target.\\nIf Daimon Hellstrom is an ally, Apply Assist Now to a random ally.",
+    "description": "Attack primary target for 135% Piercing.\\nIn WAR, On Crit, If 3+ Brimstone allies, Apply Ability Block to the primary target.\\nIf Daimon Hellstrom is an ally, Apply Assist Now to a random ally.",
     "damage": 0,
     "piercing": 135,
     "drain": 0,
     "effects": [
-      "In WAR, On Crit, If 3+ BRIMSTONE allies, Apply Ability Block to the primary target.",
+      "In WAR, On Crit, If 3+ Brimstone allies, Apply Ability Block to the primary target.",
       "If Daimon Hellstrom is an ally, Apply Assist Now to a random ally."
     ],
     "notes": []
@@ -1406,6 +1459,17 @@
       "Enemies killed by this attack cannot be revived.",
       "This attack cannot be dodged."
     ]
+  },
+  "HighEvolutionary": {
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nGain Offense Up for 2 turns.\\nApply Offense Down for 2 turns to the primary target.",
+    "damage": 210,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Gain Offense Up for 2 turns.",
+      "Apply Offense Down for 2 turns to the primary target."
+    ],
+    "notes": []
   },
   "HitMonkey": {
     "description": "Attack primary target for 254% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nIn HORSEMEN, MISSION, CHALLENGE, Prolong the duration of negative effects by 1.",
@@ -1437,13 +1501,12 @@
     "notes": []
   },
   "Hulk": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf this character has 50% or less Health or self has Charged, +50% damage.\\nIf self has Charged, Lose 1 Charged.",
-    "damage": 205,
+    "description": "Attack primary target for 274% damage + 17% Piercing.\\nGain +1 Charged, up to a maximum of 5.",
+    "damage": 274,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If this character has 50% or less Health or self has Charged, +50% damage.",
-      "If self has Charged, Lose 1 Charged."
+      "Gain +1 Charged, up to a maximum of 5."
     ],
     "notes": []
   },
@@ -1537,64 +1600,64 @@
     "notes": []
   },
   "Ikaris": {
-    "description": "Attack primary target for 189% Piercing.\\nWhen forced to attack an ally, this character deals 56% Piercing to ETERNAL characters.\\nIf Sersi is an ally, Apply Assist Now to a random ally.",
+    "description": "Attack primary target for 189% Piercing.\\nWhen forced to attack an ally, this character deals 56% Piercing to Eternal characters.\\nIf Sersi is an ally, Apply Assist Now to a random ally.",
     "damage": 0,
     "piercing": 189,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 56% Piercing to ETERNAL characters.",
+      "When forced to attack an ally, this character deals 56% Piercing to Eternal characters.",
       "If Sersi is an ally, Apply Assist Now to a random ally."
     ],
     "notes": []
   },
   "InnerDemon_Cyclops": {
-    "description": "Attack primary target for 216% Piercing.\\nApply Heal Block for 2 turns to the primary target.\\nIn WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.\\nThis attack gains +50% Extra Focus.\\nIf the primary target is MYSTIC, Reduce Speed Bar by 10%.",
+    "description": "Attack primary target for 216% Piercing.\\nApply Heal Block for 2 turns to the primary target.\\nIn WAR, OFFENSE, +20% Focus for each Underworld ally.\\nThis attack gains +50% Extra Focus.\\nIf the primary target is MYSTIC, Reduce Speed Bar by 10%.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
       "Apply Heal Block for 2 turns to the primary target.",
-      "In WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.",
+      "In WAR, OFFENSE, +20% Focus for each Underworld ally.",
       "This attack gains +50% Extra Focus.",
       "If the primary target is MYSTIC, Reduce Speed Bar by 10%."
     ],
     "notes": []
   },
   "InnerDemon_Demon": {
-    "description": "Attack primary target for 216% Piercing.\\nApply Stun to the primary target.\\nIn WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.\\nThis attack gains +50% Extra Focus.\\nIf the primary target is MYSTIC, Reduce Speed Bar by 10%.",
+    "description": "Attack primary target for 216% Piercing.\\nApply Stun to the primary target.\\nIn WAR, OFFENSE, +20% Focus for each Underworld ally.\\nThis attack gains +50% Extra Focus.\\nIf the primary target is MYSTIC, Reduce Speed Bar by 10%.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
       "Apply Stun to the primary target.",
-      "In WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.",
+      "In WAR, OFFENSE, +20% Focus for each Underworld ally.",
       "This attack gains +50% Extra Focus.",
       "If the primary target is MYSTIC, Reduce Speed Bar by 10%."
     ],
     "notes": []
   },
   "InnerDemon_Dragon": {
-    "description": "Attack primary target for 216% Piercing.\\nApply 2 Bleed to the primary target.\\nIn WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.\\nThis attack gains +50% Extra Focus.\\nIf the primary target is MYSTIC, Reduce Speed Bar by 10%.",
+    "description": "Attack primary target for 216% Piercing.\\nApply 2 Bleed to the primary target.\\nIn WAR, OFFENSE, +20% Focus for each Underworld ally.\\nThis attack gains +50% Extra Focus.\\nIf the primary target is MYSTIC, Reduce Speed Bar by 10%.",
     "damage": 0,
     "piercing": 216,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
-      "In WAR, OFFENSE, +20% Focus for each UNDERWORLD ally.",
+      "In WAR, OFFENSE, +20% Focus for each Underworld ally.",
       "This attack gains +50% Extra Focus.",
       "If the primary target is MYSTIC, Reduce Speed Bar by 10%."
     ],
     "notes": []
   },
   "InvisibleWoman": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nBarrier for 10% of this character's Max Health to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nBarrier for 10% of this character's Max Health to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
       "Barrier for 10% of this character's Max Health to allies."
     ],
     "notes": []
@@ -1679,7 +1742,7 @@
     "notes": []
   },
   "IronheartMCU": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Defense Down for 2 turns to the primary target.\\nApply +1 Vulnerable, up to a maximum of 3 to the primary target.\\nProlong the duration of all negative effects, excluding Ability Block and Stun, by 1.\\nIf 4+ PEGASUS allies, Gain Immunity.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Defense Down for 2 turns to the primary target.\\nApply +1 Vulnerable, up to a maximum of 3 to the primary target.\\nProlong the duration of all negative effects, excluding Ability Block and Stun, by 1.\\nIf 4+ Pegasus allies, Gain Immunity.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
@@ -1687,7 +1750,7 @@
       "Apply Defense Down for 2 turns to the primary target.",
       "Apply +1 Vulnerable, up to a maximum of 3 to the primary target.",
       "Prolong the duration of all negative effects, excluding Ability Block and Stun, by 1.",
-      "If 4+ PEGASUS allies, Gain Immunity."
+      "If 4+ Pegasus allies, Gain Immunity."
     ],
     "notes": []
   },
@@ -1704,29 +1767,29 @@
     ]
   },
   "JeanGrey": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nApply Heal Block for 2 turns to the primary target.\\nApply Defense Down for 2 turns to the primary target.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nApply Heal Block for 2 turns to the primary target.\\nApply Defense Down for 2 turns to the primary target.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
       "Apply Heal Block for 2 turns to the primary target.",
       "Apply Defense Down for 2 turns to the primary target."
     ],
     "notes": []
   },
   "JeffTheLandShark": {
-    "description": "Attack primary target for 210% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nApply Disrupted for 2 turns to the primary target.\\nOn Ultimate assist, Generate +1 Ability Energy for all allies.\\nOn Special assist, Generate +1 Ability Energy for Gwenpool.",
+    "description": "Attack primary target for 210% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Retcon characters.\\nApply Disrupted for 2 turns to the primary target.\\nOn Ultimate assist, Generate +1 Ability Energy for all allies.\\nOn Special assist, Generate +1 Ability Energy for Retcon allies.",
     "damage": 0,
     "piercing": 210,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
+      "When forced to attack an ally, this character deals 25% damage to Retcon characters.",
       "Apply Disrupted for 2 turns to the primary target.",
       "On Ultimate assist, Generate +1 Ability Energy for all allies.",
-      "On Special assist, Generate +1 Ability Energy for Gwenpool."
+      "On Special assist, Generate +1 Ability Energy for Retcon allies."
     ],
     "notes": []
   },
@@ -1741,13 +1804,13 @@
     "notes": []
   },
   "Jubilee": {
-    "description": "Attack primary target for 218% damage + 17% Piercing.\\nNot in RAID, 70% chance to Apply Accuracy Down to the primary target.\\nIn RAIDS, Apply Accuracy Down to the primary target.",
+    "description": "Attack primary target for 218% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.\\nIf 3+ Exalted X-Men allies, Apply Accuracy Down to the primary target.",
     "damage": 218,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Not in RAID, 70% chance to Apply Accuracy Down to the primary target.",
-      "In RAIDS, Apply Accuracy Down to the primary target."
+      "When forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.",
+      "If 3+ Exalted X-Men allies, Apply Accuracy Down to the primary target."
     ],
     "notes": []
   },
@@ -1760,12 +1823,12 @@
     "notes": []
   },
   "Kahhori": {
-    "description": "Attack primary target for 135% Piercing + 50% Drain.\\nWhen forced to attack an ally, this character deals 25% damage to ABSOLUTE A-FORCE characters.\\nIf the primary target is not MINION, Deal 5% of target's Max Health.\\nIf the primary target is MINION, Deal 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nIf the primary target has Exposed, Apply Accuracy Down to the primary target.\\nIf the primary target has no positive effects, Apply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard, by 1 on allies.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard, by 1 on allies.",
+    "description": "Attack primary target for 135% Piercing + 50% Drain.\\nWhen forced to attack an ally, this character deals 25% damage to Absolute A-Force characters.\\nIf the primary target is not MINION, Deal 5% of target's Max Health.\\nIf the primary target is MINION, Deal 30% of target's Max Health.\\nNot in WAR, Flip 2 positive effect(s) to negative on the primary target.\\nIn WAR, Flip all positive effect(s) to negative on the primary target.\\nIf the primary target has Exposed, Apply Accuracy Down to the primary target.\\nIf the primary target has no positive effects, Apply Exposed to the primary target.\\nApply +1 Charged, up to a maximum of 3 to a random ally.\\nProlong the duration of all positive effects, excluding Safeguard, by 1 on allies.\\nOn Assist, Prolong the duration of all positive effects, excluding Safeguard, by 1 on allies.",
     "damage": 0,
     "piercing": 135,
     "drain": 50,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to ABSOLUTE A-FORCE characters.",
+      "When forced to attack an ally, this character deals 25% damage to Absolute A-Force characters.",
       "If the primary target is not MINION, Deal 5% of target's Max Health.",
       "If the primary target is MINION, Deal 30% of target's Max Health.",
       "Not in WAR, Flip 2 positive effect(s) to negative on the primary target.",
@@ -1838,13 +1901,13 @@
     "notes": []
   },
   "Kingpin": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf 3+ UNDERWORLD allies, +15% Crit Chance.\\nIf 3+ UNDERWORLD allies, +15% Crit Chance for each UNDERWORLD ally.\\nOn Crit, Barrier for 10% of this character's Max Health to allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf 3+ Underworld allies, +15% Crit Chance.\\nIf 3+ Underworld allies, +15% Crit Chance for each Underworld ally.\\nOn Crit, Barrier for 10% of this character's Max Health to allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If 3+ UNDERWORLD allies, +15% Crit Chance.",
-      "If 3+ UNDERWORLD allies, +15% Crit Chance for each UNDERWORLD ally.",
+      "If 3+ Underworld allies, +15% Crit Chance.",
+      "If 3+ Underworld allies, +15% Crit Chance for each Underworld ally.",
       "On Crit, Barrier for 10% of this character's Max Health to allies."
     ],
     "notes": []
@@ -1864,17 +1927,18 @@
     "notes": []
   },
   "Knull": {
-    "description": "Attack primary target for 205% Piercing.\\nApply +1 Darkness to the primary target.\\nApply Slow for 2 turns to the primary target.\\nAttack an additional enemy.",
+    "description": "Attack primary target for 205% Piercing.\\nApply +1 Darkness to the primary target.\\nWhen forced to attack an ally, this character deals 25% damage to Symbiote Six characters.\\nOtherwise, Apply +1 Slow to the primary target.\\nAttack an additional enemy.",
     "damage": 0,
     "piercing": 205,
     "drain": 0,
     "effects": [
       "Apply +1 Darkness to the primary target.",
-      "Apply Slow for 2 turns to the primary target.",
+      "When forced to attack an ally, this character deals 25% damage to Symbiote Six characters.",
+      "Otherwise, Apply +1 Slow to the primary target.",
       "Attack an additional enemy."
     ],
     "notes": [
-      "Enemies killed by this attack cannot be revived.",
+      "Otherwise, enemies killed by this attack cannot be revived.",
       "Debuffs from this attack cannot be resisted."
     ]
   },
@@ -2057,7 +2121,7 @@
     "notes": []
   },
   "LokiTeen": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, If self has 1+ Regeneration, +100% damage.\\nClear 1 positive effect(s) from the primary target.\\nApply Regeneration to allies.\\nClear 1 negative effect(s) from allies.\\nApply Regeneration to the most injured ally.\\nClear 1 negative effect(s) from the most injured ally.\\nIn RAIDS, Apply +1 Regeneration to all BIFROST allies.\\nIf self has Stealth, Clear 1 Stealth from allies.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, If self has 1+ Regeneration, +100% damage.\\nClear 1 positive effect(s) from the primary target.\\nApply Regeneration to allies.\\nClear 1 negative effect(s) from allies.\\nApply Regeneration to the most injured ally.\\nClear 1 negative effect(s) from the most injured ally.\\nIn RAIDS, Apply +1 Regeneration to all Bifrost allies.\\nIf self has Stealth, Clear 1 Stealth from allies.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
@@ -2068,7 +2132,7 @@
       "Clear 1 negative effect(s) from allies.",
       "Apply Regeneration to the most injured ally.",
       "Clear 1 negative effect(s) from the most injured ally.",
-      "In RAIDS, Apply +1 Regeneration to all BIFROST allies.",
+      "In RAIDS, Apply +1 Regeneration to all Bifrost allies.",
       "If self has Stealth, Clear 1 Stealth from allies."
     ],
     "notes": []
@@ -2107,6 +2171,18 @@
     ],
     "notes": []
   },
+  "Maestro": {
+    "description": "Attack primary target for 237% damage + 17% Piercing.\\nClear 2 positive effect(s) from the primary target.\\nApply 2 Bleed for 2 turns to the primary target.\\nClear 1 InvisibleStateChecker_EndofTurn from allies.",
+    "damage": 237,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Clear 2 positive effect(s) from the primary target.",
+      "Apply 2 Bleed for 2 turns to the primary target.",
+      "Clear 1 InvisibleStateChecker_EndofTurn from allies."
+    ],
+    "notes": []
+  },
   "Magik": {
     "description": "Attack primary target for 150% Piercing.\\nClear 2 positive effect(s) from the primary target.",
     "damage": 0,
@@ -2118,17 +2194,17 @@
     "notes": []
   },
   "Magneto": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, If 3+ DEATHSEED allies, Prolong the duration of negative effects by 1.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, If 3+ Deathseed allies, Prolong the duration of negative effects by 1.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAIDS, If 3+ DEATHSEED allies, Prolong the duration of negative effects by 1."
+      "In RAIDS, If 3+ Deathseed allies, Prolong the duration of negative effects by 1."
     ],
     "notes": []
   },
   "MagnetoPhoenixForce": {
-    "description": "Attack primary target for 150% Piercing.\\nWhen forced to attack an ally, this character deals 50% Piercing to MUTANT characters.\\nDeal 10% of target's Max Health.\\nApply Disrupted for 2 turns to the primary target.\\nIn CRUCIBLE SHOWDOWN, If 1+ PHOENIX FORCE allies, Call the PHOENIX FORCE ally with the highest Damage to assist.",
+    "description": "Attack primary target for 150% Piercing.\\nWhen forced to attack an ally, this character deals 50% Piercing to MUTANT characters.\\nDeal 10% of target's Max Health.\\nApply Disrupted for 2 turns to the primary target.\\nIn CRUCIBLE SHOWDOWN, If 1+ Phoenix Force allies, Call the Phoenix Force ally with the highest Damage to assist.",
     "damage": 0,
     "piercing": 150,
     "drain": 0,
@@ -2136,12 +2212,23 @@
       "When forced to attack an ally, this character deals 50% Piercing to MUTANT characters.",
       "Deal 10% of target's Max Health.",
       "Apply Disrupted for 2 turns to the primary target.",
-      "In CRUCIBLE SHOWDOWN, If 1+ PHOENIX FORCE allies, Call the PHOENIX FORCE ally with the highest Damage to assist."
+      "In CRUCIBLE SHOWDOWN, If 1+ Phoenix Force allies, Call the Phoenix Force ally with the highest Damage to assist."
+    ],
+    "notes": []
+  },
+  "Malekith": {
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn WAR, If 3+ Shadow Conclave allies, Apply Accuracy Down to the primary target.\\nIf 1+ Shadow Conclave allies, Call the Shadow Conclave ally with the highest Damage to assist.",
+    "damage": 225,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "In WAR, If 3+ Shadow Conclave allies, Apply Accuracy Down to the primary target.",
+      "If 1+ Shadow Conclave allies, Call the Shadow Conclave ally with the highest Damage to assist."
     ],
     "notes": []
   },
   "ManThing": {
-    "description": "Attack primary target for 196% damage + 17% Piercing.\\nApply +1 Slow, up to a maximum of 3 to the primary target.\\nIf not facing Daredevil, Apply Bleed to the primary target.\\nApply 2 Regeneration to allies.\\nIf the primary target is NIGHTSTALKER, Apply Defense Up to the most injured ally.",
+    "description": "Attack primary target for 196% damage + 17% Piercing.\\nApply +1 Slow, up to a maximum of 3 to the primary target.\\nIf not facing Daredevil, Apply Bleed to the primary target.\\nApply 2 Regeneration to allies.\\nIf the primary target is Nightstalker, Apply Defense Up to the most injured ally.",
     "damage": 196,
     "piercing": 17,
     "drain": 0,
@@ -2149,7 +2236,7 @@
       "Apply +1 Slow, up to a maximum of 3 to the primary target.",
       "If not facing Daredevil, Apply Bleed to the primary target.",
       "Apply 2 Regeneration to allies.",
-      "If the primary target is NIGHTSTALKER, Apply Defense Up to the most injured ally."
+      "If the primary target is Nightstalker, Apply Defense Up to the most injured ally."
     ],
     "notes": []
   },
@@ -2164,22 +2251,22 @@
     "notes": []
   },
   "MariaHill": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf the primary target is SECRETAVENGER, Gain Regeneration.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf the primary target is Secret Avenger, Gain Regeneration.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If the primary target is SECRETAVENGER, Gain Regeneration."
+      "If the primary target is Secret Avenger, Gain Regeneration."
     ],
     "notes": []
   },
   "Medusa": {
-    "description": "Attack primary target for 240% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ABSOLUTE A-FORCE characters.",
+    "description": "Attack primary target for 240% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Absolute A-Force characters.",
     "damage": 0,
     "piercing": 240,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to ABSOLUTE A-FORCE characters."
+      "When forced to attack an ally, this character deals 25% damage to Absolute A-Force characters."
     ],
     "notes": []
   },
@@ -2248,13 +2335,14 @@
     "notes": []
   },
   "Minerva": {
-    "description": "Attack primary target for 100% damage + 17% Piercing.\\nApply Bleed to the primary target.\\nApply Regeneration to the most injured ally.",
-    "damage": 100,
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIn WAR, OFFENSE, When forced to attack an ally, this character deals 42% damage + 4% Piercing to Omen characters.\\nOtherwise, Apply +2 Bleed for 2 turns to the primary target.\\nApply 2 Regeneration for 2 turns to the most injured ally.",
+    "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target.",
-      "Apply Regeneration to the most injured ally."
+      "In WAR, OFFENSE, When forced to attack an ally, this character deals 42% damage + 4% Piercing to Omen characters.",
+      "Otherwise, Apply +2 Bleed for 2 turns to the primary target.",
+      "Apply 2 Regeneration for 2 turns to the most injured ally."
     ],
     "notes": []
   },
@@ -2272,44 +2360,44 @@
     ]
   },
   "Mockingbird": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nHeal all non-NEW AVENGER allies for 5% of this character's Max Health.\\nHeal all NEW AVENGER allies for 10% of this character's Max Health.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nHeal all non-New Avenger allies for 5% of this character's Max Health.\\nHeal all New Avenger allies for 10% of this character's Max Health.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Heal all non-NEW AVENGER allies for 5% of this character's Max Health.",
-      "Heal all NEW AVENGER allies for 10% of this character's Max Health."
+      "Heal all non-New Avenger allies for 5% of this character's Max Health.",
+      "Heal all New Avenger allies for 10% of this character's Max Health."
     ],
     "notes": []
   },
   "MoonGirl": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn RAIDS or WAR, Reduce Speed Bar by 3% for each CHAMPION OR ABSOLUTE A-FORCE ally.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIn RAIDS or WAR, Reduce Speed Bar by 3% for each Champion OR Absolute A-Force ally.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAIDS or WAR, Reduce Speed Bar by 3% for each CHAMPION OR ABSOLUTE A-FORCE ally."
+      "In RAIDS or WAR, Reduce Speed Bar by 3% for each Champion OR Absolute A-Force ally."
     ],
     "notes": []
   },
   "MoonKnight": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND or NIGHTSTALKER characters.\\nGain Counter.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Shadowland or Nightstalker characters.\\nGain Counter.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND or NIGHTSTALKER characters.",
+      "When forced to attack an ally, this character deals 25% damage to Shadowland or Nightstalker characters.",
       "Gain Counter."
     ],
     "notes": []
   },
   "Moondragon": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to ASTRAL characters.\\nOtherwise, Deal 5% of target's Max Health.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Astral characters.\\nOtherwise, Deal 5% of target's Max Health.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to ASTRAL characters.",
+      "When forced to attack an ally, this character deals 25% damage to Astral characters.",
       "Otherwise, Deal 5% of target's Max Health."
     ],
     "notes": []
@@ -2345,6 +2433,17 @@
       "On Crit, Steal all positive effect(s) from the primary target, excluding Taunt.",
       "Steal 2 positive effect(s) from the primary target, excluding Taunt.",
       "Deal 10% of target's Max Health and redistribute to allies."
+    ],
+    "notes": []
+  },
+  "Morph": {
+    "description": "Attack primary target for 224% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.\\nCopy 3 positive effect(s) from the primary target, excluding Taunt and Regeneration.",
+    "damage": 224,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "When forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.",
+      "Copy 3 positive effect(s) from the primary target, excluding Taunt and Regeneration."
     ],
     "notes": []
   },
@@ -2390,25 +2489,25 @@
     "notes": []
   },
   "MsMarvel": {
-    "description": "Attack primary target for 207% damage + 17% Piercing.\\nApply Deflect for 2 turns to allies.\\nIn RAIDS, On Ultimate assist, Generate +1 Ability Energy for a random CHAMPION ally.",
+    "description": "Attack primary target for 207% damage + 17% Piercing.\\nApply Deflect for 2 turns to allies.\\nIn RAIDS, On Ultimate assist, Generate +1 Ability Energy for a random Champion ally.",
     "damage": 207,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Deflect for 2 turns to allies.",
-      "In RAIDS, On Ultimate assist, Generate +1 Ability Energy for a random CHAMPION ally."
+      "In RAIDS, On Ultimate assist, Generate +1 Ability Energy for a random Champion ally."
     ],
     "notes": []
   },
   "MsMarvelClassic": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf the primary target is ABSOLUTE A-FORCE, Apply Defense Up to the most injured without Defense Up ally.\\nIf the primary target is ABSOLUTE A-FORCE, Gain +1 Regeneration.\\nIn WAR, Heal all ABSOLUTE A-FORCE allies for 10% of this character's Max Health.\\nIf self has 2 or less Charged, Gain +3 Charged, up to a maximum of 3.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf the primary target is Absolute A-Force, Apply Defense Up to the most injured without Defense Up ally.\\nIf the primary target is Absolute A-Force, Gain +1 Regeneration.\\nIn WAR, Heal all Absolute A-Force allies for 10% of this character's Max Health.\\nIf self has 2 or less Charged, Gain +3 Charged, up to a maximum of 3.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "If the primary target is ABSOLUTE A-FORCE, Apply Defense Up to the most injured without Defense Up ally.",
-      "If the primary target is ABSOLUTE A-FORCE, Gain +1 Regeneration.",
-      "In WAR, Heal all ABSOLUTE A-FORCE allies for 10% of this character's Max Health.",
+      "If the primary target is Absolute A-Force, Apply Defense Up to the most injured without Defense Up ally.",
+      "If the primary target is Absolute A-Force, Gain +1 Regeneration.",
+      "In WAR, Heal all Absolute A-Force allies for 10% of this character's Max Health.",
       "If self has 2 or less Charged, Gain +3 Charged, up to a maximum of 3."
     ],
     "notes": []
@@ -2514,12 +2613,12 @@
     "notes": []
   },
   "Nemesis": {
-    "description": "Attack primary target for 148% damage + 17% Piercing.\\nDeal 5% of target's Max Health and redistribute to DEATHSEED allies.",
+    "description": "Attack primary target for 148% damage + 17% Piercing.\\nDeal 5% of target's Max Health and redistribute to Deathseed allies.",
     "damage": 148,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Deal 5% of target's Max Health and redistribute to DEATHSEED allies."
+      "Deal 5% of target's Max Health and redistribute to Deathseed allies."
     ],
     "notes": []
   },
@@ -2548,14 +2647,14 @@
     "notes": []
   },
   "NightNurse": {
-    "description": "Attack primary target for 224% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nApply Slow for 2 turns to the primary target.\\nIf 2+ SHADOWLAND allies, Flip 2 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 224% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Shadowland characters.\\nApply Slow for 2 turns to the primary target.\\nIf 2+ Shadowland allies, Flip 2 positive effect(s) to negative on the primary target.",
     "damage": 224,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
+      "When forced to attack an ally, this character deals 25% damage to Shadowland characters.",
       "Apply Slow for 2 turns to the primary target.",
-      "If 2+ SHADOWLAND allies, Flip 2 positive effect(s) to negative on the primary target."
+      "If 2+ Shadowland allies, Flip 2 positive effect(s) to negative on the primary target."
     ],
     "notes": []
   },
@@ -2724,13 +2823,13 @@
     ]
   },
   "OmegaSentinel": {
-    "description": "Attack primary target for 192% damage + 17% Piercing.\\nIn RAIDS, +30% damage.\\nApply Regeneration for 2 turns to all ORCHIS allies.",
+    "description": "Attack primary target for 192% damage + 17% Piercing.\\nIn RAIDS, +30% damage.\\nApply Regeneration for 2 turns to all Orchis allies.",
     "damage": 192,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "In RAIDS, +30% damage.",
-      "Apply Regeneration for 2 turns to all ORCHIS allies."
+      "Apply Regeneration for 2 turns to all Orchis allies."
     ],
     "notes": [
       "This attack cannot miss.",
@@ -2769,7 +2868,7 @@
     "notes": []
   },
   "PeniParker": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf self has Barrier, +50% damage.\\nClear all positive effect(s) from the primary target.\\nIf 1+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nIf 2+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nIf 3+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nIf 4+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nIf 5+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nApply +1 Deflect, up to a maximum of 5 to all HERO SPIDER-VERSE allies.\\nGenerate +1 Ability Energy for SPIDER SOCIETY allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf self has Barrier, +50% damage.\\nClear all positive effect(s) from the primary target.\\nIf 1+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nIf 2+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nIf 3+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nIf 4+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nIf 5+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.\\nApply +1 Deflect, up to a maximum of 5 to all HERO SPIDER-VERSE allies.\\nGenerate +1 Ability Energy for Spider Society allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
@@ -2782,19 +2881,19 @@
       "If 4+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.",
       "If 5+ HERO SPIDER-VERSE allies, Gain +1 Deflect, up to a maximum of 5.",
       "Apply +1 Deflect, up to a maximum of 5 to all HERO SPIDER-VERSE allies.",
-      "Generate +1 Ability Energy for SPIDER SOCIETY allies."
+      "Generate +1 Ability Energy for Spider Society allies."
     ],
     "notes": []
   },
   "PeterBParker": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nApply Regeneration to the 2 most injured HERO SPIDER-VERSE allies.\\nApply Evade to the 2 most injured SPIDER SOCIETY allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nApply Offense Down for 2 turns to the primary target.\\nApply Regeneration to the 2 most injured HERO SPIDER-VERSE allies.\\nApply Evade to the 2 most injured Spider Society allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down for 2 turns to the primary target.",
       "Apply Regeneration to the 2 most injured HERO SPIDER-VERSE allies.",
-      "Apply Evade to the 2 most injured SPIDER SOCIETY allies."
+      "Apply Evade to the 2 most injured Spider Society allies."
     ],
     "notes": []
   },
@@ -3000,6 +3099,16 @@
     ],
     "notes": []
   },
+  "RachelColeAlves": {
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Offense Down to the primary target.",
+    "damage": 205,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Apply Offense Down to the primary target."
+    ],
+    "notes": []
+  },
   "RachelSummers": {
     "description": "Attack primary target for 210% damage + 17% Piercing.\\nApply Defense Down to the primary target.",
     "damage": 210,
@@ -3048,14 +3157,14 @@
     "notes": []
   },
   "RedGoblin": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 2 Regeneration to allies.\\nApply 2 Regeneration to the most injured HIVE-MIND ally.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\nApply 2 Bleed to the primary target.\\nApply 2 Regeneration to allies.\\nApply 2 Regeneration to the most injured Hive-Mind ally.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply 2 Bleed to the primary target.",
       "Apply 2 Regeneration to allies.",
-      "Apply 2 Regeneration to the most injured HIVE-MIND ally."
+      "Apply 2 Regeneration to the most injured Hive-Mind ally."
     ],
     "notes": []
   },
@@ -3114,6 +3223,17 @@
     ],
     "notes": []
   },
+  "Riot": {
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Symbiote Six characters.\\nOtherwise, Apply +1 Offense Down to the primary target.",
+    "damage": 225,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "When forced to attack an ally, this character deals 25% damage to Symbiote Six characters.",
+      "Otherwise, Apply +1 Offense Down to the primary target."
+    ],
+    "notes": []
+  },
   "RocketRaccoon": {
     "description": "Attack primary target for 205% damage + 17% Piercing + 20% Crit Chance.\\n+270% damage + 20% Crit Chance to adjacent enemies.",
     "damage": 205,
@@ -3138,22 +3258,22 @@
     "notes": []
   },
   "Ronan": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.\\nClear 2 positive effect(s) from the primary target.",
-    "damage": 163,
-    "piercing": 17,
+    "description": "In WAR, OFFENSE, When forced to attack an ally, attack primary target for 208% damage + 24% Piercing.\\nOtherwise, Clear 2 positive effect(s) from the primary target.",
+    "damage": 208,
+    "piercing": 24,
     "drain": 0,
     "effects": [
-      "Clear 2 positive effect(s) from the primary target."
+      "Otherwise, Clear 2 positive effect(s) from the primary target."
     ],
     "notes": []
   },
   "Ronin": {
-    "description": "Attack primary target for 190% Piercing.\\nReduce Speed Bar by 5% for each NEW AVENGER ally.\\n+230% Piercing to 1 adjacent target.",
+    "description": "Attack primary target for 190% Piercing.\\nReduce Speed Bar by 5% for each New Avenger ally.\\n+230% Piercing to 1 adjacent target.",
     "damage": 0,
     "piercing": 190,
     "drain": 0,
     "effects": [
-      "Reduce Speed Bar by 5% for each NEW AVENGER ally.",
+      "Reduce Speed Bar by 5% for each New Avenger ally.",
       "+230% Piercing to 1 adjacent target."
     ],
     "notes": [
@@ -3204,8 +3324,8 @@
     "notes": []
   },
   "S_KreeControl_Assist": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nClear 1 positive effect(s) from the primary target.\\nGenerate +1 Ability Energy for a random ally.",
-    "damage": 205,
+    "description": "Attack primary target for 203% damage + 17% Piercing.\\nClear 1 positive effect(s) from the primary target.\\nGenerate +1 Ability Energy for a random ally.",
+    "damage": 203,
     "piercing": 17,
     "drain": 0,
     "effects": [
@@ -3215,12 +3335,12 @@
     "notes": []
   },
   "S_KreeDmg_Speed": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Bleed to the primary target.",
-    "damage": 205,
-    "piercing": 17,
+    "description": "Attack primary target for 203% Piercing.\\nApply 2 Bleed for 2 turns to the primary target.",
+    "damage": 0,
+    "piercing": 203,
     "drain": 0,
     "effects": [
-      "Apply Bleed to the primary target."
+      "Apply 2 Bleed for 2 turns to the primary target."
     ],
     "notes": []
   },
@@ -3282,33 +3402,35 @@
     "notes": []
   },
   "SamWilson": {
-    "description": "Attack primary target for 205% damage + 17% Piercing",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nGain +1 Deflect, up to a maximum of 5.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
-    "effects": [],
+    "effects": [
+      "Gain +1 Deflect, up to a maximum of 5."
+    ],
     "notes": []
   },
   "Sasquatch": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIn RAIDS or WAR, DEFENSE, Clear 1 negative effect(s) from all ALPHA FLIGHT allies.\\nGain Defense Up.\\nGain Deflect for 2 turns.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIn RAIDS or WAR, DEFENSE, Clear 1 negative effect(s) from all Alpha Flight allies.\\nGain Defense Up.\\nGain Deflect for 2 turns.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAIDS or WAR, DEFENSE, Clear 1 negative effect(s) from all ALPHA FLIGHT allies.",
+      "In RAIDS or WAR, DEFENSE, Clear 1 negative effect(s) from all Alpha Flight allies.",
       "Gain Defense Up.",
       "Gain Deflect for 2 turns."
     ],
     "notes": []
   },
   "Satana": {
-    "description": "Attack primary target for 120% Piercing.\\nDeal 25% of target's Max Health and redistribute to ACCURSED allies.\\nIn CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1 on all ACCURSED allies.",
+    "description": "Attack primary target for 120% Piercing.\\nDeal 25% of target's Max Health and redistribute to Accursed allies.\\nIn CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1 on all Accursed allies.",
     "damage": 0,
     "piercing": 120,
     "drain": 0,
     "effects": [
-      "Deal 25% of target's Max Health and redistribute to ACCURSED allies.",
-      "In CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1 on all ACCURSED allies."
+      "Deal 25% of target's Max Health and redistribute to Accursed allies.",
+      "In CRUCIBLE SHOWDOWN, If this character has more than 50% Health, Reduce the duration of negative effects by 1 on all Accursed allies."
     ],
     "notes": []
   },
@@ -3325,14 +3447,14 @@
     "notes": []
   },
   "ScarletWitch": {
-    "description": "Attack primary target for 168% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIf Ability Energy is not full, Apply +1 Offense Down for 2 turns to the primary target.\\nIf Ability Energy is not full, Apply +1 Defense Down for 2 turns to the primary target.\\nIf Ability Energy is not full, Apply +1 Slow for 2 turns to the primary target.\\nIf Ability Energy is not full, attack for 258% Piercing instead.\\nOtherwise, Apply +1 Offense Down to the primary target.\\nOtherwise, Apply +1 Defense Down to the primary target.",
+    "description": "Attack primary target for 168% Piercing.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIf Ability Energy is not full, Apply +1 Offense Down for 2 turns to the primary target.\\nIf Ability Energy is not full, Apply +1 Defense Down for 2 turns to the primary target.\\nIf Ability Energy is not full, Apply +1 Slow for 2 turns to the primary target.\\nIf Ability Energy is not full, attack for 258% Piercing instead.\\nOtherwise, Apply +1 Offense Down to the primary target.\\nOtherwise, Apply +1 Defense Down to the primary target.",
     "damage": 0,
     "piercing": 168,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
       "If Ability Energy is not full, Apply +1 Offense Down for 2 turns to the primary target.",
       "If Ability Energy is not full, Apply +1 Defense Down for 2 turns to the primary target.",
       "If Ability Energy is not full, Apply +1 Slow for 2 turns to the primary target.",
@@ -3392,13 +3514,13 @@
     ]
   },
   "Sentinel": {
-    "description": "Attack primary target for 163% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply Counter to all ORCHIS allies.",
+    "description": "Attack primary target for 163% damage + 17% Piercing.\\nApply Offense Down to the primary target.\\nApply Counter to all Orchis allies.",
     "damage": 163,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply Offense Down to the primary target.",
-      "Apply Counter to all ORCHIS allies."
+      "Apply Counter to all Orchis allies."
     ],
     "notes": []
   },
@@ -3439,12 +3561,12 @@
     "notes": []
   },
   "Sersi": {
-    "description": "Attack primary target for 263% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 53% damage + 3% Piercing to ETERNAL characters.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
+    "description": "Attack primary target for 263% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 53% damage + 3% Piercing to Eternal characters.\\nIf Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target.",
     "damage": 263,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 53% damage + 3% Piercing to ETERNAL characters.",
+      "When forced to attack an ally, this character deals 53% damage + 3% Piercing to Eternal characters.",
       "If Ikaris is an ally, Flip 2 positive effect(s) to negative on the primary target."
     ],
     "notes": []
@@ -3490,12 +3612,12 @@
     "notes": []
   },
   "SheHulk": {
-    "description": "Attack primary target for 240% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nApply Defense Down to the primary target.",
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Retcon characters.\\nApply Defense Down to the primary target.",
     "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
+      "When forced to attack an ally, this character deals 25% damage to Retcon characters.",
       "Apply Defense Down to the primary target."
     ],
     "notes": []
@@ -3553,12 +3675,12 @@
     "notes": []
   },
   "Shocker": {
-    "description": "Attack primary target for 200% Piercing.\\nApply Assist Now to the SINISTER SIX ally with the highest Damage.",
+    "description": "Attack primary target for 200% Piercing.\\nApply Assist Now to the Sinister Six ally with the highest Damage.",
     "damage": 0,
     "piercing": 200,
     "drain": 0,
     "effects": [
-      "Apply Assist Now to the SINISTER SIX ally with the highest Damage."
+      "Apply Assist Now to the Sinister Six ally with the highest Damage."
     ],
     "notes": []
   },
@@ -3619,6 +3741,19 @@
       "This attack ignores Defense Up."
     ]
   },
+  "SilverSurferBreaker": {
+    "description": "Attack primary target for 263% Piercing.\\nWhen forced to attack an ally, attack for 53% damage instead.\\nOtherwise, Flip 3 positive effect(s) to negative on the primary target.\\nApply Singularity to the primary target.\\nClear all negative effect(s) from allies.",
+    "damage": 0,
+    "piercing": 263,
+    "drain": 0,
+    "effects": [
+      "When forced to attack an ally, attack for 53% damage instead.",
+      "Otherwise, Flip 3 positive effect(s) to negative on the primary target.",
+      "Apply Singularity to the primary target.",
+      "Clear all negative effect(s) from allies."
+    ],
+    "notes": []
+  },
   "Songbird": {
     "description": "Attack primary target for 225% damage + 17% Piercing.\\nClear 2 positive effect(s) from the primary target.\\nClear 2 negative effect(s) from allies.",
     "damage": 225,
@@ -3641,12 +3776,13 @@
     "notes": []
   },
   "SpiderMan": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, 80% chance to Gain Evade.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIf self has Evade, Gain Speed Up.\\nIf self does not have Evade, Gain Evade.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAIDS, 80% chance to Gain Evade."
+      "If self has Evade, Gain Speed Up.",
+      "If self does not have Evade, Gain Evade."
     ],
     "notes": []
   },
@@ -3665,12 +3801,12 @@
     "notes": []
   },
   "SpiderManBigTime": {
-    "description": "Attack primary target for 300% damage + 20% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.\\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
+    "description": "Attack primary target for 300% damage + 20% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to Infestation characters.\\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
     "damage": 300,
     "piercing": 20,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
+      "When forced to attack an ally, this character deals 10% Piercing to Infestation characters.",
       "Apply +1 Defense Down, up to a maximum of 3 to the primary target."
     ],
     "notes": []
@@ -3712,12 +3848,12 @@
     "notes": []
   },
   "SpiderSlayer": {
-    "description": "Attack primary target for 228% Piercing.\\nIf the primary target is SINISTER SIX, Apply Offense Up to the ally with the highest Damage.",
+    "description": "Attack primary target for 228% Piercing.\\nIf the primary target is Sinister Six, Apply Offense Up to the ally with the highest Damage.",
     "damage": 0,
     "piercing": 228,
     "drain": 0,
     "effects": [
-      "If the primary target is SINISTER SIX, Apply Offense Up to the ally with the highest Damage."
+      "If the primary target is Sinister Six, Apply Offense Up to the ally with the highest Damage."
     ],
     "notes": []
   },
@@ -3745,13 +3881,24 @@
     ],
     "notes": []
   },
+  "SpiderWomanJulia": {
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nFlip 2 negative effect(s) to positive on allies.\\nFlip 2 positive effect(s) to negative on the primary target.",
+    "damage": 205,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "Flip 2 negative effect(s) to positive on allies.",
+      "Flip 2 positive effect(s) to negative on the primary target."
+    ],
+    "notes": []
+  },
   "SquirrelGirl": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to RETCON characters.\\nApply Offense Down to the primary target.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Retcon characters.\\nApply Offense Down to the primary target.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to RETCON characters.",
+      "When forced to attack an ally, this character deals 25% damage to Retcon characters.",
       "Apply Offense Down to the primary target."
     ],
     "notes": []
@@ -3789,13 +3936,13 @@
     "notes": []
   },
   "Stature": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf the primary target has Defense Up, Flip Defense Up on the primary target.\\nApply Defense Up to a random PYMTECH ally.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nIf the primary target has Defense Up, Flip Defense Up on the primary target.\\nApply Defense Up to a random Pym Tech ally.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "If the primary target has Defense Up, Flip Defense Up on the primary target.",
-      "Apply Defense Up to a random PYMTECH ally."
+      "Apply Defense Up to a random Pym Tech ally."
     ],
     "notes": []
   },
@@ -3811,17 +3958,31 @@
     "notes": []
   },
   "Storm": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ UNCANNY AVENGER allies, Steal Revive Once from the primary target and give to allies.\\nGain +2 Charged, up to a maximum of 20.",
+    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn RAIDS, If 4+ Uncanny Avenger allies, Steal Revive Once from the primary target and give to allies.\\nGain +2 Charged, up to a maximum of 20.",
     "damage": 205,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
-      "In RAIDS, If 4+ UNCANNY AVENGER allies, Steal Revive Once from the primary target and give to allies.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
+      "In RAIDS, If 4+ Uncanny Avenger allies, Steal Revive Once from the primary target and give to allies.",
       "Gain +2 Charged, up to a maximum of 20."
     ],
     "notes": []
+  },
+  "StormMighty": {
+    "description": "Attack primary target for 214% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.\\nApply 2 Bleed to the primary target.\\nApply Heal Block for 2 turns to the primary target.",
+    "damage": 214,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "When forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.",
+      "Apply 2 Bleed to the primary target.",
+      "Apply Heal Block for 2 turns to the primary target."
+    ],
+    "notes": [
+      "Enemies killed by this attack cannot be revived."
+    ]
   },
   "StrangeSupreme": {
     "description": "Attack primary target for 210% Piercing.\\nFlip 2 positive effect(s) to negative on the primary target.\\nFlip 2 positive effect(s) to negative on 10 enemies.",
@@ -3885,35 +4046,35 @@
     ]
   },
   "SuperiorSpiderMan": {
-    "description": "Attack primary target for 245% damage + 17% Piercing.\\nIn RAIDS, Generate +1 Ability Energy for SINISTER SIX allies.",
+    "description": "Attack primary target for 245% damage + 17% Piercing.\\nIn RAIDS, Generate +1 Ability Energy for Sinister Six allies.",
     "damage": 245,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAIDS, Generate +1 Ability Energy for SINISTER SIX allies."
+      "In RAIDS, Generate +1 Ability Energy for Sinister Six allies."
     ],
     "notes": []
   },
   "Swarm": {
-    "description": "Attack primary target for 280% damage + 17% Piercing + 50% Drain.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.\\nIf self has Charged, Lose 1 Charged.",
+    "description": "Attack primary target for 280% damage + 17% Piercing + 50% Drain.\\nWhen forced to attack an ally, this character deals 10% Piercing to Infestation characters.\\nIf self has Charged, Lose 1 Charged.",
     "damage": 280,
     "piercing": 17,
     "drain": 50,
     "effects": [
-      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
+      "When forced to attack an ally, this character deals 10% Piercing to Infestation characters.",
       "If self has Charged, Lose 1 Charged."
     ],
     "notes": []
   },
   "SwordMaster": {
-    "description": "Attack primary target for 284% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
+    "description": "Attack primary target for 284% Piercing.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nApply +1 Defense Down, up to a maximum of 3 to the primary target.",
     "damage": 0,
     "piercing": 284,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
       "Apply +1 Defense Down, up to a maximum of 3 to the primary target."
     ],
     "notes": []
@@ -3929,18 +4090,28 @@
     "notes": []
   },
   "Sylvie": {
-    "description": "Attack primary target for 205% damage + 17% Piercing.\\nIn RAIDS, If self has 1+ Regeneration, +100% damage.\\nFlip Deflect on the primary target.\\nIn RAIDS, Reduce Speed Bar by 3% for each BIFROST ally.",
-    "damage": 205,
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 2 positive effect(s) to negative on the primary target.",
+    "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In RAIDS, If self has 1+ Regeneration, +100% damage.",
-      "Flip Deflect on the primary target.",
-      "In RAIDS, Reduce Speed Bar by 3% for each BIFROST ally."
+      "Flip 2 positive effect(s) to negative on the primary target."
     ],
     "notes": [
-      "This attack cannot be blocked."
+      "This attack cannot be blocked.",
+      "In WAR, If Shadow Conclave is an ally, this attack cannot be countered."
     ]
+  },
+  "SymbioteQuicksilver": {
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Symbiote Six characters.\\nDeal 10% of target's Max Health and redistribute to allies.",
+    "damage": 225,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "When forced to attack an ally, this character deals 25% damage to Symbiote Six characters.",
+      "Deal 10% of target's Max Health and redistribute to allies."
+    ],
+    "notes": []
   },
   "SymbioteSilverSurfer": {
     "description": "Attack primary target for 225% damage + 17% Piercing.\\nIf self has no negative effects, Not in RAID, Flip 3 positive effect(s) to negative on the primary target.\\nOtherwise, Not in RAID, Flip 3 negative effect(s) to positive on allies.\\nIn RAIDS, Flip 3 positive effect(s) to negative on the primary target.\\nIn RAIDS, Flip 3 negative effect(s) to positive on allies.",
@@ -4002,12 +4173,12 @@
     "notes": []
   },
   "Thanos": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nOn Counter, Gain +1 Counter.",
-    "damage": 250,
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nGain Counter for 2 turns.",
+    "damage": 240,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "On Counter, Gain +1 Counter."
+      "Gain Counter for 2 turns."
     ],
     "notes": []
   },
@@ -4032,13 +4203,13 @@
     "notes": []
   },
   "TheLeader": {
-    "description": "Attack primary target for 241% damage + 17% Piercing.\\nHeal all VILLAIN or GAMMA allies for 10% of this character's Max Health.\\nFlip 2 negative effect(s) to positive on all CABAL allies.\\nClear 1 negative effect(s) from all VILLAIN allies.\\nGain Stealth for 2 turns.",
+    "description": "Attack primary target for 241% damage + 17% Piercing.\\nHeal all VILLAIN or Gamma allies for 10% of this character's Max Health.\\nFlip 2 negative effect(s) to positive on all Cabal allies.\\nClear 1 negative effect(s) from all VILLAIN allies.\\nGain Stealth for 2 turns.",
     "damage": 241,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Heal all VILLAIN or GAMMA allies for 10% of this character's Max Health.",
-      "Flip 2 negative effect(s) to positive on all CABAL allies.",
+      "Heal all VILLAIN or Gamma allies for 10% of this character's Max Health.",
+      "Flip 2 negative effect(s) to positive on all Cabal allies.",
       "Clear 1 negative effect(s) from all VILLAIN allies.",
       "Gain Stealth for 2 turns."
     ],
@@ -4128,6 +4299,20 @@
       "Apply Offense Down to the primary target."
     ],
     "notes": []
+  },
+  "Toxin": {
+    "description": "Attack primary target for 240% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Symbiote Six characters.\\nOtherwise, Prolong the duration of all negative effects, excluding Ability Block, Stun and Trauma, by 1.\\nIf the primary target has Exposed and does not have Ability Block, Apply Ability Block to the primary target.",
+    "damage": 240,
+    "piercing": 17,
+    "drain": 0,
+    "effects": [
+      "When forced to attack an ally, this character deals 25% damage to Symbiote Six characters.",
+      "Otherwise, Prolong the duration of all negative effects, excluding Ability Block, Stun and Trauma, by 1.",
+      "If the primary target has Exposed and does not have Ability Block, Apply Ability Block to the primary target."
+    ],
+    "notes": [
+      "Otherwise, enemies killed by this attack cannot be revived."
+    ]
   },
   "USAgent": {
     "description": "Attack primary target for 205% damage + 17% Piercing.\\nApply Deflect for 2 turns to allies.",
@@ -4242,12 +4427,12 @@
     "notes": []
   },
   "UrsaMajor": {
-    "description": "Attack primary target for 203% damage.\\n+50% Damage for each WINTER GUARD ally.",
+    "description": "Attack primary target for 203% damage.\\n+50% Damage for each Winter Guard ally.",
     "damage": 203,
     "piercing": 0,
     "drain": 0,
     "effects": [
-      "+50% Damage for each WINTER GUARD ally."
+      "+50% Damage for each Winter Guard ally."
     ],
     "notes": []
   },
@@ -4329,12 +4514,13 @@
     "notes": []
   },
   "Venom": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nApply Bleed to the primary target.\\nApply Heal Block to the primary target.\\nGain 20% Speed Bar.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Symbiote Six characters.\\nOtherwise, Flip 3 positive effect(s) to negative on the primary target.\\nApply Bleed to the primary target.\\nApply Heal Block to the primary target.\\nGain 20% Speed Bar.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Flip 3 positive effect(s) to negative on the primary target.",
+      "When forced to attack an ally, this character deals 25% damage to Symbiote Six characters.",
+      "Otherwise, Flip 3 positive effect(s) to negative on the primary target.",
       "Apply Bleed to the primary target.",
       "Apply Heal Block to the primary target.",
       "Gain 20% Speed Bar."
@@ -4356,14 +4542,14 @@
     "notes": []
   },
   "Vision": {
-    "description": "Attack primary target for 174% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIf self is TECH, Apply Offense Down to the primary target.\\nIf self is TECH, Apply Bleed to the primary target.\\nIf self is not TECH, Apply Offense Down to the primary target.\\nIf the primary target is TECH, Apply Bleed to the primary target.",
+    "description": "Attack primary target for 174% damage + 17% Piercing.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.\\nIn WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.\\nIf self is TECH, Apply Offense Down to the primary target.\\nIf self is TECH, Apply Bleed to the primary target.\\nIf self is not TECH, Apply Offense Down to the primary target.\\nIf the primary target is TECH, Apply Bleed to the primary target.",
     "damage": 174,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
-      "In WAR, OFFENSE, If 4+ MIGHTY AVENGER allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal all positive effect(s) from the primary target and give to allies, excluding Stealth and Taunt.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Charged from the primary target and give to allies.",
+      "In WAR, OFFENSE, If 4+ Mighty Avenger allies, If Hercules is an ally, Steal Revive Once from the primary target and give to allies.",
       "If self is TECH, Apply Offense Down to the primary target.",
       "If self is TECH, Apply Bleed to the primary target.",
       "If self is not TECH, Apply Offense Down to the primary target.",
@@ -4372,13 +4558,13 @@
     "notes": []
   },
   "VivVision": {
-    "description": "Attack primary target for 204% damage + 17% Piercing.\\nApply +1 Deflect, up to a maximum of 5, to the most injured ally.\\nIf that ally is BIONIC AVENGER, apply +2 Deflect instead.\\nIn RAIDS, Generate +1 Ability Energy for Vision.",
+    "description": "Attack primary target for 204% damage + 17% Piercing.\\nApply +1 Deflect, up to a maximum of 5, to the most injured ally.\\nIf that ally is Bionic Avenger, apply +2 Deflect instead.\\nIn RAIDS, Generate +1 Ability Energy for Vision.",
     "damage": 204,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Apply +1 Deflect, up to a maximum of 5, to the most injured ally.",
-      "If that ally is BIONIC AVENGER, apply +2 Deflect instead.",
+      "If that ally is Bionic Avenger, apply +2 Deflect instead.",
       "In RAIDS, Generate +1 Ability Energy for Vision."
     ],
     "notes": []
@@ -4471,14 +4657,14 @@
     "notes": []
   },
   "Warlock": {
-    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nApply Stealth to allies below 50% Health.\\nApply Stealth to all NEW MUTANT allies.",
+    "description": "Attack primary target for 225% damage + 17% Piercing.\\nFlip 3 positive effect(s) to negative on the primary target.\\nApply Stealth to allies below 50% Health.\\nApply Stealth to all New Mutant allies.",
     "damage": 225,
     "piercing": 17,
     "drain": 0,
     "effects": [
       "Flip 3 positive effect(s) to negative on the primary target.",
       "Apply Stealth to allies below 50% Health.",
-      "Apply Stealth to all NEW MUTANT allies."
+      "Apply Stealth to all New Mutant allies."
     ],
     "notes": []
   },
@@ -4495,12 +4681,12 @@
     ]
   },
   "WhiteTiger": {
-    "description": "Attack primary target for 210% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.\\nApply Defense Down for 2 turns to the primary target.\\nApply Slow for 2 turns to the primary target.\\nApply Heal Block to the primary target.",
+    "description": "Attack primary target for 210% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Shadowland characters.\\nApply Defense Down for 2 turns to the primary target.\\nApply Slow for 2 turns to the primary target.\\nApply Heal Block to the primary target.",
     "damage": 210,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 25% damage to SHADOWLAND characters.",
+      "When forced to attack an ally, this character deals 25% damage to Shadowland characters.",
       "Apply Defense Down for 2 turns to the primary target.",
       "Apply Slow for 2 turns to the primary target.",
       "Apply Heal Block to the primary target."
@@ -4530,24 +4716,25 @@
     "notes": []
   },
   "Wolverine": {
-    "description": "Attack primary target for 182% Piercing.\\nApply 2 Bleed to the primary target.\\nIn RAIDS or WAR, DEFENSE, Apply Disrupted to the primary target.\\nGain Speed Up.",
+    "description": "Attack primary target for 182% Piercing.\\nWhen forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.\\nApply 2 Bleed to the primary target.\\nApply Disrupted to the primary target.\\nGain Speed Up.",
     "damage": 0,
     "piercing": 182,
     "drain": 0,
     "effects": [
+      "When forced to attack an ally, this character deals 25% damage to Exalted X-Men characters.",
       "Apply 2 Bleed to the primary target.",
-      "In RAIDS or WAR, DEFENSE, Apply Disrupted to the primary target.",
+      "Apply Disrupted to the primary target.",
       "Gain Speed Up."
     ],
     "notes": []
   },
   "Wong": {
-    "description": "Attack primary target for 250% damage + 17% Piercing.\\nClear 1 negative effect(s) from the 10 most injured DARKHOLD allies.",
+    "description": "Attack primary target for 250% damage + 17% Piercing.\\nClear 1 negative effect(s) from the 10 most injured Darkhold allies.",
     "damage": 250,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "Clear 1 negative effect(s) from the 10 most injured DARKHOLD allies."
+      "Clear 1 negative effect(s) from the 10 most injured Darkhold allies."
     ],
     "notes": []
   },
@@ -4586,12 +4773,12 @@
     "notes": []
   },
   "Yellowjacket": {
-    "description": "Attack primary target for 260% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to INFESTATION characters.",
+    "description": "Attack primary target for 260% damage + 17% Piercing.\\nWhen forced to attack an ally, this character deals 10% Piercing to Infestation characters.",
     "damage": 260,
     "piercing": 17,
     "drain": 0,
     "effects": [
-      "When forced to attack an ally, this character deals 10% Piercing to INFESTATION characters."
+      "When forced to attack an ally, this character deals 10% Piercing to Infestation characters."
     ],
     "notes": []
   },

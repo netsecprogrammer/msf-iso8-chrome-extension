@@ -78,6 +78,8 @@ const PROC_MAP = {
   'AlphaFlight': 'Alpha Flight',
   'SpiderSociety': 'Spider Society',
   'SpiderVerse': 'Spider-Verse',
+  'Avenger': 'Avenger',
+  'AVENGER': 'Avenger',
   'OutOfTime': 'Out of Time',
   'UncannyAvenger': 'Uncanny Avenger',
   'SuperiorSix': 'Superior Six',
@@ -89,6 +91,12 @@ const PROC_MAP = {
   'Pegasus': 'Pegasus',
   'Underworld': 'Underworld',
   'MightyAvenger': 'Mighty Avenger',
+  'ExaltedXmen': 'Exalted X-Men',
+  'EXALTEDXMEN': 'Exalted X-Men',
+  'ShadowConclave': 'Shadow Conclave',
+  'SHADOWCONCLAVE': 'Shadow Conclave',
+  'SymbioteSix': 'Symbiote Six',
+  'SYMBIOTESIX': 'Symbiote Six',
   'Deathseed': 'Deathseed',
   'Shadowland': 'Shadowland',
   'Xmen': 'X-Men',
@@ -137,6 +145,91 @@ const DEBUFF_PROCS = new Set([
 
 function formatProcName(proc) {
   return PROC_MAP[proc] || proc;
+}
+
+const DISPLAY_NAME_NORMALIZATIONS = {
+  'ABSOLUTE A-FORCE': 'Absolute A-Force',
+  'ABSOLUTEAFORCE': 'Absolute A-Force',
+  'ACCURSED': 'Accursed',
+  'A-FORCE': 'A-Force',
+  'AFORCE': 'A-Force',
+  'ALPHA FLIGHT': 'Alpha Flight',
+  'ALPHAFLIGHT': 'Alpha Flight',
+  'AMAZINGAVENGER': 'Amazing Avenger',
+  'ASTRAL': 'Astral',
+  'BIFROST': 'Bifrost',
+  'BIONIC AVENGER': 'Bionic Avenger',
+  'BIONICAVENGER': 'Bionic Avenger',
+  'BRIMSTONE': 'Brimstone',
+  'CABAL': 'Cabal',
+  'CHAMPION': 'Champion',
+  'DARINGWARRIOR': 'Daring Warrior',
+  'DARK HUNTER': 'Dark Hunter',
+  'DARKHUNTER': 'Dark Hunter',
+  'DARKHOLD': 'Darkhold',
+  'DEATHSEED': 'Deathseed',
+  'ETERNAL': 'Eternal',
+  'EXALTED X-MEN': 'Exalted X-Men',
+  'EXALTEDXMEN': 'Exalted X-Men',
+  'GAMMA': 'Gamma',
+  'HIVE-MIND': 'Hive-Mind',
+  'HIVEMIND': 'Hive-Mind',
+  'IMMORTALWEAPON': 'Immortal Weapon',
+  'INFESTATION': 'Infestation',
+  'INSIDIOUSSIX': 'Insidious Six',
+  'LIBERTY': 'Liberty',
+  'MIGHTY AVENGER': 'Mighty Avenger',
+  'MIGHTYAVENGER': 'Mighty Avenger',
+  'NEW AVENGER': 'New Avenger',
+  'NEW MUTANT': 'New Mutant',
+  'NEW WARRIOR': 'New Warrior',
+  'NEWAVENGER': 'New Avenger',
+  'NEWMUTANT': 'New Mutant',
+  'NEWWARRIOR': 'New Warrior',
+  'NIGHTSTALKER': 'Nightstalker',
+  'OMEN': 'Omen',
+  'ORCHIS': 'Orchis',
+  'OUT OF TIME': 'Out of Time',
+  'OUTOFTIME': 'Out of Time',
+  'PEGASUS': 'Pegasus',
+  'PHOENIX FORCE': 'Phoenix Force',
+  'PHOENIXFORCE': 'Phoenix Force',
+  'PYMTECH': 'Pym Tech',
+  'REBIRTH': 'Rebirth',
+  'RETCON': 'Retcon',
+  'SECRET AVENGER': 'Secret Avenger',
+  'SECRETAVENGER': 'Secret Avenger',
+  'SHADOW CONCLAVE': 'Shadow Conclave',
+  'SHADOWCONCLAVE': 'Shadow Conclave',
+  'SHADOWLAND': 'Shadowland',
+  'SINISTER SIX': 'Sinister Six',
+  'SINISTERSIX': 'Sinister Six',
+  'SPIDER SOCIETY': 'Spider Society',
+  'SPIDER VERSE': 'Spider-Verse',
+  'SPIDERSOCIETY': 'Spider Society',
+  'SPIDERVERSE': 'Spider-Verse',
+  'SUPERIOR SIX': 'Superior Six',
+  'SUPERIORSIX': 'Superior Six',
+  'SYMBIOTE SIX': 'Symbiote Six',
+  'SYMBIOTESIX': 'Symbiote Six',
+  'UNDERWORLD': 'Underworld',
+  'UNCANNY AVENGER': 'Uncanny Avenger',
+  'UNCANNYAVENGER': 'Uncanny Avenger',
+  'VIGILANTE': 'Vigilante',
+  'WINTER GUARD': 'Winter Guard',
+  'WINTERGUARD': 'Winter Guard',
+  'X-FACTOR': 'X-Factor',
+  'XFACTOR': 'X-Factor'
+};
+
+function normalizeDisplayText(text) {
+  if (!text) return text;
+  let normalized = text;
+  const names = Object.keys(DISPLAY_NAME_NORMALIZATIONS).sort((a, b) => b.length - a.length);
+  for (const name of names) {
+    normalized = normalized.replace(new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g'), DISPLAY_NAME_NORMALIZATIONS[name]);
+  }
+  return normalized.replace(/(?<!Mighty )(?<!New )(?<!Uncanny )(?<!Bionic )(?<!Secret )\bAVENGER (ally|allies|characters)\b/g, 'Avenger $1');
 }
 
 // Recursively extract mode/combat_side text from an only_if object
@@ -1799,6 +1892,15 @@ function processCharacter(charName, charData) {
           }
       }
 
+      if (action.action === 'drain_heal_results') {
+          const recipients = action.drain_heal_recipients || action.target || { relation: 'ally' };
+          const recipientLimit = getMax(recipients.limit);
+          const targetText = recipients.type === 'random' && recipientLimit > 1
+              ? `${recipientLimit} random allies`
+              : getTargetText(recipients);
+          effects.push(`${conditionPrefix}Share Drain healing with ${targetText}.`);
+      }
+
       // 6. Heal
       if (action.action === 'heal') {
           const healPct = getMax(action.heal_pct);
@@ -1916,7 +2018,7 @@ function processCharacter(charName, charData) {
 
       // 10. Proc Duration (Gain/Prolong)
       if (action.action === 'proc_duration') {
-          const delta = getMax(action.delta);
+          const delta = action.delta === undefined && action.add_if_not ? 1 : getMax(action.delta);
           let procName = 'effects';
           if (action.only_procs && action.only_procs.length > 0) {
               procName = formatProcName(action.only_procs[0]);
@@ -2300,12 +2402,12 @@ function processCharacter(charName, charData) {
   }
 
   return {
-    description: description,
+    description: normalizeDisplayText(description),
     damage: damage,
     piercing: piercing,
     drain: drain,
-    effects: effects,
-    notes: notes
+    effects: effects.map(normalizeDisplayText),
+    notes: notes.map(normalizeDisplayText)
   };
 }
 
@@ -2322,7 +2424,7 @@ try {
   for (const [charId, data] of Object.entries(charDataMap)) {
     if (charId === 'ForceImportVersion' || charId === 'Name') continue;
     // Skip NPC/tutorial/test characters
-    if (/^NUE|^PVE_|^TestMan$/.test(charId)) continue;
+    if (/^NUE|^PVE_|^TestMan$|^TestCharacter/.test(charId)) continue;
 
     const processed = processCharacter(charId, data);
     if (processed) {

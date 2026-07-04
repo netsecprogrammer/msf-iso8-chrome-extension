@@ -9,7 +9,7 @@ A Chrome extension that displays ISO-8 Counter Attack/Assist ability information
 - **Smart Formatting:** Shows damage percentages, piercing values, and highlights key effects.
 - **Game Mode Styling:** Special color-coding for WAR, RAID, and CRUCIBLE-specific bonuses.
 - **Dynamic Navigation:** Works seamlessly with the site's navigation (SPA) without page reloads.
-- **Localization:** Translates the Counter/Assist panel into 8 languages using Scopely's official phrasing patterns. 286 sentence-level templates produce natural, grammatically correct descriptions — not just word-for-word replacements. Full coverage across all 414+ characters with 0 untranslated fragments.
+- **Localization:** Translates the Counter/Assist panel into 8 languages using Scopely's official phrasing patterns. 286 sentence-level templates produce natural, grammatically correct descriptions — not just word-for-word replacements. Full coverage across all 432+ generated character records with 0 untranslated fragments.
 - **Global Support:** Automatically detects the site language from the URL and displays the panel in the matching language.
 - **Dismissible:** Includes a close button to hide the panel when not needed.
 
@@ -105,14 +105,28 @@ git clone https://github.com/netsecprogrammer/msf-iso8-chrome-extension.git
 ## Updating Data
 
 To update with new game data:
-1.  Obtain the latest game data folder (e.g., from an APK extraction).
-2.  Edit `extract_iso8.js` to point to the `characters.json` file in your game data folder (absolute path).
-3.  Run the extraction script:
+1. Obtain the latest game data folder from BlueStacks or an APK extraction. The extractor needs `Config/combat_data/characters.json`.
+2. Run the extraction script from a temporary output folder:
     ```bash
-    node extract_iso8.js
+    mkdir tmp-iso8-refresh
+    cd tmp-iso8-refresh
+    node ../extract_iso8.js path/to/Config/combat_data/characters.json
+    cd ..
     ```
-4.  Commit the updated `iso8_data.json` and push to GitHub.
-5.  Users will receive the update automatically within 24 hours.
+3. Review the generated delta before publishing:
+    ```bash
+    node scripts/report_iso8_delta.js iso8_data.json tmp-iso8-refresh/iso8_data.json path/to/Config/heroes/M3HeroSheet.json
+    ```
+4. Validate the generated file:
+    ```bash
+    node scripts/validate_iso8_data.js tmp-iso8-refresh/iso8_data.json
+    ```
+5. Audit generated text against the raw combat data. Warnings are review prompts, not automatic failures:
+    ```bash
+    node scripts/audit_iso8_against_game_data.js tmp-iso8-refresh/iso8_data.json path/to/Config/combat_data/characters.json
+    ```
+6. Replace `iso8_data.json` with the reviewed generated file, commit it, and push to GitHub.
+7. Users will receive the update automatically within 24 hours, or immediately through the panel refresh button.
 
 ## Privacy
 
@@ -124,4 +138,4 @@ This extension is for personal use with Marvel Strike Force data research.
 
 ---
 
-*Updated February 2026*
+*Updated July 2026*

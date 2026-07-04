@@ -4,9 +4,14 @@
   'use strict';
 
   const DATA_URL = 'https://raw.githubusercontent.com/netsecprogrammer/msf-iso8-chrome-extension/master/iso8_data.json';
+  const DATA_CACHE_TTL_MS = 86400000;
+  const MAX_INJECTION_ATTEMPTS = 20;
+  const INJECTION_RETRY_MS = 500;
 
   // Active locale dictionary for status effect highlighting (set before formatting)
   let activeLocaleDict = null;
+  let pendingInjectionTimer = null;
+  let iso8DomObserverStarted = false;
 
   const ISO8_ICON_SVG = `<svg class="msf-iso8-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#e94560"/>
@@ -55,18 +60,24 @@
   function getCharacterIdFromUrl() {
     const path = window.location.pathname;
     const match = path.match(/\/characters\/([^\/\?#]+)/);
-    return match ? match[1] : null;
+    return match ? decodeURIComponent(match[1]) : null;
   }
 
   // Load ISO-8 Data (Cache + Fetch)
-  async function loadIso8Data() {
+  async function loadIso8Data(options = {}) {
+    const forceRefresh = Boolean(options.forceRefresh);
     // 1. Try local storage
     const localData = await chrome.storage.local.get(['iso8Data', 'lastUpdated']);
     const now = Date.now();
 
     // Use cache if < 24 hours old
-    if (localData.iso8Data && localData.lastUpdated && (now - localData.lastUpdated < 86400000)) {
-      return localData.iso8Data;
+    if (!forceRefresh && localData.iso8Data && localData.lastUpdated && (now - localData.lastUpdated < DATA_CACHE_TTL_MS)) {
+      return {
+        data: localData.iso8Data,
+        lastUpdated: localData.lastUpdated,
+        source: 'cache',
+        stale: false
+      };
     }
 
     // 2. Fetch fresh data
@@ -79,12 +90,96 @@
         iso8Data: data,
         lastUpdated: now
       });
-      return data;
+      return {
+        data,
+        lastUpdated: now,
+        source: 'network',
+        stale: false
+      };
     } catch (error) {
       console.error('MSF ISO-8: Failed to fetch data', error);
       // Fallback to cache even if stale
-      return localData.iso8Data || null;
+      if (localData.iso8Data) {
+        return {
+          data: localData.iso8Data,
+          lastUpdated: localData.lastUpdated || null,
+          source: 'cache',
+          stale: true,
+          error: error.message
+        };
+      }
+      return {
+        data: null,
+        lastUpdated: null,
+        source: 'unavailable',
+        stale: true,
+        error: error.message
+      };
     }
+  }
+
+  function normalizeCharacterKey(value) {
+    return String(value || '')
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-zA-Z0-9]/g, '')
+      .toLowerCase();
+  }
+
+  function findIso8Character(charId, iso8Data) {
+    if (!charId || !iso8Data) return null;
+    if (iso8Data[charId]) {
+      return { key: charId, data: iso8Data[charId], matchType: 'exact' };
+    }
+
+    const normalizedId = normalizeCharacterKey(charId);
+    const matchedKey = Object.keys(iso8Data).find(key => normalizeCharacterKey(key) === normalizedId);
+    if (matchedKey) {
+      return { key: matchedKey, data: iso8Data[matchedKey], matchType: 'normalized' };
+    }
+
+    return null;
+  }
+
+  function findClosestCharacterKeys(charId, iso8Data, limit = 5) {
+    if (!charId || !iso8Data) return [];
+    const normalizedId = normalizeCharacterKey(charId);
+    if (!normalizedId) return [];
+
+    return Object.keys(iso8Data)
+      .map(key => {
+        const normalizedKey = normalizeCharacterKey(key);
+        let score = 0;
+        if (normalizedKey.includes(normalizedId) || normalizedId.includes(normalizedKey)) score += 100;
+        const sharedPrefix = [...normalizedId].findIndex((char, index) => char !== normalizedKey[index]);
+        score += sharedPrefix === -1 ? Math.min(normalizedId.length, normalizedKey.length) : Math.max(sharedPrefix, 0);
+        return { key, score };
+      })
+      .filter(item => item.score > 1)
+      .sort((a, b) => b.score - a.score || a.key.localeCompare(b.key))
+      .slice(0, limit)
+      .map(item => item.key);
+  }
+
+  function formatCacheAge(lastUpdated) {
+    if (!lastUpdated) return 'cache age unknown';
+    const ageMs = Math.max(0, Date.now() - lastUpdated);
+    const minutes = Math.floor(ageMs / 60000);
+    if (minutes < 1) return 'updated just now';
+    if (minutes < 60) return `updated ${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 48) return `updated ${hours}h ago`;
+    return `updated ${Math.floor(hours / 24)}d ago`;
+  }
+
+  function createPanelMeta(loadResult, matchedKey, matchType) {
+    const parts = [];
+    if (matchedKey) parts.push(`key: ${matchedKey}${matchType && matchType !== 'exact' ? ` (${matchType})` : ''}`);
+    if (loadResult) {
+      parts.push(loadResult.source === 'network' ? 'fresh data' : formatCacheAge(loadResult.lastUpdated));
+      if (loadResult.stale) parts.push('stale fallback');
+    }
+    return parts.join(' | ');
   }
 
   // Classify effect for styling
@@ -3720,7 +3815,7 @@
   }
 
   // Create the ISO-8 info panel
-  function createIso8Panel(charId, data, dict, lang) {
+  function createIso8Panel(charId, data, dict, lang, metaText) {
     const container = document.createElement('div');
     container.className = 'msf-iso8-container';
     container.id = 'msf-iso8-panel';
@@ -3755,33 +3850,30 @@
         ? `<div class="msf-iso8-damage-line">${damageLine}</div>`
         : `<div class="msf-iso8-damage-line">⚔️ Attack primary target for ${damageLine}</div>`)
       : '';
+    const metaHtml = metaText ? `<div class="msf-iso8-meta">${metaText}</div>` : '';
 
     container.innerHTML = `
       <div class="msf-iso8-header">
         ${ISO8_ICON_SVG}
         <h3 class="msf-iso8-title">${title}</h3>
+        <button class="msf-iso8-refresh-btn" aria-label="Refresh ISO-8 Data" title="Refresh ISO-8 data">↻</button>
         <button class="msf-iso8-close-btn" aria-label="Close ISO-8 Panel">×</button>
       </div>
       <div class="msf-iso8-content">
+        ${metaHtml}
         ${damageHtml}
         ${effectsHtml}
         ${notesHtml}
       </div>
     `;
 
-    // Add close button functionality
-    const closeBtn = container.querySelector('.msf-iso8-close-btn');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        container.remove();
-      });
-    }
+    attachPanelButtons(container);
 
     return container;
   }
 
   // Create not found panel
-  function createNotFoundPanel(charId) {
+  function createNotFoundPanel(charId, loadResult, suggestions = []) {
     const container = document.createElement('div');
     container.className = 'msf-iso8-container';
     container.id = 'msf-iso8-panel';
@@ -3789,29 +3881,60 @@
     // Header
     const headerDiv = document.createElement('div');
     headerDiv.className = 'msf-iso8-header';
-    headerDiv.innerHTML = `${ISO8_ICON_SVG}<h3 class="msf-iso8-title">ISO-8 Counter/Assist</h3><button class="msf-iso8-close-btn" aria-label="Close ISO-8 Panel">×</button>`;
+    headerDiv.innerHTML = `${ISO8_ICON_SVG}<h3 class="msf-iso8-title">ISO-8 Counter/Assist</h3><button class="msf-iso8-refresh-btn" aria-label="Refresh ISO-8 Data" title="Refresh ISO-8 data">↻</button><button class="msf-iso8-close-btn" aria-label="Close ISO-8 Panel">×</button>`;
     
     // Message (Safe Text)
     const msgDiv = document.createElement('div');
     msgDiv.className = 'msf-iso8-not-found';
-    msgDiv.textContent = `No ISO-8 Counter/Assist data found for "${charId}"`;
+    const message = document.createElement('div');
+    message.textContent = `No ISO-8 Counter/Assist data found for "${charId}"`;
+    msgDiv.appendChild(message);
+
+    const metaText = createPanelMeta(loadResult, null, null);
+    if (metaText) {
+      const metaDiv = document.createElement('div');
+      metaDiv.className = 'msf-iso8-meta';
+      metaDiv.textContent = metaText;
+      msgDiv.appendChild(metaDiv);
+    }
+
+    if (suggestions.length > 0) {
+      const suggestionsDiv = document.createElement('div');
+      suggestionsDiv.className = 'msf-iso8-suggestions';
+      suggestionsDiv.textContent = `Closest keys: ${suggestions.join(', ')}`;
+      msgDiv.appendChild(suggestionsDiv);
+    }
     
     container.appendChild(headerDiv);
     container.appendChild(msgDiv);
 
-    // Add close button functionality
-    const closeBtn = headerDiv.querySelector('.msf-iso8-close-btn');
+    attachPanelButtons(container);
+
+    return container;
+  }
+
+  function attachPanelButtons(container) {
+    const closeBtn = container.querySelector('.msf-iso8-close-btn');
     if (closeBtn) {
       closeBtn.addEventListener('click', () => {
         container.remove();
       });
     }
 
-    return container;
+    const refreshBtn = container.querySelector('.msf-iso8-refresh-btn');
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', async () => {
+        refreshBtn.disabled = true;
+        refreshBtn.textContent = '...';
+        const existingPanel = document.getElementById('msf-iso8-panel');
+        if (existingPanel) existingPanel.remove();
+        await injectIso8Info({ forceRefresh: true });
+      });
+    }
   }
 
   // Find the best insertion point on the page
-  function findInsertionPoint() {
+  function findInsertionPoint(options = {}) {
     const selectors = [
       '.character-detail',
       '.character-stats',
@@ -3830,23 +3953,48 @@
         return element;
       }
     }
-    return document.body;
+    return options.allowBodyFallback ? document.body : null;
   }
 
   // Main function to inject ISO-8 info
-  async function injectIso8Info() {
-    if (document.getElementById('msf-iso8-panel')) return;
+  async function injectIso8Info(options = {}) {
+    const forceRefresh = Boolean(options.forceRefresh);
+    const attempt = options.attempt || 1;
+    const existingPanel = document.getElementById('msf-iso8-panel');
+    if (existingPanel && !forceRefresh) return true;
+    if (existingPanel) existingPanel.remove();
 
     const charId = getCharacterIdFromUrl();
-    if (!charId) return;
+    if (!charId) return false;
 
     const lang = getLanguageFromUrl();
     console.log('MSF ISO-8: Looking up data for', charId, '(lang:', lang + ')');
 
-    const iso8Data = await loadIso8Data();
+    const loadResult = await loadIso8Data({ forceRefresh });
+    const iso8Data = loadResult.data;
+    const allowBodyFallback = attempt >= MAX_INJECTION_ATTEMPTS;
+    const insertionPoint = findInsertionPoint({ allowBodyFallback });
+    if (!insertionPoint) {
+      if (attempt < MAX_INJECTION_ATTEMPTS) {
+        scheduleIso8Injection({
+          attempt: attempt + 1,
+          delay: INJECTION_RETRY_MS,
+          forceRefresh,
+          reason: 'waiting for character page content'
+        });
+      }
+      return false;
+    }
+
     if (!iso8Data) {
       console.error('MSF ISO-8: Data unavailable');
-      return;
+      const panel = createNotFoundPanel(charId, loadResult);
+      if (insertionPoint.firstChild) {
+        insertionPoint.insertBefore(panel, insertionPoint.firstChild);
+      } else {
+        insertionPoint.appendChild(panel);
+      }
+      return true;
     }
 
     // Load locale dictionary for non-English pages
@@ -3861,61 +4009,88 @@
       }
     }
 
-    const data = iso8Data[charId];
+    const match = findIso8Character(charId, iso8Data);
     let panel;
 
-    if (data) {
-      console.log('MSF ISO-8: Found data for', charId);
-      panel = createIso8Panel(charId, data, dict, lang);
+    if (match) {
+      console.log('MSF ISO-8: Found data for', match.key, '(matched from', charId + ',', match.matchType + ')');
+      panel = createIso8Panel(
+        match.key,
+        match.data,
+        dict,
+        lang,
+        createPanelMeta(loadResult, match.key, match.matchType)
+      );
     } else {
-      // Fuzzy matching
-      const variations = [
-        charId,
-        charId.toLowerCase(),
-        charId.toUpperCase(),
-        charId.replace(/([A-Z])/g, ' $1').trim().replace(/ /g, ''),
-        charId.replace(/-/g, ''),
-        charId.replace(/_/g, '')
-      ];
-
-      let foundData = null;
-      let foundKey = null;
-
-      for (const variant of variations) {
-        // Iterate through keys in fetched data
-        const key = Object.keys(iso8Data).find(k => k.toLowerCase() === variant.toLowerCase());
-        if (key) {
-           foundData = iso8Data[key];
-           foundKey = key;
-           break;
-        }
-      }
-
-      if (foundData) {
-        console.log('MSF ISO-8: Found data for', foundKey, '(matched from', charId, ')');
-        panel = createIso8Panel(foundKey, foundData, dict, lang);
-      } else {
-        console.log('MSF ISO-8: No data found for', charId);
-        panel = createNotFoundPanel(charId);
-      }
+      console.log('MSF ISO-8: No data found for', charId);
+      panel = createNotFoundPanel(charId, loadResult, findClosestCharacterKeys(charId, iso8Data));
     }
 
-    const insertionPoint = findInsertionPoint();
     if (insertionPoint.firstChild) {
       insertionPoint.insertBefore(panel, insertionPoint.firstChild);
     } else {
       insertionPoint.appendChild(panel);
     }
+    return true;
+  }
+
+  function scheduleIso8Injection(options = {}) {
+    const charId = getCharacterIdFromUrl();
+    if (!charId) return;
+
+    if (pendingInjectionTimer && !options.resetTimer && !options.forceRefresh) {
+      return;
+    }
+
+    if (pendingInjectionTimer) {
+      clearTimeout(pendingInjectionTimer);
+      pendingInjectionTimer = null;
+    }
+
+    const delay = options.delay === undefined ? INJECTION_RETRY_MS : options.delay;
+    const attempt = options.attempt || 1;
+    pendingInjectionTimer = setTimeout(() => {
+      pendingInjectionTimer = null;
+      injectIso8Info({
+        attempt,
+        forceRefresh: Boolean(options.forceRefresh),
+        reason: options.reason || 'scheduled'
+      });
+    }, delay);
+  }
+
+  function startIso8DomObserver() {
+    if (iso8DomObserverStarted) return;
+    if (!document.documentElement) return;
+    iso8DomObserverStarted = true;
+
+    const observer = new MutationObserver(() => {
+      if (!getCharacterIdFromUrl()) return;
+      if (document.getElementById('msf-iso8-panel')) return;
+      scheduleIso8Injection({
+        delay: 200,
+        reason: 'dom mutation'
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
   }
 
   // Run when page is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectIso8Info);
+    document.addEventListener('DOMContentLoaded', () => {
+      startIso8DomObserver();
+      scheduleIso8Injection({ delay: 250, reason: 'dom ready' });
+    });
   } else {
-    setTimeout(injectIso8Info, 500);
+    startIso8DomObserver();
+    scheduleIso8Injection({ delay: 250, reason: 'initial load' });
   }
 
-  // Dynamic navigation observer (Polling is lighter than MutationObserver for URL changes)
+  // Dynamic navigation observer
   let lastUrl = location.href;
   setInterval(() => {
     const url = location.href;
@@ -3923,7 +4098,7 @@
       lastUrl = url;
       const existingPanel = document.getElementById('msf-iso8-panel');
       if (existingPanel) existingPanel.remove();
-      setTimeout(injectIso8Info, 500);
+      scheduleIso8Injection({ delay: 250, resetTimer: true, reason: 'url change' });
     }
   }, 500);
 
