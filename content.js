@@ -3968,11 +3968,29 @@
 
     for (const selector of selectors) {
       const element = document.querySelector(selector);
-      if (element) {
+      if (isUsableInsertionPoint(element)) {
+        element.setAttribute('data-msf-iso8-insertion', selector);
         return element;
       }
     }
-    return options.allowBodyFallback ? document.body : null;
+    if (options.allowBodyFallback && isUsableInsertionPoint(document.body)) {
+      document.body.setAttribute('data-msf-iso8-insertion', 'body-fallback');
+      return document.body;
+    }
+    return null;
+  }
+
+  function isUsableInsertionPoint(element) {
+    if (!element || !element.isConnected) return false;
+    if (element.id === 'msf-iso8-panel') return false;
+
+    const rect = element.getBoundingClientRect();
+    if (rect.width < 240 || rect.height < 40) return false;
+
+    const style = window.getComputedStyle(element);
+    if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false;
+
+    return true;
   }
 
   // Main function to inject ISO-8 info
