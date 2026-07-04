@@ -7,7 +7,7 @@
 - Local pull folder: `data-pulls/bluestacks-20260703-174436`
 - Full config mirror: `data-pulls/bluestacks-20260703-174436/Config-full`
 - Extraction source: `Config-full/combat_data/characters.json`
-- Implemented extension version: `2.9.50`
+- Implemented extension version: `2.9.52`
 
 The full cached `Config` tree was pulled from BlueStacks: 741 files, about 81 MB.
 
@@ -75,6 +75,7 @@ Implemented runtime robustness:
 - The panel now includes a refresh button that forces a fresh `iso8_data.json` fetch.
 - The no-data panel now shows cache status and closest matching keys.
 - Injection now uses bounded retries plus a DOM observer so SPA character-page navigation can mount late without requiring a browser refresh.
+- Cached `iso8Data` now has a current-row guard. If the browser cached the pre-refresh 417-row data set, the extension bypasses that cache and fetches current data instead of showing missing data for new characters.
 
 Latest verified delta after the extractor patch:
 

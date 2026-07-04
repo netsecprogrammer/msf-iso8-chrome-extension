@@ -5,6 +5,14 @@
 
   const DATA_URL = 'https://raw.githubusercontent.com/netsecprogrammer/msf-iso8-chrome-extension/master/iso8_data.json';
   const DATA_CACHE_TTL_MS = 86400000;
+  const DATA_REQUIRED_CHARACTER_KEYS = [
+    'Annihilus',
+    'Maestro',
+    'SilverSurferBreaker',
+    'RachelColeAlves',
+    'StormMighty',
+    'SymbioteQuicksilver'
+  ];
   const MAX_INJECTION_ATTEMPTS = 20;
   const INJECTION_RETRY_MS = 500;
 
@@ -64,19 +72,25 @@
   }
 
   // Load ISO-8 Data (Cache + Fetch)
+  function hasRequiredIso8Rows(data) {
+    return Boolean(data) && DATA_REQUIRED_CHARACTER_KEYS.every(key => data[key]);
+  }
+
   async function loadIso8Data(options = {}) {
     const forceRefresh = Boolean(options.forceRefresh);
     // 1. Try local storage
     const localData = await chrome.storage.local.get(['iso8Data', 'lastUpdated']);
     const now = Date.now();
+    const cacheSchema = hasRequiredIso8Rows(localData.iso8Data) ? 'current' : 'stale-schema';
 
     // Use cache if < 24 hours old
-    if (!forceRefresh && localData.iso8Data && localData.lastUpdated && (now - localData.lastUpdated < DATA_CACHE_TTL_MS)) {
+    if (!forceRefresh && cacheSchema === 'current' && localData.iso8Data && localData.lastUpdated && (now - localData.lastUpdated < DATA_CACHE_TTL_MS)) {
       return {
         data: localData.iso8Data,
         lastUpdated: localData.lastUpdated,
         source: 'cache',
-        stale: false
+        stale: false,
+        cacheSchema
       };
     }
 
@@ -85,6 +99,7 @@
       const response = await fetch(DATA_URL);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
+      if (!hasRequiredIso8Rows(data)) throw new Error('Fetched ISO-8 data is missing required current rows');
       
       await chrome.storage.local.set({
         iso8Data: data,
@@ -94,7 +109,8 @@
         data,
         lastUpdated: now,
         source: 'network',
-        stale: false
+        stale: false,
+        cacheSchema: 'current'
       };
     } catch (error) {
       console.error('MSF ISO-8: Failed to fetch data', error);
@@ -105,6 +121,7 @@
           lastUpdated: localData.lastUpdated || null,
           source: 'cache',
           stale: true,
+          cacheSchema,
           error: error.message
         };
       }
@@ -113,6 +130,7 @@
         lastUpdated: null,
         source: 'unavailable',
         stale: true,
+        cacheSchema: 'unavailable',
         error: error.message
       };
     }
@@ -178,6 +196,7 @@
     if (loadResult) {
       parts.push(loadResult.source === 'network' ? 'fresh data' : formatCacheAge(loadResult.lastUpdated));
       if (loadResult.stale) parts.push('stale fallback');
+      if (loadResult.cacheSchema === 'stale-schema') parts.push('old cached data');
     }
     return parts.join(' | ');
   }
